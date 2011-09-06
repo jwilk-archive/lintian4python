@@ -1,0 +1,109 @@
+# python-egg-info -- lintian check script -*- perl -*-
+#
+# Copyright © 2011 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::egg_info;
+
+use strict;
+use warnings;
+
+use Lintian::Data;
+use Lintian::Tags qw(tag);
+use Lintian::Relation ();
+use Util;
+
+my @PROJECTS = map { Lintian::Data->new("python/projects$_", '\|\|') } ('', '-py3k');
+
+sub egg_version_to_regex {
+    my $version = lc(shift);
+    my @version_regex = split /([^0-9._]+|_)/, $version;
+    @version_regex = map {
+        $_ //= '';
+        my $punct = /_/;
+        my $alpha = /[^0-9._]/;
+        if ($punct) {
+            $_ = '[[:punct:]]+';
+        } else {
+            $_ = quotemeta($_);
+        }
+        if ($alpha) {
+            $_ = "~?$_";
+        }
+        $_;
+    } @version_regex;
+    my $version_regex = join '', @version_regex;
+    return qr/^$version_regex(?:[[:punct:]]*(?:repack|debian|ds|nmu)\d*)?$/;
+}
+
+sub run {
+
+my ($pkg, $type, $info) = @_;
+
+my $version = $info->field('version');
+my %egg_versions = ();
+my $index = $info->index;
+my $depends = $info->relation('strong');
+for my $file (@{$info->sorted_index}) {
+    next if $index->{$file}->{link};
+    if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
+        my $py3k = int(defined $2);
+        my $egg_name = $3;
+        if ($egg_name =~ m,^(?:[^-]+)-([^-]+)(?:-py(?:[^-]+)(-.+)?)?$,) {
+            $egg_versions{$1} = 1;
+        }
+        if ($file =~ m,/requires\.txt$,) {
+            open(REQUIRES, '<', $info->unpacked($file)) or fail("cannot open requires.txt file: $!");
+            while (<REQUIRES>) {
+                last if m,^\[,;
+                m,^([-\w]+)([^[]*)$, or next;
+                my $project_name = lc $1;
+                $project_name =~ y/-/_/;
+                if ($PROJECTS[$py3k]->known($project_name)) {
+                    my $requirement = $PROJECTS[$py3k]->value($project_name);
+                    next if $requirement =~ /^(?:.*\|\s*)?\Q$pkg\E(?:\s*\|.*)?$/;
+                    if (! $depends->implies($requirement)) {
+                        tag 'missing-requires.txt-dependency', $project_name, '=>', $requirement;
+                    }
+                }
+            }
+            close(REQUIRES);
+        }
+    }
+}
+if (scalar keys %egg_versions == 1 and defined $version) {
+    my ($egg_version) = keys %egg_versions;
+    my $upstream_version = $version;
+    $upstream_version =~ s/-[^-]+$//; # strip Debian revision
+    $upstream_version =~ s/\d+://; # strip epoch
+    $upstream_version =~ s/[[:punct:]]+dfsg.*//; # strip DFSG suffix
+    my $version_re = egg_version_to_regex($egg_version);
+    if (not $upstream_version =~ $version_re) {
+        tag 'egg-info-version-mismatch', $egg_version, $upstream_version
+            unless
+                $upstream_version =~ /[[:punct:]](svn|cvs|git|hg|bzr|darcs)[[:punct:]]?r?\d/ or
+                $upstream_version =~ /\+r\d+/ or
+                $upstream_version =~ /\b20\d\d(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01])\b/;
+    }
+}
+
+}
+
+1;
+
+# vim:syntax=perl ts=4 sw=4 et

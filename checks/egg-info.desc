@@ -1,0 +1,19 @@
+Check-Script: egg-info
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: egg
+Type: binary
+Info: This check analyzes egg metadata.
+Needs-Info: index
+
+Tag: missing-requires.txt-dependency
+Severity: serious
+Certainty: possible
+Ref: http://packages.python.org/distribute/pkg_resources.html
+Info: A package listed in the requires.txt file is missing from the Depends
+ line.
+
+Tag: egg-info-version-mismatch
+Severity: important
+Certainty: wild-guess
+Info: Version in the egg meta metadata doesn't match version of the Debian
+  package.

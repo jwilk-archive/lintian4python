@@ -1,0 +1,3 @@
+#!/bin/sh
+export LINTIAN_ROOT=.
+exec ./frontend/lintian "$@"
