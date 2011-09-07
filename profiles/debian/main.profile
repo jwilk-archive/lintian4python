@@ -1,2 +1,2 @@
 Profile: debian/main
-Enable-Tags-From-Check: egg-info
+Enable-Tags-From-Check: egg-info, teams
