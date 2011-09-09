@@ -29,14 +29,26 @@ my %TEAMS = (
     dpmt => {
         name => 'Debian Python Modules Team',
         email => 'python-modules-team@lists.alioth.debian.org',
-        vcs_browser => 'http://svn.debian.org/viewsvn/python-modules/packages/%s/trunk',
-        vcs_svn => 'svn://svn.debian.org/python-modules/packages/%s/trunk'
+        vcs_browser => [
+            'http://svn.debian.org/viewsvn/python-modules/packages/%s/trunk',
+            '^http://(svn[.]debian[.]org/viewsvn|anonscm[.]debian[.]org/viewvc)/python-modules/packages/%s/trunk/?$',
+        ],
+        vcs_svn => [
+            'svn://svn.debian.org/python-modules/packages/%s/trunk',
+            '^svn://svn[.]debian[.]org/(?:svn/)?python-modules/packages/%s/trunk/?$'
+        ],
     },
     papt => {
         name => 'Python Applications Packaging Team',
         email => 'python-apps-team@lists.alioth.debian.org',
-        vcs_browser => 'http://svn.debian.org/viewsvn/python-apps/packages/%s/trunk',
-        vcs_svn => 'svn://svn.debian.org/python-apps/packages/%s/trunk'
+        vcs_browser => [
+            'http://svn.debian.org/viewsvn/python-apps/packages/%s/trunk',
+            '^http://(svn[.]debian[.]org/viewsvn|anonscm[.]debian[.]org/viewvc)/python-apps/packages/%s/trunk/?$',
+        ],
+        vcs_svn => [
+            'svn://svn.debian.org/python-apps/packages/%s/trunk',
+            '^svn://svn[.]debian[.]org/(?:svn/)?python-apps/packages/%s/trunk/?$'
+        ]
     }
 );
 
@@ -60,26 +72,24 @@ for (@maintainers) {
     }
 }
 if ($type eq 'source' and (keys %teams) > 0) {
-    my $vcs_browser = $info->field('vcs-browser');
-    my $vcs_svn = $info->field('vcs-svn');
-    if (not defined $vcs_browser) {
-        tag 'missing-vcs-field', 'vcs-browser';
-    }
-    if (not defined $vcs_svn) {
-        tag 'missing-vcs-field', 'vcs-svn';
-    }
     foreach my $team (keys %teams) {
         $team = $TEAMS{$team};
-        my $team_vcs_svn = sprintf $team->{vcs_svn}, $pkg;
-        my $team_vcs_browser = sprintf $team->{vcs_browser}, $pkg;
-        if (defined $vcs_svn and ($vcs_svn ne $team_vcs_svn) and ($vcs_svn ne "$team_vcs_svn/")) {
-            tag 'incorrect-vcs-field', 'vcs-svn', $vcs_svn, '->', $team_vcs_svn;
-        }
-        if (defined $vcs_browser and ($vcs_browser ne $team_vcs_browser) and ($vcs_browser ne "$team_vcs_browser/")) {
-            tag 'incorrect-vcs-field', 'vcs-browser', $vcs_browser, '->', $team_vcs_browser;
+        while ((my $key, my $value) = each %{$team}) {
+            next unless $key =~ /vcs_(.*)/;
+            my $vcs_type = $1;
+            my ($team_vcs_value, $team_vcs_regex) = @{$value};
+            $team_vcs_value = sprintf($team_vcs_value, $pkg);
+            $team_vcs_regex = sprintf($team_vcs_regex, quotemeta($pkg));
+            my $vcs_value = $info->field("vcs-$vcs_type");
+            if (not defined $vcs_value) {
+                tag 'missing-vcs-field', "vcs-$vcs_type", $team_vcs_value;
+            } else {
+                if (not $vcs_value =~ qr/$team_vcs_regex/) {
+                    tag 'incorrect-vcs-field', "vcs-$vcs_type", $vcs_value, '->', $team_vcs_value;
+                }
+            }
         }
     }
-
 }
 
 }
