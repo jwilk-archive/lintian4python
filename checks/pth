@@ -1,0 +1,57 @@
+# python-egg-info -- lintian check script -*- perl -*-
+#
+# Copyright © 2011 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::pth;
+
+use strict;
+use warnings;
+
+use Lintian::Tags qw(tag);
+use Util;
+
+sub run {
+
+my ($pkg, $type, $info) = @_;
+
+my $version = $info->field('version');
+my %egg_versions = ();
+my $index = $info->index;
+my $depends = $info->relation('strong');
+for my $file (@{$info->sorted_index}) {
+    next if $index->{$file}->{link};
+    if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
+        open(PTH, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
+        while (<PTH>) {
+            if (m,^import[ \t],) {
+                # executable import statements
+                # TODO: allow setuptools magic, but discourage anything else
+            } else {
+                chomp;
+                tag 'pth-file-modifies-sys.path', $file, $_;
+            }
+        }
+    }
+}
+
+}
+
+1;
+
+# vim:syntax=perl ts=4 sw=4 et
