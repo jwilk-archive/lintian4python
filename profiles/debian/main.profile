@@ -1,2 +1,2 @@
 Profile: debian/main
-Enable-Tags-From-Check: egg-info, pth, teams
+Enable-Tags-From-Check: egg-info, pth, pyflakes, teams

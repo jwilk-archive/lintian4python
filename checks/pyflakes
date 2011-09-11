@@ -1,0 +1,54 @@
+# python-egg-info -- lintian check script -*- perl -*-
+#
+# Copyright © 2011 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::pyflakes;
+
+use strict;
+use warnings;
+
+use Lintian::Tags qw(tag);
+use Util;
+
+my $LINTIAN_ROOT = $main::LINTIAN_ROOT;
+
+sub run {
+
+my ($pkg, $type, $info) = @_;
+my $index = $info->index;
+for my $file (@{$info->sorted_index}) {
+    next if $index->{$file}->{link};
+    if ($file =~ m,usr/(?:lib/python2\.\d+/(?:site|dist)packages|share/(?:pyshared|python-support/[^/]+))/.+[.]py$,) {
+        my $unpacked = $info->unpacked($file);
+        open(PYFLAKES, '-|', "$LINTIAN_ROOT/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
+        while (<PYFLAKES>) {
+            m,(pyflakes-\S+) (.*), or next;
+            my $tag = $1;
+            my $rest = $2;
+            tag $tag, "$file:$rest";
+        }
+        close(PYFLAKES) or fail("pyflakes helper failed");
+    }
+}
+
+}
+
+1;
+
+# vim:syntax=perl ts=4 sw=4 et
