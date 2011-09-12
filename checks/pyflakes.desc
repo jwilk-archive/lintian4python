@@ -59,3 +59,8 @@ Tag: pyflakes-unused-variable
 Severity: minor
 Certainty: possible
 Description: TODO
+
+Tag: syntax-error
+Severity: serious
+Certainty: certain
+Description: TODO

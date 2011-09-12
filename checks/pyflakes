@@ -38,10 +38,17 @@ for my $file (@{$info->sorted_index}) {
         my $unpacked = $info->unpacked($file);
         open(PYFLAKES, '-|', "$LINTIAN_ROOT/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
         while (<PYFLAKES>) {
-            m,(pyflakes-\S+) (.*), or next;
-            my $tag = $1;
-            my $rest = $2;
-            tag $tag, "$file:$rest";
+            if (m,(pyflakes-\S+) (.*),) {
+                my $tag = $1;
+                my $rest = $2;
+                tag $tag, "$file:$rest";
+            } else {
+                if (s/^\Q$unpacked\E:/$file:/g) {
+                    chomp;
+                    tag 'syntax-error', $_;
+                    last;
+                }
+            }
         }
         close(PYFLAKES) or fail("pyflakes helper failed");
     }

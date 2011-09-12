@@ -45,6 +45,7 @@ def Message_str(self):
 pyflakes.messages.Message.__str__ = Message_str
 
 if __name__ == '__main__':
+    sys.stderr = sys.stdout
     flakes.main(sys.argv[1:])
 
 # vim:ts=4 sw=4 et
