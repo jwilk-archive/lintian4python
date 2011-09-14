@@ -1,0 +1,16 @@
+Check-Script: helpers
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: hlp
+Type: source
+Info: This check looks for (mis)use of Python helpers.
+Needs-Info: debfiles
+
+Tag: python-module-but-no-python-depends
+Severity: serious
+Certainty: possible
+Info: TODO
+
+Tag: python-depends-but-no-python-helper
+Severity: serious
+Certainty: possible
+Info: TODO
