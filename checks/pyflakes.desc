@@ -31,7 +31,7 @@ Certainty: possible
 Description: TODO
 
 Tag: pyflakes-redefined-while-unused
-Severity: normal
+Severity: minor
 Certainty: possible
 Description: TODO
 
