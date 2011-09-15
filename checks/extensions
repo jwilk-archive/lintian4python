@@ -44,10 +44,7 @@ for my $file (@{$info->sorted_index}) {
             $string =~ m/module compiled against ABI version %x but this version of numpy is %x/);
     }
 }
-if ($srcpkg eq 'python-numpy') {
-    $uses_numpy_abi = 0;
-}
-if ($uses_numpy_abi) {
+if ($uses_numpy_abi and ($srcpkg ne 'python-numpy')) {
     my $depends = $info->relation('strong')->unparse();
     tag 'missing-versioned-dependency-on-numpy'
         unless
