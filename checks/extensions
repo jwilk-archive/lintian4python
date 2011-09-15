@@ -33,14 +33,15 @@ my ($pkg, $type, $info, $proc) = @_;
 my $srcpkg = $proc->pkg_src() // '';
 my $index = $info->index;
 my $uses_numpy_abi = 0;
+my $uses_old_pyrex_import_type = 0;
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
     if ($file =~ m,usr/lib/(?:python2\.\d+/(?:site|dist)-packages|pyshared/python2\.\d)/.*\.so$,) {
         my $string = slurp_entire_file("strings/$file");
-        if ($string =~ m/module compiled against ABI version %x but this version of numpy is %x/) {
-            $uses_numpy_abi = 1;
-            last;
-        }
+        $uses_old_pyrex_import_type = ($uses_old_pyrex_import_type or
+            $string =~ m,does not appear to be the correct type object,);
+        $uses_numpy_abi = ($uses_numpy_abi or
+            $string =~ m/module compiled against ABI version %x but this version of numpy is %x/);
     }
 }
 if ($srcpkg eq 'python-numpy') {
@@ -52,6 +53,9 @@ if ($uses_numpy_abi) {
         unless
             $depends =~ /(^|\s|,)python-numpy\s+\(>[>=]/ and
             $depends =~ /(^|\s|,)python-numpy\s+\(<</;
+}
+if ($uses_old_pyrex_import_type) {
+    tag 'extension-uses-old-pyrex-import-type';
 }
 
 }

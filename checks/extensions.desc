@@ -9,3 +9,8 @@ Tag: missing-versioned-dependency-on-numpy
 Severity: serious
 Certainty: certain
 Info: TODO
+
+Tag: extension-uses-old-pyrex-import-type
+Severity: serious
+Certainty: possible
+Info: TODO
