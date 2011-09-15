@@ -30,6 +30,11 @@ sub run {
 
 my ($pkg, $type, $info, $proc) = @_;
 
+if ($pkg =~ /-dbg$/) {
+    # Don't bother checking *-dbg packages.
+    return;
+}
+
 my $srcpkg = $proc->pkg_src() // '';
 my $index = $info->index;
 my $uses_numpy_abi = 0;
