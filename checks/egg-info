@@ -61,7 +61,7 @@ my $index = $info->index;
 my $depends = $info->relation('strong');
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
-    if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
+    if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)-packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
         my $py3k = int(defined $2);
         my $egg_name = $3;
         if ($egg_name =~ m,^(?:[^-]+)-([^-]+)(?:-py(?:[^-]+)(-.+)?)?$,) {

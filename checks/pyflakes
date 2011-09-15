@@ -34,7 +34,7 @@ my ($pkg, $type, $info) = @_;
 my $index = $info->index;
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
-    if ($file =~ m,usr/(?:lib/python2\.\d+/(?:site|dist)packages|share/(?:pyshared|python-support/[^/]+))/.+[.]py$,) {
+    if ($file =~ m,usr/(?:lib/python2\.\d+/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/.+[.]py$,) {
         my $unpacked = $info->unpacked($file);
         open(PYFLAKES, '-|', "$LINTIAN_ROOT/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
         while (<PYFLAKES>) {

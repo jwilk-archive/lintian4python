@@ -36,7 +36,7 @@ my $index = $info->index;
 my $depends = $info->relation('strong');
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
-    if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
+    if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
         open(PTH, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
         while (<PTH>) {
             if (m,^import[ \t],) {
