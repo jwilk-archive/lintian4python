@@ -1,0 +1,61 @@
+# python-extensions -- lintian check script -*- perl -*-
+#
+# Copyright © 2011 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::extensions;
+
+use strict;
+use warnings;
+
+use Lintian::Tags qw(tag);
+use Util;
+
+sub run {
+
+my ($pkg, $type, $info, $proc) = @_;
+
+my $srcpkg = $proc->pkg_src() // '';
+my $index = $info->index;
+my $uses_numpy_abi = 0;
+for my $file (@{$info->sorted_index}) {
+    next if $index->{$file}->{link};
+    if ($file =~ m,usr/lib/(?:python2\.\d+/(?:site|dist)-packages|pyshared/python2\.\d)/.*\.so$,) {
+        my $string = slurp_entire_file("strings/$file");
+        if ($string =~ m/module compiled against ABI version %x but this version of numpy is %x/) {
+            $uses_numpy_abi = 1;
+            last;
+        }
+    }
+}
+if ($srcpkg eq 'python-numpy') {
+    $uses_numpy_abi = 0;
+}
+if ($uses_numpy_abi) {
+    my $depends = $info->relation('strong')->unparse();
+    tag 'missing-versioned-dependency-on-numpy'
+        unless
+            $depends =~ /(^|\s|,)python-numpy\s+\(>[>=]/ and
+            $depends =~ /(^|\s|,)python-numpy\s+\(<</;
+}
+
+}
+
+1;
+
+# vim:syntax=perl ts=4 sw=4 et
