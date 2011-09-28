@@ -34,6 +34,7 @@ pyenchant||python3-enchant
 pygments||python3-pygments
 pyserial||python3-serial
 pystemmer||python3-stemmer
+python||python3
 python3_libgearman||python3-gearman.libgearman
 python_apt||python3-apt
 python_distutils_extra||python3-distutils-extra
@@ -47,6 +48,7 @@ sleekxmpp||python3-sleekxmpp
 slimmer||python3-slimmer
 sqlalchemy||python3-sqlalchemy
 tempita||python3-tempita
+wsgiref||python3
 zope.exceptions||python3-zope.exceptions
 zope.fixers||python3-zope.fixers
 zope.interface||python3-zope.interface

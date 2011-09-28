@@ -58,6 +58,10 @@ while (<CONTENTS>) {
 close CONTENTS or die $!;
 $data[0]->{'setuptools'} = $data[0]->{'distribute'};
 $data[1]->{'setuptools'} = $data[1]->{'distribute'};
+$data[0]->{'wsgiref'} = {'python (>= 2.5)' => 1, 'python-wsgiref' => 1};
+$data[1]->{'wsgiref'} = {'python3' => 1};
+$data[0]->{'python'} = {'python' => 1};
+$data[1]->{'python'} = {'python3' => 1};
 
 my $date = strftime('%Y-%m-%d', gmtime);
 

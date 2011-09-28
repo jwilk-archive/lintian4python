@@ -810,6 +810,7 @@ pytc||python-pytc
 pytcpwrap||python-tcpwrap
 pytest_xdist||python-pytest-xdist
 pyth||python-pyth
+python||python
 python2_biggles||python-pybiggles
 python_aalib||python-aalib
 python_application||python-application
@@ -1224,6 +1225,7 @@ winpdb||winpdb
 wit||python-wit
 wokkel||python-wokkel
 wordaxe||python-wordaxe
+wsgiref||python-wsgiref | python (>= 2.5)
 wtforms||python-wtforms
 wxglade||python-wxglade
 wxpython_common||python-wxgtk2.6 | python-wxgtk2.8
