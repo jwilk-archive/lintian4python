@@ -59,6 +59,7 @@ my $version = $info->field('version');
 my %egg_versions = ();
 my $index = $info->index;
 my $depends = $info->relation('strong');
+my $all_depends = $info->relation('all');
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
     if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)-packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
@@ -68,18 +69,31 @@ for my $file (@{$info->sorted_index}) {
             $egg_versions{$1} = 1;
         }
         if ($file =~ m,/requires\.txt$,) {
+            my $optional_section = 0;
             open(REQUIRES, '<', $info->unpacked($file)) or fail("cannot open requires.txt file: $!");
             while (<REQUIRES>) {
-                last if m,^\[,;
-                m,^([-.\w]+)([^[]*)$, or next;
+                if (m,^\[,) {
+                    $optional_section = 1;
+                    next;
+                }
+                m,^([-.\w]+), or next;
                 my $project_name = lc $1;
                 $project_name =~ y/-/_/;
+                my $optional = ($optional_section or m,\[,);
                 if ($PROJECTS[$py3k]->known($project_name)) {
                     my $requirement = $PROJECTS[$py3k]->value($project_name);
                     next if $requirement =~ /^(?:.*\|\s*)?\Q$pkg\E(?:\s*\|.*)?$/;
                     if (! $depends->implies($requirement)) {
-                        tag 'missing-requires.txt-dependency', $project_name, '=>', $requirement;
+                        my $tag = $optional ?
+                            'missing-requires.txt-optional-dependency' :
+                            'missing-requires.txt-dependency';
+                        tag $tag, $project_name, '=>', $requirement;
                     }
+                } else {
+                    my $tag = $optional ?
+                        'unknown-optional-project-in-requires.txt' :
+                        'unknown-project-in-requires.txt';
+                    tag $tag, $project_name;
                 }
             }
             close(REQUIRES);
