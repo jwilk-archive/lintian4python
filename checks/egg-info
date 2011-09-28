@@ -71,7 +71,7 @@ for my $file (@{$info->sorted_index}) {
             open(REQUIRES, '<', $info->unpacked($file)) or fail("cannot open requires.txt file: $!");
             while (<REQUIRES>) {
                 last if m,^\[,;
-                m,^([-\w]+)([^[]*)$, or next;
+                m,^([-.\w]+)([^[]*)$, or next;
                 my $project_name = lc $1;
                 $project_name =~ y/-/_/;
                 if ($PROJECTS[$py3k]->known($project_name)) {

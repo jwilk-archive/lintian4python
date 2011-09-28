@@ -47,3 +47,7 @@ sleekxmpp||python3-sleekxmpp
 slimmer||python3-slimmer
 sqlalchemy||python3-sqlalchemy
 tempita||python3-tempita
+zope.exceptions||python3-zope.exceptions
+zope.fixers||python3-zope.fixers
+zope.interface||python3-zope.interface
+zope.testrunner||python3-zope.testrunner
