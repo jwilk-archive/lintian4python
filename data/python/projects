@@ -304,6 +304,7 @@ flufl.enum||python-flufl.enum
 flufl.lock||python-flufl.lock
 flup||python-flup
 fontforge||python-fontforge
+fonttools||fonttools
 fontypython||fontypython
 foolscap||python-foolscap
 forgethtml||python-forgethtml
@@ -610,6 +611,7 @@ photon||photon
 picard||picard
 pida||pida
 pika||python-pika
+pil||python-imaging
 pip||python-pip
 pisa||python-pisa
 pithos||pithos
@@ -1228,6 +1230,7 @@ wordaxe||python-wordaxe
 wsgiref||python-wsgiref | python (>= 2.5)
 wtforms||python-wtforms
 wxglade||python-wxglade
+wxpython||python-wxgtk2.6 | python-wxgtk2.8
 wxpython_common||python-wxgtk2.6 | python-wxgtk2.8
 xappy||python-xappy
 xattr||python-xattr

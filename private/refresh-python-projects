@@ -41,6 +41,7 @@ while (<CONTENTS>) {
         ) | (
             usr/lib/python3/(?:site|dist)-packages
         )) /
+        (?: .*/ )? # FIXME: check if the directory is actually within sys.path
         ([.\w]+)-[^/]*\.egg-info
         (?: /.+ )?
         \s+
