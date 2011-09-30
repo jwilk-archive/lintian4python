@@ -145,6 +145,41 @@ sub run_source {
 sub run_binary {
 
     my ($pkg, $type, $info) = @_;
+    my $pycentral_data_path = "usr/share/pyshared-data/$pkg";
+    my $pycentral_data_stat = $info->index->{$pycentral_data_path};
+    if (defined($pycentral_data_stat) and $pycentral_data_stat->{'type'} eq '-') {
+        my %files = ();
+        open(PYSHARED, '<', $info->unpacked($pycentral_data_path)) or fail("cannot open python-central metadata: $!");
+        my $files_section = 0;
+        while (<PYSHARED>) {
+            if (m,^\[files\]$,) {
+                $files_section = 1;
+                next;
+            } elsif (m,^\[,) {
+                $files_section = 0;
+                next;
+            } elsif ($files_section) {
+                if (m,^/(.+)=([fd])$,) {
+                    my ($filename, $type) = ($1, $2);
+                    if ($type eq 'f') {
+                        $files{$filename} = '-';
+                    } else {
+                        $files{"$filename/"} = 'd';
+                    }
+                } else {
+                    tag 'cannot-parse-python-central-metadata';
+                    last;
+                }
+            }
+        }
+        close(PYSHARED);
+        while (my ($filename, $type) = each %files) {
+            my $fileinfo = $info->index->{$filename};
+            if ((not defined $fileinfo) or ($fileinfo->{'type'} ne $type)) {
+                tag 'python-central-metadata-for-missing-files', $filename;
+            }
+        }
+    }
 
 }
 
