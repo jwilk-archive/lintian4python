@@ -64,4 +64,8 @@ if ($uses_old_pyrex_import_type) {
 
 1;
 
-# vim:syntax=perl ts=4 sw=4 et
+# Local Variables:
+# indent-tabs-mode: nil
+# cperl-indent-level: 4
+# End:
+# vim: syntax=perl sw=4 sts=4 sr et
