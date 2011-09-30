@@ -37,6 +37,8 @@ my ($pkg, $type, $info) = @_;
 
 return if $pkg =~ m/^python(?:\d\.\d)?$/;
 return if $pkg =~ m/^python\d?-(?:stdlib-extensions|profiler|old-doctools)$/;
+return if $pkg =~ m/^python-defaults$/;
+return if $pkg =~ m/^python-(?:central|support)$/;
 
 my %python_depends = ();
 
