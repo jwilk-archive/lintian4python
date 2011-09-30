@@ -93,6 +93,7 @@ if (keys %python_depends) {
             $dh = 1;
         }
     }
+    close(RULES);
     if ($dh and %python_depends) {
         my $compat = 1;
         my $compat_file = $info->debfiles('compat');
