@@ -159,23 +159,21 @@ sub run_binary {
                 $files_section = 0;
                 next;
             } elsif ($files_section) {
-                if (m,^/(.+)=([fd])$,) {
+                if (m,^/(.+)=([fdYN])$,) {
                     my ($filename, $type) = ($1, $2);
-                    if ($type eq 'f') {
-                        $files{$filename} = '-';
-                    } else {
-                        $files{"$filename/"} = 'd';
-                    }
+                    $files{$filename} = 1;
                 } else {
-                    tag 'cannot-parse-python-central-metadata';
+                    tag 'cannot-parse-python-central-metadata', "line $.: $_";
                     last;
                 }
             }
         }
         close(PYSHARED);
         while (my ($filename, $type) = each %files) {
-            my $fileinfo = $info->index->{$filename};
-            if ((not defined $fileinfo) or ($fileinfo->{'type'} ne $type)) {
+            my $fileinfo =
+                $info->index->{$filename} ||
+                $info->index->{"$filename/"};
+            if (not defined $fileinfo) {
                 tag 'python-central-metadata-for-missing-files', $filename;
             }
         }
