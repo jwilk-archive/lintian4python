@@ -5,7 +5,7 @@ Type: binary
 Info: This check analyzes dependencies needed for Python extension modules.
 Needs-Info: index, strings
 
-Tag: missing-versioned-dependency-on-numpy
+Tag: missing-dependency-on-numpy-abi
 Severity: serious
 Certainty: certain
 Info: TODO

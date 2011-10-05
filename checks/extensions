@@ -51,7 +51,7 @@ for my $file (@{$info->sorted_index}) {
 }
 if ($uses_numpy_abi and ($srcpkg ne 'python-numpy')) {
     my $depends = $info->relation('strong')->unparse();
-    tag 'missing-versioned-dependency-on-numpy'
+    tag 'missing-dependency-on-numpy-abi'
         unless
             $depends =~ m/(^|\s|,)python-numpy\s+\(>[>=]/ and
             $depends =~ m/(^|\s|,)python-numpy\s+\(<</;
