@@ -46,15 +46,15 @@ for my $file (@{$info->sorted_index}) {
         $uses_old_pyrex_import_type = ($uses_old_pyrex_import_type or
             $string =~ m,does not appear to be the correct type object,);
         $uses_numpy_abi = ($uses_numpy_abi or
-            $string =~ m/module compiled against ABI version %x but this version of numpy is %x/);
+            $string =~ m,module compiled against ABI version %x but this version of numpy is %x,);
     }
 }
 if ($uses_numpy_abi and ($srcpkg ne 'python-numpy')) {
     my $depends = $info->relation('strong')->unparse();
     tag 'missing-versioned-dependency-on-numpy'
         unless
-            $depends =~ /(^|\s|,)python-numpy\s+\(>[>=]/ and
-            $depends =~ /(^|\s|,)python-numpy\s+\(<</;
+            $depends =~ m/(^|\s|,)python-numpy\s+\(>[>=]/ and
+            $depends =~ m/(^|\s|,)python-numpy\s+\(<</;
 }
 if ($uses_old_pyrex_import_type) {
     tag 'extension-uses-old-pyrex-import-type';
