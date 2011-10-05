@@ -11,6 +11,6 @@ Certainty: certain
 Info: TODO
 
 Tag: extension-uses-old-pyrex-import-type
-Severity: serious
+Severity: important
 Certainty: possible
 Info: TODO
