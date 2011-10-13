@@ -1,0 +1,11 @@
+Check-Script: imports
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: imp
+Type: binary
+Info: This check analyzes module imports.
+Needs-Info: index, scripts
+
+Tag: missing-dependency-for-import
+Severity: serious
+Certainty: possible
+Info: TODO
