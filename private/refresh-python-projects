@@ -39,7 +39,7 @@ while (<CONTENTS>) {
             usr/share/python-support/[^/]+ | # python-support < 0.90
             usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
         ) | (
-            usr/lib/python3/(?:site|dist)-packages
+            usr/lib/python3/dist-packages
         )) /
         (?: .*/ )? # FIXME: check if the directory is actually within sys.path
         ([.\w]+)-[^/]*\.egg-info
