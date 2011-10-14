@@ -26,7 +26,7 @@ use POSIX qw(strftime);
 my $LINTIAN_ROOT = $ENV{'LINTIAN_ROOT'} // '.';
 chdir $LINTIAN_ROOT or die $!;
 
-my $mirror = $ENV{'DEB_MIRROR'} // 'http://i386-geomirror.debian.net/debian';
+my $mirror = $ENV{'DEB_MIRROR'} // 'http://cdn.debian.net/debian';
 my @data = ({}, {});
 
 open CONTENTS, "wget -q -O - $mirror/dists/unstable/main/Contents-i386.gz | zcat |" or die $!;
