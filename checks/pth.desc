@@ -8,4 +8,3 @@ Needs-Info: index
 Tag: pth-file-modifies-sys.path
 Severity: important
 Certainty: certain
-Info: TODO

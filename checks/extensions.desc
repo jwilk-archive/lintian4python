@@ -8,4 +8,3 @@ Needs-Info: index, strings
 Tag: extension-uses-old-pyrex-import-type
 Severity: important
 Certainty: possible
-Info: TODO

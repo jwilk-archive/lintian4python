@@ -53,7 +53,6 @@ def main():
                 para['Severity'] = 'wishlist'
                 para['Certainty'] = 'wild-guess'
                 para['Experimental'] = 'yes'
-                para['Description'] = 'TODO'
             file.write('\n')
             file.write(unicode(para).encode('UTF-8'))
             first = False

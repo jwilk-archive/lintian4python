@@ -8,59 +8,47 @@ Needs-Info: index
 Tag: pyflakes-duplicate-argument
 Severity: serious
 Certainty: certain
-Description: TODO
 
 Tag: pyflakes-import-shadowed-by-loop-var
 Severity: important
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-import-star-used
 Severity: wishlist
 Certainty: certain
-Description: TODO
 
 Tag: pyflakes-late-future-import
 Severity: serious
 Certainty: certain
-Description: TODO
 
 Tag: pyflakes-redefined-function
 Severity: normal
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-redefined-while-unused
 Severity: minor
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-undefined-export
 Severity: important
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-undefined-local
 Severity: serious
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-undefined-name
 Severity: serious
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-unused-import
 Severity: minor
 Certainty: possible
-Description: TODO
 
 Tag: pyflakes-unused-variable
 Severity: minor
 Certainty: possible
-Description: TODO
 
 Tag: syntax-error
 Severity: serious
 Certainty: certain
-Description: TODO

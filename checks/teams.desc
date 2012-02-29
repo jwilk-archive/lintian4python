@@ -10,16 +10,13 @@ Tag: missing-vcs-field
 Severity: normal
 Certainty: certain
 Experimental: yes
-Description: TODO
 
 Tag: incorrect-vcs-field
 Severity: normal
 Certainty: possible
 Experimental: yes
-Description: TODO
 
 Tag: incorrect-team-name
 Severity: normal
 Certainty: possible
 Experimental: yes
-Description: TODO
