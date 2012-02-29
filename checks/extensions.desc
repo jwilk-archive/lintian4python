@@ -5,11 +5,6 @@ Type: binary
 Info: This check analyzes dependencies needed for Python extension modules.
 Needs-Info: index, strings
 
-Tag: missing-dependency-on-numpy-abi
-Severity: serious
-Certainty: certain
-Info: TODO
-
 Tag: extension-uses-old-pyrex-import-type
 Severity: important
 Certainty: possible
