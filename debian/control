@@ -1,0 +1,19 @@
+Source: lintian4python
+Section: devel
+Priority: extra
+Maintainer: Jakub Wilk <jwilk@debian.org>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.3
+
+Package: lintian4python
+Architecture: all
+Depends: ${misc:Depends},
+ lintian (= 2.5.5),
+ python, pyflakes (>= 0.5.0), pyflakes (<< 0.5.0+)
+Description: Debian package checker (for Python packages)
+ Lintian dissects Debian packages and reports bugs and policy
+ violations. It contains automated checks for many aspects of Debian
+ policy as well as some checks for common errors.
+ .
+ This package provides an experimental flavor of lintian designed to check
+ packages implemented in Python.

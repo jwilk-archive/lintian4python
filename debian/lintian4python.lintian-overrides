@@ -1,0 +1,8 @@
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/checks/lintian.desc ../../lintian/checks/lintian.desc
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/collection ../lintian/collection
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/data/common ../../lintian/data/common
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/lib ../lintian/lib

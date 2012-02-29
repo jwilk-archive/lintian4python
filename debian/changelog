@@ -1,0 +1,5 @@
+lintian4python (0+20120229) UNRELEASED; urgency=low
+
+  * Initial release.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 29 Feb 2012 22:57:24 +0100

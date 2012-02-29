@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+directories = checks collection data helpers lib profiles
+share = /usr/share/lintian4python/
+
+.PHONY: clean
+clean:
+	dh_testdir
+	dh_clean
+
+.PHONY: build build-arch build-indep
+
+.PHONY: binary binary-arch binary-indep
+binary binary-indep:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_install $(directories) $(share)
+	dh_install lintian4py* /usr/bin/
+	sed -i -e 's,\(LINTIAN_ROOT\)=.*,\1=$(share),' debian/*/usr/bin/*
+	dh_installdocs
+	dh_installchangelogs
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# vim:ts=4 sw=4 noet
