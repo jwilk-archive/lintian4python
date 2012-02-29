@@ -37,4 +37,4 @@ Tag: egg-info-version-mismatch
 Severity: important
 Certainty: wild-guess
 Info: Version in the egg meta metadata doesn't match version of the Debian
-  package.
+ package.
