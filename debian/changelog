@@ -1,5 +1,35 @@
 lintian4python (0+20120314) UNRELEASED; urgency=low
 
   * Initial release.
+  * Summary of tag changes:
+    + Added:
+      - SOURCES.txt-in-binary-package
+      - cannot-parse-python-central-metadata
+      - egg-info-version-mismatch
+      - extension-uses-old-pyrex-import-type
+      - incorrect-team-name
+      - incorrect-vcs-field
+      - missing-dependency-for-import
+      - missing-requires.txt-dependency
+      - missing-requires.txt-optional-dependency
+      - missing-vcs-field
+      - pth-file-modifies-sys.path
+      - pyflakes-duplicate-argument
+      - pyflakes-import-shadowed-by-loop-var
+      - pyflakes-import-star-used
+      - pyflakes-late-future-import
+      - pyflakes-redefined-function
+      - pyflakes-redefined-while-unused
+      - pyflakes-undefined-export
+      - pyflakes-undefined-local
+      - pyflakes-undefined-name
+      - pyflakes-unused-import
+      - pyflakes-unused-variable
+      - python-central-metadata-for-missing-files
+      - python-depends-but-no-python-helper
+      - python-module-but-no-python-depends
+      - syntax-error
+      - unknown-optional-project-in-requires.txt
+      - unknown-project-in-requires.txt
 
  -- Jakub Wilk <jwilk@debian.org>  Wed, 14 Mar 2012 01:20:58 +0100
