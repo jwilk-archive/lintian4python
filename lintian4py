@@ -9,7 +9,7 @@ $ENV{'LINTIAN_ROOT'} = Cwd::cwd();
 unshift @INC, "$ENV{'LINTIAN_ROOT'}/lib";
 require Lintian::Output;
 
-use Monkey::Patch qw(:all);
+use Monkey::Patch qw();
 
 my $monkey = Monkey::Patch::patch_package 'Lintian::Output' => '_print' => sub {
     my ($original, $self, $stream, $lead, @args) = @_;
