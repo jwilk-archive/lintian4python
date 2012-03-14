@@ -17,7 +17,7 @@ binary binary-indep:
 	dh_prep
 	dh_install $(directories) $(share)
 	dh_install lintian4py* /usr/bin/
-	sed -i -e 's,\(LINTIAN_ROOT\)=.*,\1=$(share),' debian/*/usr/bin/*
+	sed -i -e "s,\($$ENV{'LINTIAN_ROOT'}\) = .*,\1 = '$(share)';," debian/*/usr/bin/*
 	dh_installdocs
 	dh_installchangelogs
 	dh_lintian

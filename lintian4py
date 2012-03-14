@@ -1,3 +1,14 @@
-#!/bin/sh
-export LINTIAN_ROOT=$(dirname "$0")
-exec /usr/bin/lintian "$@"
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use Cwd;
+$ENV{'LINTIAN_ROOT'} = Cwd::cwd();
+
+do '/usr/bin/lintian';
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
+# vim: syntax=perl sw=4 sts=4 sr et
