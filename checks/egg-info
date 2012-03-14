@@ -100,6 +100,8 @@ for my $file (@{$info->sorted_index}) {
                 }
             }
             close(REQUIRES);
+        } elsif ($file =~ m,/SOURCES\.txt$,) {
+            tag 'SOURCES.txt-in-binary-package';
         }
     }
 }

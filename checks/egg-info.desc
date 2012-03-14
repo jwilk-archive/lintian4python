@@ -38,3 +38,9 @@ Severity: important
 Certainty: wild-guess
 Info: Version in the egg meta metadata doesn't match version of the Debian
  package.
+
+Tag: SOURCES.txt-in-binary-package
+Severity: pedantic
+Certainty: possible
+Info: SOURCES.txt lists files in the source distribution and therefore is
+ normally not useful in a binary package.
