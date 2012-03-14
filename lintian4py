@@ -6,6 +6,19 @@ use warnings;
 use Cwd;
 $ENV{'LINTIAN_ROOT'} = Cwd::cwd();
 
+unshift @INC, "$ENV{'LINTIAN_ROOT'}/lib";
+require Lintian::Output;
+
+use Monkey::Patch qw(:all);
+
+my $monkey = Monkey::Patch::patch_package 'Lintian::Output' => '_print' => sub {
+    my ($original, $self, $stream, $lead, @args) = @_;
+    if ($lead =~ /^([A-Z])(: .*)$/) {
+        $lead = "\L$1\E$2";
+    }
+    return $original->($self, $stream, $lead, @args);
+};
+
 do '/usr/bin/lintian';
 
 # Local Variables:

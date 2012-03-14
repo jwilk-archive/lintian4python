@@ -9,6 +9,7 @@ Package: lintian4python
 Architecture: all
 Depends: ${misc:Depends},
  lintian (= 2.5.5),
+ libmonkey-patch-perl,
  python, pyflakes (>= 0.5.0), pyflakes (<< 0.5.0+)
 Description: Debian package checker (for Python packages)
  Lintian dissects Debian packages and reports bugs and policy
