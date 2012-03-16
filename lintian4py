@@ -3,8 +3,8 @@
 use strict;
 use warnings;
 
-use Cwd;
-$ENV{'LINTIAN_ROOT'} = Cwd::cwd();
+use File::Basename qw();
+$ENV{'LINTIAN_ROOT'} = File::Basename::dirname($0);
 
 unshift @INC, "$ENV{'LINTIAN_ROOT'}/lib";
 require Lintian::Output;
