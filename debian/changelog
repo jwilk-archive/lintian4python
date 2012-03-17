@@ -1,4 +1,4 @@
-lintian4python (0+20120316) UNRELEASED; urgency=low
+lintian4python (0+20120317) experimental; urgency=low
 
   * Initial release.
   * Summary of tag changes:
@@ -32,4 +32,4 @@ lintian4python (0+20120316) UNRELEASED; urgency=low
       - unknown-optional-project-in-requires.txt
       - unknown-project-in-requires.txt
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 16 Mar 2012 19:17:57 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 17 Mar 2012 22:41:38 +0100
