@@ -62,7 +62,7 @@ sub run_source {
             my $metapkg = 0;
             my $docpkg = 0;
             for my $regex (@METAPKG_REGEX) {
-                # FIXME: this duplicates logic checks/files logic
+                # FIXME: this duplicates checks/files logic
                 if ($description =~ /$regex/) {
                     $metapkg = 1;
                     last;
