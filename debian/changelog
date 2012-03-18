@@ -1,6 +1,6 @@
 lintian4python (0+20120317) experimental; urgency=low
 
-  * Initial release.
+  * Initial release (closes: #664019).
   * Summary of tag changes:
     + Added:
       - SOURCES.txt-in-binary-package
