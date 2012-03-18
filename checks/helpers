@@ -1,6 +1,6 @@
 # python-helpers -- lintian check script -*- perl -*-
 #
-# Copyright © 2011 Jakub Wilk
+# Copyright © 2011, 2012 Jakub Wilk
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -60,6 +60,7 @@ sub run_source {
         } elsif ($binpkg =~ /^python-/) {
             my $description = $info->binary_field($binpkg, 'description') // '';
             my $metapkg = 0;
+            my $docpkg = 0;
             for my $regex (@METAPKG_REGEX) {
                 # FIXME: this duplicates logic checks/files logic
                 if ($description =~ /$regex/) {
@@ -67,8 +68,11 @@ sub run_source {
                     last;
                 }
             }
+            if (($info->binary_field($binpkg, 'section') // '') eq 'doc') {
+                $docpkg = 1;
+            }
             tag 'python-module-but-no-python-depends', $binpkg
-                unless $binpkg =~ /-(dbg|doc|dev)$/ or $metapkg;
+                unless $binpkg =~ /-(dbg|dev)$/ or $metapkg or $docpkg;
         }
     }
 
