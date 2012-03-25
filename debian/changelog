@@ -10,8 +10,10 @@ lintian4python (0+20120325) UNRELEASED; urgency=low
   * Refresh data about Python projects.
   * checks/extensions:
     + Check for extension modules linked to libpython.
+    + Emit extension-uses-old-pyrex-import-type for every affected extension
+      module.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 15:45:24 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 17:25:22 +0200
 
 lintian4python (0+20120317) experimental; urgency=low
 

@@ -54,8 +54,9 @@ for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
     if (my @pyversion = ($file =~ $py_extension)) {
         my $string = slurp_entire_file("strings/$file");
-        $uses_old_pyrex_import_type = ($uses_old_pyrex_import_type or
-            $string =~ m,does not appear to be the correct type object,);
+        if ($string =~ m,does not appear to be the correct type object,) {
+            tag 'extension-uses-old-pyrex-import-type', $file;
+        }
         my ($pyversion) = grep { defined $_ } @pyversion;
         $pyversion =~ s,^(\d)(\d+)$,$1.$2,;
         for my $needed (@{$objdump->{$file}->{NEEDED}}) {
@@ -70,9 +71,6 @@ for my $file (@{$info->sorted_index}) {
             }
         }
     }
-}
-if ($uses_old_pyrex_import_type) {
-    tag 'extension-uses-old-pyrex-import-type';
 }
 unless ($seen_wrong_version) {
     for my $file (@linked_with_libpython) {
