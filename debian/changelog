@@ -1,11 +1,17 @@
 lintian4python (0+20120325) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - extension-compiled-for-wrong-version
+      - extension-linked-with-libpython
   * Don't emit python-depends-but-no-python-helper for binary packages in
     section “doc” (closes: #664475). Thanks to Scott Kitterman for the bug
     report.
   * Refresh data about Python projects.
+  * checks/extensions:
+    + Check for extension modules linked to libpython.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 15:07:36 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 15:45:24 +0200
 
 lintian4python (0+20120317) experimental; urgency=low
 

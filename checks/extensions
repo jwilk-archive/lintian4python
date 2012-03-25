@@ -26,6 +26,15 @@ use warnings;
 use Lintian::Tags qw(tag);
 use Util;
 
+my $py_extension = qr{
+^ (?:
+  usr/lib/pyshared/python(2\.\d+)/.+
+| usr/lib/python(2\.\d+)/(?:site|dist)-packages/.+
+| usr/lib/python-support/(?:[^/]+)/python(2\.\d+)/.+
+| usr/lib/python3/dist-packages/.+-(\d+)mu
+) \.so $
+}x;
+
 sub run {
 
 my ($pkg, $type, $info, $proc) = @_;
@@ -37,17 +46,38 @@ if ($pkg =~ /-dbg$/) {
 
 my $srcpkg = $proc->pkg_src() // '';
 my $index = $info->index;
+my $objdump = $info->objdump_info;
 my $uses_old_pyrex_import_type = 0;
+my $seen_wrong_version = 0;
+my @linked_with_libpython = ();
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
-    if ($file =~ m,usr/lib/(?:python2\.\d+/(?:site|dist)-packages|pyshared/python2\.\d)/.*\.so$,) {
+    if (my @pyversion = ($file =~ $py_extension)) {
         my $string = slurp_entire_file("strings/$file");
         $uses_old_pyrex_import_type = ($uses_old_pyrex_import_type or
             $string =~ m,does not appear to be the correct type object,);
+        my ($pyversion) = grep { defined $_ } @pyversion;
+        $pyversion =~ s,^(\d)(\d+)$,$1.$2,;
+        for my $needed (@{$objdump->{$file}->{NEEDED}}) {
+            if ($needed =~ m,^libpython(\d\.\d+)(?:mu?)\.so,) {
+                my $libpython = $1;
+                if ($libpython ne $pyversion) {
+                    $seen_wrong_version = 1;
+                    tag 'extension-compiled-for-wrong-version', $libpython, $file;
+                } else {
+                    push @linked_with_libpython, $file;
+                }
+            }
+        }
     }
 }
 if ($uses_old_pyrex_import_type) {
     tag 'extension-uses-old-pyrex-import-type';
+}
+unless ($seen_wrong_version) {
+    for my $file (@linked_with_libpython) {
+        tag 'extension-linked-with-libpython', $file;
+    }
 }
 
 }

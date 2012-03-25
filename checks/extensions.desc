@@ -3,8 +3,23 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: ext
 Type: binary
 Info: This check analyzes dependencies needed for Python extension modules.
-Needs-Info: index, strings
+Needs-Info: index, strings, objdump-info
 
 Tag: extension-uses-old-pyrex-import-type
 Severity: important
 Certainty: possible
+
+Tag: extension-compiled-for-wrong-version
+Severity: serious
+Certainty: certain
+Info: The Python extension module was installed in a directory for a different
+ Python version that it was compiled for.  Different Python versions are not
+ binary-compatible.
+
+Tag: extension-linked-with-libpython
+Severity: wishlist
+Certainty: certain
+Info: In Debian, Python extension modules don't need to be linked with
+ libpython<i>X</i>.<i>Y</i>.  Linking to libpython<i>X</i>.<i>Y</i> makes
+ dpkg-shlibdeps generate needlessly strict dependencies.
+Ref: python-policy 2.1
