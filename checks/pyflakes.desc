@@ -42,11 +42,11 @@ Severity: serious
 Certainty: possible
 
 Tag: pyflakes-unused-import
-Severity: minor
+Severity: pedantic
 Certainty: possible
 
 Tag: pyflakes-unused-variable
-Severity: minor
+Severity: pedantic
 Certainty: possible
 
 Tag: syntax-error

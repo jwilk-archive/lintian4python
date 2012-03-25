@@ -12,10 +12,12 @@ lintian4python (0+20120325) UNRELEASED; urgency=low
     + Don't emit python-depends-but-no-python-helper for binary packages in
       section “doc” (closes: #664475). Thanks to Scott Kitterman for the bug
       report.
+  * checks/pyflakes:
+    + Downgrade pyflakes-unused-{import,variable} severities to pedantic.
   * data/python/projects*:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 17:28:44 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 25 Mar 2012 19:17:31 +0200
 
 lintian4python (0+20120317) experimental; urgency=low
 
