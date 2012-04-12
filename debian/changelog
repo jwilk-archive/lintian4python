@@ -4,6 +4,7 @@ lintian4python (0+20120412) UNRELEASED; urgency=low
     + Added:
       - extension-with-soname
       - hardcoded-dependency-on-python-helper
+      - python-provides-considered-harmful
       - xb-python-version-is-deprecated
       - xs-python-version-current-is-deprecated
   * checks/extension:
@@ -12,12 +13,13 @@ lintian4python (0+20120412) UNRELEASED; urgency=low
     + Check for hard-coded dependency on python-support/python-central.
     + Check for deprecated “XS-Python-Version: current”.
     + Check for deprecated “XB-Python-Version”.
+    + Check for “Provides: ${python:Provides}”.
   * data/python/projects*:
     + Refresh.
   * debian/control:
     + Add Vcs-* fields.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 17:53:35 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 18:03:02 +0200
 
 lintian4python (0+20120325) experimental; urgency=low
 
