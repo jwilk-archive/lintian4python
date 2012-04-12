@@ -4,16 +4,20 @@ lintian4python (0+20120412) UNRELEASED; urgency=low
     + Added:
       - extension-with-soname
       - hardcoded-dependency-on-python-helper
+      - xb-python-version-is-deprecated
+      - xs-python-version-current-is-deprecated
   * checks/extension:
     + Check for extension modules with SONAME.
   * checks/helpers:
     + Check for hard-coded dependency on python-support/python-central.
+    + Check for deprecated “XS-Python-Version: current”.
+    + Check for deprecated “XB-Python-Version”.
   * data/python/projects*:
     + Refresh.
   * debian/control:
     + Add Vcs-* fields.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 15:51:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 17:53:35 +0200
 
 lintian4python (0+20120325) experimental; urgency=low
 

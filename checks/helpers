@@ -53,6 +53,10 @@ sub run_source {
 
     my %python_depends = ();
 
+    if (($info->field('python-version') // 'all') =~ /^current\b/) {
+        tag 'xs-python-version-current-is-deprecated';
+    }
+
     my $binpkgs = $info->binaries;
     for my $binpkg (keys %$binpkgs) {
         if ($info->binary_relation($binpkg, 'all')->implies('${python:Depends}')) {
@@ -155,6 +159,11 @@ sub run_binary {
                 tag 'python-central-metadata-for-missing-files', $filename;
             }
         }
+    }
+
+    if (defined $info->field('python-version')) {
+        tag 'xb-python-version-is-deprecated'
+            unless ($info->relation('all')->implies('python-central'));
     }
 
 }

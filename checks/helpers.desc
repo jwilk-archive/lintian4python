@@ -24,3 +24,16 @@ Certainty: wild-guess
 Tag: python-central-metadata-for-missing-files
 Severity: serious
 Certainty: certain
+
+Tag: xs-python-version-current-is-deprecated
+Severity: normal
+Certainty: certain
+Description: "XS-Python-Version: current" is deprecated.
+Ref: python-policy 2.3
+
+Tag: xb-python-version-is-deprecated
+Severity: normal
+Certainty: certain
+Description: "XB-Python-Version: current" is deprecated.  (But it's still
+ needed if you use python-central.)
+Ref: python-policy 2.3
