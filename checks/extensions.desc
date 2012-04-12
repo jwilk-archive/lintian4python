@@ -23,3 +23,11 @@ Info: In Debian, Python extension modules don't need to be linked with
  libpython<i>X</i>.<i>Y</i>.  Linking to libpython<i>X</i>.<i>Y</i> makes
  dpkg-shlibdeps generate needlessly strict dependencies.
 Ref: python-policy 2.1
+
+Tag: extension-with-soname
+Severity: pedantic
+Certainty: possible
+Info: The Python extension module has a SONAME, but they should normally not
+ have any.  This can cause "<i>binary</i> contains an unresolvable reference to
+ symbol <i>sym</i>: it's probably a plugin" warnings from dpkg-shlibdeps.
+Ref: dpkg-shlibdeps(1)

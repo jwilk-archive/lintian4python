@@ -70,6 +70,9 @@ for my $file (@{$info->sorted_index}) {
                 }
             }
         }
+        if (defined $objdump->{$file}->{SONAME}) {
+            tag 'extension-with-soname', $file, "(@{$objdump->{$file}->{SONAME}})";
+        }
     }
 }
 unless ($seen_wrong_version) {

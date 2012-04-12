@@ -1,11 +1,16 @@
 lintian4python (0+20120412) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - extension-with-soname
+  * checks/extension:
+    + Check for extension modules with SONAME.
   * data/python/projects*:
     + Refresh.
   * debian/control:
     + Add Vcs-* fields.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 14:09:51 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 14:29:25 +0200
 
 lintian4python (0+20120325) experimental; urgency=low
 
