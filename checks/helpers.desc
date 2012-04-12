@@ -13,6 +13,10 @@ Tag: python-depends-but-no-python-helper
 Severity: serious
 Certainty: possible
 
+Tag: hardcoded-dependency-on-python-helper
+Severity: important
+Certainty: possible
+
 Tag: cannot-parse-python-central-metadata
 Severity: serious
 Certainty: wild-guess

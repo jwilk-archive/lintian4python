@@ -57,22 +57,29 @@ sub run_source {
     for my $binpkg (keys %$binpkgs) {
         if ($info->binary_relation($binpkg, 'all')->implies('${python:Depends}')) {
             $python_depends{$binpkg} = 1;
-        } elsif ($binpkg =~ /^python-/) {
-            my $description = $info->binary_field($binpkg, 'description') // '';
-            my $metapkg = 0;
-            my $docpkg = 0;
-            for my $regex (@METAPKG_REGEX) {
-                # FIXME: this duplicates checks/files logic
-                if ($description =~ /$regex/) {
-                    $metapkg = 1;
-                    last;
+        } else {
+            if ($binpkg =~ /^python-/) {
+                my $description = $info->binary_field($binpkg, 'description') // '';
+                my $metapkg = 0;
+                my $docpkg = 0;
+                for my $regex (@METAPKG_REGEX) {
+                    # FIXME: this duplicates checks/files logic
+                    if ($description =~ /$regex/) {
+                        $metapkg = 1;
+                        last;
+                    }
+                }
+                if (($info->binary_field($binpkg, 'section') // '') eq 'doc') {
+                    $docpkg = 1;
+                }
+                tag 'python-module-but-no-python-depends', $binpkg
+                    unless $binpkg =~ /-(dbg|dev)$/ or $metapkg or $docpkg;
+            }
+            for my $helper (qw(python-support python-central)) {
+                if ($info->binary_relation($binpkg, 'all')->implies($helper)) {
+                    tag 'hardcoded-dependency-on-python-helper', $helper;
                 }
             }
-            if (($info->binary_field($binpkg, 'section') // '') eq 'doc') {
-                $docpkg = 1;
-            }
-            tag 'python-module-but-no-python-depends', $binpkg
-                unless $binpkg =~ /-(dbg|dev)$/ or $metapkg or $docpkg;
         }
     }
 
