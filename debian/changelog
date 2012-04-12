@@ -1,4 +1,4 @@
-lintian4python (0+20120412) UNRELEASED; urgency=low
+lintian4python (0+20120412) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
@@ -19,7 +19,7 @@ lintian4python (0+20120412) UNRELEASED; urgency=low
   * debian/control:
     + Add Vcs-* fields.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 18:03:02 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 12 Apr 2012 18:07:54 +0200
 
 lintian4python (0+20120325) experimental; urgency=low
 
