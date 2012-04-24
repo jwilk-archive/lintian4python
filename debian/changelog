@@ -1,9 +1,14 @@
 lintian4python (0+20120424) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - missing-epoch-for-dependency
+  * checks/depends:
+    + Check for missing epoch in dependencies on python(3)-numpy.
   * data/python/projects*:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 24 Apr 2012 23:42:27 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 25 Apr 2012 00:05:07 +0200
 
 lintian4python (0+20120412) experimental; urgency=low
 
