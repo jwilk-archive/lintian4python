@@ -1,3 +1,15 @@
+lintian4python (0+20120429) UNRELEASED; urgency=low
+
+  * Summary of tag changes
+    + Added:
+      - versioned-python-shebang
+      - usr-bin-env-python-shebang
+  * checks/scripts:
+    + Check for versioned Python shebangs.
+    + Check for /usr/bin/env Python shebangs.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 29 Apr 2012 13:12:48 +0200
+
 lintian4python (0+20120425) experimental; urgency=low
 
   * Summary of tag changes:

@@ -1,0 +1,19 @@
+Check-Script: scripts
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: scr
+Type: binary
+Info: This script checks the #! lines of scripts in a package
+Needs-Info: scripts
+
+Tag: versioned-python-shebang
+Severity: normal
+Certainty: wild-guess
+Info: This script starts with a shebang referring to versioned interpreter
+ name. This is often a mistake.
+
+Tag: usr-bin-env-python-shebang
+Severity: normal
+Certainty: certain
+Info: This script starts with <tt>#!/usr/bin/env python</tt> shebang.  This is
+ not recommended.  <tt>#!/usr/bin/python</tt> should be used instead.
+Ref: python-policy 1.4.2
