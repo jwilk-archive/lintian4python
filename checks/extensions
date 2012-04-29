@@ -31,7 +31,7 @@ my $py_extension = qr{
   usr/lib/pyshared/python(2\.\d+)/.+
 | usr/lib/python(2\.\d+)/(?:site|dist)-packages/.+
 | usr/lib/python-support/(?:[^/]+)/python(2\.\d+)/.+
-| usr/lib/python3/dist-packages/.+-(\d+)mu
+| usr/lib/python3/dist-packages/.+-(\d+)mu?
 ) \.so $
 }x;
 
@@ -60,7 +60,7 @@ for my $file (@{$info->sorted_index}) {
         my ($pyversion) = grep { defined $_ } @pyversion;
         $pyversion =~ s,^(\d)(\d+)$,$1.$2,;
         for my $needed (@{$objdump->{$file}->{NEEDED}}) {
-            if ($needed =~ m,^libpython(\d\.\d+)(?:mu)?\.so,) {
+            if ($needed =~ m,^libpython(\d\.\d+)(?:mu?)?\.so,) {
                 my $libpython = $1;
                 if ($libpython ne $pyversion) {
                     $seen_wrong_version = 1;
