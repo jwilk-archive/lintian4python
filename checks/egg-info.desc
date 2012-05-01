@@ -9,29 +9,53 @@ Tag: missing-requires.txt-dependency
 Severity: serious
 Certainty: possible
 Ref: http://packages.python.org/distribute/pkg_resources.html
-Info: A package listed as a dependency in the requires.txt file is missing from
- the Depends line.
+Info: A package listed as a dependency in the <tt>requires.txt</tt> file is
+ missing from the Depends line.
+ .
+ Importing the package via <tt>pkg_resources</tt> will fail if dependencies
+ from <tt>requires.txt</tt> are not satisfied.  You can test this using the
+ following command:
+ .
+  python -c 'import pkg_resources as p; p.require("<i>module-name</i>")'
 
 Tag: missing-requires.txt-optional-dependency
 Severity: normal
 Certainty: possible
 Ref: http://packages.python.org/distribute/pkg_resources.html
-Info: An package listed as an optional dependency in the requires.txt file is
- missing from the Depends line.
+Info: An package listed as an optional dependency in the <tt>requires.txt</tt>
+ file is missing from the Depends line.
+ .
+ Importing the package via <tt>pkg_resources</tt> will fail if dependencies
+ from <tt>requires.txt</tt> are not satisfied.  You can test this using the
+ following command:
+ .
+  python -c 'import pkg_resources as p; p.require("<i>module-name</i>")'
 
 Tag: unknown-project-in-requires.txt
 Severity: serious
 Certainty: possible
 Ref: http://packages.python.org/distribute/pkg_resources.html
-Info: A project listed as a dependency in the requires.txt file is not provided
- by any Debian package.
+Info: A project listed as a dependency in the <tt>requires.txt</tt> file is not
+ provided by any Debian package.
+ .
+ Importing the package via <tt>pkg_resources</tt> will fail if dependencies
+ from <tt>requires.txt</tt> are not satisfied.  You can test this using the
+ following command:
+ .
+  python -c 'import pkg_resources as p; p.require("<i>module-name</i>")'
 
 Tag: unknown-optional-project-in-requires.txt
 Severity: normal
 Certainty: possible
 Ref: http://packages.python.org/distribute/pkg_resources.html
-Info: An project listed as an optional dependency in the requires.txt file is
- not provided by any Debian package.
+Info: A project listed as an optional dependency in the <tt>requires.txt</tt>
+ file is not provided by any Debian package.
+ .
+ Importing the package via <tt>pkg_resources</tt> will fail if dependencies
+ from <tt>requires.txt</tt> are not satisfied.  You can test this using the
+ following command:
+ .
+  python -c 'import pkg_resources as p; p.require("<i>module-name</i>")'
 
 Tag: egg-info-version-mismatch
 Severity: important
