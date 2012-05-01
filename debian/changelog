@@ -1,14 +1,18 @@
-lintian4python (0+20120501) UNRELEASED; urgency=low
+lintian4python (0+20120502) UNRELEASED; urgency=low
 
+  * Summary of tag changes
+    + Added:
+      - strict-versioned-dependency-in-requires.txt
   * checks/egg-info:
     + Extend tag descriptions.
+    + Check for strict versioned dependency in requires.txt.
   * data/python/projects*:
     + Refresh.
   * private/refresh-python-projects:
     + Add “python (>= 2.7)” as a provider of argparse. Thanks to Daniele
       Tricoli for the bug report.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 May 2012 23:31:30 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 May 2012 00:06:49 +0200
 
 lintian4python (0+20120429) experimental; urgency=low
 

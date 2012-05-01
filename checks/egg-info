@@ -80,6 +80,7 @@ for my $file (@{$info->sorted_index}) {
                 my $project_name = lc $1;
                 $project_name =~ y/-/_/;
                 my $optional = ($optional_section or m,\[,);
+                my ($strict) = m,==\s*([\w.-]+), unless m/,/;
                 if ($PROJECTS[$py3k]->known($project_name)) {
                     my $requirement = $PROJECTS[$py3k]->value($project_name);
                     next if $requirement =~ /^(?:.*\|\s*)?\Q$pkg\E(?:\s*\|.*)?$/;
@@ -97,6 +98,9 @@ for my $file (@{$info->sorted_index}) {
                         'unknown-optional-project-in-requires.txt' :
                         'unknown-project-in-requires.txt';
                     tag $tag, $project_name;
+                }
+                if ($strict) {
+                    tag 'strict-versioned-dependency-in-requires.txt', "$project_name==$strict";
                 }
             }
             close(REQUIRES);
