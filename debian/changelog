@@ -1,3 +1,10 @@
+lintian4python (0+20120501) UNRELEASED; urgency=low
+
+  * data/python/projects*:
+    + Refresh.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 May 2012 22:09:15 +0200
+
 lintian4python (0+20120429) experimental; urgency=low
 
   * Summary of tag changes
