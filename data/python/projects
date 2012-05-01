@@ -31,7 +31,7 @@ arandr||arandr
 archivemail||archivemail
 archmage||archmage
 arcjobtool||arcjobtool
-argparse||python-argparse
+argparse||python-argparse | python (>= 2.7)
 argvalidate||python-argvalidate
 arista||arista
 astk||code-aster-run
