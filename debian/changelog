@@ -2,10 +2,13 @@ lintian4python (0+20120502) UNRELEASED; urgency=low
 
   * Summary of tag changes
     + Added:
+      - python3-extension-without-abi-tag
       - strict-versioned-dependency-in-requires.txt
   * checks/egg-info:
     + Extend tag descriptions.
     + Check for strict versioned dependency in requires.txt.
+  * checks/extensions:
+    + Check for Python 3 extension modules without ABI version tag (PEP-3149).
   * data/python/projects*:
     + Refresh.
   * private/refresh-python-projects:

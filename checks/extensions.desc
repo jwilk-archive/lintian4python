@@ -31,3 +31,10 @@ Info: The Python extension module has a SONAME, but they should normally not
  have any.  This can cause "<i>binary</i> contains an unresolvable reference to
  symbol <i>sym</i>: it's probably a plugin" warnings from dpkg-shlibdeps.
 Ref: dpkg-shlibdeps(1)
+
+Tag: python3-extension-without-abi-tag
+Severity: serious
+Certainty: certain
+Ref: http://www.python.org/dev/peps/pep-3149/
+Info: The Python extension module does not carry ABI version tag, as defined in
+ PEP-3149.
