@@ -1,4 +1,4 @@
-lintian4python (0+20120504) UNRELEASED; urgency=low
+lintian4python (0+20120504) experimental; urgency=low
 
   * Summary of tag changes
     + Added:
@@ -22,7 +22,7 @@ lintian4python (0+20120504) UNRELEASED; urgency=low
   * checks/*, private/*:
     + Use indirect file handles.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 19:37:05 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 23:33:14 +0200
 
 lintian4python (0+20120429) experimental; urgency=low
 
