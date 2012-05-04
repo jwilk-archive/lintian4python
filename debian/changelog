@@ -12,6 +12,7 @@ lintian4python (0+20120504) UNRELEASED; urgency=low
     + Check for Python 3 extension modules without ABI version tag (PEP-3149).
   * checks/helpers:
     + Check for python-stdeb boilerplate in debian/rules.
+    + Check for python-stdeb boilerplate in changelog file.
   * data/python/projects*:
     + Refresh.
   * private/refresh-python-projects:
@@ -20,7 +21,7 @@ lintian4python (0+20120504) UNRELEASED; urgency=low
   * checks/*, private/*:
     + Use indirect file handles.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 18:50:32 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 19:37:05 +0200
 
 lintian4python (0+20120429) experimental; urgency=low
 

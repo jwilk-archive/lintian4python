@@ -3,7 +3,7 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: hlp
 Type: source, binary
 Info: This check looks for (mis)use of Python helpers.
-Needs-Info: debfiles, index, unpacked
+Needs-Info: changelog-file, debfiles, index, unpacked
 
 Tag: python-module-but-no-python-depends
 Severity: serious

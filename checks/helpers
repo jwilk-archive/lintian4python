@@ -171,6 +171,26 @@ sub run_binary {
             unless ($info->relation('all')->implies('python-central'));
     }
 
+    unless (-l 'changelog' or not -f 'changelog') {
+        check_changelog('changelog');
+    }
+
+}
+
+sub check_changelog {
+    my ($filename) = @_;
+    open (my $fh, '<', $filename) or fail("cannot open $filename");
+    my $entry_no = 0;
+    while (<$fh>) {
+        if (m,^\S,) {
+            $entry_no += 1;
+            return if $entry_no >= 2;
+        }
+        elsif (m,(source package automatically created by stdeb(?: [0-9]\S+)?),i,) {
+            tag 'python-stdeb-boilerplate', "$filename:$.", "\"$1\"";
+        }
+    }
+    close $fh;
 }
 
 1;
