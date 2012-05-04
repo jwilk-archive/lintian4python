@@ -1,7 +1,8 @@
-lintian4python (0+20120502) UNRELEASED; urgency=low
+lintian4python (0+20120504) UNRELEASED; urgency=low
 
   * Summary of tag changes
     + Added:
+      - python-stdeb-boilerplate
       - python3-extension-without-abi-tag
       - strict-versioned-dependency-in-requires.txt
   * checks/egg-info:
@@ -9,13 +10,15 @@ lintian4python (0+20120502) UNRELEASED; urgency=low
     + Check for strict versioned dependency in requires.txt.
   * checks/extensions:
     + Check for Python 3 extension modules without ABI version tag (PEP-3149).
+  * checks/helpers:
+    + Check for python-stdeb boilerplate in debian/rules.
   * data/python/projects*:
     + Refresh.
   * private/refresh-python-projects:
     + Add “python (>= 2.7)” as a provider of argparse. Thanks to Daniele
       Tricoli for the bug report.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 May 2012 00:06:49 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 18:22:41 +0200
 
 lintian4python (0+20120429) experimental; urgency=low
 
