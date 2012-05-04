@@ -37,8 +37,8 @@ my $depends = $info->relation('strong');
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
     if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
-        open(PTH, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
-        while (<PTH>) {
+        open(my $fh, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
+        while (<$fh>) {
             if (m,^import[ \t],) {
                 # executable import statements
                 # TODO: allow setuptools magic, but discourage anything else
@@ -47,6 +47,7 @@ for my $file (@{$info->sorted_index}) {
                 tag 'pth-file-modifies-sys.path', $file, $_;
             }
         }
+        close($fh);
     }
 }
 

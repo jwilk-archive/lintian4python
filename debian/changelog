@@ -17,8 +17,10 @@ lintian4python (0+20120504) UNRELEASED; urgency=low
   * private/refresh-python-projects:
     + Add “python (>= 2.7)” as a provider of argparse. Thanks to Daniele
       Tricoli for the bug report.
+  * checks/*, private/*:
+    + Use indirect file handles.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 18:22:41 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 04 May 2012 18:50:32 +0200
 
 lintian4python (0+20120429) experimental; urgency=low
 

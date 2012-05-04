@@ -37,14 +37,14 @@ for my $file (sort keys %{$info->scripts}) {
     my ($base) = $interpreter =~ m,([^/]*)$,;
     if ($base =~ /^python(?:2[.][0-9]+)?$/) {
         my $path = $info->unpacked($file);
-        open(FH, '<', $path) or fail("could not open script $path");
-        while (<FH>) {
+        open(my $fh, '<', $path) or fail("could not open script $path");
+        while (<$fh>) {
             if (m,^from\s+pkg_resources\s+import(\s+|$),) {
                 $needed{'pkg_resources python-pkg-resources'} //= {};
                 $needed{'pkg_resources python-pkg-resources'}->{$file} = 1;
            }
         }
-        close(FH);
+        close($fh);
     }
 }
 

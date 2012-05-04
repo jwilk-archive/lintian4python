@@ -70,8 +70,8 @@ for my $file (@{$info->sorted_index}) {
         }
         if ($file =~ m,/requires\.txt$,) {
             my $optional_section = 0;
-            open(REQUIRES, '<', $info->unpacked($file)) or fail("cannot open requires.txt file: $!");
-            while (<REQUIRES>) {
+            open(my $fh, '<', $info->unpacked($file)) or fail("cannot open requires.txt file: $!");
+            while (<$fh>) {
                 if (m,^\[,) {
                     $optional_section = 1;
                     next;
@@ -103,7 +103,7 @@ for my $file (@{$info->sorted_index}) {
                     tag 'strict-versioned-dependency-in-requires.txt', "$project_name==$strict";
                 }
             }
-            close(REQUIRES);
+            close($fh);
         } elsif ($file =~ m,/SOURCES\.txt$,) {
             tag 'SOURCES.txt-in-binary-package';
         }
