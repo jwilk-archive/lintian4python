@@ -2,7 +2,7 @@ Check-Script: extensions
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: ext
 Type: binary
-Info: This check analyzes dependencies needed for Python extension modules.
+Info: Python extension modules
 Needs-Info: index, strings, objdump-info
 
 Tag: extension-uses-old-pyrex-import-type

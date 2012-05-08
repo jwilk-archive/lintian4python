@@ -2,7 +2,7 @@ Check-Script: scripts
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: scr
 Type: binary
-Info: This script checks the #! lines of scripts in a package
+Info: #! lines of scripts
 Needs-Info: scripts
 
 Tag: versioned-python-shebang

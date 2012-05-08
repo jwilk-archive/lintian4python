@@ -2,7 +2,7 @@ Check-Script: egg-info
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: egg
 Type: binary
-Info: This check analyzes egg metadata.
+Info: egg metadata
 Needs-Info: index
 
 Tag: missing-requires.txt-dependency

@@ -2,7 +2,7 @@ Check-Script: pyflakes
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: flk
 Type: binary
-Info: This check runs pyflakes over Python code
+Info: run pyflakes over Python code
 Needs-Info: index
 
 Tag: pyflakes-duplicate-argument

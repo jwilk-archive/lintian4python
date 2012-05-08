@@ -2,7 +2,7 @@ Check-Script: depends
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: dep
 Type: source, binary
-Info: This check analyzes package (build-)dependencies.
+Info: package (build-)dependencies
 
 Tag: missing-epoch-in-dependency
 Severity: normal

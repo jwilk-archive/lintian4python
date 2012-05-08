@@ -2,8 +2,7 @@ Check-Script: teams
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: egg
 Type: binary, source
-Info: Check Debian Python Modules Team and Python Applications Module Team
- policies.
+Info: Debian Python Modules Team and Python Applications Module Team policies
 Needs-Info: index
 
 Tag: missing-vcs-field

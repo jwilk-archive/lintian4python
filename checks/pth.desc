@@ -2,7 +2,7 @@ Check-Script: pth
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pth
 Type: binary
-Info: This check analyzes *.pth files.
+Info: analyze *.pth files
 Needs-Info: index
 
 Tag: pth-file-modifies-sys.path
