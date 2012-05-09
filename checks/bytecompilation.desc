@@ -1,0 +1,22 @@
+Check-Script: bytecompilation
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: pth
+Type: binary
+Info: byte-compliation of Python modules
+Needs-Info: index, bin-pkg-control
+
+Tag: python-module-not-byte-compiled
+Severity: serious
+Certainty: possible
+
+Tag: pycentral-pkginstall-for-foreign-package
+Severity: serious
+Certainty: possible
+
+Tag: pycompile-for-foreign-package
+Severity: serious
+Certainty: possible
+
+Tag: missing-dependency-on-byte-compilation-helper
+Severity: serious
+Certainty: possible

@@ -1,9 +1,19 @@
-lintian4python (0+20120508) UNRELEASED; urgency=low
+lintian4python (0.1) UNRELEASED; urgency=low
 
+  * Summary of tag changes
+    + Added:
+      - missing-dependency-on-byte-compilation-helper
+      - pycentral-pkginstall-for-foreign-package
+      - pycompile-for-foreign-package
+      - python-module-not-byte-compiled
   * checks/*.desc:
     + Shorten check descriptions.
+  * checks/bytecompilation:
+    + Check for Python modules that are not byte-compiled.
+    + Check for pycentral/pycompile calls for a foreign package.
+    + Check for missing dependency for byte-compilation helper.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 08 May 2012 13:15:06 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 09 May 2012 22:53:38 +0200
 
 lintian4python (0+20120504) experimental; urgency=low
 

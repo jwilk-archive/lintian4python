@@ -1,5 +1,6 @@
 Profile: debian/main
 Enable-Tags-From-Check:
+ bytecompilation,
  depends,
  egg-info,
  extensions,
