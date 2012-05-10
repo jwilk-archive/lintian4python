@@ -14,8 +14,10 @@ lintian4python (0.1) UNRELEASED; urgency=low
     + Check for pycentral/pycompile calls for a foreign package.
     + Check for missing (or insufficient) dependency on byte-compilation
       helper.
+  * checks/helpers:
+    + Extend python-provides-considered-harmful to ${python3:Provides}.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 12:25:39 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 17:48:46 +0200
 
 lintian4python (0+20120504) experimental; urgency=low
 

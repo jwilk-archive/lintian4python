@@ -85,8 +85,10 @@ sub run_source {
                 }
             }
         }
-        if ($info->binary_relation($binpkg, 'provides')->implies('${python:Provides}')) {
-            tag 'python-provides-considered-harmful', $binpkg;
+        for my $python (qw(python python3)) {
+            if ($info->binary_relation($binpkg, 'provides')->implies("\${$python:Provides}")) {
+                tag 'python-provides-considered-harmful', $binpkg;
+            }
         }
     }
 
