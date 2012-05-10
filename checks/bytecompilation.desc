@@ -2,7 +2,7 @@ Check-Script: bytecompilation
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pth
 Type: binary
-Info: byte-compliation of Python modules
+Info: byte-compilation of Python modules
 Needs-Info: index, bin-pkg-control
 
 Tag: python-module-not-byte-compiled
