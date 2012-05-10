@@ -231,7 +231,7 @@ unless (-l $postinst or not -f $postinst) {
             if (@paths) {
                 # private modules
                 for my $path (@paths) {
-                    $path =~ s,^/+|/+$,,;
+                    $path =~ s,^/+|/+$,,g;
                     my $regex = qr{^\Q$path\E/};
                     &$update_version_map($regex, $default_versions);
                 }
