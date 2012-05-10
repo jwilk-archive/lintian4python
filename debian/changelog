@@ -1,4 +1,4 @@
-lintian4python (0.1) UNRELEASED; urgency=low
+lintian4python (0.1) experimental; urgency=low
 
   * Summary of tag changes
     + Added:
@@ -26,7 +26,7 @@ lintian4python (0.1) UNRELEASED; urgency=low
   * data/output:
     + Make it a symlink to /usr/share/lintian/data/output.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 18:38:01 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 19:18:04 +0200
 
 lintian4python (0+20120504) experimental; urgency=low
 
