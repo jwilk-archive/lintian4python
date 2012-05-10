@@ -97,6 +97,9 @@ while (my ($helper, $requirement) = each %helper_depends) {
     if ($depends->implies($requirement)) {
         $installed_helpers{$helper} = 1;
     }
+    if ($requirement =~ s/\(.*?\)//g and $depends->implies($requirement)) {
+        $installed_helpers{"$helper/V"} = 1;
+    }
 }
 
 my $update_version_map = sub {
@@ -240,8 +243,11 @@ unless (-l $postinst or not -f $postinst) {
         }
         if ((defined $helper) and (not exists $installed_helpers{$helper})) {
             my $depends = $helper_depends{$helper};
-            $helper =~ s,/.*,,;
-            tag 'missing-dependency-on-byte-compilation-helper', "$helper => $depends";
+            my $tag = 'missing-dependency-on-byte-compilation-helper';
+            if (exists $installed_helpers{"$helper/V"}) {
+                $tag =  'insufficient-dependency-on-byte-compilation-helper';
+            }
+            tag $tag, "$helper => $depends";
         }
     }
     close($fp);
