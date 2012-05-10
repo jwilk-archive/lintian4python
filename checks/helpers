@@ -42,13 +42,43 @@ sub run {
 
 }
 
+sub is_meta_pkg {
+    # FIXME: this duplicates checks/files logic
+    my ($info, $binpkg) = @_;
+    my $description = $info->binary_field($binpkg, 'description') // '';
+    for my $regex (@METAPKG_REGEX) {
+        if ($description =~ /$regex/) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+sub is_doc_pkg {
+    my ($info, $binpkg) = @_;
+    return ($info->binary_field($binpkg, 'section') // '') eq 'doc';
+}
+
+sub is_dev_pkg {
+    my ($info, $binpkg) = @_;
+    return $binpkg =~ m/-(dbg|dev)$/;
+}
+
+sub is_boring_pkg {
+    my ($info, $binpkg) = @_;
+    return
+        is_doc_pkg($info, $binpkg) or
+        is_dev_pkg($info, $binpkg) or
+        is_meta_pkg($info, $binpkg);
+}
+
 sub run_source {
 
     my ($pkg, $type, $info) = @_;
 
     return if $pkg =~ m/^python(?:\d\.\d)?$/;
     return if $pkg =~ m/^python\d?-(?:stdlib-extensions|profiler|old-doctools)$/;
-    return if $pkg =~ m/^python-defaults$/;
+    return if $pkg =~ m/^python3?-defaults$/;
     return if $pkg =~ m/^python-(?:central|support)$/;
 
     my %python_depends = ();
@@ -61,28 +91,26 @@ sub run_source {
     for my $binpkg (keys %$binpkgs) {
         if ($info->binary_relation($binpkg, 'all')->implies('${python:Depends}')) {
             $python_depends{$binpkg} = 1;
+            if ($binpkg =~ m/^python3-/) {
+                tag 'python3-module-but-python-depends', $binpkg;
+            }
         } else {
-            if ($binpkg =~ /^python-/) {
-                my $description = $info->binary_field($binpkg, 'description') // '';
-                my $metapkg = 0;
-                my $docpkg = 0;
-                for my $regex (@METAPKG_REGEX) {
-                    # FIXME: this duplicates checks/files logic
-                    if ($description =~ /$regex/) {
-                        $metapkg = 1;
-                        last;
-                    }
-                }
-                if (($info->binary_field($binpkg, 'section') // '') eq 'doc') {
-                    $docpkg = 1;
-                }
+            if ($binpkg =~ /^python-/ and not is_boring_pkg($info, $binpkg)) {
                 tag 'python-module-but-no-python-depends', $binpkg
-                    unless $binpkg =~ /-(dbg|dev)$/ or $metapkg or $docpkg;
             }
             for my $helper (qw(python-support python-central)) {
                 if ($info->binary_relation($binpkg, 'all')->implies($helper)) {
                     tag 'hardcoded-dependency-on-python-helper', $helper;
                 }
+            }
+        }
+        if ($info->binary_relation($binpkg, 'all')->implies('${python3:Depends}')) {
+            if ($binpkg =~ m/^python-/) {
+                tag 'python-module-but-python3-depends', $binpkg;
+            }
+        } else {
+            if ($binpkg =~ /^python3-/ and not is_boring_pkg($info, $binpkg)) {
+                tag 'python3-module-but-no-python3-depends', $binpkg
             }
         }
         for my $python (qw(python python3)) {

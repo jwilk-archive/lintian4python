@@ -6,7 +6,10 @@ lintian4python (0.1) UNRELEASED; urgency=low
       - missing-dependency-on-byte-compilation-helper
       - pycentral-pkginstall-for-foreign-package
       - pycompile-for-foreign-package
+      - python-depends-in-python3-package
       - python-module-not-byte-compiled
+      - python3-depends-in-python-package
+      - python3-module-but-no-python3-depends
   * checks/*.desc:
     + Shorten check descriptions.
   * checks/bytecompilation:
@@ -16,8 +19,11 @@ lintian4python (0.1) UNRELEASED; urgency=low
       helper.
   * checks/helpers:
     + Extend python-provides-considered-harmful to ${python3:Provides}.
+    + Check for ${python:Depends} in python3-* packages and ${python:Depends}
+      in python-* packages.
+    + Check for missing ${python3:Depends} in python3-* packages.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 17:48:46 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 18:14:38 +0200
 
 lintian4python (0+20120504) experimental; urgency=low
 
