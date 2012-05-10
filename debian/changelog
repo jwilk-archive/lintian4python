@@ -22,8 +22,11 @@ lintian4python (0.1) UNRELEASED; urgency=low
     + Check for ${python:Depends} in python3-* packages and ${python:Depends}
       in python-* packages.
     + Check for missing ${python3:Depends} in python3-* packages.
+    + Correct descriptions of some tags.
+  * data/output:
+    + Make it a symlink to /usr/share/lintian/data/output.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 18:14:38 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 18:38:01 +0200
 
 lintian4python (0+20120504) experimental; urgency=low
 
