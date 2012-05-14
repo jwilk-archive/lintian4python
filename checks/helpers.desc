@@ -50,7 +50,7 @@ Ref: python-policy 2.3
 Tag: xb-python-version-is-deprecated
 Severity: normal
 Certainty: certain
-Info: "XB-Python-Version: current" is deprecated.  (But it's still needed if
+Info: "XB-Python-Version" is deprecated.  (But it's still needed if
  you use python-central.)
 Ref: python-policy 2.3
 

@@ -2,8 +2,10 @@ lintian4python (0.1.1) UNRELEASED; urgency=low
 
   * data/python/projects*:
     + Refresh.
+  * checks/helpers:
+    + Fix description of xb-python-version-is-deprecated.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 14 May 2012 14:32:33 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 14 May 2012 17:27:09 +0200
 
 lintian4python (0.1) experimental; urgency=low
 
