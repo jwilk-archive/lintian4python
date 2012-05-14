@@ -3,7 +3,7 @@ lintian4python (0.1.1) UNRELEASED; urgency=low
   * data/python/projects*:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 10 May 2012 19:26:51 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 14 May 2012 14:32:33 +0200
 
 lintian4python (0.1) experimental; urgency=low
 
