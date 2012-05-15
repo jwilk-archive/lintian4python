@@ -35,12 +35,16 @@ for my $file (sort keys %{$info->scripts}) {
     next if $index->{$file}->{link};
     my $interpreter = $info->scripts->{$file}->{interpreter};
     my ($base) = $interpreter =~ m,([^/]*)$,;
-    if ($base =~ /^python(?:2[.][0-9]+)?$/) {
+    if ($base =~ m/^python(?:([23])(?:\.[0-9]+)?)?$/) {
+        my $py3k = (defined($1) and $1 eq '3');
         my $path = $info->unpacked($file);
         open(my $fh, '<', $path) or fail("could not open script $path");
         while (<$fh>) {
             if (m,^from\s+pkg_resources\s+import(\s+|$),) {
                 my $demand = 'pkg_resources;python-pkg-resources;python-setuptools';
+                if ($py3k) {
+                    $demand =~ s/python-/python3-/g;
+                }
                 $needed{$demand} //= {};
                 $needed{$demand}->{$file} = 1;
            }

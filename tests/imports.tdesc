@@ -6,3 +6,15 @@ Test-Against:
 Info:
  lintian4python would emit missing-dependency-for-import pkg_resources ... even
  though the package depends on python-setuptools.
+
+Name: missing-dependency-for-import/python-pkg-resources
+Files:
+ 0da1b2f51b00e32f0bba9ca1de941d262d6f2ba1  python-html2text_3.200.3-1_all.deb
+Test-For:
+ e: python-html2text: missing-dependency-for-import pkg_resources (usr/bin/html2markdown.py2) => python-pkg-resources
+
+Name: missing-dependency-for-import/python3-pkg-resources
+Files:
+ 22e4c98018014db38f3b230f0f1b1ae76a0ca725  python3-html2text_3.200.3-1_all.deb
+Test-For:
+ e: python3-html2text: missing-dependency-for-import pkg_resources (usr/bin/html2markdown.py3) => python3-pkg-resources

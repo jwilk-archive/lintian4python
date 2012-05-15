@@ -18,13 +18,14 @@ lintian4python (0.2) UNRELEASED; urgency=low
     + Fix false-positive missing-dependency-for-import when a package uses
       pkg_resources and depends on python-setuptools (but not
       directly on python-pkg-resources).
+    + Check also Python 3 code.
   * checks/pyflakes:
     + Downgrade severity of pyflakes-undefined-export to normal (from
       important).
   * tests:
     + Add a test suite.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 23:16:24 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 23:42:42 +0200
 
 lintian4python (0.1) experimental; urgency=low
 
