@@ -30,7 +30,7 @@ Severity: minor
 Certainty: possible
 
 Tag: pyflakes-undefined-export
-Severity: important
+Severity: normal
 Certainty: possible
 
 Tag: pyflakes-undefined-local
