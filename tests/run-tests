@@ -42,8 +42,8 @@ def tag_from_lintian_line(line):
 
 def sha1file(path):
     sha1 = hashlib.sha1()
-    with open(path,'rb') as file:
-        for chunk in iter(lambda: file.read(1 << 16), ''):
+    with open(path, 'rb') as file:
+        for chunk in iter(lambda: file.read(1 << 16), b''):
             sha1.update(chunk)
     return sha1.hexdigest()
 
