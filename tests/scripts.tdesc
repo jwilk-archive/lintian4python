@@ -1,0 +1,13 @@
+Name: versioned-python-shebang
+Files: b3b67527ef0a418d40d162620ca12af3a7539f84  snimpy_0.6.3-1_i386.deb
+Test-For:
+ i: snimpy: versioned-python-shebang usr/bin/snimpy /usr/bin/python2.7
+
+Name: versioned-python-shebang/in-versioned-package
+Files:
+ 7756353c1acbe274871d7a2b64486999d8b2524e  python2.7-examples_2.7.3~rc2-2.1_all.deb
+Test-Against:
+ i: python2.7-examples: versioned-python-shebang usr/share/doc/python2.7/examples/... /usr/bin/python2.7
+Info:
+ lintian4python 0.1 incorrectly emits:
+  i: pythonX.Y-...: versioned-python-shebang ... /usr/bin/pythonX.Y
