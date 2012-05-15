@@ -175,7 +175,7 @@ class TestSuite(unittest.TestSuite):
                     yield self.read_test(para)
 
     def read_test(self, para):
-        name = para.get('test')
+        name = para.get('name')
         try:
             files = para['files'].splitlines()
         except KeyError:

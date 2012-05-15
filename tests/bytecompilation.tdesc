@@ -1,4 +1,4 @@
-Test: missing-dependency-on-byte-compilation-helper/modern
+Name: missing-dependency-on-byte-compilation-helper/modern
 Files:
  gettext-lint_0.4-2_all.deb 652c79092c64756d2135982bb36d4ebcb3da2246
 Test-For:
