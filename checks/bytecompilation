@@ -247,6 +247,7 @@ unless (-l $postinst or not -f $postinst) {
             if (exists $installed_helpers{"$helper/V"}) {
                 $tag =  'insufficient-dependency-on-byte-compilation-helper';
             }
+            $helper =~ s,/.*,,;
             tag $tag, "$helper => $depends";
         }
     }
