@@ -52,7 +52,7 @@ sub parse_update_python_modules {
         'b|bytecompile' => \$ignore,
         'i|install' => \$ignore,
         'c|clean' => \$error,
-        'p|post-install' => \$error,
+        'p|post-install' => \$ignore,
         'a|rebuild-all' => \$ignore,
         'f|force-rebuild-all' => \$ignore,
     );

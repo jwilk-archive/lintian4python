@@ -15,3 +15,12 @@ Test-Against:
 Info:
  lintian4python 0.1 incorrectly suggests that python-support should have a
  self-dependency.
+
+Name: python-module-not-byte-compiled/post-install
+Files:
+ 810d860b7ec68ad2219e1baf151d64377c316a01  python-support_1.0.14_all.deb
+Test-Against:
+ e: python-support: python-module-not-byte-compiled usr/share/python-support/private/pysupport.py
+Info:
+ lintian4python 0.1 incorrectly assumes that update-python-modules with
+ -p/--post-install is not sufficient for byte-compilation.
