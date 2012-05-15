@@ -22,7 +22,7 @@ lintian4python (0.2) UNRELEASED; urgency=low
   * checks/pyflakes:
     + Downgrade severity of pyflakes-undefined-export to normal (from
       important).
-  * check/scripts:
+  * checks/scripts:
     + Fix false-positive versioned-python-shebang for pythonX.Y-* packages.
   * tests:
     + Add a test suite.
