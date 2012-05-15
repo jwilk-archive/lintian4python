@@ -114,8 +114,7 @@ class TestCase(unittest.TestCase):
         stdout, stderr = (s.decode('ASCII').splitlines() for s in lintian.communicate())
         self.assertEqual(stderr, [])
         stdout.sort()
-        if self.test_for:
-            self.assertEqual(stdout, self.test_for)
+        self.assertEqual(stdout, self.test_for)
 
     def __repr__(self):
         return '{cls}(parent={self.parent!r}, files={self.files!r}, test_for={self.test_for!r}, test_against={self.test_against!r})'.format(
