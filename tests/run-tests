@@ -1,0 +1,211 @@
+#!/usr/bin/python3
+# encoding=UTF-8
+
+# Copyright © 2012 Jakub Wilk
+#
+# This program is free software.  It is distributed under the terms of the GNU
+# General Public License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program.  If not, you can find it on the World Wide Web at
+# http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+import errno
+import glob
+import hashlib
+import itertools
+import os
+import re
+import subprocess as ipc
+import unittest
+
+import apt
+import apt_pkg
+
+class MalformedTestDescription(RuntimeError):
+    pass
+
+_lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9+-]+): (?P<tag>[a-zA-Z0-9_-]+)( (?P<extra>.+))?$')
+
+def tag_from_lintian_line(line):
+    match = _lintian_line_re.match(line)
+    if match is None:
+        raise ValueError('cannot parse lintian line: {line!r}'.format(line=line))
+    return match.group('tag')
+
+def sha1file(path):
+    sha1 = hashlib.sha1()
+    with open(path,'rb') as file:
+        for chunk in iter(lambda: file.read(1 << 16), ''):
+            sha1.update(chunk)
+    return sha1.hexdigest()
+
+class FileItem(object):
+
+    def __init__(self, filename, sha1):
+        self.filename = filename
+        self.sha1 = sha1
+
+    def download(self, fetcher, directory):
+        uri = 'http://snapshot.debian.org/file/{sha1}'.format(sha1=self.sha1)
+        dest_filename = os.path.join(directory, self.filename)
+        if os.path.exists(dest_filename):
+            return
+        tmp_filename = dest_filename + '.tmp'
+        yield apt_pkg.AcquireFile(
+            fetcher,
+            uri=uri,
+            descr=self.filename,
+            destfile=tmp_filename
+        )
+        if sha1file(tmp_filename) != self.sha1:
+            raise RuntimeError
+        os.rename(tmp_filename, dest_filename)
+
+    def __repr__(self):
+        return '{cls}(filename={self.filename!r}, sha1={self.sha1!r})'.format(
+            cls=type(self).__name__,
+            self=self,
+        )
+
+class TestCase(unittest.TestCase):
+
+    def __init__(self, parent, files, test_for=(), test_against=(), name=None):
+        unittest.TestCase.__init__(self, 'test')
+        assert test_for or test_against
+        self.parent = parent
+        self.files = list(files)
+        self.test_for = list(test_for)
+        self.test_for.sort()
+        self.test_against = list(test_against)
+        self.test_against.sort()
+        self.name = name
+
+    def get_affected_tags(self):
+        for line in itertools.chain(self.test_for, self.test_against):
+            yield tag_from_lintian_line(line)
+
+    def download(self, fetcher):
+        for file in self.files:
+            coroutine = file.download(
+                fetcher=fetcher,
+                directory=self.parent.cache_directory
+            )
+            yield (next(coroutine), coroutine)
+
+    def test(self):
+        tags = ','.join(self.get_affected_tags())
+        main_file = os.path.join(
+            self.parent.cache_directory,
+            self.files[0].filename
+        )
+        commandline = ['lintian4py', '--tags', tags, main_file]
+        lintian = ipc.Popen(commandline,
+            stdout=ipc.PIPE,
+            stderr=ipc.PIPE
+        )
+        stdout, stderr = (s.decode('ASCII').splitlines() for s in lintian.communicate())
+        self.assertEqual(stderr, [])
+        stdout.sort()
+        if self.test_for:
+            self.assertEqual(stdout, self.test_for)
+
+    def __repr__(self):
+        return '{cls}(parent={self.parent!r}, files={self.files!r}, test_for={self.test_for!r}, test_against={self.test_against!r})'.format(
+            cls=type(self).__name__,
+            self=self,
+        )
+
+    def __str__(self):
+        if self.name is not None:
+            return self.name
+        result = []
+        result += ('+ {0!r}'.format(x) for x in self.test_for)
+        result += ('- {0!r}'.format(x) for x in self.test_against)
+        return ', '.join(result)
+
+class TestSuite(unittest.TestSuite):
+
+    def __init__(self, directory=None):
+        unittest.TestSuite.__init__(self)
+        if directory is None:
+            directory = os.path.dirname(__file__)
+        self.directory = directory
+        self.cache_directory = os.path.join(directory, 'cache')
+        try:
+            os.mkdir(self.cache_directory)
+        except OSError as ex:
+            if ex.errno != errno.EEXIST:
+                raise
+        self.addTests(self.read_tests())
+
+    def download(self):
+        progress = apt.progress.text.AcquireProgress()
+        fetcher = apt_pkg.Acquire(progress)
+        items = list(itertools.chain(
+            *(test.download(fetcher) for test in self)
+        ))
+        rc = fetcher.run()
+        if rc != fetcher.RESULT_CONTINUE:
+            raise RuntimeError('fetching files failed')
+        for item, coroutine in items:
+            try:
+                next(coroutine)
+            except StopIteration:
+                pass
+            else:
+                raise RuntimeError
+
+    def run(self, result):
+        self.download()
+        unittest.TestSuite.run(self, result)
+
+    def read_tests(self):
+        tdesc_filenames = glob.glob(os.path.join(self.directory, '*.tdesc'))
+        for tdesc_filename in tdesc_filenames:
+            with open(tdesc_filename) as tdesc_file:
+                for para in apt_pkg.TagFile(tdesc_file):
+                    yield self.read_test(para)
+
+    def read_test(self, para):
+        name = para.get('test')
+        try:
+            files = para['files'].splitlines()
+        except KeyError:
+            raise MalformedTestDescription('missing Files field')
+        files = list(FileItem(*f.split(None, 1)) for f in files)
+        test_for = para.get('test-for', '').splitlines()
+        test_against = para.get('test-against', '').splitlines()
+        if test_for and test_against:
+            raise MalformedTestDescription('missing Test-For or Test-Against field')
+        return TestCase(self,
+            files=files,
+            test_for=test_for,
+            test_against=test_against,
+            name=name
+        )
+
+def setup_apt():
+    apt_pkg.init()
+    # APT might not be happy with our use of snapshot.debian.org:
+    for key in [key for key in apt_pkg.config.keys() if key.startswith('Acquire::http::')]:
+        apt_pkg.config[key] = ''
+
+def main():
+    setup_apt()
+    unittest.TestProgram(defaultTest='TestSuite')
+
+if __name__ == '__main__':
+    main()
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
+# vim: syntax=python sw=4 sts=4 sr et
