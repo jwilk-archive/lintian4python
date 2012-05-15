@@ -5,6 +5,8 @@ lintian4python (0.2) UNRELEASED; urgency=low
   * checks/bytecompilation:
     + Fix incorrect extra information for missing dependency on python-support
       (update-python-modules).
+    + Fix false-positive missing-dependency-on-byte-compilation-helper,
+      implying that python-support should depend on itself.
   * checks/helpers:
     + Fix description of xb-python-version-is-deprecated.
   * checks/pyflakes:
@@ -13,7 +15,7 @@ lintian4python (0.2) UNRELEASED; urgency=low
   * tests:
     + Add a test suite.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 12:41:09 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 13:17:44 +0200
 
 lintian4python (0.1) experimental; urgency=low
 

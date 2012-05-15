@@ -25,6 +25,7 @@ use warnings;
 
 use Getopt::Long qw();
 
+use Lintian::Relation qw();
 use Lintian::Tags qw(tag);
 use Util;
 
@@ -92,9 +93,11 @@ my $index = $info->index;
 my %version_map;
 
 my $depends = $info->relation('strong');
+my $version = $info->field('version');
+my $self_relation = Lintian::Relation->new("$package (= $version)");
 my %installed_helpers = ();
 while (my ($helper, $requirement) = each %helper_depends) {
-    if ($depends->implies($requirement)) {
+    if ($depends->implies($requirement) or $self_relation->implies($requirement)) {
         $installed_helpers{$helper} = 1;
     }
     if ($requirement =~ s/\(.*?\)//g and $depends->implies($requirement)) {

@@ -6,3 +6,12 @@ Test-For:
 Info:
  lintian4python 0.1 incorrectly emits:
   ... missing-dependency-on-byte-compilation-helper update-python-modules/modern => ...
+
+Name: missing-dependency-on-byte-compilation-helper/self-dependency
+Files:
+ 810d860b7ec68ad2219e1baf151d64377c316a01  python-support_1.0.14_all.deb
+Test-Against:
+ e: python-support: missing-dependency-on-byte-compilation-helper update-python-modules => python-support
+Info:
+ lintian4python 0.1 incorrectly suggests that python-support should have a
+ self-dependency.
