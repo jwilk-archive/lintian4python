@@ -9,6 +9,9 @@ lintian4python (0.2) UNRELEASED; urgency=low
       implying that python-support should depend on itself.
     + Fix false-positive python-module-not-byte-compiled when a package was
       using update-python-modules with -p/--post-install.
+  * checks/egg-info:
+    + Strip +nmuN suffix when comparing upstream version with egg-info
+      version.
   * checks/helpers:
     + Fix description of xb-python-version-is-deprecated.
   * checks/imports:
@@ -21,7 +24,7 @@ lintian4python (0.2) UNRELEASED; urgency=low
   * tests:
     + Add a test suite.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 13:44:29 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 23:16:24 +0200
 
 lintian4python (0.1) experimental; urgency=low
 

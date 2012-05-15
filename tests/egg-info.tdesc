@@ -1,0 +1,7 @@
+Name: egg-info-version-mismatch/nmu-suffix
+Files:
+ 61d75c0388e0606146010be21376720f1a93b14d  pygopherd_2.0.18.3+nmu2_all.deb
+Test-For:
+ w: pygopherd: egg-info-version-mismatch 2.0.18 2.0.18.3
+Info:
+ lintian4python 0.1 doesn't strip the +nmuN suffix.

@@ -114,6 +114,7 @@ if (scalar keys %egg_versions == 1 and defined $version) {
     my $upstream_version = $version;
     $upstream_version =~ s/-[^-]+$//; # strip Debian revision
     $upstream_version =~ s/^\d+://; # strip epoch
+    $upstream_version =~ s/[+]nmu\d+$//; # strip +nmuN suffix
     $upstream_version =~ s/[[:punct:]]+dfsg.*//; # strip DFSG suffix
     my $version_re = egg_version_to_regex($egg_version);
     if (not $upstream_version =~ $version_re) {
