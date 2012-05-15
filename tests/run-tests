@@ -179,7 +179,10 @@ class TestSuite(unittest.TestSuite):
             files = para['files'].splitlines()
         except KeyError:
             raise MalformedTestDescription('missing Files field')
-        files = list(FileItem(*f.split(None, 1)) for f in files)
+        files = list(
+            FileItem(*reversed(f.split(None, 1)))
+            for f in files
+        )
         test_for = para.get('test-for', '').splitlines()
         test_against = para.get('test-against', '').splitlines()
         if test_for and test_against:
