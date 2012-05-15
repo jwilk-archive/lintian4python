@@ -1,6 +1,6 @@
 # python-egg-info -- lintian check script -*- perl -*-
 #
-# Copyright © 2011 Jakub Wilk
+# Copyright © 2011, 2012 Jakub Wilk
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -40,8 +40,9 @@ for my $file (sort keys %{$info->scripts}) {
         open(my $fh, '<', $path) or fail("could not open script $path");
         while (<$fh>) {
             if (m,^from\s+pkg_resources\s+import(\s+|$),) {
-                $needed{'pkg_resources python-pkg-resources'} //= {};
-                $needed{'pkg_resources python-pkg-resources'}->{$file} = 1;
+                my $demand = 'pkg_resources;python-pkg-resources;python-setuptools';
+                $needed{$demand} //= {};
+                $needed{$demand}->{$file} = 1;
            }
         }
         close($fh);
@@ -49,13 +50,13 @@ for my $file (sort keys %{$info->scripts}) {
 }
 
 while (my ($depends, $scripts) = each %needed) {
-    (my $module, $depends) = split ' ', $depends;
-    unless ($info->relation('strong')->implies($depends)) {
-        tag 'missing-dependency-for-import',
-            $module,
-            '(' . join(' ', keys %$scripts) . ')',
-            '=>',  $depends;
-    }
+    (my $module, $depends, my $extra_depends) = split(';', $depends, 3);
+    next if $info->relation('strong')->implies($depends);
+    next if defined $extra_depends and $info->relation('strong')->implies($extra_depends);
+    tag 'missing-dependency-for-import',
+        $module,
+        '(' . join(' ', keys %$scripts) . ')',
+        '=>',  $depends;
 }
 
 }

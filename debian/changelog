@@ -11,13 +11,17 @@ lintian4python (0.2) UNRELEASED; urgency=low
       using update-python-modules with -p/--post-install.
   * checks/helpers:
     + Fix description of xb-python-version-is-deprecated.
+  * checks/imports:
+    + Fix false-positive missing-dependency-for-import when a package uses
+      pkg_resources and depends on python-setuptools (but not
+      directly on python-pkg-resources).
   * checks/pyflakes:
     + Downgrade severity of pyflakes-undefined-export to normal (from
       important).
   * tests:
     + Add a test suite.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 13:26:34 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 15 May 2012 13:44:29 +0200
 
 lintian4python (0.1) experimental; urgency=low
 
