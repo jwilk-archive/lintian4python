@@ -24,6 +24,7 @@ use strict;
 use warnings;
 
 use Lintian::Tags qw(tag);
+use Lintian::Util qw(slurp_entire_file);
 
 my $py_extension = qr{
 ^ (?:
@@ -54,7 +55,7 @@ my @linked_with_libpython = ();
 for my $file (@{$info->sorted_index}) {
     next if $index->{$file}->{link};
     if (my @pyversion = ($file =~ $py_extension)) {
-        my $string = $info->strings($file);
+        my $string = slurp_entire_file($info->strings($file));
         if ($string =~ m,does not appear to be the correct type object,) {
             tag 'extension-uses-old-pyrex-import-type', $file;
         }
