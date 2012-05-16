@@ -30,12 +30,14 @@ lintian4python (0.2) UNRELEASED; urgency=low
     + Update lintian dependency (2.5.7).
   * debian/rules:
     + Install vendors/ instead of data/.
+  * debian/*.lintian-overrides:
+    + Update.
   * tests:
     + Add a test suite.
   * vendors/:
     + New directory, replacing data/.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 16 May 2012 07:43:52 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 16 May 2012 07:54:47 +0200
 
 lintian4python (0.1) experimental; urgency=low
 
