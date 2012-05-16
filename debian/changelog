@@ -2,6 +2,8 @@ lintian4python (0.2) UNRELEASED; urgency=low
 
   * data/python/projects*:
     + Refresh.
+  * checks/*:
+    + Port to lintian 2.5.7 API.
   * checks/bytecompilation:
     + Fix incorrect extra information for missing dependency on python-support
       (update-python-modules).
@@ -24,10 +26,16 @@ lintian4python (0.2) UNRELEASED; urgency=low
       important).
   * checks/scripts:
     + Fix false-positive versioned-python-shebang for pythonX.Y-* packages.
+  * debian/control:
+    + Update lintian dependency (2.5.7).
+  * debian/rules:
+    + Install vendors/ instead of data/.
   * tests:
     + Add a test suite.
+  * vendors/:
+    + New directory, replacing data/.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 16 May 2012 01:06:55 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 16 May 2012 07:43:52 +0200
 
 lintian4python (0.1) experimental; urgency=low
 

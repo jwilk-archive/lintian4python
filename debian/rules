@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-directories = checks collection data helpers lib profiles
+directories = checks collection helpers lib profiles vendors
 share = /usr/share/lintian4python/
 
 .PHONY: clean

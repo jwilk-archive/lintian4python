@@ -24,7 +24,7 @@ use strict;
 use warnings;
 
 use Lintian::Tags qw(tag);
-use Util;
+use Lintian::Util qw(fail);
 
 # FIXME: copied from checks/files
 my @METAPKG_REGEX =

@@ -26,7 +26,7 @@ use warnings;
 use Lintian::Data;
 use Lintian::Tags qw(tag);
 use Lintian::Relation ();
-use Util;
+use Lintian::Util qw(fail);
 
 my @PROJECTS = map { Lintian::Data->new("python/projects$_", '\|\|') } ('', '-py3k');
 

@@ -27,7 +27,7 @@ use Getopt::Long qw();
 
 use Lintian::Relation qw();
 use Lintian::Tags qw(tag);
-use Util;
+use Lintian::Util qw(fail);
 
 my $package_name_re = qr/[a-z0-9][a-z0-9.+-]+/;
 
