@@ -106,7 +106,7 @@ class TestCase(unittest.TestCase):
             self.parent.cache_directory,
             self.files[0].filename
         )
-        commandline = ['lintian4py', '--tags', tags, main_file]
+        commandline = ['lintian4py', '--no-cfg', '--tags', tags, main_file]
         lintian = ipc.Popen(commandline,
             stdout=ipc.PIPE,
             stderr=ipc.PIPE
