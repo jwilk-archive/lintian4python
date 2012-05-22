@@ -27,7 +27,7 @@ lintian4python (0.2) UNRELEASED; urgency=low
   * checks/scripts:
     + Fix false-positive versioned-python-shebang for pythonX.Y-* packages.
   * debian/control:
-    + Update lintian dependency (2.5.7).
+    + Update lintian dependency (2.5.7, 2.5.8).
   * debian/rules:
     + Install vendors/ instead of data/.
   * debian/*.lintian-overrides:

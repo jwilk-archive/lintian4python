@@ -10,7 +10,7 @@ Vcs-Browser: https://bitbucket.org/jwilk/lintian4python
 Package: lintian4python
 Architecture: all
 Depends: ${misc:Depends},
- lintian (>= 2.5.7~), lintian (<< 2.5.7+),
+ lintian (>= 2.5.7~), lintian (<< 2.5.8+),
  libmonkey-patch-perl,
  python, pyflakes (>= 0.5.0), pyflakes (<< 0.5.0+)
 Description: Debian package checker (for Python packages)
