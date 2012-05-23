@@ -200,8 +200,16 @@ def setup_apt():
     for key in [key for key in apt_pkg.config.keys() if key.startswith('Acquire::http::')]:
         apt_pkg.config[key] = ''
 
+def setup_environment():
+    os.environ['LINTIAN_INTERNAL_TESTSUITE'] = '1'
+    try:
+        del os.environ['LINTIAN_PROFILE']
+    except LookupError:
+        pass
+
 def main():
     setup_apt()
+    setup_environment()
     unittest.TestProgram(defaultTest='TestSuite')
 
 if __name__ == '__main__':
