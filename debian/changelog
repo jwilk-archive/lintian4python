@@ -1,11 +1,13 @@
 lintian4python (0.2.1) UNRELEASED; urgency=low
 
+  * data/python/projects*:
+    + Refresh.
   * tests/run-tests:
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
     + Unset LINTIAN_PROFILE.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 23 May 2012 14:16:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 25 May 2012 13:00:45 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
