@@ -42,8 +42,10 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Unset LINTIAN_PROFILE.
     + Allow running only a subset of tests.
     + Allow tests that trigger more than one tag.
+    + Avoid “Fetched 0 B in 0s (0 B/s)” messages when there's nothing to
+      download.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:52:44 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:57:52 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

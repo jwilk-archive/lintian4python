@@ -155,6 +155,8 @@ class TestSuite(unittest.TestSuite):
         items = list(itertools.chain(
             *(test.download(fetcher) for test in self)
         ))
+        if not items:
+            return
         rc = fetcher.run()
         if rc != fetcher.RESULT_CONTINUE:
             raise RuntimeError('fetching files failed')
