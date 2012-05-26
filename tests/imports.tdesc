@@ -4,8 +4,9 @@ Files:
 Test-Against:
  e: flashbake: missing-dependency-for-import pkg_resources (usr/bin/flashbakeall usr/bin/flashbake) => python-pkg-resources
 Info:
- lintian4python would emit missing-dependency-for-import pkg_resources ... even
- though the package depends on python-setuptools.
+ Fixed in lintian4python 0.2.  Pior versions emitted
+  e: ...: missing-dependency-for-import pkg_resources ...
+ even though the package depended on python-setuptools.
 
 Name: missing-dependency-for-import/python-pkg-resources
 Files:

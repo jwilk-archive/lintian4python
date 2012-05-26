@@ -4,8 +4,8 @@ Files:
 Test-For:
  e: gettext-lint: missing-dependency-on-byte-compilation-helper update-python-modules => python-support (>= 0.90)
 Info:
- lintian4python 0.1 incorrectly emits:
-  ... missing-dependency-on-byte-compilation-helper update-python-modules/modern => ...
+ Fixed in lintian4python 0.2.  Prior versions incorrectly emitted:
+  e: ...: missing-dependency-on-byte-compilation-helper update-python-modules/modern => ...
 
 Name: missing-dependency-on-byte-compilation-helper/self-dependency
 Files:
@@ -13,8 +13,8 @@ Files:
 Test-Against:
  e: python-support: missing-dependency-on-byte-compilation-helper update-python-modules => python-support
 Info:
- lintian4python 0.1 incorrectly suggests that python-support should have a
- self-dependency.
+ Fixed in lintian4python 0.2.  Pior versions incorrectly suggested that
+ python-support should have a self-dependency.
 
 Name: python-module-not-byte-compiled/post-install
 Files:
@@ -22,5 +22,6 @@ Files:
 Test-Against:
  e: python-support: python-module-not-byte-compiled usr/share/python-support/private/pysupport.py
 Info:
- lintian4python 0.1 incorrectly assumes that update-python-modules with
- -p/--post-install is not sufficient for byte-compilation.
+ Fixed in lintian4python 0.2.  Prior versions incorrectly assumed that
+ update-python-modules with -p/--post-install is not sufficient for
+ byte-compilation.

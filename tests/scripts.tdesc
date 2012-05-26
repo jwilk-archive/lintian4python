@@ -9,5 +9,5 @@ Files:
 Test-Against:
  i: python2.7-examples: versioned-python-shebang usr/share/doc/python2.7/examples/... /usr/bin/python2.7
 Info:
- lintian4python 0.1 incorrectly emits:
+ Fixed in lintian4python 0.2.  Pior versions incorrectly emitted:
   i: pythonX.Y-...: versioned-python-shebang ... /usr/bin/pythonX.Y

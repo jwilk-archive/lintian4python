@@ -31,6 +31,9 @@ lintian4python (0.3) UNRELEASED; urgency=low
   * private/refresh-pyflakes-tags:
     + Don't add syntax-error.
 
+  * tests/*.desc:
+    + For cases that test bug-fixes, add information about when was the bug
+      fixed.
   * tests/code-analysis.tdesc:
     + New tests.
   * tests/run-tests:
@@ -40,7 +43,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Allow running only a subset of tests.
     + Allow tests that trigger more than one tag.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:44:56 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:52:44 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
