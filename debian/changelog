@@ -10,8 +10,10 @@ lintian4python (0.2.1) UNRELEASED; urgency=low
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
     + Unset LINTIAN_PROFILE.
+  * tests/pyflakes.tdesc:
+    + Add test for syntax-error.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 17:20:46 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 17:29:34 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

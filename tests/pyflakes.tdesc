@@ -1,0 +1,5 @@
+Name: syntax-error
+Files:
+ 1e7a29406299962ec9cf043c57c291d61b68ffa5 python-pydoctor_0.2-4_all.deb
+Test-For:
+ e: python-pydoctor: syntax-error usr/share/python-support/python-pydoctor/pydoctor/ast_pp.py:116: invalid syntax
