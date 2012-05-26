@@ -48,7 +48,3 @@ Certainty: possible
 Tag: pyflakes-unused-variable
 Severity: pedantic
 Certainty: possible
-
-Tag: syntax-error
-Severity: serious
-Certainty: certain

@@ -1,0 +1,24 @@
+Name: assertion-always-true
+Files:
+ 57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
+Test-For:
+ w: python-clientcookie: assertion-always-true usr/share/pyshared/ClientCookie/_MSIECookieJar.py:261
+
+Name: except-shadows-builtin
+Files:
+ ae76d144eeb4483c3e775adbb7e2e404e65a4a97  python-pebl_1.0.2-2_i386.deb
+Test-For:
+ e: python-pebl: except-shadows-builtin usr/share/pyshared/pebl/network.py:69: ValueError
+
+Name: string-exception
+Files:
+ 3cff5aa6eefba08867fdbce973e283e2b3178173  bittorrent_3.4.2-11.4_all.deb
+Test-For:
+ e: bittorrent: string-exception usr/share/pyshared/BitTorrent/StorageWrapper.py:386
+ e: bittorrent: string-exception usr/share/pyshared/BitTorrent/StorageWrapper.py:395
+
+Name: syntax-error
+Files:
+ 1e7a29406299962ec9cf043c57c291d61b68ffa5  python-pydoctor_0.2-4_all.deb
+Test-For:
+ e: python-pydoctor: syntax-error usr/share/python-support/python-pydoctor/pydoctor/ast_pp.py:116: invalid syntax

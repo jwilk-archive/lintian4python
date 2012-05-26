@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# refresh-pyflakgs-tags -- Refresh Lintian data about pyflakes tags
+# refresh-pyflakgs-tags -- Refresh Lintian data about code-analysis tags
 #
 # Copyright © 2011, 2012 Jakub Wilk
 #
@@ -19,22 +19,33 @@
 # http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import ast
 import os
-import re
 
-import debian.deb822 as deb822
+import deb822
 
-import pyflakes.messages as messages
+def extract_tags(node):
+    for child in ast.iter_child_nodes(node):
+        for t in extract_tags(child):
+            yield t
+    if (
+        isinstance(node, ast.Call) and
+        isinstance(node.func, ast.Name) and
+        node.func.id == 'tag' and
+        node.args and
+        isinstance(node.args[0], ast.Str)
+    ):
+        yield node.args[0].s
 
 def main():
     LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
-    tags = set()
-    for cls in messages.Message.__subclasses__():
-        tag = re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
-        tags.add('pyflakes' + tag)
+    with open('{root}/helpers/code-analysis'.format(root=LINTIAN_ROOT), 'r') as file:
+        contents = file.read()
+        node = ast.parse(contents)
+        tags = set(extract_tags(node))
     old_tags = {}
     first = True
-    with open('{root}/checks/pyflakes.desc'.format(root=LINTIAN_ROOT), 'r') as file:
+    with open('{root}/checks/code-analysis.desc'.format(root=LINTIAN_ROOT), 'r') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -42,7 +53,7 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/pyflakes.desc'.format(root=LINTIAN_ROOT), 'w') as file:
+    with open('{root}/checks/code-analysis.desc'.format(root=LINTIAN_ROOT), 'w') as file:
         file.write(unicode(first_para).encode('UTF-8'))
         for tag in sorted(tags):
             try:

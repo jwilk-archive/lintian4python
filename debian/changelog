@@ -1,21 +1,44 @@
-lintian4python (0.2.1) UNRELEASED; urgency=low
+lintian4python (0.3) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - assertion-always-true
+      - except-shadows-builtin
+      - string-exception
+
+  * checks/code-analysis:
+    + Check for assertions that are always true.
+    + Check for ‘except’ clauses that shadows a built-in exception names.
+    + Check for string exceptions.
+    + Take over syntax-error tag from the pyflakes check.
+  * checks/pyflakes:
+    + Stop emitting syntax-error.
 
   * data/python/projects*:
     + Refresh.
+
+  * helpers/code-analysis:
+    + New helper.
   * helpers/pyflakes:
     + Remove dead code.
     + Set Emacs local variables and vim modelines using the same code snippet
       as in other Python files.
+  
+  * private/refresh-code-analysis-tags:
+    + New script.
+  * private/refresh-pyflakes-tags:
+    + Don't add syntax-error.
+
+  * tests/code-analysis.tdesc:
+    + New tests.
   * tests/run-tests:
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
     + Unset LINTIAN_PROFILE.
     + Allow running only a subset of tests.
     + Allow tests that trigger more than one tag.
-  * tests/pyflakes.tdesc:
-    + Add test for syntax-error.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 19:47:32 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 19:51:50 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

@@ -1,0 +1,145 @@
+#!/usr/bin/python
+# encoding=UTF-8
+
+# Copyright © 2011, 2012 Jakub Wilk
+#
+# This program is free software.  It is distributed under the terms of the GNU
+# General Public License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program.  If not, you can find it on the World Wide Web at
+# http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+import ast
+import re
+import os
+import sys
+
+builtin_exception_types = '''
+ArithmeticError
+AssertionError
+AttributeError
+BaseException
+BlockingIOError
+BrokenPipeError
+BufferError
+BytesWarning
+ChildProcessError
+ConnectionAbortedError
+ConnectionError
+ConnectionRefusedError
+ConnectionResetError
+DeprecationWarning
+EOFError
+EnvironmentError
+Exception
+FileExistsError
+FileNotFoundError
+FloatingPointError
+FutureWarning
+GeneratorExit
+IOError
+ImportError
+ImportWarning
+IndentationError
+IndexError
+InterruptedError
+IsADirectoryError
+KeyError
+KeyboardInterrupt
+LookupError
+MemoryError
+NameError
+NotADirectoryError
+NotImplementedError
+OSError
+OverflowError
+PendingDeprecationWarning
+PermissionError
+ProcessLookupError
+ReferenceError
+ResourceWarning
+RuntimeError
+RuntimeWarning
+StandardError
+StopIteration
+SyntaxError
+SyntaxWarning
+SystemError
+SystemExit
+TabError
+TimeoutError
+TypeError
+UnboundLocalError
+UnicodeDecodeError
+UnicodeEncodeError
+UnicodeError
+UnicodeTranslateError
+UnicodeWarning
+UserWarning
+VMSError
+ValueError
+Warning
+WindowsError
+ZeroDivisionError
+'''.strip().splitlines()
+
+def tag(*s):
+    return s
+
+def check_node(node):
+    if isinstance(node, ast.Raise):
+        try:
+            ex_type = node.type
+        except AttributeError:
+            ex_type = node.exc
+        while isinstance(ex_type, ast.BinOp):
+            ex_type = ex_type.left
+        if isinstance(ex_type, ast.Str):
+            yield tag('string-exception', node.lineno)
+    elif isinstance(node, ast.ExceptHandler):
+        node_name = None
+        if isinstance(node.name, ast.Name):
+            # Python 2
+            node_name = node.name.id
+        elif isinstance(node.name, str):
+            # Python 3
+            node_name = node.name
+        if node_name in builtin_exception_types:
+            yield tag('except-shadows-builtin', node.lineno, node_name)
+        del node_name
+    elif isinstance(node, ast.Assert):
+        if isinstance(node.test, ast.Tuple) and len(node.test.elts) > 0:
+            yield tag('assertion-always-true', node.lineno)
+    for child in ast.iter_child_nodes(node):
+        for t in check_node(child):
+            yield t
+
+def check_file(filename):
+    with open(filename, 'rU') as file:
+        contents = file.read()
+    try:
+        contents = ast.parse(contents)
+    except SyntaxError as exc:
+        return [tag('syntax-error', exc.lineno, exc.msg)]
+    return check_node(contents)
+
+def main(self):
+    for filename in sys.argv[1:]:
+        for t in check_file(filename):
+            print(' '.join(map(str, t)))
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
+# vim: syntax=python sw=4 sts=4 sr et
