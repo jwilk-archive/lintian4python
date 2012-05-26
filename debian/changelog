@@ -44,8 +44,10 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Allow tests that trigger more than one tag.
     + Avoid “Fetched 0 B in 0s (0 B/s)” messages when there's nothing to
       download.
+    + Do not fail with IOError if a file not in cache is referenced by
+      multiple test cases.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:57:52 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 01:00:25 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
