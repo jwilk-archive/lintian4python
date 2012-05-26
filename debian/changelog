@@ -4,12 +4,14 @@ lintian4python (0.2.1) UNRELEASED; urgency=low
     + Refresh.
   * helpers/pyflakes:
     + Remove dead code.
+    + Set Emacs local variables and vim modelines using the same code snippet
+      as in other Python files.
   * tests/run-tests:
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
     + Unset LINTIAN_PROFILE.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 17:04:17 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 17:20:46 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
