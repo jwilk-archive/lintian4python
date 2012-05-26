@@ -49,6 +49,7 @@ lintian4python (0.2) experimental; urgency=low
 
   * data/python/projects*:
     + Refresh.
+
   * checks/*:
     + Port to lintian 2.5.7 API.
   * checks/bytecompilation:
@@ -73,6 +74,7 @@ lintian4python (0.2) experimental; urgency=low
       important).
   * checks/scripts:
     + Fix false-positive versioned-python-shebang for pythonX.Y-* packages.
+
   * debian/control:
     + Update lintian dependency (2.5.7, 2.5.8).
     + Add ${perl:Depends} to Depends.
@@ -81,8 +83,10 @@ lintian4python (0.2) experimental; urgency=low
     + Run dh_perl.
   * debian/*.lintian-overrides:
     + Update.
+
   * tests:
     + Add a test suite.
+
   * vendors/:
     + New directory, replacing data/.
 
@@ -100,6 +104,7 @@ lintian4python (0.1) experimental; urgency=low
       - python-module-not-byte-compiled
       - python3-depends-in-python-package
       - python3-module-but-no-python3-depends
+
   * checks/*.desc:
     + Shorten check descriptions.
   * checks/bytecompilation:
@@ -113,6 +118,7 @@ lintian4python (0.1) experimental; urgency=low
       in python-* packages.
     + Check for missing ${python3:Depends} in python3-* packages.
     + Correct descriptions of some tags.
+
   * data/output:
     + Make it a symlink to /usr/share/lintian/data/output.
 
@@ -125,6 +131,7 @@ lintian4python (0+20120504) experimental; urgency=low
       - python-stdeb-boilerplate
       - python3-extension-without-abi-tag
       - strict-versioned-dependency-in-requires.txt
+
   * checks/egg-info:
     + Extend tag descriptions.
     + Check for strict versioned dependency in requires.txt.
@@ -136,9 +143,11 @@ lintian4python (0+20120504) experimental; urgency=low
     + Check for python-stdeb boilerplate in changelog file.
   * data/python/projects*:
     + Refresh.
+
   * private/refresh-python-projects:
     + Add “python (>= 2.7)” as a provider of argparse. Thanks to Daniele
       Tricoli for the bug report.
+
   * checks/*, private/*:
     + Use indirect file handles.
 
@@ -150,9 +159,11 @@ lintian4python (0+20120429) experimental; urgency=low
     + Added:
       - versioned-python-shebang
       - usr-bin-env-python-shebang
+
   * checks/scripts:
     + Check for versioned Python shebangs.
     + Check for /usr/bin/env Python shebangs.
+
   * data/python/projects*:
     + Refresh.
 
@@ -163,8 +174,10 @@ lintian4python (0+20120425) experimental; urgency=low
   * Summary of tag changes:
     + Added:
       - missing-epoch-for-dependency
+
   * checks/depends:
     + Check for missing epoch in dependencies on python(3)-numpy.
+
   * data/python/projects*:
     + Refresh.
 
@@ -179,6 +192,7 @@ lintian4python (0+20120412) experimental; urgency=low
       - python-provides-considered-harmful
       - xb-python-version-is-deprecated
       - xs-python-version-current-is-deprecated
+
   * checks/extension:
     + Check for extension modules with SONAME.
   * checks/helpers:
@@ -186,8 +200,10 @@ lintian4python (0+20120412) experimental; urgency=low
     + Check for deprecated “XS-Python-Version: current”.
     + Check for deprecated “XB-Python-Version”.
     + Check for “Provides: ${python:Provides}”.
+
   * data/python/projects*:
     + Refresh.
+
   * debian/control:
     + Add Vcs-* fields.
 
@@ -199,6 +215,7 @@ lintian4python (0+20120325) experimental; urgency=low
     + Added:
       - extension-compiled-for-wrong-version
       - extension-linked-with-libpython
+
   * checks/extensions:
     + Check for extension modules linked to libpython.
     + Emit extension-uses-old-pyrex-import-type for every affected extension
@@ -209,6 +226,7 @@ lintian4python (0+20120325) experimental; urgency=low
       report.
   * checks/pyflakes:
     + Downgrade pyflakes-unused-{import,variable} severities to pedantic.
+
   * data/python/projects*:
     + Refresh.
 
@@ -217,6 +235,7 @@ lintian4python (0+20120325) experimental; urgency=low
 lintian4python (0+20120317) experimental; urgency=low
 
   * Initial release (closes: #664019).
+
   * Summary of tag changes:
     + Added:
       - SOURCES.txt-in-binary-package
