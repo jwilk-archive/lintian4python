@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# Copyright © 2011 Jakub Wilk
+# Copyright © 2011, 2012 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -38,7 +38,6 @@ def Message_str(self):
     extra_args = [tp(arg) for arg, tp in zip(self.message_args, arg_types)]
     return 'pyflakes{tag} {line}: {args}'.format(
         tag=tag,
-        file=self.filename,
         line=self.lineno,
         args=' '.join(extra_args)
     )
