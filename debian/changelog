@@ -10,7 +10,7 @@ lintian4python (0.2.1) UNRELEASED; urgency=low
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
     + Unset LINTIAN_PROFILE.
-    + Allow to run only a subset of tests.
+    + Allow running only a subset of tests.
     + Allow tests that trigger more than one tag.
   * tests/pyflakes.tdesc:
     + Add test for syntax-error.
