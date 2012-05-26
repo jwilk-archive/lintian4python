@@ -186,8 +186,8 @@ class TestSuite(unittest.TestSuite):
             FileItem(*reversed(f.split(None, 1)))
             for f in files
         )
-        test_for = para.get('test-for', '').splitlines()
-        test_against = para.get('test-against', '').splitlines()
+        test_for = [s.lstrip() for s in para.get('test-for', '').splitlines()]
+        test_against = [s.lstrip() for s in para.get('test-against', '').splitlines()]
         if test_for and test_against:
             raise MalformedTestDescription('missing Test-For or Test-Against field')
         return TestCase(self,

@@ -11,10 +11,11 @@ lintian4python (0.2.1) UNRELEASED; urgency=low
       hint.
     + Unset LINTIAN_PROFILE.
     + Allow to run only a subset of tests.
+    + Allow tests that trigger more than one tag.
   * tests/pyflakes.tdesc:
     + Add test for syntax-error.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 19:27:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 19:47:32 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
