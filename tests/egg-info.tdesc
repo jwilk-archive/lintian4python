@@ -5,3 +5,11 @@ Test-For:
  w: pygopherd: egg-info-version-mismatch 2.0.18 2.0.18.3
 Info:
  lintian4python 0.1 doesn't strip the +nmuN suffix.
+
+Name: egg-info-version-mismatch/binnmu-suffix
+Files:
+ 820ff879a2bcef933fd1740fc8750ad2d2a56dc7  python-buffy_0.13+b1_i386.deb
+Test-Against:
+ w: python-buffy: egg-info-version-mismatch 0.13 0.13+b1
+Info:
+ Fixed in lintian 0.3. Prior versions didn't strip the +bN suffix.

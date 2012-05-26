@@ -11,6 +11,8 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Check for ‘except’ clauses that shadows a built-in exception names.
     + Check for string exceptions.
     + Take over syntax-error tag from the pyflakes check.
+  * checks/egg-info:
+    + Strip +bN suffix when comparing upstream version with egg-info version.
   * checks/pyflakes:
     + Stop emitting syntax-error.
 
@@ -38,7 +40,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Allow running only a subset of tests.
     + Allow tests that trigger more than one tag.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 19:51:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 26 May 2012 23:44:56 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

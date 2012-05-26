@@ -112,7 +112,8 @@ for my $file (@{$info->sorted_index}) {
 if (scalar keys %egg_versions == 1 and defined $version) {
     my ($egg_version) = keys %egg_versions;
     my $upstream_version = $version;
-    $upstream_version =~ s/-[^-]+$//; # strip Debian revision
+    $upstream_version =~ s/-[^-]+$// # strip Debian revision
+        or $upstream_version =~ s/\+b\d+$//; # strip +bN suffix (unless there was a Debian revision)
     $upstream_version =~ s/^\d+://; # strip epoch
     $upstream_version =~ s/[+]nmu\d+$//; # strip +nmuN suffix
     $upstream_version =~ s/[[:punct:]]+dfsg.*//; # strip DFSG suffix
