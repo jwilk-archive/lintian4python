@@ -17,6 +17,7 @@
 # http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import argparse
 import errno
 import glob
 import hashlib
@@ -132,11 +133,14 @@ class TestCase(unittest.TestCase):
 
 class TestSuite(unittest.TestSuite):
 
-    def __init__(self, directory=None):
+    def __init__(self, directory=None, tdesc_filenames=()):
         unittest.TestSuite.__init__(self)
         if directory is None:
             directory = os.path.dirname(__file__)
         self.directory = directory
+        if not tdesc_filenames:
+            tdesc_filenames = glob.glob(os.path.join(self.directory, '*.tdesc'))
+        self.tdesc_filenames = tdesc_filenames
         self.cache_directory = os.path.join(directory, 'cache')
         try:
             os.mkdir(self.cache_directory)
@@ -167,8 +171,7 @@ class TestSuite(unittest.TestSuite):
         unittest.TestSuite.run(self, result)
 
     def read_tests(self):
-        tdesc_filenames = glob.glob(os.path.join(self.directory, '*.tdesc'))
-        for tdesc_filename in tdesc_filenames:
+        for tdesc_filename in self.tdesc_filenames:
             with open(tdesc_filename) as tdesc_file:
                 for para in apt_pkg.TagFile(tdesc_file):
                     yield self.read_test(para)
@@ -207,10 +210,24 @@ def setup_environment():
     except LookupError:
         pass
 
+class TestProgram(unittest.TestProgram):
+    def parseArgs(self, argv):
+        parser = argparse.ArgumentParser()
+        parser.add_argument('-q', '--quiet', action='store_const', const=0, dest='verbosity', default=1, help='minimal output')
+        parser.add_argument('-v', '--verbose', action='store_const', const=2, dest='verbosity', help='verbose output')
+        parser.add_argument('-f', '--failfast', action='store_true', help='stop on first failure')
+        parser.add_argument('-c', '--catch', dest='catchbreak', action='store_true', help='catch Control+C and display results')
+        parser.add_argument('-b', '--buffer', action='store_true', help='buffer stdout and stderr during test runs')
+        parser.add_argument('tdesc', metavar='<tdesc-file>', nargs='*', help='path to test description (*.tdesc) file')
+        options = parser.parse_args()
+        for k, v in vars(options).items():
+            setattr(self, k, v)
+        self.test = TestSuite(tdesc_filenames=options.tdesc)
+
 def main():
     setup_apt()
     setup_environment()
-    unittest.TestProgram(defaultTest='TestSuite')
+    TestProgram()
 
 if __name__ == '__main__':
     main()
