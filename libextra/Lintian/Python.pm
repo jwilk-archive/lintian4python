@@ -86,6 +86,15 @@ sub classify_python_modules {
     my ($package, $info) = @_;
     my $postinst = $info->control('postinst');
     my @python3paths = qw(usr/lib/python3);
+    my $is_python3_package = 0;
+    if ($package =~ m/^python3(?:\.\d+)(?:-.*)?$/) {
+        $is_python3_package = 1;
+    } else {
+        my $depends = $info->relation('strong');
+        if ($depends->implies('python3') and not $depends->implies('python')) {
+            $is_python3_package = 1;
+        }
+    }
     unless (-l $postinst or not -f $postinst) {
         open(my $fp, '<', $postinst) or fail("cannot open postinst: $!");
         while (<$fp>) {
@@ -127,11 +136,7 @@ sub classify_python_modules {
             }
         }
         if ($version == 0 and $file =~ m,[^/][.]py$,) {
-            if ($package =~ /^python3/) {
-                $version = 3;
-            } else {
-                $version = 2;
-            }
+            $version = 2 + $is_python3_package;
         }
         $result{$file} = $version if $version > 0;
     }
