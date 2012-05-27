@@ -3,8 +3,9 @@
 use strict;
 use warnings;
 
+use Cwd qw();
 use File::Basename qw();
-$ENV{'LINTIAN_ROOT'} = File::Basename::dirname($0);
+$ENV{'LINTIAN_ROOT'} = Cwd::abs_path(File::Basename::dirname($0));
 
 do '/usr/bin/lintian-info';
 if ($@) {
