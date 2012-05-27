@@ -13,7 +13,7 @@ Files:
 Test-Against:
  e: python-support: missing-dependency-on-byte-compilation-helper update-python-modules => python-support
 Info:
- Fixed in lintian4python 0.2.  Pior versions incorrectly suggested that
+ Fixed in lintian4python 0.2.  Prior versions incorrectly suggested that
  python-support should have a self-dependency.
 
 Name: python-module-not-byte-compiled/post-install
