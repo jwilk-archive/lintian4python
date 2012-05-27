@@ -40,7 +40,7 @@ foreach (@{$info->sorted_index}) {
 for my $filename (sort keys %{$info->scripts}) {
     next unless $executable{$filename};
     my $orig_interpreter = my $interpreter = $info->scripts->{$filename}->{interpreter};
-    next unless $interpreter =~ m,^(?:^|.*/)(python(?:\d\S+)?)(?:\s+.*)?$,;
+    next unless $interpreter =~ m,^(?:^|.*/)(python(?:\d\S*)?)(?:\s+.*)?$,;
     $interpreter =~ s//$1/;
     my $calls_env = $info->scripts->{$filename}->{calls_env};
     if ($calls_env) {
