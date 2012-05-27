@@ -7,6 +7,9 @@ use File::Basename qw();
 $ENV{'LINTIAN_ROOT'} = File::Basename::dirname($0);
 
 do '/usr/bin/lintian-info';
+if ($@) {
+    die $@;
+}
 
 # Local Variables:
 # indent-tabs-mode: nil

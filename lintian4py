@@ -20,6 +20,9 @@ my $monkey = Monkey::Patch::patch_package 'Lintian::Output' => '_print' => sub {
 };
 
 do '/usr/bin/lintian';
+if ($@) {
+    die $@;
+}
 
 # Local Variables:
 # indent-tabs-mode: nil
