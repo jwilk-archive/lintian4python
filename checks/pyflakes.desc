@@ -3,7 +3,7 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: flk
 Type: binary
 Info: run pyflakes over Python code
-Needs-Info: index
+Needs-Info: index, bin-pkg-control, scripts
 
 Tag: pyflakes-duplicate-argument
 Severity: serious

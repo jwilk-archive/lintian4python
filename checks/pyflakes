@@ -26,27 +26,28 @@ use warnings;
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
+use Lintian::Python qw(classify_python_modules);
+
 sub run {
 
 my ($pkg, $type, $info) = @_;
-my $index = $info->index;
+my $classification = classify_python_modules($pkg, $info);
 for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
-    if ($file =~ m,usr/(?:lib/python2\.\d+/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/.+[.]py$,) {
-        my $unpacked = $info->unpacked($file);
-        open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
-        while (<$fp>) {
-            if (m,(pyflakes-\S+) (.*),) {
-                my $tag = $1;
-                my $rest = $2;
-                tag $tag, "$file:$rest";
-            } else {
-                # We used to emit syntax-error here, but now it's taken care by
-                # the code-analysis check.
-            }
+    my $version = $classification->{$file};
+    next unless defined $version and $version == 2;
+    my $unpacked = $info->unpacked($file);
+    open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
+    while (<$fp>) {
+        if (m,(pyflakes-\S+) (.*),) {
+            my $tag = $1;
+            my $rest = $2;
+            tag $tag, "$file:$rest";
+        } else {
+            # We used to emit syntax-error here, but now it's taken care by
+            # the code-analysis check.
         }
-        close($fp) or fail("pyflakes helper failed");
     }
+    close($fp) or fail("pyflakes helper failed");
 }
 
 }

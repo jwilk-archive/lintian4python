@@ -8,6 +8,8 @@ lintian4python (0.3) UNRELEASED; urgency=low
 
   * checks/*:
     + Don't attempt to read non-regular files (directories, pipes etc.).
+  * checks/bytecompliation:
+    + Use Lintian::Python.
   * checks/code-analysis:
     + Check for assertions that are always true.
     + Check for ‘except’ clauses that shadows a built-in exception names.
@@ -16,6 +18,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
   * checks/egg-info:
     + Strip +bN suffix when comparing upstream version with egg-info version.
   * checks/pyflakes:
+    + Use Lintian::Python. Check non-public modules, too.
     + Stop emitting syntax-error.
   * checks/scripts:
     + Emit usr-bin-env-python-shebang also for ‘#!/usr/bin/env python3’
@@ -23,6 +26,9 @@ lintian4python (0.3) UNRELEASED; urgency=low
 
   * data/python/projects*:
     + Refresh.
+
+  * debian/rules:
+    + Install libextra.
 
   * helpers/code-analysis:
     + New helper.
@@ -34,6 +40,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
   * lintian4py{,-info}:
     + Improve error handling.
     + Set LINTIAN_ROOT to an absolute directory.
+    + Add libextra to include path.
   
   * private/refresh-code-analysis-tags:
     + New script.
@@ -56,7 +63,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Do not fail with IOError if a file not in cache is referenced by
       multiple test cases.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 11:33:23 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 13:06:35 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

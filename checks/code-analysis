@@ -26,29 +26,32 @@ use warnings;
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
+use Lintian::Python qw(classify_python_modules);
+
 sub run {
 
 my ($pkg, $type, $info) = @_;
-my $index = $info->index;
+my $classification = classify_python_modules($pkg, $info);
 for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
-    if ($file =~ m,usr/(?:lib/python2\.\d+/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/.+[.]py$,) {
-        my $unpacked = $info->unpacked($file);
-        open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/code-analysis", $unpacked) or fail("cannot execute code-analysis helper");
-        while (<$fp>) {
-            if (m,(\S+) (\d+)(?: (.+))?,) {
-                my $tag = $1;
-                my $lineno = $2;
-                my $extra = $3;
-                if (defined $extra) {
-                    tag $tag, "$file:$lineno: $extra";
-                } else {
-                    tag $tag, "$file:$lineno";
-                }
+    my $version = $classification->{$file};
+    next unless defined $version;
+    $version = '' if $version == 2;
+    my $interpreter = "python$version";
+    my $unpacked = $info->unpacked($file);
+    open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", $unpacked) or fail("cannot execute code-analysis helper");
+    while (<$fp>) {
+        if (m,(\S+) (\d+)(?: (.+))?,) {
+            my $tag = $1;
+            my $lineno = $2;
+            my $extra = $3;
+            if (defined $extra) {
+                tag $tag, "$file:$lineno: $extra";
+            } else {
+                tag $tag, "$file:$lineno";
             }
         }
-        close($fp) or fail("code-analysis helper failed");
     }
+    close($fp) or fail("code-analysis helper failed");
 }
 
 }

@@ -23,11 +23,11 @@ package Lintian::bytecompilation;
 use strict;
 use warnings;
 
-use Getopt::Long qw();
-
 use Lintian::Relation qw();
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
+
+use Lintian::Python qw(parse_update_python_modules parse_pycompile);
 
 my $package_name_re = qr/[a-z0-9][a-z0-9.+-]+/;
 
@@ -39,51 +39,6 @@ my %helper_depends = (
     'pycompile' => 'python (>= 2.6.5)',
     'py3compile' => 'python3 (>= 3.1.2)',
 );
-
-sub parse_update_python_modules {
-    my ($args) = @_;
-    my $error = 0;
-    my $ignore = undef;
-    local $SIG{__WARN__} = sub { };
-    (my $rc, $args) = Getopt::Long::GetOptionsFromString(
-        $args,
-        'h|help' => \$error,
-        'v|verbose' => \$ignore,
-        'b|bytecompile' => \$ignore,
-        'i|install' => \$ignore,
-        'c|clean' => \$error,
-        'p|post-install' => \$ignore,
-        'a|rebuild-all' => \$ignore,
-        'f|force-rebuild-all' => \$ignore,
-    );
-    return if not $rc;
-    return if $error;
-    return @{$args};
-}
-
-sub parse_pycompile {
-    my ($args) = @_;
-    my $error = 0;
-    my $ignore = undef;
-    my $package = undef;
-    my $versions = undef;
-    local $SIG{__WARN__} = sub { };
-    (my $rc, $args) = Getopt::Long::GetOptionsFromString(
-        $args,
-        'version' => \$error,
-        'h|help' => \$error,
-        'f|force' => \$ignore,
-        'O' => \$error,
-        'q|quite' => \$ignore,
-        'v|verbose' => \$ignore,
-        'p|package=s' => \$package,
-        'V=s' => \$versions,
-        'X|exclude=s' => \$ignore,
-    );
-    return if not $rc;
-    return if $error;
-    return ($package, $versions, @{$args});
-}
 
 sub run {
 
