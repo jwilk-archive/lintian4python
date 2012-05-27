@@ -20,6 +20,8 @@ lintian4python (0.3) UNRELEASED; urgency=low
   * checks/pyflakes:
     + Use Lintian::Python. Check non-public modules, too.
     + Stop emitting syntax-error.
+    + Catch all exceptions from compile(). Ignore them, since they are taken
+      care of by the code-analysis check.
   * checks/scripts:
     + Emit usr-bin-env-python-shebang also for ‘#!/usr/bin/env python3’
       shebangs.
@@ -55,6 +57,8 @@ lintian4python (0.3) UNRELEASED; urgency=low
       fixed.
   * tests/code-analysis.tdesc:
     + New tests.
+  * tests/pyflakes.tdesc:
+    + New tests.
   * tests/run-tests:
     + Export LINTIAN_INTERNAL_TESTSUITE=1. Thanks to Niels Thykier for the
       hint.
@@ -68,7 +72,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Display full diff on failure.
     + Allow testing against internal errors.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 19:37:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 20:42:46 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

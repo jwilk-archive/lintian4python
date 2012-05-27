@@ -23,6 +23,21 @@ import sys
 import pyflakes.scripts.pyflakes as flakes
 import pyflakes.messages
 
+class CompileError(Exception):
+    pass
+
+original_compile = compile
+
+def my_compile(*args, **kwargs):
+    # pyflakes itself doesn't catch all exceptions that could be raised by compile().
+    # See bugs #674796 and #674797.
+    try:
+        return original_compile(*args, **kwargs)
+    except Exception, ex:
+        raise CompileError(ex)
+
+__builtins__.compile = my_compile
+
 def Message_str(self):
     tag = re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), type(self).__name__)
     arg_types = []
@@ -45,7 +60,10 @@ pyflakes.messages.Message.__str__ = Message_str
 
 if __name__ == '__main__':
     sys.stderr = sys.stdout
-    flakes.main(sys.argv[1:])
+    try:
+        flakes.main(sys.argv[1:])
+    except CompileError:
+        pass
 
 # Local Variables:
 # indent-tabs-mode: nil

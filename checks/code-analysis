@@ -40,15 +40,18 @@ for my $file (@{$info->sorted_index}) {
     my $unpacked = $info->unpacked($file);
     open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", $unpacked) or fail("cannot execute code-analysis helper");
     while (<$fp>) {
-        if (m,(\S+) (\d+)(?: (.+))?,) {
+        if (m,(\S+) (-|\d+)(?: (.+))?,) {
             my $tag = $1;
             my $lineno = $2;
             my $extra = $3;
-            if (defined $extra) {
-                tag $tag, "$file:$lineno: $extra";
-            } else {
-                tag $tag, "$file:$lineno";
+            my $message = $file;
+            if ($lineno ne '-') {
+                $message .= ":$lineno";
             }
+            if (defined $extra) {
+                $message .= ": $extra";
+            }
+            tag $tag, $message;
         }
     }
     close($fp) or fail("code-analysis helper failed");

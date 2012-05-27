@@ -142,6 +142,8 @@ def check_file(filename):
         contents = ast.parse(contents)
     except SyntaxError as exc:
         return [tag('syntax-error', exc.lineno, exc.msg)]
+    except Exception as exc:
+        return [tag('syntax-error', '-', str(exc))]
     return check_node(contents)
 
 def main(self):
