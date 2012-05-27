@@ -12,7 +12,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Use Lintian::Python.
   * checks/code-analysis:
     + Check for assertions that are always true.
-    + Check for ‘except’ clauses that shadows a built-in exception names.
+    + Check for ‘except’ clauses that shadows built-in exception names.
     + Check for string exceptions.
     + Take over syntax-error tag from the pyflakes check.
   * checks/egg-info:
