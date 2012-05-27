@@ -65,8 +65,9 @@ lintian4python (0.3) UNRELEASED; urgency=low
       download.
     + Do not fail with IOError if a file not in cache is referenced by
       multiple test cases.
+    + Display full diff on failure.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 13:06:35 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 19:35:37 +0200
 
 lintian4python (0.2) experimental; urgency=low
 

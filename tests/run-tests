@@ -91,6 +91,7 @@ class TestCase(unittest.TestCase):
         self.test_against = list(test_against)
         self.test_against.sort()
         self.name = name
+        self.maxDiff = None
 
     def get_affected_tags(self):
         for line in itertools.chain(self.test_for, self.test_against):
