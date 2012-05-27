@@ -19,7 +19,6 @@
 
 import ast
 import sys
-import tokenize
 
 builtin_exception_types = '''
 ArithmeticError
