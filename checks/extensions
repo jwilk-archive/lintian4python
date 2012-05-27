@@ -53,7 +53,7 @@ my $uses_old_pyrex_import_type = 0;
 my $seen_wrong_version = 0;
 my @linked_with_libpython = ();
 for my $file (@{$info->sorted_index}) {
-    next if $index->{$file}->{link};
+    next unless $index->{$file}->{type} eq '-';
     if (my @pyversion = ($file =~ $py_extension)) {
         my $string = slurp_entire_file($info->strings($file));
         if ($string =~ m,does not appear to be the correct type object,) {

@@ -6,6 +6,8 @@ lintian4python (0.3) UNRELEASED; urgency=low
       - except-shadows-builtin
       - string-exception
 
+  * checks/*:
+    + Don't attempt to read non-regular files (directories, pipes etc.).
   * checks/code-analysis:
     + Check for assertions that are always true.
     + Check for ‘except’ clauses that shadows a built-in exception names.
@@ -47,7 +49,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Do not fail with IOError if a file not in cache is referenced by
       multiple test cases.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 01:00:25 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 09:17:58 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
