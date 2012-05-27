@@ -19,6 +19,7 @@
 
 import ast
 import sys
+import tokenize
 
 builtin_exception_types = '''
 ArithmeticError
@@ -89,6 +90,20 @@ WindowsError
 ZeroDivisionError
 '''.strip().splitlines()
 
+if sys.version_info >= (3, 2):
+    import tokenize
+    python_open = tokenize.open
+    del tokenize
+elif sys.version_info >= (3,):
+    import py_compile
+    def python_open(filename, read_encoding=py_compile.read_encoding):
+        encoding = read_encoding(filename, 'utf-8')
+        return open(filename, 'rU', encoding=encoding)
+    del py_compile
+else:
+    def python_open(filename):
+        return open(filename, 'rU')
+
 def tag(*s):
     return s
 
@@ -121,7 +136,7 @@ def check_node(node):
             yield t
 
 def check_file(filename):
-    with open(filename, 'rU') as file:
+    with python_open(filename) as file:
         contents = file.read()
     try:
         contents = ast.parse(contents)
