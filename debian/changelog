@@ -41,6 +41,9 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Improve error handling.
     + Set LINTIAN_ROOT to an absolute directory.
     + Add libextra to include path.
+
+  * profiles/*/*:
+    + Update.
   
   * private/refresh-code-analysis-tags:
     + New script.
