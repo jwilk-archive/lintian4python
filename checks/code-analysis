@@ -37,6 +37,7 @@ for my $file (@{$info->sorted_index}) {
     next unless defined $version;
     $version = '' if $version == 2;
     my $interpreter = "python$version";
+    next unless -x "/usr/bin/$interpreter";
     my $unpacked = $info->unpacked($file);
     open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", $unpacked) or fail("cannot execute code-analysis helper");
     while (<$fp>) {
