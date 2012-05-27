@@ -52,7 +52,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
   * private/refresh-pyflakes-tags:
     + Don't add syntax-error.
 
-  * tests/*.desc:
+  * tests/*.tdesc:
     + For cases that test bug-fixes, add information about when was the bug
       fixed.
   * tests/code-analysis.tdesc:
