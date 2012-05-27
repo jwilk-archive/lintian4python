@@ -81,15 +81,16 @@ class FileItem(object):
 
 class TestCase(unittest.TestCase):
 
-    def __init__(self, parent, files, test_for=(), test_against=(), name=None):
+    def __init__(self, parent, files, test_for=(), test_against=(), test_check=None, name=None):
         unittest.TestCase.__init__(self, 'test')
-        assert test_for or test_against
+        assert test_for or test_against or test_check
         self.parent = parent
         self.files = list(files)
         self.test_for = list(test_for)
         self.test_for.sort()
         self.test_against = list(test_against)
         self.test_against.sort()
+        self.test_check = test_check
         self.name = name
         self.maxDiff = None
 
@@ -111,7 +112,12 @@ class TestCase(unittest.TestCase):
             self.parent.cache_directory,
             self.files[0].filename
         )
-        commandline = ['lintian4py', '--no-cfg', '--tags', tags, main_file]
+        commandline = ['lintian4py', '--no-cfg']
+        if self.test_check:
+            commandline += ['--check-part', self.test_check]
+        if tags:
+            commandline += ['--tags', tags]
+        commandline += [main_file]
         lintian = ipc.Popen(commandline,
             stdout=ipc.PIPE,
             stderr=ipc.PIPE
@@ -122,7 +128,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(stdout, self.test_for)
 
     def __repr__(self):
-        return '{cls}(parent={self.parent!r}, files={self.files!r}, test_for={self.test_for!r}, test_against={self.test_against!r})'.format(
+        return '{cls}(parent={self.parent!r}, files={self.files!r}, test_for={self.test_for!r}, test_against={self.test_against!r}, test_check={self.test_check!r})'.format(
             cls=type(self).__name__,
             self=self,
         )
@@ -133,6 +139,7 @@ class TestCase(unittest.TestCase):
         result = []
         result += ('+ {0!r}'.format(x) for x in self.test_for)
         result += ('- {0!r}'.format(x) for x in self.test_against)
+        result += ('C {0!r}'.format(x) for x in self.test_check)
         return ', '.join(result)
 
 class TestSuite(unittest.TestSuite):
@@ -194,12 +201,14 @@ class TestSuite(unittest.TestSuite):
         )
         test_for = [s.lstrip() for s in para.get('test-for', '').splitlines()]
         test_against = [s.lstrip() for s in para.get('test-against', '').splitlines()]
-        if test_for and test_against:
-            raise MalformedTestDescription('missing Test-For or Test-Against field')
+        test_check = para.get('test-check', '').strip() or None
+        if not (test_for or test_against or test_check):
+            raise MalformedTestDescription('missing Test-For or Test-Check or Test-Against field')
         return TestCase(self,
             files=files,
             test_for=test_for,
             test_against=test_against,
+            test_check=test_check,
             name=name
         )
 
