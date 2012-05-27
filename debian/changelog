@@ -31,6 +31,10 @@ lintian4python (0.3) UNRELEASED; urgency=low
 
   * debian/rules:
     + Install libextra.
+  * debian/control:
+    + Bump mininum required version of python to 2.6, as it's needed by the
+      code-analysis check (for the ast module).
+    + Add python3 to Recommends, as it's needed by the code-analysis check.
 
   * helpers/code-analysis:
     + New helper.
@@ -72,7 +76,7 @@ lintian4python (0.3) UNRELEASED; urgency=low
     + Display full diff on failure.
     + Allow testing against internal errors.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 20:42:46 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 27 May 2012 22:00:15 +0200
 
 lintian4python (0.2) experimental; urgency=low
 
