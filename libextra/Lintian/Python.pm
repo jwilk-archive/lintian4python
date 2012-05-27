@@ -115,6 +115,7 @@ sub classify_python_modules {
         } elsif ($file =~ $python3regex) {
             $version = 3;
         } elsif (exists $info->scripts->{$file}) {
+            next if $file =~ /\.py_tmpl$/;
             my $interpreter = $info->scripts->{$file}->{interpreter};
             if ($interpreter =~ m,^(?:^|.*/)(python(?:\d\S*)?)(?:\s+.*)?$,) {
                 $interpreter = $1;

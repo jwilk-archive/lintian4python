@@ -31,6 +31,15 @@ Test-For:
 Info:
  Check if we handle token-level syntax errors correctly.
 
+Name: syntax-error/py-tmpl
+Files:
+ c7b7e163f492a0c74227eeb2755ce0747ff51727  python-migrate_0.7.2-3_all.deb
+Test-Against:
+ e: python-migrate: syntax-error usr/share/pyshared/migrate/...py_tmpl...
+Info:
+ *.py_tmpl files are code templates, so they could legitimately contain syntax
+ errors.
+
 Name: code-analysis/python3-encoding
 Files:
  85d98547318e7737d8cf5f89ab7b935b3781b3fc  python3-pipeline_0.1.3-3_all.deb
