@@ -53,6 +53,9 @@ for my $file (@{$info->sorted_index}) {
                 $message .= ": $extra";
             }
             tag $tag, $message;
+        } else {
+            chomp;
+            fail("unexpected output from code-analysis helper: $_");
         }
     }
     close($fp) or fail("code-analysis helper failed");

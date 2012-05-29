@@ -1,5 +1,8 @@
 lintian4python (0.3.1) UNRELEASED; urgency=low
   
+  * checks/code-analysis:
+    + Improve error handling.
+
   * data/python/exceptions:
     + New file containing names of Python built-in exception names.
   * data/python/projects*:
@@ -13,7 +16,7 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * private/refresh-exception-names:
     + New script to refresh data/python/exceptions.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 29 May 2012 19:41:14 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 29 May 2012 20:39:15 +0200
 
 lintian4python (0.3) experimental; urgency=low
 
