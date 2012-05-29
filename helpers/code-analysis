@@ -18,76 +18,21 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 import ast
+import os
 import sys
 
-builtin_exception_types = '''
-ArithmeticError
-AssertionError
-AttributeError
-BaseException
-BlockingIOError
-BrokenPipeError
-BufferError
-BytesWarning
-ChildProcessError
-ConnectionAbortedError
-ConnectionError
-ConnectionRefusedError
-ConnectionResetError
-DeprecationWarning
-EOFError
-EnvironmentError
-Exception
-FileExistsError
-FileNotFoundError
-FloatingPointError
-FutureWarning
-GeneratorExit
-IOError
-ImportError
-ImportWarning
-IndentationError
-IndexError
-InterruptedError
-IsADirectoryError
-KeyError
-KeyboardInterrupt
-LookupError
-MemoryError
-NameError
-NotADirectoryError
-NotImplementedError
-OSError
-OverflowError
-PendingDeprecationWarning
-PermissionError
-ProcessLookupError
-ReferenceError
-ResourceWarning
-RuntimeError
-RuntimeWarning
-StandardError
-StopIteration
-SyntaxError
-SyntaxWarning
-SystemError
-SystemExit
-TabError
-TimeoutError
-TypeError
-UnboundLocalError
-UnicodeDecodeError
-UnicodeEncodeError
-UnicodeError
-UnicodeTranslateError
-UnicodeWarning
-UserWarning
-VMSError
-ValueError
-Warning
-WindowsError
-ZeroDivisionError
-'''.strip().splitlines()
+builtin_exception_types = set()
+
+def load_data():
+    lintian_root = os.environ['LINTIAN_ROOT']
+    with open('{root}/data/python/exceptions'.format(root=lintian_root)) as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith('#'):
+                continue
+            builtin_exception_types.add(line)
 
 if sys.version_info >= (3, 2):
     import tokenize
@@ -146,6 +91,7 @@ def check_file(filename):
     return check_node(contents)
 
 def main(self):
+    load_data()
     for filename in sys.argv[1:]:
         for t in check_file(filename):
             print(' '.join(map(str, t)))
