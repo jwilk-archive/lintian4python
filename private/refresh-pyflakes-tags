@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# refresh-pyflakgs-tags -- Refresh Lintian data about pyflakes tags
+# refresh-pyflakes-tags -- Refresh Lintian data about pyflakes tags
 #
 # Copyright © 2011, 2012 Jakub Wilk
 #

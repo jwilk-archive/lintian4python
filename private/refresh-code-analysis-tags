@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# refresh-pyflakgs-tags -- Refresh Lintian data about code-analysis tags
+# refresh-code-analysis-tags -- Refresh Lintian data about code-analysis tags
 #
 # Copyright © 2011, 2012 Jakub Wilk
 #
