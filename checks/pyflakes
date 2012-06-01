@@ -38,7 +38,7 @@ for my $file (@{$info->sorted_index}) {
     my $unpacked = $info->unpacked($file);
     open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
     while (<$fp>) {
-        if (m,(pyflakes-\S+) (.*),) {
+        if (m,^(pyflakes-\S+) (.*),) {
             my $tag = $1;
             my $rest = $2;
             tag $tag, "$file:$rest";
