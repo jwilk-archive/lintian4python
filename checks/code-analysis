@@ -23,23 +23,27 @@ package Lintian::code_analysis;
 use strict;
 use warnings;
 
+use Cwd qw(getcwd);
+
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
 use Lintian::Python qw(classify_python_modules);
 
 sub run {
+    my ($pkg, $type, $info) = @_;
+    my ($py2files, $py3files) = classify_python_modules($pkg, $info);
+    my $cwd = getcwd();
+    chdir $info->unpacked($_) or fail("cannot chdir to unpacked: $!");
+    analyse($py2files, '/usr/bin/python');
+    analyse($py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
+    chdir $cwd or fail("cannot chdir back from unpacked: $!");
+}
 
-my ($pkg, $type, $info) = @_;
-my $classification = classify_python_modules($pkg, $info);
-for my $file (@{$info->sorted_index}) {
-    my $version = $classification->{$file};
-    next unless defined $version;
-    $version = '' if $version == 2;
-    my $interpreter = "python$version";
-    next unless -x "/usr/bin/$interpreter";
-    my $unpacked = $info->unpacked($file);
-    open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", $unpacked) or fail("cannot execute code-analysis helper");
+sub analyse {
+    my ($files, $interpreter) = @_;
+    open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
+    my $file;
     while (<$fp>) {
         if (m,(\S+) (-|\d+)(?: (.+))?,) {
             my $tag = $1;
@@ -53,14 +57,14 @@ for my $file (@{$info->sorted_index}) {
                 $message .= ": $extra";
             }
             tag $tag, $message;
+        } elsif (m,^# (.+)$,) {
+            $file = $1;
         } else {
             chomp;
             fail("unexpected output from code-analysis helper: $_");
         }
     }
     close($fp) or fail("code-analysis helper failed");
-}
-
 }
 
 1;

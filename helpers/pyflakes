@@ -60,10 +60,12 @@ pyflakes.messages.Message.__str__ = Message_str
 
 if __name__ == '__main__':
     sys.stderr = sys.stdout
-    try:
-        flakes.main(sys.argv[1:])
-    except CompileError:
-        pass
+    for filename in sys.argv[1:]:
+        print '# {0}'.format(filename.replace('\n', '?'))
+        try:
+            flakes.checkPath(filename)
+        except CompileError:
+            pass
 
 # Local Variables:
 # indent-tabs-mode: nil

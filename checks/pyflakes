@@ -23,33 +23,34 @@ package Lintian::pyflakes;
 use strict;
 use warnings;
 
+use Cwd qw(getcwd);
+
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
 use Lintian::Python qw(classify_python_modules);
 
 sub run {
-
-my ($pkg, $type, $info) = @_;
-my $classification = classify_python_modules($pkg, $info);
-for my $file (@{$info->sorted_index}) {
-    my $version = $classification->{$file};
-    next unless defined $version and $version == 2;
-    my $unpacked = $info->unpacked($file);
-    open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", $unpacked) or fail("cannot execute pyflakes helper");
+    my ($pkg, $type, $info) = @_;
+    my ($py2files, undef) = classify_python_modules($pkg, $info);
+    my $cwd = getcwd();
+    chdir $info->unpacked($_) or fail("cannot chdir to unpacked: $!");
+    open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
+    my $file;
     while (<$fp>) {
         if (m,^(pyflakes-\S+) (.*),) {
             my $tag = $1;
             my $rest = $2;
             tag $tag, "$file:$rest";
+        } elsif (m,^# (.+)$,) {
+            $file = $1;
         } else {
             # We used to emit syntax-error here, but now it's taken care by
             # the code-analysis check.
         }
     }
     close($fp) or fail("pyflakes helper failed");
-}
-
+    chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 1;

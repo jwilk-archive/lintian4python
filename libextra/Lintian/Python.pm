@@ -115,7 +115,8 @@ sub classify_python_modules {
     | usr/share/python-support
     ) / .* [^/][.]py$ )x;
     my $python3regex = sprintf('^(?:%s)/.*[^/][.]py$', join('|', map { quotemeta } @python3paths));
-    my %result = ();
+    my @python2files = ();
+    my @python3files = ();
     for my $file (@{$info->sorted_index}) {
         my $version = 0;
         next unless $info->index->{$file}->{type} eq '-';
@@ -138,9 +139,13 @@ sub classify_python_modules {
         if ($version == 0 and $file =~ m,[^/][.]py$,) {
             $version = 2 + $is_python3_package;
         }
-        $result{$file} = $version if $version > 0;
+        if ($version == 2) {
+            push @python2files, $file;
+        } elsif ($version == 3) {
+            push @python3files, $file;
+        }
     }
-    return \%result;
+    return (\@python2files, \@python3files);
 }
 
 1;
