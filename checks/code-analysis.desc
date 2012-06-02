@@ -3,7 +3,7 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: ca
 Type: binary
 Info: analysis of Python code
-Needs-Info: index, bin-pkg-control, scripts
+Needs-Info: index, bin-pkg-control, scripts, unpacked
 
 Tag: assertion-always-true
 Severity: minor

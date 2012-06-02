@@ -20,8 +20,10 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * helpers/code-analysis:
     + Use data/python/exceptions.
     + Allow checking more than one file at once.
+    + Add ‘unpacked’ to Needs-Info.
   * helpers/pyflakes:
     + Allow checking more than one file at once.
+    + Add ‘unpacked’ to Needs-Info.
 
   * libextra/Lintian/Python.pm:
     + Make classify_python_modules return two arrays instead of a hash.
@@ -31,7 +33,7 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * private/refresh-exception-names:
     + New script to refresh data/python/exceptions.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 02 Jun 2012 14:52:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 02 Jun 2012 15:31:50 +0200
 
 lintian4python (0.3) experimental; urgency=low
 
