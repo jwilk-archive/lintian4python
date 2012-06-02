@@ -75,6 +75,9 @@ lintian4python (0.3) experimental; urgency=low
     + Set Emacs local variables and vim modelines using the same code snippet
       as in other Python files.
 
+  * libextra/Lintian/Python.pm:
+    + New file with code shared between checks.
+
   * lintian4py{,-info}:
     + Improve error handling.
     + Set LINTIAN_ROOT to an absolute directory.
