@@ -4,10 +4,18 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
     + Improve error handling.
     + Reduce number of forks by executing the Python helper only twice per
       package.
+    + Add ‘unpacked’ to Needs-Info.
+  * checks/egg-info:
+    + Add ‘unpacked’ to Needs-Info.
+  * checks/imports:
+    + Add ‘unpacked’ to Needs-Info.
+  * checks/pth:
+    + Add ‘unpacked’ to Needs-Info.
   * check/pyflakes:
     + Tighten a regex.
     + Reduce number of forks by executing the Python helper only once per
       package.
+    + Add ‘unpacked’ to Needs-Info.
 
   * data/python/exceptions:
     + New file containing names of Python built-in exception names.
@@ -20,10 +28,8 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * helpers/code-analysis:
     + Use data/python/exceptions.
     + Allow checking more than one file at once.
-    + Add ‘unpacked’ to Needs-Info.
   * helpers/pyflakes:
     + Allow checking more than one file at once.
-    + Add ‘unpacked’ to Needs-Info.
 
   * libextra/Lintian/Python.pm:
     + Make classify_python_modules return two arrays instead of a hash.
@@ -33,7 +39,7 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * private/refresh-exception-names:
     + New script to refresh data/python/exceptions.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 02 Jun 2012 15:31:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 02 Jun 2012 15:35:39 +0200
 
 lintian4python (0.3) experimental; urgency=low
 

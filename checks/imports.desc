@@ -3,7 +3,7 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: imp
 Type: binary
 Info: module imports
-Needs-Info: index, scripts
+Needs-Info: index, scripts, unpacked
 
 Tag: missing-dependency-for-import
 Severity: serious
