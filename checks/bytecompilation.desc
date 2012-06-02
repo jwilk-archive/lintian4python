@@ -1,6 +1,6 @@
 Check-Script: bytecompilation
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pth
+Abbrev: pyc
 Type: binary
 Info: byte-compilation of Python modules
 Needs-Info: index, bin-pkg-control
