@@ -25,7 +25,7 @@ builtin_exception_types = set()
 
 def load_data():
     lintian_root = os.environ['LINTIAN_ROOT']
-    with open('{root}/data/python/exceptions'.format(root=lintian_root)) as file:
+    with open('{root}/vendors/debian/main/data/python/exceptions'.format(root=lintian_root)) as file:
         for line in file:
             line = line.strip()
             if not line:
