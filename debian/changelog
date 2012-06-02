@@ -17,14 +17,14 @@ lintian4python (0.3.1) UNRELEASED; urgency=low
   * debian/source/options:
     + Ignore .hg* and cache directories when generating tarball.
 
-  * libextra/Lintian/Python.pm:
-    + Make classify_python_modules return two arrays instead of a hash.
-
   * helpers/code-analysis:
     + Use data/python/exceptions.
     + Allow checking more than one file at once.
   * helpers/pyflakes:
     + Allow checking more than one file at once.
+
+  * libextra/Lintian/Python.pm:
+    + Make classify_python_modules return two arrays instead of a hash.
 
   * private/refresh-*:
     + Fix typos.
