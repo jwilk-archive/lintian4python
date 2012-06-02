@@ -45,7 +45,7 @@ sub analyse {
     open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
-        if (m,(\S+) (-|\d+)(?: (.+))?,) {
+        if (m,^(\S+) (-|\d+)(?: (.+))?$,) {
             my $tag = $1;
             my $lineno = $2;
             my $extra = $3;
