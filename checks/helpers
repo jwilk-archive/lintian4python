@@ -87,8 +87,8 @@ sub run_source {
 
     my @python_version_declarations = ();
     my $pysupport_bd = $bdepends->implies('python-support');
-    if ($info->field('python-version')) {
-        if ($info->field('python-version') =~ /^current\b/) {
+    if (defined (my $pv = $info->field('python-version'))) {
+        if ($pv =~ /^current\b/) {
             tag 'xs-python-version-current-is-deprecated';
         }
         unless ($pysupport_bd) {
