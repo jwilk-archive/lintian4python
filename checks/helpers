@@ -96,7 +96,7 @@ sub run_source {
         push @python_version_declarations, 'XS-Python-Version';
     }
     if ($info->field('python3-version')) {
-        tag 'xs-python3-version-instead-of-x-python3-version'
+        tag 'xs-python3-version-instead-of-x-python3-version';
     }
     if ($info->source_field('x-python-version')) {
         push @python_version_declarations, 'X-Python-Version';
