@@ -54,6 +54,11 @@ Info: "X-Python-Version" is preferred to "XS-Python-Version".  (But the former
  is not supported yet by python-support.)
 Ref: python-policy 2.3
 
+Tag: multiple-python-version-declarations
+Severity: important
+Certainty: certain
+Ref: python-policy 2.3
+
 Tag: xs-python3-version-instead-of-x-python3-version
 Severity: serious
 Certainty: certain
