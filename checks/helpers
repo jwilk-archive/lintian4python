@@ -110,6 +110,13 @@ sub run_source {
             tag 'x-python-version-instead-of-xs-python-version'
         }
     }
+    if (defined(my $xpv = $info->source_field('x-python3-version'))) {
+        $xpv =~ s/^\s*|\s$//g;
+        $xpv =~ s/\s+/ /g;
+        if ($xpv !~ m/^(?:>= ?3\.\d+(?: ?, ?<< ?3\.\d+)?|all)$/) {
+            tag 'invalid-python-version-declaration', "X-Python3-Version: $xpv";
+        }
+    }
     if (-e $info->debfiles('pyversions')) {
         push @python_version_declarations, 'debian/pyversions';
     }
