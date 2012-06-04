@@ -1,3 +1,16 @@
+lintian4python (0.4) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - xs-python-version-instead-of-x-python-version
+      - xs-python3-version-instead-of-x-python3-version
+
+  * checks/helpers:
+    + Warn against XS-Python-Version (should be: X-Python-Version).
+    + Warn against XS-Python3-Version (should be: X-Python3-Version).
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 04 Jun 2012 17:04:39 +0200
+
 lintian4python (0.3.1) experimental; urgency=low
   
   * checks/bytecompilation:

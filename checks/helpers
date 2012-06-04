@@ -76,6 +76,8 @@ sub run_source {
 
     my ($pkg, $type, $info) = @_;
 
+    my $bdepends = $info->relation('build-depends-all');
+
     return if $pkg =~ m/^python(?:\d\.\d)?$/;
     return if $pkg =~ m/^python\d?-(?:stdlib-extensions|profiler|old-doctools)$/;
     return if $pkg =~ m/^python3?-defaults$/;
@@ -85,6 +87,12 @@ sub run_source {
 
     if (($info->field('python-version') // 'all') =~ /^current\b/) {
         tag 'xs-python-version-current-is-deprecated';
+    }
+    if ($info->field('python-version') and not $bdepends->implies('python-support')) {
+        tag 'xs-python-version-instead-of-x-python-version'
+    }
+    if ($info->field('python3-version')) {
+        tag 'xs-python3-version-instead-of-x-python3-version'
     }
 
     my $binpkgs = $info->binaries;

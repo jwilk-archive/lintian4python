@@ -47,6 +47,19 @@ Certainty: certain
 Info: "XS-Python-Version: current" is deprecated.
 Ref: python-policy 2.3
 
+Tag: xs-python-version-instead-of-x-python-version
+Severity: normal
+Certainty: certain
+Info: "X-Python-Version" is preferred to "XS-Python-Version".  (But the former
+ is not supported yet by python-support.)
+Ref: python-policy 2.3
+
+Tag: xs-python3-version-instead-of-x-python3-version
+Severity: serious
+Certainty: certain
+Info: "X-Python3-Version" must be used instead of "XS-Python3-Version".
+Ref: python-policy 2.3
+
 Tag: xb-python-version-is-deprecated
 Severity: normal
 Certainty: certain
