@@ -60,7 +60,7 @@ Certainty: certain
 Ref: python-policy 2.3
 
 Tag: xs-python3-version-instead-of-x-python3-version
-Severity: serious
+Severity: important
 Certainty: certain
 Info: "X-Python3-Version" must be used instead of "XS-Python3-Version".
 Ref: python-policy 2.3
