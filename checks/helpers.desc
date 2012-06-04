@@ -66,6 +66,11 @@ Severity: important
 Certainty: certain
 Ref: python-policy 2.3
 
+Tag: invalid-python-version-declaration
+Severity: serious
+Certainty: certain
+Ref: python-policy 2.3
+
 Tag: xs-python3-version-instead-of-x-python3-version
 Severity: important
 Certainty: certain

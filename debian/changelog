@@ -2,6 +2,7 @@ lintian4python (0.4) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
+      - invalid-python-version-declaration
       - multiple-python-version-declarations
       - x-python-version-instead-of-xs-python-version
       - xs-python-version-instead-of-x-python-version
@@ -13,8 +14,9 @@ lintian4python (0.4) UNRELEASED; urgency=low
     + Warn against X-Python-Version used together with python-support.
     + Check for multiple Python versions declarations (e.g. both
       XS-Python-Version and debian/pyversions).
+    + Check for invalid X-Python-Version values.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 04 Jun 2012 17:50:23 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 04 Jun 2012 18:08:23 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
   

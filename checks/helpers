@@ -99,7 +99,12 @@ sub run_source {
     if ($info->field('python3-version')) {
         tag 'xs-python3-version-instead-of-x-python3-version';
     }
-    if ($info->source_field('x-python-version')) {
+    if (defined(my $xpv = $info->source_field('x-python-version'))) {
+        $xpv =~ s/^\s*|\s$//g;
+        $xpv =~ s/\s+/ /g;
+        if ($xpv !~ m/^(?:>= ?2\.\d+(?: ?, ?<< ?2\.\d+)?|all)$/) {
+            tag 'invalid-python-version-declaration', "X-Python-Version: $xpv";
+        }
         push @python_version_declarations, 'X-Python-Version';
         if ($pysupport_bd) {
             tag 'x-python-version-instead-of-xs-python-version'
