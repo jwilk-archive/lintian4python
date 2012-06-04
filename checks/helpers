@@ -86,11 +86,12 @@ sub run_source {
     my %python_depends = ();
 
     my @python_version_declarations = ();
+    my $pysupport_bd = $bdepends->implies('python-support');
     if ($info->field('python-version')) {
         if ($info->field('python-version') =~ /^current\b/) {
             tag 'xs-python-version-current-is-deprecated';
         }
-        unless ($bdepends->implies('python-support')) {
+        unless ($pysupport_bd) {
             tag 'xs-python-version-instead-of-x-python-version'
         }
         push @python_version_declarations, 'XS-Python-Version';
@@ -100,6 +101,9 @@ sub run_source {
     }
     if ($info->source_field('x-python-version')) {
         push @python_version_declarations, 'X-Python-Version';
+        if ($pysupport_bd) {
+            tag 'x-python-version-instead-of-xs-python-version'
+        }
     }
     if (-e $info->debfiles('pyversions')) {
         push @python_version_declarations, 'debian/pyversions';
