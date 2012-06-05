@@ -41,3 +41,14 @@ Test-Against:
 Info:
  Fixed in lintian4python 0.4.  This was initially implemented correctly, but
  regressed in lintian4python 0.2.
+
+Name: python-module-but-no-python-depends/metapackages
+Files:
+ bef9649f655519229934d014a1dc035988e60096  sphinx-issuetracker_0.8-1.dsc
+ 40b0c13ecfdefe6ed7011de14fb378b190395267  sphinx-issuetracker_0.8-1.debian.tar.gz
+ d4f4dc56ce75102f1cfbc5f6e7c0894d3481e60b  sphinx-issuetracker_0.8.orig.tar.gz
+Test-Against:
+ e: sphinx-issuetracker source: python-module-but-no-python-depends python-sphinx-issuetracker
+Info:
+ Fixed in lintian4python 0.4.  This was initially implemented correctly, but
+ regressed in lintian4python 0.2.
