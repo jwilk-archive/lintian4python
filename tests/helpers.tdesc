@@ -4,3 +4,20 @@ Files:
  6b1e175b5a6cd21a4ddab27704715a6740e16bba  apt-forktracer_0.4.tar.gz
 Test-For:
  i: apt-forktracer source: debian-pycompat-is-obsolete
+
+Name: invalid-python-version-declaration/lt-only
+Files:
+ ed411857e8471ea984a91df76965bb96983d7350  codespeak-lib_1.4.8-1.dsc
+ 0d5cfa0c7c19081cdc4c564558247fb781262b63  codespeak-lib_1.4.8-1.debian.tar.gz
+ afb1af1ee31d0c927b9e2870e67dfada21d4e7aa  codespeak-lib_1.4.8.orig.tar.bz2
+Test-For:
+ e: codespeak-lib source: invalid-python-version-declaration X-Python3-Version: << 3.3
+
+Name: invalid-python-version-declaration/3.0
+Files:
+ 2eba4405f593c21befdb681816bd0ce62ce27d45  python-pipeline_0.1.3-3.dsc
+ ce6e424326b20dbadaad434ca1aa9dbdf48e5b4d  python-pipeline_0.1.3-3.debian.tar.gz
+ 3f68107ec180de958ce7debc165e45cdbe870edd  python-pipeline_0.1.3.orig-py3k.tar.gz
+ 4c476d0abe61a1466ecece8e1bb211a71d59d688  python-pipeline_0.1.3.orig.tar.gz
+Test-Against:
+ e: python-pipeline source: invalid-python-version-declaration X-Python3-Version: >= 3.0
