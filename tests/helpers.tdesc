@@ -1,0 +1,6 @@
+Name: debian-pycompat-is-obsolete
+Files:
+ 4e3a1377cc8fc868a6a0e53c84496f1a999f18be  apt-forktracer_0.4.dsc
+ 6b1e175b5a6cd21a4ddab27704715a6740e16bba  apt-forktracer_0.4.tar.gz
+Test-For:
+ i: apt-forktracer source: debian-pycompat-is-obsolete

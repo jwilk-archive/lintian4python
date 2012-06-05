@@ -124,6 +124,10 @@ sub run_source {
         tag 'multiple-python-version-declarations', "@python_version_declarations";
     }
 
+    if (-e $info->debfiles('pycompat')) {
+        tag 'debian-pycompat-is-obsolete';
+    }
+
     my $binpkgs = $info->binaries;
     for my $binpkg (keys %$binpkgs) {
         if ($info->binary_relation($binpkg, 'all')->implies('${python:Depends}')) {

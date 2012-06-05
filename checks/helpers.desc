@@ -92,3 +92,9 @@ Ref: http://lists.debian.org/20110324164804.GA5919@jwilk.net
 Tag: python-stdeb-boilerplate
 Severity: wishlist
 Certainty: certain
+
+Tag: debian-pycompat-is-obsolete
+Severity: wishlist
+Certainty: certain
+Info: debian/pycompat is not used by any modern Python helper.  Is should be
+ safe to remove this file.
