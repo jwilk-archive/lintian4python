@@ -102,7 +102,8 @@ sub run_source {
     if (defined(my $xpv = $info->source_field('x-python-version'))) {
         $xpv =~ s/^\s*|\s$//g;
         $xpv =~ s/\s+/ /g;
-        if ($xpv !~ m/^(?:>= ?2\.[1-9]\d*(?: ?, ?<< ?2\.[1-9]\d*)?|2\.[1-9]\d*|all)$/) {
+        my $vr = qr/2\.0 | 2\.[1-9]\d*/x;
+        if ($xpv !~ m/^(?:>= ?$vr(?: ?, ?<< ?$vr)?|$vr|all)$/) {
             tag 'invalid-python-version-declaration', "X-Python-Version: $xpv";
         }
         push @python_version_declarations, 'X-Python-Version';
@@ -113,7 +114,8 @@ sub run_source {
     if (defined(my $xpv = $info->source_field('x-python3-version'))) {
         $xpv =~ s/^\s*|\s$//g;
         $xpv =~ s/\s+/ /g;
-        if ($xpv !~ m/^(?:>= ?3\.[1-9]\d*(?: ?, ?<< ?3\.[1-9]\d*)?|3\.[1-9]\d*|all)$/) {
+        my $vr = qr/3\.0 | 3\.[1-9]\d*/x;
+        if ($xpv !~ m/^(?:>= ?$vr(?: ?, ?<< ?$vr\d*)?|$vr|all)$/) {
             tag 'invalid-python-version-declaration', "X-Python3-Version: $xpv";
         }
     }
