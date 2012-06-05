@@ -67,8 +67,8 @@ sub is_dev_pkg {
 sub is_boring_pkg {
     my ($info, $binpkg) = @_;
     return
-        is_doc_pkg($info, $binpkg) or
-        is_dev_pkg($info, $binpkg) or
+        is_doc_pkg($info, $binpkg) ||
+        is_dev_pkg($info, $binpkg) ||
         is_meta_pkg($info, $binpkg);
 }
 

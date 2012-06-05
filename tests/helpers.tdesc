@@ -29,3 +29,15 @@ Files:
  4c476d0abe61a1466ecece8e1bb211a71d59d688  python-pipeline_0.1.3.orig.tar.gz
 Test-Against:
  e: python-pipeline source: invalid-python-version-declaration X-Python3-Version: >= 3.0
+
+Name: python-module-but-no-python-depends/development-packages
+Files:
+ 7bb698c875bb8ec3ae92fe81571bc5f1f88ec929  python-greenlet_0.3.3-1.dsc
+ e90a8d447b84c1176c31ab66e2d45bbee5fd2ca4  python-greenlet_0.3.3-1.debian.tar.gz
+ 96548b70b96db654082709c2f5fdfede065c2dc9  python-greenlet_0.3.3.orig.tar.gz
+Test-Against:
+ e: python-greenlet source: python-module-but-no-python-depends python-greenlet-dev
+ e: python-greenlet source: python-module-but-no-python-depends python-greenlet-dbg
+Info:
+ Fixed in lintian4python 0.4.  This was initially implemented correctly, but
+ regressed in lintian4python 0.2.

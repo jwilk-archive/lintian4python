@@ -17,13 +17,15 @@ lintian4python (0.4) UNRELEASED; urgency=low
       XS-Python-Version and debian/pyversions).
     + Check for invalid X-Python(3)-Version values.
     + Check for existence of debian/pycompat.
+    + Don't emit python-module-but-no-python-depends for development, debug
+      and metapackages.
 
   * tests/run-tests:
     + Allow running tests against source packages.
   * tests/helpers.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 05 Jun 2012 11:11:26 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 05 Jun 2012 19:29:57 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
   
