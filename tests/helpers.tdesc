@@ -77,3 +77,19 @@ Files:
  0adf06e643d666ee8fbdbd1216bde71bfc2a6ee0  purity-ng_0.2.0.orig.tar.gz
 Test-For:
  e: purity-ng source: x-python-version-instead-of-xs-python-version
+
+Name: xs-python-version-instead-of-x-python-version
+Files:
+ a4328c89611b5896771653526d43a44204a2983a  markupsafe_0.15-1.dsc
+ 927e3889feda6da0ddebabd902819dfdee7eb7d0  markupsafe_0.15-1.debian.tar.gz
+ 81e0c898c289721d5b1aa70ffc0dfc35886ea92a  markupsafe_0.15.orig.tar.gz
+Test-For:
+ w: markupsafe source: xs-python-version-instead-of-x-python-version
+
+Name: xs-python3-version-instead-of-x-python3-version
+Files:
+ 3ee3507baf6578d8bd5b97ed7e1c1847c5a955ce  python-iowait_0.1-1.1.dsc
+ dd00a15fb343612cdb931e09c3b96febb57a14aa  python-iowait_0.1-1.1.debian.tar.gz
+ 9482a363e8fedd6f08ded2c098ac330068535711  python-iowait_0.1.orig.tar.gz
+Test-For:
+ e: python-iowait source: xs-python3-version-instead-of-x-python3-version
