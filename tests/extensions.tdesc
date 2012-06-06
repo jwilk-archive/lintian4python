@@ -1,0 +1,34 @@
+Name: extension-compiled-for-wrong-version
+Files:
+ 254fe536c56593f5effd46c95ec2dfdf4e55d2d0  python-semanage_2.1.6-2_i386.deb
+Test-For:
+ e: python-semanage: extension-compiled-for-wrong-version 2.6 usr/lib/python-support/python-semanage/python2.7/_semanage.so
+Info: http://bugs.debian.org/665803
+
+Name: extension-linked-with-libpython
+Files:
+ 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.2-3_i386.deb
+Test-For:
+ i: python-nflog: extension-linked-with-libpython usr/lib/python2.6/dist-packages/_nflog.so
+ i: python-nflog: extension-linked-with-libpython usr/lib/python2.7/dist-packages/_nflog.so
+
+Name: extension-uses-old-pyrex-import-type
+Files:
+ 170c4a2a8beaf88b781c4fb0fde317d607bd51b8  python-netcdf_2.8-3+b2_i386.deb
+Test-For:
+ e: python-netcdf: extension-uses-old-pyrex-import-type usr/lib/python2.6/dist-packages/Scientific/linux2/Scientific_affinitypropagation.so
+ e: python-netcdf: extension-uses-old-pyrex-import-type usr/lib/python2.6/dist-packages/Scientific/linux2/Scientific_interpolation.so
+ e: python-netcdf: extension-uses-old-pyrex-import-type usr/lib/python2.7/dist-packages/Scientific/linux2/Scientific_affinitypropagation.so
+ e: python-netcdf: extension-uses-old-pyrex-import-type usr/lib/python2.7/dist-packages/Scientific/linux2/Scientific_interpolation.so
+
+Name: extension-with-soname
+Files:
+ 32f754c145ddeb4c3886256a696537bf70fbdcb5  python-aubio_0.3.2-4.2+b1_i386.deb
+Test-For:
+ p: python-aubio: extension-with-soname usr/lib/pyshared/python2.7/aubio/_aubiowrapper.so (_aubiowrapper.so)
+
+Name: python3-extension-without-abi-tag
+Files:
+ d1ab0a819dac9f9df7d2a698595cd06d0180d7ed  python-hivex_1.3.5-2_i386.deb
+Test-For:
+ e: python-hivex: python3-extension-without-abi-tag usr/lib/python3/dist-packages/libhivexmod.so
