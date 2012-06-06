@@ -1,0 +1,76 @@
+#!/usr/bin/python
+# encoding=UTF-8
+
+# Copyright © 2011, 2012 Jakub Wilk
+#
+# This program is free software.  It is distributed under the terms of the GNU
+# General Public License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program.  If not, you can find it on the World Wide Web at
+# http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+import glob
+import os
+import re
+
+import deb822
+
+LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
+
+_lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9.+-]+)(?: (?P<pkgtype>[a-z]+))?: (?P<tag>[a-zA-Z0-9_-]+)( (?P<extra>.+))?$')
+
+def tag_from_lintian_line(line):
+    match = _lintian_line_re.match(line)
+    if match is None:
+        raise ValueError('cannot parse lintian line: {line!r}'.format(line=line))
+    return match.group('tag')
+
+def count_tags(lintian_output, d):
+    lines = filter(None, [s.lstrip() for s in lintian_output.splitlines()])
+    for line in lines:
+        tag = tag_from_lintian_line(line)
+        d[tag] += 1
+
+def main():
+    with open('{root}/tests/coverage.txt'.format(root=LINTIAN_ROOT), 'wt') as stdout:
+        return main_(stdout=stdout)
+
+def main_(stdout):
+    for filename in glob.glob('checks/*.desc'):
+        check, _ = os.path.splitext(os.path.basename(filename))
+        tags_for = {}
+        with open('{root}/{file}'.format(root=LINTIAN_ROOT, file=filename)) as file:
+            for para in deb822.Deb822.iter_paragraphs(file):
+                try:
+                    tags_for[para['tag']] = 0
+                except LookupError:
+                    continue
+        tags_against = tags_for.copy()
+        tdesc_filename = '{root}/tests/{check}.tdesc'.format(root=LINTIAN_ROOT, check=check)
+        if os.path.exists(tdesc_filename):
+            with open(tdesc_filename) as file:
+                for para in deb822.Deb822.iter_paragraphs(file):
+                    count_tags(para.get('test-for', ''), tags_for)
+                    count_tags(para.get('test-against', ''), tags_against)
+        print >>stdout, check
+        print >>stdout, '~' * len(check)
+        for tag, n in sorted(tags_for.items()):
+            c = {0: ' ', 1: 'X'}.get(n, n)
+            print >>stdout, '| [{c}] {tag}'.format(c=c, tag=tag)
+        print >>stdout
+
+if __name__ == '__main__':
+    main()
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
+# vim: syntax=python sw=4 sts=4 sr et

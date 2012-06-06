@@ -1,0 +1,96 @@
+imports
+~~~~~~~
+| [2] missing-dependency-for-import
+
+pyflakes
+~~~~~~~~
+| [ ] pyflakes-duplicate-argument
+| [ ] pyflakes-import-shadowed-by-loop-var
+| [ ] pyflakes-import-star-used
+| [ ] pyflakes-late-future-import
+| [ ] pyflakes-redefined-function
+| [ ] pyflakes-redefined-while-unused
+| [ ] pyflakes-undefined-export
+| [ ] pyflakes-undefined-local
+| [ ] pyflakes-undefined-name
+| [ ] pyflakes-unused-import
+| [ ] pyflakes-unused-variable
+
+extensions
+~~~~~~~~~~
+| [ ] extension-compiled-for-wrong-version
+| [ ] extension-linked-with-libpython
+| [ ] extension-uses-old-pyrex-import-type
+| [ ] extension-with-soname
+| [ ] python3-extension-without-abi-tag
+
+scripts
+~~~~~~~
+| [ ] usr-bin-env-python-shebang
+| [X] versioned-python-shebang
+
+bytecompilation
+~~~~~~~~~~~~~~~
+| [ ] insufficient-dependency-on-byte-compilation-helper
+| [X] missing-dependency-on-byte-compilation-helper
+| [ ] pycentral-pkginstall-for-foreign-package
+| [ ] pycompile-for-foreign-package
+| [ ] python-module-not-byte-compiled
+
+pth
+~~~
+| [ ] pth-file-modifies-sys.path
+
+depends
+~~~~~~~
+| [ ] missing-epoch-in-dependency
+
+lintian
+~~~~~~~
+| [ ] malformed-override
+| [ ] unused-override
+
+helpers
+~~~~~~~
+| [ ] cannot-parse-python-central-metadata
+| [X] debian-pycompat-is-obsolete
+| [X] hardcoded-dependency-on-python-helper
+| [2] invalid-python-version-declaration
+| [2] multiple-python-version-declarations
+| [ ] python-central-metadata-for-missing-files
+| [ ] python-depends-but-no-python-helper
+| [X] python-module-but-no-python-depends
+| [ ] python-module-but-python3-depends
+| [ ] python-provides-considered-harmful
+| [X] python-stdeb-boilerplate
+| [ ] python3-module-but-no-python3-depends
+| [ ] python3-module-but-python-depends
+| [X] x-python-version-instead-of-xs-python-version
+| [ ] xb-python-version-is-deprecated
+| [X] xs-python-version-current-is-deprecated
+| [X] xs-python-version-instead-of-x-python-version
+| [X] xs-python3-version-instead-of-x-python3-version
+
+teams
+~~~~~
+| [ ] incorrect-team-name
+| [ ] incorrect-vcs-field
+| [ ] missing-vcs-field
+
+code-analysis
+~~~~~~~~~~~~~
+| [X] assertion-always-true
+| [X] except-shadows-builtin
+| [2] string-exception
+| [2] syntax-error
+
+egg-info
+~~~~~~~~
+| [ ] SOURCES.txt-in-binary-package
+| [X] egg-info-version-mismatch
+| [ ] missing-requires.txt-dependency
+| [ ] missing-requires.txt-optional-dependency
+| [ ] strict-versioned-dependency-in-requires.txt
+| [ ] unknown-optional-project-in-requires.txt
+| [ ] unknown-project-in-requires.txt
+

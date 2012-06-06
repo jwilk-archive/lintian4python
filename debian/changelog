@@ -20,12 +20,17 @@ lintian4python (0.4) UNRELEASED; urgency=low
     + Don't emit python-module-but-no-python-depends for development, debug
       and metapackages.
 
+  * private/update-coverage:
+    + New script generating tests/coverage.txt.
+
+  * tests/coverage.txt:
+    + New file documenting test coverage.
   * tests/run-tests:
     + Allow running tests against source packages.
   * tests/helpers.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 05 Jun 2012 19:29:57 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 06 Jun 2012 21:33:24 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
   
