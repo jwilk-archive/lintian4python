@@ -19,10 +19,10 @@ pyflakes
 extensions
 ~~~~~~~~~~
 | [ ] extension-compiled-for-wrong-version
-| [ ] extension-linked-with-libpython
-| [ ] extension-uses-old-pyrex-import-type
-| [ ] extension-with-soname
-| [ ] python3-extension-without-abi-tag
+| [X] extension-linked-with-libpython
+| [X] extension-uses-old-pyrex-import-type
+| [X] extension-with-soname
+| [X] python3-extension-without-abi-tag
 
 scripts
 ~~~~~~~

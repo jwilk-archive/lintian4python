@@ -27,10 +27,12 @@ lintian4python (0.4) UNRELEASED; urgency=low
     + New file documenting test coverage.
   * tests/run-tests:
     + Allow running tests against source packages.
+  * tests/extensions.tdesc:
+    + New tests.
   * tests/helpers.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 06 Jun 2012 21:33:24 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 06 Jun 2012 21:57:47 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
   
