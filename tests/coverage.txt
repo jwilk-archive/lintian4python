@@ -45,11 +45,6 @@ depends
 ~~~~~~~
 | [ ] missing-epoch-in-dependency
 
-lintian
-~~~~~~~
-| [ ] malformed-override
-| [ ] unused-override
-
 helpers
 ~~~~~~~
 | [ ] cannot-parse-python-central-metadata
