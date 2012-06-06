@@ -93,3 +93,19 @@ Files:
  9482a363e8fedd6f08ded2c098ac330068535711  python-iowait_0.1.orig.tar.gz
 Test-For:
  e: python-iowait source: xs-python3-version-instead-of-x-python3-version
+
+Name: multiple-python-version-declarations/xspv+xpv
+Files:
+ 2f269aa0cc2b72fec1b22061e944db836fe6c253  xdelta3_3.0.0.dfsg-1.dsc
+ 89d611f2e8b467b5cb5038d15a7be4df2401acd4  xdelta3_3.0.0.dfsg-1.debian.tar.gz
+ ca8ffc1a74f5808411d3abb3f83bb1f978725295  xdelta3_3.0.0.dfsg.orig.tar.bz2
+Test-For:
+ e: xdelta3 source: multiple-python-version-declarations XS-Python-Version X-Python-Version
+
+Name: multiple-python-version-declarations/xspv+pyversions
+Files:
+ a51a69d859815745f8495474a89012c6ecaeb6a7  python-lzma_0.5.3-2.dsc
+ 5a663fae58d782d5b2c08574e57c4cad070c09da  python-lzma_0.5.3-2.debian.tar.gz
+ 6240ec6f830f35f4087b8926a95c2074320b7ed5  python-lzma_0.5.3.orig.tar.bz2
+Test-For:
+ e: python-lzma source: multiple-python-version-declarations XS-Python-Version debian/pyversions
