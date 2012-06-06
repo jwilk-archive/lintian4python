@@ -52,3 +52,12 @@ Test-Against:
 Info:
  Fixed in lintian4python 0.4.  This was initially implemented correctly, but
  regressed in lintian4python 0.2.
+
+Name: hardcoded-dependency-on-python-helper/python-support
+Files:
+ 0689696f94ce72c3ed6f0af7666b626c286f7c81  django-classy-tags_0.3.4.1-1.dsc
+ fe666471bc2c39c487ddaf7cb6b1840812d38e20  django-classy-tags_0.3.4.1-1.debian.tar.gz
+ d3fc074446a99bc1a16a84524bc8567d36ced579  django-classy-tags_0.3.4.1.orig.tar.gz
+Test-For:
+ e: django-classy-tags source: python-module-but-no-python-depends python-django-classy-tags
+ e: django-classy-tags source: hardcoded-dependency-on-python-helper python-support
