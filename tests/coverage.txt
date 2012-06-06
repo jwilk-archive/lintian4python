@@ -81,7 +81,7 @@ code-analysis
 ~~~~~~~~~~~~~
 | [X] assertion-always-true
 | [X] except-shadows-builtin
-| [2] string-exception
+| [X] string-exception
 | [2] syntax-error
 
 egg-info

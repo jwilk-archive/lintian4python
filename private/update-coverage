@@ -35,9 +35,13 @@ def tag_from_lintian_line(line):
 
 def count_tags(lintian_output, d):
     lines = filter(None, [s.lstrip() for s in lintian_output.splitlines()])
+    done = set()
     for line in lines:
         tag = tag_from_lintian_line(line)
+        if tag in done:
+            continue
         d[tag] += 1
+        done.add(tag)
 
 def main():
     with open('{root}/tests/coverage.txt'.format(root=LINTIAN_ROOT), 'wt') as stdout:
