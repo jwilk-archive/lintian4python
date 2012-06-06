@@ -109,3 +109,11 @@ Files:
  6240ec6f830f35f4087b8926a95c2074320b7ed5  python-lzma_0.5.3.orig.tar.bz2
 Test-For:
  e: python-lzma source: multiple-python-version-declarations XS-Python-Version debian/pyversions
+
+Name: xs-python-version-current-is-deprecated
+Files:
+ 014ed17e9b40e42ecd969685cf57531303436fa6  cpuset_1.5.6-2.dsc
+ f66075f0554312d073c89ef86b38601b19361124  cpuset_1.5.6-2.debian.tar.gz
+ c0bbb0272e18187c3249162dc36b1fa5ef2daf7e  cpuset_1.5.6.orig.tar.gz
+Test-For:
+ w: cpuset source: xs-python-version-current-is-deprecated
