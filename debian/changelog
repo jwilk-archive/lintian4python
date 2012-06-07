@@ -5,6 +5,7 @@ lintian4python (0.4) UNRELEASED; urgency=low
       - debian-pycompat-is-obsolete
       - invalid-python-version-declaration
       - multiple-python-version-declarations
+      - typo-in-python-version-declaration
       - x-python-version-instead-of-xs-python-version
       - xs-python-version-instead-of-x-python-version
       - xs-python3-version-instead-of-x-python3-version
@@ -19,6 +20,7 @@ lintian4python (0.4) UNRELEASED; urgency=low
     + Check for existence of debian/pycompat.
     + Don't emit python-module-but-no-python-depends for development, debug
       and metapackages.
+    + Check for misspelled X(S)-Python-Version.
 
   * data/python/projects*:
     + Refresh.
@@ -35,7 +37,7 @@ lintian4python (0.4) UNRELEASED; urgency=low
   * tests/helpers.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 07 Jun 2012 01:30:54 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 07 Jun 2012 15:32:14 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
   

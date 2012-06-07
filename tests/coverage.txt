@@ -60,6 +60,7 @@ helpers
 | [X] python-stdeb-boilerplate
 | [ ] python3-module-but-no-python3-depends
 | [ ] python3-module-but-python-depends
+| [ ] typo-in-python-version-declaration
 | [X] x-python-version-instead-of-xs-python-version
 | [ ] xb-python-version-is-deprecated
 | [X] xs-python-version-current-is-deprecated

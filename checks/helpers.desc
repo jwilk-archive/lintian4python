@@ -77,6 +77,11 @@ Certainty: certain
 Info: "X-Python3-Version" must be used instead of "XS-Python3-Version".
 Ref: python-policy 2.3
 
+Tag: typo-in-python-version-declaration
+Severity: important
+Certainty: possible
+Ref: python-policy 2.3
+
 Tag: xb-python-version-is-deprecated
 Severity: normal
 Certainty: certain
