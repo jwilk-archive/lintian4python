@@ -129,7 +129,7 @@ sub run_source {
         tag 'multiple-python-version-declarations', "@python_version_declarations";
     }
 
-    my @source_fields = grep { ! m/^xs?-python-version$/ } keys($info->source_field);
+    my @source_fields = grep { ! m/^xs?-python3?-version$/ } keys($info->source_field);
     my @distances = Text::Levenshtein::distance("x-python-version", @source_fields);
     my $iterator = each_array(@distances, @source_fields);
     while (my ($distance, $field) = $iterator->()) {
