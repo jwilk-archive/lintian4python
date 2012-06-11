@@ -1,3 +1,17 @@
+lintian4python (0.5) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - python-breaks-is-obsolete
+
+  * checks/helpers:
+    + Check for ${python:Breaks}.
+
+  * tests/helpers.tdesc:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Jun 2012 11:34:26 +0200
+
 lintian4python (0.4) experimental; urgency=low
 
   * Summary of tag changes:

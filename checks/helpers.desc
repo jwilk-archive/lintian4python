@@ -94,6 +94,13 @@ Severity: minor
 Certainty: possible
 Ref: http://lists.debian.org/20110324164804.GA5919@jwilk.net
 
+Tag: python-breaks-is-obsolete
+Severity: minor
+Certainty: possible
+Ref: http://packages.debian.org/changelogs/pool/main/p/python-defaults/current/changelog#version2.6.6-12
+Info: dh_python2 does not generate ${python:Breaks} substitution variable
+ anymore.
+
 Tag: python-stdeb-boilerplate
 Severity: wishlist
 Certainty: certain

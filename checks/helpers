@@ -173,6 +173,9 @@ sub run_source {
             if ($info->binary_relation($binpkg, 'provides')->implies("\${$python:Provides}")) {
                 tag 'python-provides-considered-harmful', $binpkg;
             }
+            if ($info->binary_relation($binpkg, 'breaks')->implies("\${$python:Breaks}")) {
+                tag 'python-breaks-is-obsolete', $binpkg;
+            }
         }
     }
 

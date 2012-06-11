@@ -117,3 +117,11 @@ Files:
  c0bbb0272e18187c3249162dc36b1fa5ef2daf7e  cpuset_1.5.6.orig.tar.gz
 Test-For:
  w: cpuset source: xs-python-version-current-is-deprecated
+
+Name: python-breaks-is-obsolete
+Files:
+ 3092bfef396ba31cced54610bda1df4492b5cf56  python-minimock_1.2.6-2.dsc
+ 87a732907491325838e59bd7cf726caf105162dd  python-minimock_1.2.6-2.debian.tar.gz
+ dc7d647c947302bffae46fee6e1b7685bddbe7d0  python-minimock_1.2.6.orig.tar.gz
+Test-For:
+ i: python-minimock source: python-breaks-is-obsolete python-minimock

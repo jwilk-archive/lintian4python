@@ -52,6 +52,7 @@ helpers
 | [X] hardcoded-dependency-on-python-helper
 | [2] invalid-python-version-declaration
 | [2] multiple-python-version-declarations
+| [X] python-breaks-is-obsolete
 | [ ] python-central-metadata-for-missing-files
 | [ ] python-depends-but-no-python-helper
 | [X] python-module-but-no-python-depends
