@@ -118,6 +118,14 @@ Files:
 Test-For:
  w: cpuset source: xs-python-version-current-is-deprecated
 
+Name: substitution-variable-in-xs-python-version
+Files:
+ 2cac0544500b7f2b4de0748aebb7e41f93345639  colortest-python_1.4-1.dsc
+ ee316f4cd7e8a692335f64c4f40374ae3df6b1ec  colortest-python_1.4-1.debian.tar.gz
+ 263292bb48b5cac2c558efd70f1728f08d05eab4  colortest-python_1.4.orig.tar.gz
+Test-For:
+ e: colortest-python source: substitution-variable-in-xs-python-version ${python:Versions}
+
 Name: python-provides-considered-harmful
 Files:
  3092bfef396ba31cced54610bda1df4492b5cf56  python-minimock_1.2.6-2.dsc
