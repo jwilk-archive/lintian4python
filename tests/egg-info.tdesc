@@ -13,3 +13,9 @@ Test-Against:
  w: python-buffy: egg-info-version-mismatch 0.13 0.13+b1
 Info:
  Fixed in lintian4python 0.3.  Prior versions didn't strip the +bN suffix.
+
+Name: SOURCES.txt-in-binary-package
+Files:
+ 57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
+Test-For:
+ p: python-clientcookie: SOURCES.txt-in-binary-package

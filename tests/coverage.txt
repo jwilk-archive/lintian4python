@@ -63,7 +63,7 @@ helpers
 | [ ] python3-module-but-python-depends
 | [ ] typo-in-python-version-declaration
 | [X] x-python-version-instead-of-xs-python-version
-| [ ] xb-python-version-is-deprecated
+| [X] xb-python-version-is-deprecated
 | [X] xs-python-version-current-is-deprecated
 | [X] xs-python-version-instead-of-x-python-version
 | [X] xs-python3-version-instead-of-x-python3-version
@@ -83,7 +83,7 @@ code-analysis
 
 egg-info
 ~~~~~~~~
-| [ ] SOURCES.txt-in-binary-package
+| [X] SOURCES.txt-in-binary-package
 | [X] egg-info-version-mismatch
 | [ ] missing-requires.txt-dependency
 | [ ] missing-requires.txt-optional-dependency

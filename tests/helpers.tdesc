@@ -133,3 +133,9 @@ Files:
  dc7d647c947302bffae46fee6e1b7685bddbe7d0  python-minimock_1.2.6.orig.tar.gz
 Test-For:
  i: python-minimock source: python-breaks-is-obsolete python-minimock
+
+Name: xb-python-version-is-deprecated
+Files:
+ c951f8198160c8c096130fc5574d2df8ce7cf5a4  flashbake_0.26.2-4_all.deb
+Test-For:
+ w: flashbake: xb-python-version-is-deprecated
