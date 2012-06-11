@@ -33,7 +33,7 @@ import apt_pkg
 class MalformedTestDescription(RuntimeError):
     pass
 
-_lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9.+-]+)(?: (?P<pkgtype>[a-z]+))?: (?P<tag>[a-zA-Z0-9_-]+)( (?P<extra>.+))?$')
+_lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9.+-]+)(?: (?P<pkgtype>[a-z]+))?: (?P<tag>[a-zA-Z0-9._-]+)( (?P<extra>.+))?$')
 
 def tag_from_lintian_line(line):
     match = _lintian_line_re.match(line)
