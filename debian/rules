@@ -2,6 +2,7 @@
 
 directories = checks collection helpers lib libextra profiles vendors
 share = /usr/share/lintian4python/
+version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
 
 .PHONY: clean
 clean:
@@ -17,7 +18,10 @@ binary binary-indep:
 	dh_prep
 	dh_install $(directories) $(share)
 	dh_install lintian4py* /usr/bin/
-	sed -i -e "s,\($$ENV{'LINTIAN_ROOT'}\) = .*,\1 = '$(share)';," debian/*/usr/bin/*
+	sed -i \
+		-e "s,\($$ENV{'LINTIAN_ROOT'}\) = .*,\1 = '$(share)';," \
+		-e "s,\(\$$lintian4python_version\) = undef;,\1 = '$(version)';," \
+		debian/*/usr/bin/*
 	dh_perl
 	dh_installdocs
 	dh_installchangelogs

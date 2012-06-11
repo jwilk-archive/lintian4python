@@ -11,14 +11,75 @@ unshift @INC, "$ENV{'LINTIAN_ROOT'}/lib";
 unshift @INC, "$ENV{'LINTIAN_ROOT'}/libextra";
 require Lintian::Output;
 
+use Getopt::Long qw();
+use IO::Pipe qw();
 use Monkey::Patch qw();
 
-my $monkey = Monkey::Patch::patch_package 'Lintian::Output' => '_print' => sub {
+$SIG{'__WARN__'} = sub {
+    # work-around for bug #677145
+    if (caller eq 'Monkey::Patch::Handle' and "@_" =~ m/^Prototype mismatch\b/) {
+        return;
+    }
+    warn @_;
+};
+
+my $lintian4python_version = undef;
+unless (defined $lintian4python_version) {
+    open(my $fh, '<', "$ENV{'LINTIAN_ROOT'}/debian/changelog") or die 'cannot open debian/changelog';
+    my $line = <$fh>;
+    close $fh;
+    if ($line =~ m/[(]\K([^)]++)/ ) {
+        $lintian4python_version = $1;
+    } else {
+        $lintian4python_version = '<unknown>';
+    }
+}
+
+my $monkey1 = Monkey::Patch::patch_package 'Lintian::Output' => '_print' => sub {
     my ($original, $self, $stream, $lead, @args) = @_;
     if ($lead =~ /^([A-Z])(: .*)$/) {
         $lead = "\L$1\E$2";
     }
     return $original->($self, $stream, $lead, @args);
+};
+
+my $monkey2 = Monkey::Patch::patch_package 'Lintian::Output' => 'debug_msg' => sub {
+    my ($original, $n, @args) = @_;
+    if (scalar(@args) == 5 and $args[0] =~ /^Lintian\s/) {
+        $args[0] = "lintian4python v$lintian4python_version (\L$args[0])";
+    }
+    return $original->($n, @args);
+};
+
+my $monkey3 = Monkey::Patch::patch_package 'Getopt::Long' => 'GetOptions' => sub {
+    my ($original, %opt) = @_;
+    my $banner_for_python = sub {
+        if ($_[0] eq 'print-version') {
+            print "$lintian4python_version\n";
+        } else {
+            my $lintian_version;
+            my $pid;
+            my $pipe = IO::Pipe->new();
+            if ($pid = fork()) { # parent
+                $pipe->reader();
+                $lintian_version = <$pipe>;
+                chomp $lintian_version;
+                $pipe = undef;
+            } elsif (defined $pid) { # child
+                $pipe->writer();
+                select $pipe;
+                banner('');
+                die; # should not happen
+            } else {
+                die "fork failed: $!";
+            }
+            print "lintian4python v$lintian4python_version (\L$lintian_version)\n";
+        }
+        exit 0;
+    };
+    $opt{'version|V'} = $banner_for_python;
+    $opt{'print-version'} = $banner_for_python;
+    return $original->(%opt);
 };
 
 do '/usr/bin/lintian';
