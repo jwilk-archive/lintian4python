@@ -77,6 +77,14 @@ Certainty: certain
 Info: "X-Python3-Version" must be used instead of "XS-Python3-Version".
 Ref: python-policy 2.3
 
+Tag: substitution-variable-in-xs-python-version
+Severity: important
+Certainty: certain
+Info: Substitution variables are not allowed in the XS-Python-Version field
+ (and, in general, they usually make little sense in the source paragraph of
+ debian/control).
+Ref: python-policy 2.3
+
 Tag: typo-in-python-version-declaration
 Severity: important
 Certainty: possible
