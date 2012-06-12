@@ -23,6 +23,7 @@ extensions
 | [X] extension-uses-old-pyrex-import-type
 | [X] extension-with-soname
 | [X] python3-extension-without-abi-tag
+| [X] static-extension
 
 scripts
 ~~~~~~~
