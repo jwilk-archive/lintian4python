@@ -45,6 +45,17 @@ sub check_static_extension {
     }
 }
 
+sub check_so_symlink {
+    my ($index, $file) = @_;
+    return unless $index->{$file}->{type} eq 'l';
+    my $basename = $file;
+    $basename =~ s,.*/,,;
+    my $link = $index->{$file}->{link};
+    if ($link =~ m,^\Q$basename\E\.,) {
+        tag 'extension-is-symlink', $file, '->', $link;
+    }
+}
+
 sub run {
 
 my ($pkg, $type, $info, $proc) = @_;
@@ -61,8 +72,9 @@ my $uses_old_pyrex_import_type = 0;
 my $seen_wrong_version = 0;
 my @linked_with_libpython = ();
 for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
     if (my @pyversion = ($file =~ $py_extension)) {
+        check_so_symlink($index, $file);
+        next unless $index->{$file}->{type} eq '-';
         my $string = slurp_entire_file($info->strings($file));
         if ($string =~ m,does not appear to be the correct type object,) {
             tag 'extension-uses-old-pyrex-import-type', $file;
@@ -85,6 +97,8 @@ for my $file (@{$info->sorted_index}) {
         }
         check_static_extension($index, $file);
     } elsif ($file =~ $tagless_py3_extension) {
+        check_so_symlink($index, $file);
+        next unless $index->{$file}->{type} eq '-';
         tag 'python3-extension-without-abi-tag', $file;
         check_static_extension($index, $file);
     }

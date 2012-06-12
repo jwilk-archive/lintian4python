@@ -42,3 +42,7 @@ Info: The Python extension module does not carry ABI version tag, as defined in
 Tag: static-extension
 Severity: normal
 Certainty: possible
+
+Tag: extension-is-symlink
+Severity: minor
+Certainty: possible

@@ -19,6 +19,7 @@ pyflakes
 extensions
 ~~~~~~~~~~
 | [X] extension-compiled-for-wrong-version
+| [X] extension-is-symlink
 | [X] extension-linked-with-libpython
 | [X] extension-uses-old-pyrex-import-type
 | [X] extension-with-soname

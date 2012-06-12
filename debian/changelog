@@ -2,12 +2,15 @@ lintian4python (0.5) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
+      - extension-is-symlink
       - python-breaks-is-obsolete
       - static-extension
       - substitution-variable-in-xs-python-version
 
   * checks/extensions:
     + Check for static extension modules.
+    + Check for extensions that are symlinks (e.g. _eggs.so ->
+      _eggs.so.1.0.0).
 
   * checks/helpers:
     + Check for ${python:Breaks}.
@@ -38,7 +41,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * tests/helpers.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Jun 2012 13:16:26 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Jun 2012 18:50:55 +0200
 
 lintian4python (0.4) experimental; urgency=low
 

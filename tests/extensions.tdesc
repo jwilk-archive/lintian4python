@@ -39,3 +39,9 @@ Files:
 Test-For:
  w: python-magics++: static-extension usr/lib/python2.6/dist-packages/Magics/_Magics.a
  w: python-magics++: static-extension usr/lib/python2.7/dist-packages/Magics/_Magics.a
+
+Name: extension-is-symlink
+Files:
+ 4fe3dddd83e4e1afa25972be07a2a275cbc24059  python-pypoker-eval_138.0-1+b1_i386.deb
+Test-For:
+ i: python-pypoker-eval: extension-is-symlink usr/lib/python2.6/dist-packages/_pokereval_2_6.so -> _pokereval_2_6.so.1.0.0
