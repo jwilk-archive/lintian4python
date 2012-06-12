@@ -32,3 +32,10 @@ Files:
  d1ab0a819dac9f9df7d2a698595cd06d0180d7ed  python-hivex_1.3.5-2_i386.deb
 Test-For:
  e: python-hivex: python3-extension-without-abi-tag usr/lib/python3/dist-packages/libhivexmod.so
+
+Name: static-extension
+Files:
+ 36d10fac24152008a33b2e2ee2a0d5200c6ff565  python-magics++_2.14.11-3_i386.deb
+Test-For:
+ w: python-magics++: static-extension usr/lib/python2.6/dist-packages/Magics/_Magics.a
+ w: python-magics++: static-extension usr/lib/python2.7/dist-packages/Magics/_Magics.a

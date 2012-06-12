@@ -38,3 +38,7 @@ Certainty: certain
 Ref: http://www.python.org/dev/peps/pep-3149/
 Info: The Python extension module does not carry ABI version tag, as defined in
  PEP-3149.
+
+Tag: static-extension
+Severity: normal
+Certainty: possible
