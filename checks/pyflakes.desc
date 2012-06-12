@@ -41,6 +41,11 @@ Tag: pyflakes-undefined-name
 Severity: serious
 Certainty: possible
 
+Tag: pyflakes-undefined-name-underscore
+Severity: serious
+Certainty: wild-guess
+Experimental: yes
+
 Tag: pyflakes-unused-import
 Severity: pedantic
 Certainty: possible

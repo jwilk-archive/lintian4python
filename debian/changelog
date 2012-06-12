@@ -3,6 +3,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * Summary of tag changes:
     + Added:
       - extension-is-symlink
+      - pyflakes-undefined-name-underscore
       - python-breaks-is-obsolete
       - static-extension
       - substitution-variable-in-xs-python-version
@@ -16,8 +17,16 @@ lintian4python (0.5) UNRELEASED; urgency=low
     + Check for ${python:Breaks}.
     + Check for substitution variables in XS-Python-Version.
 
+  * checks/pyflakes:
+    + Do not emit pyflakes-undefined-name for "_" (underscore) in private
+      modules, as this had too many false positives. Emit an experimental
+      pyflakes-undefined-name-underscore instead, but only once per file.
+
   * data/python/projects*:
     + Refresh.
+
+  * libextra/Lintian/Python.pm:
+    + New function to check if a module is public.
 
   * lintian4py:
     + Add work-around for bug #677145.
@@ -31,6 +40,8 @@ lintian4python (0.5) UNRELEASED; urgency=low
 
   * private/update-coverage:
     + Allow tags with "." in name.
+  * private/refresh-pyflakes-tags:
+    + Add artificial pyflakes-undefined-name-underscore.
 
   * tests/run-tests:
     + Allow tags with "." in name.
@@ -40,8 +51,10 @@ lintian4python (0.5) UNRELEASED; urgency=low
     + New tests.
   * tests/helpers.tdesc:
     + New tests.
+  * tests/pyflakes.tdesc:
+    + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Jun 2012 18:50:55 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Jun 2012 01:05:41 +0200
 
 lintian4python (0.4) experimental; urgency=low
 

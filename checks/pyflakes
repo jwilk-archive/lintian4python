@@ -28,7 +28,7 @@ use Cwd qw(getcwd);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
-use Lintian::Python qw(classify_python_modules);
+use Lintian::Python qw(classify_python_modules is_public_module);
 
 sub run {
     my ($pkg, $type, $info) = @_;
@@ -36,12 +36,20 @@ sub run {
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
     open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
+    my %underscores = ();
     my $file;
     while (<$fp>) {
         if (m,^(pyflakes-\S+) (.*),) {
             my $tag = $1;
             my $rest = $2;
-            tag $tag, "$file:$rest";
+            if ($tag eq 'pyflakes-undefined-name' and $rest =~ m/ _$/ and not is_public_module($file)) {
+                if (not exists ($underscores{$file})) {
+                    tag "pyflakes-undefined-name-underscore", "$file:$rest";
+                    $underscores{$file} = 1;
+                }
+            } else {
+                tag $tag, "$file:$rest";
+            }
         } elsif (m,^# (.+)$,) {
             $file = $1;
         } else {

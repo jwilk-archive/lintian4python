@@ -33,6 +33,7 @@ BEGIN {
     @EXPORT_OK = qw(
         parse_update_python_modules
         parse_pycompile
+        is_public_module
         classify_python_modules
     );
 }
@@ -82,6 +83,28 @@ sub parse_pycompile {
     return ($package, $versions, @{$args});
 }
 
+my $_public2 = qr(
+^ (?:
+  usr/lib/python2\.\d+
+| usr/share/pyshared
+| usr/share/python-support
+) /
+)x;
+
+my $_public3 = qr(^
+  usr/lib/python3/
+)x;
+
+my $_public = qr(
+  $_public2
+| $_public3
+)x;
+
+sub is_public_module {
+    my ($file) = @_;
+    return $file =~ $_public;
+}
+
 sub classify_python_modules {
     my ($package, $info) = @_;
     my $postinst = $info->control('postinst');
@@ -108,12 +131,7 @@ sub classify_python_modules {
         }
         close($fp);
     }
-    my $python2regex = qr(
-    ^ (?:
-      usr/lib/python2\.\d+
-    | usr/share/pyshared
-    | usr/share/python-support
-    ) / .* [^/][.]py$ )x;
+    my $python2regex = qr($_public2.*[^/][.]py$);
     my $python3regex = sprintf('^(?:%s)/.*[^/][.]py$', join('|', map { quotemeta } @python3paths));
     my @python2files = ();
     my @python3files = ();
