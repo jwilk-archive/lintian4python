@@ -39,9 +39,10 @@ def extract_tags(node):
 
 def main():
     LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
-    with open('{root}/helpers/code-analysis'.format(root=LINTIAN_ROOT), 'r') as file:
+    filename = '{root}/helpers/code-analysis'.format(root=LINTIAN_ROOT)
+    with open(filename, 'r') as file:
         contents = file.read()
-        node = ast.parse(contents)
+        node = ast.parse(contents, filename=filename)
         tags = set(extract_tags(node))
     old_tags = {}
     first = True

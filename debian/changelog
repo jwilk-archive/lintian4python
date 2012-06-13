@@ -40,6 +40,9 @@ lintian4python (0.5) UNRELEASED; urgency=low
 
   * private/update-coverage:
     + Allow tags with "." in name.
+  * private/refresh-code-analysis-tags:
+    + Produce more useful backtrace if helpers/code-analysis has a syntax
+      error.
   * private/refresh-pyflakes-tags:
     + Add artificial pyflakes-undefined-name-underscore.
 
@@ -54,7 +57,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * tests/pyflakes.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Jun 2012 01:05:41 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Jun 2012 15:07:56 +0200
 
 lintian4python (0.4) experimental; urgency=low
 
