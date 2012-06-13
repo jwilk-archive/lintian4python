@@ -1,4 +1,4 @@
-# python-pyflakes -- lintian check script -*- perl -*-
+# python-code-analysis -- lintian check script -*- perl -*-
 #
 # Copyright © 2011, 2012 Jakub Wilk
 #

@@ -11,6 +11,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
 
   * checks/code-analysis:
     + Check for inconsistent use of tabs and spaces in indentation.
+    + Fix a typo.
 
   * checks/extensions:
     + Check for static extension modules.
@@ -20,6 +21,9 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * checks/helpers:
     + Check for ${python:Breaks}.
     + Check for substitution variables in XS-Python-Version.
+
+  * checks/imports:
+    + Fix a typo.
 
   * checks/pyflakes:
     + Do not emit pyflakes-undefined-name for "_" (underscore) in private
@@ -57,8 +61,9 @@ lintian4python (0.5) UNRELEASED; urgency=low
     + Allow tags with "." in name.
   * tests/*.tdesc:
     + New tests.
+  * 
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Jun 2012 15:14:41 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Jun 2012 16:55:04 +0200
 
 lintian4python (0.4) experimental; urgency=low
 
