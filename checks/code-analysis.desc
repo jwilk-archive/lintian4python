@@ -35,7 +35,7 @@ Info: One error that Python programmers occasionally make is writing the
        ...
 
 Tag: inconsistent-use-of-tabs-and-spaces-in-indentation
-Severity: important
+Severity: normal
 Certainty: certain
 Ref: http://docs.python.org/reference/lexical_analysis.html#indentation
 Info: The source file mixes tabs and spaces for indentation in a way that makes
