@@ -13,6 +13,7 @@ pyflakes
 | [ ] pyflakes-undefined-export
 | [ ] pyflakes-undefined-local
 | [ ] pyflakes-undefined-name
+| [X] pyflakes-undefined-name-underscore
 | [ ] pyflakes-unused-import
 | [ ] pyflakes-unused-variable
 
