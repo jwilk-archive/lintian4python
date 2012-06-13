@@ -34,6 +34,16 @@ Info: One error that Python programmers occasionally make is writing the
    except (TypeError, ValueError):
        ...
 
+Tag: inconsistent-use-of-tabs-and-spaces-in-indentation
+Severity: important
+Certainty: certain
+Ref: http://docs.python.org/reference/lexical_analysis.html#indentation
+Info: The source file mixes tabs and spaces for indentation in a way that makes
+ it depend on the worth of a tab expressed in spaces.
+ .
+ You can check consistency of indentation with the following command:
+  python -m tabnanny <i>path-to-source-file</i>
+
 Tag: string-exception
 Severity: important
 Certainty: possible

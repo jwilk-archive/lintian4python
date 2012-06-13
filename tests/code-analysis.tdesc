@@ -10,6 +10,12 @@ Files:
 Test-For:
  e: python-pebl: except-shadows-builtin usr/share/pyshared/pebl/network.py:69: ValueError
 
+Name: inconsistent-use-of-tabs-and-spaces-in-indentation
+Files:
+ efa5529f00662e26dd6d0609e1603e08de5bfe32  python-slides_1.0.1-13_all.deb
+Test-For:
+ e: python-slides: inconsistent-use-of-tabs-and-spaces-in-indentation usr/share/pyshared/slides.py:39
+
 Name: string-exception
 Files:
  3cff5aa6eefba08867fdbce973e283e2b3178173  bittorrent_3.4.2-11.4_all.deb

@@ -35,14 +35,14 @@ sub run {
     my ($py2files, $py3files) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    analyse($py2files, '/usr/bin/python');
+    analyse($py2files, '/usr/bin/python', '-tt');
     analyse($py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
     chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 sub analyse {
-    my ($files, $interpreter) = @_;
-    open(my $fp, '-|', $interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
+    my ($files, @interpreter) = @_;
+    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
         if (m,^(\S+) (-|\d+)(?: (.+))?$,) {
