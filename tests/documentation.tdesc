@@ -12,6 +12,12 @@ Test-For:
  w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/_static/searchtools.js.gz (usr/share/doc/atheist/html/search.html)
  w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/searchindex.js.gz (usr/share/doc/atheist/html/search.html)
 
+Name: search.html-references-non-local-js-file
+Files:
+ 0012df70983af5e443af746790db3ffc8126df98  pynast_1.1-3_all.deb
+Test-For:
+ w: pynast: search.html-references-non-local-js-file usr/share/doc/pynast/html/search.html -> http://www.google.com/jsapi?key=ABQIAAAAdyJBQQABvxRaME0S-wyQoxTmluCkmlcBcOZMfdDozzndIHJ6lxRpv5opdXpr1SRwPuMUtSSFwWiDgw
+
 Name: sphinx-js-incompatible-with-jquery
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb
