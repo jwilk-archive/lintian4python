@@ -25,6 +25,12 @@ Test-Against:
  w: python-sqlkit-doc: search.html-references-non-local-js-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery/jquery.js
  w: python-sqlkit-doc: search.html-references-non-local-js-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery-ui/jquery-ui.js
 
+Name: search.html-with-invalid-root-url/fragment
+Files:
+ a0452f86380bf557d6989897a78f3d76ed2875a8  python-sqlparse_0.1.4-1_all.deb
+Test-For:
+ w: python-sqlparse: search.html-with-invalid-root-url usr/share/doc/python-sqlparse/html/search.html -> #
+
 Name: sphinx-js-incompatible-with-jquery
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb

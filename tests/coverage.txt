@@ -46,7 +46,7 @@ documentation
 | [X] js-file-referenced-by-search.html-is-compressed
 | [ ] search.html-doesnt-load-search-index
 | [X] search.html-references-non-local-js-file
-| [ ] search.html-with-invalid-root-url
+| [X] search.html-with-invalid-root-url
 | [ ] search.html-with-non-local-root-url
 | [X] sphinx-js-incompatible-with-jquery-1.4
 | [X] sphinx-js-incompatible-with-jquery-1.5
