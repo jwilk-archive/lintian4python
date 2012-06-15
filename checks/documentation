@@ -62,6 +62,10 @@ sub check_js
     my $index = $info->index;
     my @js_url = uri_split($js_url);
     if (not uri_is_local(@js_url)) {
+        if ($js_url =~ m,/usr/share/javascript/[^/]+/[^/]+\.js$,) {
+            # TODO: Check if it really exists.
+            return '';
+        }
         tag 'search.html-references-non-local-js-file', $html_filename, '->', $js_url;
         return '';
     }
