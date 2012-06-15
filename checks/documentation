@@ -104,6 +104,32 @@ sub check_js
     return $result;
 }
 
+sub check_searchindex {
+    my ($info, $directory, $searchindex_filename) = @_;
+    my $index = $info->index;
+    $searchindex_filename = "$directory/$searchindex_filename";
+    exists $index->{$searchindex_filename} or return;
+    $index->{$searchindex_filename}->{type} eq '-' or return;
+    my $searchindex = slurp_entire_file($info->unpacked($searchindex_filename));
+    if ($searchindex =~ m{^Search\.setIndex\(.*?filenames:\["(.*?)"\].*\)$}) {
+        $searchindex = $1;
+        my @searchindex = split(/","/, $searchindex);
+        for my $filename (@searchindex) {
+            $filename = "$directory/_sources/$filename.txt";
+            if (not exists $index->{$filename}) {
+                my $tag = 'rst-source-referenced-by-searchindex.js-does-not-exist';
+                if (exists $index->{"$filename.gz"}) {
+                    $filename .= '.gz';
+                    $tag = 'rst-source-referenced-by-searchindex.js-is-compressed';
+                }
+                tag $tag, $filename, "($searchindex_filename)";
+            }
+        }
+    } else {
+        tag 'cannot-parse-sphinx-searchindex.js', $searchindex_filename;
+    }
+}
+
 sub run {
     my ($pkg, undef, $info) = @_;
     my $index = $info->index;
@@ -121,7 +147,7 @@ sub run {
         my ($has_source) = $html =~ m{\sHAS_SOURCE:\s*(true|false)};
         $evidence += 2 * (defined $has_source);
         $evidence >= 4 or next;
-        $has_source //= 0;
+        $has_source = ($has_source // '') eq 'true';
         my @root_url = uri_split($root_url);
         {
             my $skip = 0;
@@ -135,14 +161,22 @@ sub run {
             }
             next if $skip;
         }
-        my $searchindex_loaded = 0;
+        my $searchindex_path = undef;
         $html =~ s/<!--.*?-->//g; # strip comments
         while ($html =~ m{<script type="text/javascript" src="([^"]++)"></script>}g) {
             my $js_path = check_js($info, $html_filename, $directory, $1);
-            $searchindex_loaded ||= (basename($js_path) eq 'searchindex.js');
+            if (basename($js_path) eq 'searchindex.js') {
+                $searchindex_path = $js_path;
+            }
         }
-        $searchindex_loaded ||= ($html =~ m/\QjQuery(function() { Search.loadIndex("searchindex.js"); });\E/);
-        if (not $searchindex_loaded) {
+        if ($html =~ m/\QjQuery(function() { Search.loadIndex("searchindex.js"); });\E/) {
+            $searchindex_path = check_js($info, $html_filename, $directory, 'searchindex.js') || $searchindex_path;
+        }
+        if (defined $searchindex_path) {
+            if ($has_source) {
+                check_searchindex($info, $directory, $searchindex_path);
+            }
+        } else {
             tag 'search.html-doesnt-load-search-index', $html_filename;
         }
     }

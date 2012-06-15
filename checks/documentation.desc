@@ -56,3 +56,15 @@ Ref: https://bitbucket.org/birkenfeld/sphinx/changeset/dd303c75281e,
 Tag: sphinx-js-with-jinja2-templates
 Severity: normal
 Certainty: possible
+
+Tag: cannot-parse-sphinx-searchindex.js
+Severity: normal
+Certainty: wild-guess
+
+Tag: rst-source-referenced-by-searchindex.js-does-not-exist
+Severity: normal
+Certainty: possible
+
+Tag: rst-source-referenced-by-searchindex.js-is-compressed
+Severity: normal
+Certainty: possible
