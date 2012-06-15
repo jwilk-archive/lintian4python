@@ -27,8 +27,9 @@ lintian4python (0.5) UNRELEASED; urgency=low
       - referencing non-local .js files;
       - failing to load search index;
       - with non-local or invalid root URL;
-    + Check for Sphinx .js code incompatible with recent (1.4, 1.5) jQuery
-      versions.
+    + Check for Sphinx .js code:
+      - incompatible with recent (1.4, 1.5) jQuery versions;
+      - containing (unexpanded) Jinja2 templates.
 
   * checks/extensions:
     + Check for static extension modules.
@@ -82,7 +83,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 15 Jun 2012 20:44:10 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 15 Jun 2012 23:04:20 +0200
 
 lintian4python (0.4) experimental; urgency=low
 

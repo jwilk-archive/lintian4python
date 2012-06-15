@@ -52,3 +52,7 @@ Info: The JavaScript code is not compatible with jQuery >= 1.5.  Rebuilding the
  package against Sphinx >= 1.0.7-4 should fix this problem.
 Ref: https://bitbucket.org/birkenfeld/sphinx/changeset/dd303c75281e,
  #625208
+
+Tag: sphinx-js-with-jinja2-templates
+Severity: normal
+Certainty: possible

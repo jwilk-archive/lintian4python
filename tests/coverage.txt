@@ -50,6 +50,7 @@ documentation
 | [ ] search.html-with-non-local-root-url
 | [X] sphinx-js-incompatible-with-jquery-1.4
 | [X] sphinx-js-incompatible-with-jquery-1.5
+| [X] sphinx-js-with-jinja2-templates
 
 pth
 ~~~

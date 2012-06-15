@@ -37,3 +37,9 @@ Files:
 Test-For:
  w: python-argvalidate: sphinx-js-incompatible-with-jquery-1.4 usr/share/doc/python-argvalidate/html/_static/doctools.js
  w: python-argvalidate: sphinx-js-incompatible-with-jquery-1.5 usr/share/doc/python-argvalidate/html/_static/searchtools.js
+
+Name: sphinx-js-with-jinja2-templates
+Files:
+ 9616848a379558801f98022f741cf092d2345e04  python-sqlkit-doc_0.9.5-1_all.deb
+Test-For:
+ w: python-sqlkit-doc: sphinx-js-with-jinja2-templates usr/share/doc/python-sqlkit-doc/html/_static/searchtools.js {{ search_language_stemming_code|safe }}

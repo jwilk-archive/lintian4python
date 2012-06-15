@@ -87,6 +87,9 @@ sub check_js
                     if ($js !~ /"text"/) {
                         tag 'sphinx-js-incompatible-with-jquery-1.5', $js_filename;
                     }
+                    if ($js =~ /({{ .*? }})/) {
+                        tag 'sphinx-js-with-jinja2-templates', $js_filename, $1;
+                    }
                 }
             }
         }
