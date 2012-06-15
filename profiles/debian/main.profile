@@ -3,6 +3,7 @@ Enable-Tags-From-Check:
  bytecompilation,
  code-analysis,
  depends,
+ documentation,
  egg-info,
  extensions,
  helpers,

@@ -1,0 +1,150 @@
+# python-documentation -- lintian check script -*- perl -*-
+#
+# Copyright © 2012 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::documentation;
+
+use strict;
+use warnings;
+use v5.10;
+
+use Lintian::Tags qw(tag);
+use Lintian::Util qw(slurp_entire_file);
+
+use File::Basename qw(basename);
+
+use URI::Split qw(uri_split);
+
+sub uri_is_local
+{
+    my ($scheme, $auth, $path, $query, $fragment) = @_;
+    return not (
+        defined $scheme or
+        defined $auth or
+        ($path // '') =~ m,^/,
+    );
+}
+
+sub uri_is_concatenable
+{
+    my ($scheme, $auth, $path, $query, $fragment) = @_;
+    return not (
+        defined $fragment or
+        defined $query
+    );
+}
+
+sub uri_path
+{
+    my ($scheme, $auth, $path, $query, $fragment) = @_;
+    return $path;
+}
+
+sub check_js
+{
+    my ($info, $html_filename, $directory, $js_url) = @_;
+    my $index = $info->index;
+    my @js_url = uri_split($js_url);
+    if (not uri_is_local(@js_url)) {
+        tag 'search.html-references-non-local-js-file', $html_filename, '->', $js_url;
+        return '';
+    }
+    my $local_directory = $directory;
+    my $result = my $js_filename = uri_path(@js_url);
+    $js_filename = "$directory/$js_filename";
+    1 while $js_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
+    if (exists $index->{$js_filename}) {
+        if ($index->{$js_filename}->{type} eq '-') {
+            given (basename($js_filename)) {
+                when ('doctools.js') {
+                    my $js = slurp_entire_file($info->unpacked($js_filename));
+                    if ($js =~ m/\bjQuery\.className\b/) {
+                        tag 'sphinx-js-incompatible-with-jquery-1.4', $js_filename;
+                    }
+                }
+                when ('searchtools.js') {
+                    my $js = slurp_entire_file($info->unpacked($js_filename));
+                    if ($js !~ /"text"/) {
+                        tag 'sphinx-js-incompatible-with-jquery-1.5', $js_filename;
+                    }
+                }
+            }
+        }
+    } else {
+        my $tag = 'js-file-referenced-by-search.html-does-not-exist';
+        if (exists $index->{"$js_filename.gz"}) {
+            $js_filename .= '.gz';
+            $tag = 'js-file-referenced-by-search.html-is-compressed';
+        }
+        tag $tag, $js_filename, "($html_filename)";
+    }
+    return $result;
+}
+
+sub run {
+    my ($pkg, undef, $info) = @_;
+    my $index = $info->index;
+    for my $html_filename (@{$info->sorted_index}) {
+        next unless $index->{$html_filename}->{type} eq '-';
+        next unless my ($directory) = $html_filename =~ m,^(.*)/search\.html$,;
+        my $html = slurp_entire_file($info->unpacked($html_filename));
+        $html =~ m/\svar\s+DOCUMENTATION_OPTIONS\s*=/ or next;
+        my ($root_url) = $html =~ m{\sURL_ROOT:\s*'([^']*)'};
+        defined $root_url or next;
+        my $evidence = 0;
+        $evidence += 1 * ($html =~ m/\sVERSION:/);
+        $evidence += 2 * ($html =~ m/\sCOLLAPSE_(MOD)?INDEX:/);
+        $evidence += 1 * ($html =~ m/\sFILE_SUFFIX:/);
+        my ($has_source) = $html =~ m{\sHAS_SOURCE:\s*(true|false)};
+        $evidence += 2 * (defined $has_source);
+        $evidence >= 4 or next;
+        $has_source //= 0;
+        my @root_url = uri_split($root_url);
+        {
+            my $skip = 0;
+            if (not uri_is_local(@root_url)) {
+                tag 'search.html-with-non-local-root-url', $html_filename, '->', $root_url;
+                $skip = 1;
+            }
+            if (not uri_is_concatenable(@root_url)) {
+                tag 'search.html-with-invalid-root-url', $html_filename, '->', $root_url;
+                $skip = 1;
+            }
+            next if $skip;
+        }
+        my $searchindex_loaded = 0;
+        $html =~ s/<!--.*?-->//g; # strip comments
+        while ($html =~ m{<script type="text/javascript" src="([^"]++)"></script>}g) {
+            my $js_path = check_js($info, $html_filename, $directory, $1);
+            $searchindex_loaded ||= (basename($js_path) eq 'searchindex.js');
+        }
+        $searchindex_loaded ||= ($html =~ m/\QjQuery(function() { Search.loadIndex("searchindex.js"); });\E/);
+        if (not $searchindex_loaded) {
+            tag 'search.html-doesnt-load-search-index', $html_filename;
+        }
+    }
+}
+
+1;
+
+# Local Variables:
+# indent-tabs-mode: nil
+# cperl-indent-level: 4
+# End:
+# vim: syntax=perl sw=4 sts=4 sr et

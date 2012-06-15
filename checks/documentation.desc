@@ -1,0 +1,54 @@
+Check-Script: documentation
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: doc
+Type: binary
+Info: documentation
+Needs-Info: index, unpacked
+
+Tag: js-file-referenced-by-search.html-does-not-exist
+Severity: normal
+Certainty: possible
+Info: A JavaScript file referenced by <tt>search.html</tt> (a Sphinx search
+ page) does not exist.  Without that file, the search function won't work.
+
+Tag: js-file-referenced-by-search.html-is-compressed
+Severity: normal
+Certainty: possible
+Info: A JavaScript file referenced by search.html (a Sphinx search page) is
+ compressed.  Without that file, the search function won't work.
+ .
+ If you use debhelper, rebuilding the package against debhelper >= 8.1.0 should
+ fix this problem.
+Ref: #603553
+
+Tag: search.html-references-non-local-js-file
+Severity: normal
+Certainty: possible
+
+Tag: search.html-doesnt-load-search-index
+Severity: normal
+Certainty: possible
+
+Tag: search.html-with-non-local-root-url
+Severity: normal
+Certainty: possible
+
+Tag: search.html-with-invalid-root-url
+Severity: normal
+Certainty: possible
+
+Tag: sphinx-js-incompatible-with-jquery-1.4
+Severity: normal
+Certainty: possible
+Info: The JavaScript code is not compatible with jQuery >= 1.4.  Rebuilding the
+ package against Sphinx >= 1.0.7-3 should fix this problem.
+Ref: https://bitbucket.org/birkenfeld/sphinx/changeset/72375ba800b6,
+ #628642
+
+Tag: sphinx-js-incompatible-with-jquery-1.5
+Severity: normal
+Certainty: possible
+Info: The JavaScript code is not compatible with jQuery >= 1.5.  Rebuilding the
+ package against Sphinx >= 1.0.7-4 should fix this problem.
+Ref: https://bitbucket.org/birkenfeld/sphinx/changeset/dd303c75281e,
+ #625208
