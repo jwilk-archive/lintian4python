@@ -1,3 +1,17 @@
+Name: js-file-referenced-by-search.html-does-not-exist
+Files:
+ 9dfd4e1efc9552dc5c9170872e7db112e289e40a  python-flaskext.wtf_0.6-1_all.deb
+Test-For:
+ w: python-flaskext.wtf: js-file-referenced-by-search.html-does-not-exist usr/share/doc/python-flaskext.wtf/html/_static/jquery.js (usr/share/doc/python-flaskext.wtf/html/search.html)
+
+Name: js-file-referenced-by-search.html-is-compressed
+Files:
+ 954d37c651029446fea3889a67c0bdf4ff598d31  atheist_0.20100717-1_all.deb
+Test-For:
+ w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/_static/doctools.js.gz (usr/share/doc/atheist/html/search.html)
+ w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/_static/searchtools.js.gz (usr/share/doc/atheist/html/search.html)
+ w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/searchindex.js.gz (usr/share/doc/atheist/html/search.html)
+
 Name: sphinx-js-incompatible-with-jquery
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb
