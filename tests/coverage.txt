@@ -48,8 +48,8 @@ documentation
 | [ ] search.html-references-non-local-js-file
 | [ ] search.html-with-invalid-root-url
 | [ ] search.html-with-non-local-root-url
-| [ ] sphinx-js-incompatible-with-jquery-1.4
-| [ ] sphinx-js-incompatible-with-jquery-1.5
+| [X] sphinx-js-incompatible-with-jquery-1.4
+| [X] sphinx-js-incompatible-with-jquery-1.5
 
 pth
 ~~~
