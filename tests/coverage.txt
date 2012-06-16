@@ -57,7 +57,7 @@ documentation
 
 pth
 ~~~
-| [ ] pth-file-modifies-sys.path
+| [X] pth-file-modifies-sys.path
 
 depends
 ~~~~~~~
