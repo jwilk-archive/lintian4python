@@ -59,6 +59,13 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * data/python/projects*:
     + Refresh.
 
+  * debian/control:
+    + Update lintian dependency (2.5.9).
+    + Bump dependency on perl to >= 5.10 (needed by checks/documentation).
+    + Add dependency on liburi-perl (needed by checks/documentation).
+  * debian/rules:
+    + Encode version number in the lintian4py script.
+
   * helpers/code-analysis:
     + Check for inconsistent use of tabs and spaces in indentation.
 
@@ -73,20 +80,13 @@ lintian4python (0.5) UNRELEASED; urgency=low
     + Make --debug output include lintian4python version (not only lintian
       version).
 
-  * debian/control:
-    + Update lintian dependency (2.5.9).
-    + Bump dependency on perl to >= 5.10 (needed by checks/documentation).
-    + Add dependency on liburi-perl (needed by checks/documentation).
-  * debian/rules:
-    + Encode version number in the lintian4py script.
-
-  * private/update-coverage:
-    + Allow tags with "." in name.
   * private/refresh-code-analysis-tags:
     + Produce more useful backtrace if helpers/code-analysis has a syntax
       error.
   * private/refresh-pyflakes-tags:
     + Add artificial pyflakes-undefined-name-underscore.
+  * private/update-coverage:
+    + Allow tags with "." in name.
 
   * tests/run-tests:
     + Allow tags with "." in name.
