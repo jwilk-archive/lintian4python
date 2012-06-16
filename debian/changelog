@@ -9,8 +9,8 @@ lintian4python (0.5) UNRELEASED; urgency=low
       - js-file-referenced-by-search.html-is-compressed
       - pyflakes-undefined-name-underscore
       - python-breaks-is-obsolete
-      - rst-file-referenced-by-searchindex.js-does-not-exist
-      - rst-file-referenced-by-searchindex.js-is-compressed
+      - rst-source-referenced-by-searchindex.js-does-not-exist
+      - rst-source-referenced-by-searchindex.js-is-compressed
       - search.html-doesnt-load-search-index
       - search.html-references-nonlocal-js-file
       - search.html-with-invalid-root-url
