@@ -30,11 +30,11 @@ sub run {
 my %executable;
 my ($pkg, $type, $info) = @_;
 
-foreach (@{$info->sorted_index}) {
+foreach ($info->sorted_index) {
     next if $_ eq '';
     my $index_info = $info->index->{$_};
-    my $operm = $index_info->{operm};
-    next unless $index_info->{type} =~ m,^[-h], and ($operm & 0111);
+    my $operm = $index_info->operm;
+    next unless $index_info->type =~ m,^[-h], and ($operm & 0111);
     $executable{$_} = 1;
 }
 for my $filename (sort keys %{$info->scripts}) {

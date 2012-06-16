@@ -21,6 +21,9 @@ lintian4python (0.5) UNRELEASED; urgency=low
       - static-extension
       - substitution-variable-in-xs-python-version
 
+  * checks/*:
+    + Port to Lintian 2.5.9 API.
+
   * checks/code-analysis:
     + Check for inconsistent use of tabs and spaces in indentation.
     + Fix a typo.
@@ -60,6 +63,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
     + Check for inconsistent use of tabs and spaces in indentation.
 
   * libextra/Lintian/Python.pm:
+    + Port to Lintian 2.5.9 API.
     + New function to check if a module is public.
 
   * lintian4py:
@@ -70,6 +74,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
       version).
 
   * debian/control:
+    + Update lintian dependency (2.5.9).
     + Bump dependency on perl to >= 5.10 (needed by checks/documentation).
     + Add dependency on liburi-perl (needed by checks/documentation).
   * debian/rules:
@@ -88,7 +93,7 @@ lintian4python (0.5) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 16 Jun 2012 00:02:52 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 16 Jun 2012 10:28:41 +0200
 
 lintian4python (0.4) experimental; urgency=low
 

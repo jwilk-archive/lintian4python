@@ -60,8 +60,8 @@ my %egg_versions = ();
 my $index = $info->index;
 my $depends = $info->relation('strong');
 my $all_depends = $info->relation('all');
-for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
+for my $file ($info->sorted_index) {
+    next unless $index->{$file}->type eq '-';
     if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)-packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
         my $py3k = int(defined $2);
         my $egg_name = $3;

@@ -34,8 +34,8 @@ my $version = $info->field('version');
 my %egg_versions = ();
 my $index = $info->index;
 my $depends = $info->relation('strong');
-for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
+for my $file ($info->sorted_index) {
+    next unless $index->{$file}->type eq '-';
     if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
         open(my $fh, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
         while (<$fh>) {

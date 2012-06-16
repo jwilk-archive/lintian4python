@@ -32,7 +32,7 @@ my $index = $info->index;
 my %needed = ();
 
 for my $file (sort keys %{$info->scripts}) {
-    next unless $index->{$file}->{type} eq '-';
+    next unless $index->{$file}->type eq '-';
     my $interpreter = $info->scripts->{$file}->{interpreter};
     my ($base) = $interpreter =~ m,([^/]*)$,;
     if ($base =~ m/^python(?:([23])(?:\.[0-9]+)?)?$/) {

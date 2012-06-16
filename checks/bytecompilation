@@ -69,8 +69,8 @@ my $update_version_map = sub {
     }
 };
 
-for my $file (@{$info->sorted_index}) {
-    next unless $index->{$file}->{type} eq '-';
+for my $file ($info->sorted_index) {
+    next unless $index->{$file}->type eq '-';
     next if $file =~ m,(?:/usr)?/s?bin/,; # TODO: check syntax of scripts
     next unless $file =~ /[.]py$/; # TODO: check also compressed .py files
     $version_map{$file} = 0;

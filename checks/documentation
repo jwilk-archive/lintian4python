@@ -74,7 +74,7 @@ sub check_js
     $js_filename = "$directory/$js_filename";
     1 while $js_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
     if (exists $index->{$js_filename}) {
-        if ($index->{$js_filename}->{type} eq '-') {
+        if ($index->{$js_filename}->type eq '-') {
             given (basename($js_filename)) {
                 when ('doctools.js') {
                     my $js = slurp_entire_file($info->unpacked($js_filename));
@@ -109,7 +109,7 @@ sub check_searchindex {
     my $index = $info->index;
     $searchindex_filename = "$directory/$searchindex_filename";
     exists $index->{$searchindex_filename} or return;
-    $index->{$searchindex_filename}->{type} eq '-' or return;
+    $index->{$searchindex_filename}->type eq '-' or return;
     my $searchindex = slurp_entire_file($info->unpacked($searchindex_filename));
     if ($searchindex =~ m{^Search\.setIndex\(.*?filenames:\["(.*?)"\].*\)$}) {
         $searchindex = $1;
@@ -133,8 +133,8 @@ sub check_searchindex {
 sub run {
     my ($pkg, undef, $info) = @_;
     my $index = $info->index;
-    for my $html_filename (@{$info->sorted_index}) {
-        next unless $index->{$html_filename}->{type} eq '-';
+    for my $html_filename ($info->sorted_index) {
+        next unless $index->{$html_filename}->type eq '-';
         next unless my ($directory) = $html_filename =~ m,^(.*)/search\.html$,;
         my $html = slurp_entire_file($info->unpacked($html_filename));
         $html =~ m/\svar\s+DOCUMENTATION_OPTIONS\s*=/ or next;
