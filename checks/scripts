@@ -51,7 +51,7 @@ for my $filename (sort keys %{$info->scripts}) {
         my $version = $1;
         tag 'versioned-python-shebang', $filename, $orig_interpreter
             unless $filename =~ m,\Q$version\E[^/]*$, or
-                $pkg =~ m/^python\Q$version\E(?:-.+)?$/;
+                $pkg =~ m/\bpython\Q$version\E(?:-.+)?$/;
     }
 }
 
