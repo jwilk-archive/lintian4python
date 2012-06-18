@@ -64,7 +64,17 @@ Certainty: wild-guess
 Tag: rst-source-referenced-by-searchindex.js-does-not-exist
 Severity: normal
 Certainty: possible
+Info: If the documentation was built with <tt>html_copy_source = True</tt> then
+ the <tt>_sources</tt> must be included in the binary package.
+Ref: http://sphinx.pocoo.org/config.html#confval-html_copy_source
 
 Tag: rst-source-referenced-by-searchindex.js-is-compressed
 Severity: normal
 Certainty: possible
+Info: If the documentation was built with <tt>html_copy_source = True</tt> then
+ the <tt>_sources</tt> must be included (uncompressed) in the binary package.
+ .
+ If you use debhelper, rebuilding the package against debhelper >= 8.9.5 should
+ fix this problem.
+Ref: http://sphinx.pocoo.org/config.html#confval-html_copy_source,
+ #637492
