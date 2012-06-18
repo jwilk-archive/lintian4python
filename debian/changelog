@@ -8,10 +8,13 @@ lintian4python (0.5.1) UNRELEASED; urgency=low
   * checks/scripts:
     + Fix false positive versioned-python-shebang for idle-python2.X packages.
 
+  * data/python/projects*:
+    + Refresh.
+
   * tests/scripts.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Jun 2012 12:49:11 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Jun 2012 12:51:03 +0200
 
 lintian4python (0.5) experimental; urgency=low
 
