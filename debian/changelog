@@ -1,12 +1,12 @@
 lintian4python (0.5.1) UNRELEASED; urgency=low
 
-  * check/scripts:
-    + Fix false positive versioned-python-shebang for idle-python2.X packages.
-
   * checks/documentation:
     + Add tag descriptions for
       rst-source-referenced-by-searchindex.js-does-not-exist and
       rst-source-referenced-by-searchindex.js-is-compressed.
+
+  * checks/scripts:
+    + Fix false positive versioned-python-shebang for idle-python2.X packages.
 
   * tests/scripts.tdesc:
     + New tests.
