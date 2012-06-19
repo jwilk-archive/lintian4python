@@ -1,4 +1,4 @@
-lintian4python (0.5.1) UNRELEASED; urgency=low
+lintian4python (0.6) UNRELEASED; urgency=low
 
   * checks/documentation:
     + Add tag descriptions for
@@ -14,7 +14,7 @@ lintian4python (0.5.1) UNRELEASED; urgency=low
   * tests/scripts.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Jun 2012 12:51:03 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 19 Jun 2012 12:16:29 +0200
 
 lintian4python (0.5) experimental; urgency=low
 

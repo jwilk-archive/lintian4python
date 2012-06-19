@@ -18,5 +18,5 @@ Files:
 Test-Against:
  i: idle-python2.7: versioned-python-shebang usr/lib/python2.7/idlelib/PyShell.py /usr/bin/python2.7
 Info:
- Fixed in lintian4python 0.5.1.  Prior versions incorrectly emitted:
+ Fixed in lintian4python 0.6.  Prior versions incorrectly emitted:
   i: idle-pythonX.Y-...: versioned-python-shebang ... /usr/bin/pythonX.Y
