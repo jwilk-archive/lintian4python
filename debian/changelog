@@ -1,9 +1,14 @@
 lintian4python (0.6) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      + sphinx-cruft-in-binary-package
+
   * checks/documentation:
     + Add tag descriptions for
       rst-source-referenced-by-searchindex.js-does-not-exist and
       rst-source-referenced-by-searchindex.js-is-compressed.
+    + Check for Sphinx cruft in binary packages.
 
   * checks/scripts:
     + Fix false positive versioned-python-shebang for idle-python2.X packages.
@@ -11,10 +16,10 @@ lintian4python (0.6) UNRELEASED; urgency=low
   * data/python/projects*:
     + Refresh.
 
-  * tests/scripts.tdesc:
+  * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 19 Jun 2012 12:16:29 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 19 Jun 2012 12:36:23 +0200
 
 lintian4python (0.5) experimental; urgency=low
 

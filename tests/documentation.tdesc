@@ -31,6 +31,20 @@ Files:
 Test-For:
  w: python-sqlparse: search.html-with-invalid-root-url usr/share/doc/python-sqlparse/html/search.html -> #
 
+Name: sphinx-cruft-in-binary-package/1
+Files:
+ 9dfd4e1efc9552dc5c9170872e7db112e289e40a  python-flaskext.wtf_0.6-1_all.deb
+Test-For:
+ p: python-flaskext.wtf: sphinx-cruft-in-binary-package usr/share/doc/python-flaskext.wtf/html/.buildinfo
+ p: python-flaskext.wtf: sphinx-cruft-in-binary-package usr/share/doc/python-flaskext.wtf/html/_static/websupport.js
+
+Name: sphinx-cruft-in-binary-package/2
+Files:
+ 1b0c799eb914124b57864ca5970917a7b155e8a2  python-cairo-dev_1.8.8-1_all.deb
+Test-For:
+ p: python-cairo-dev: sphinx-cruft-in-binary-package usr/share/doc/python-cairo-dev/html/.buildinfo
+ p: python-cairo-dev: sphinx-cruft-in-binary-package usr/share/doc/python-cairo-dev/html/.doctrees/
+
 Name: sphinx-js-incompatible-with-jquery
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb

@@ -179,6 +179,12 @@ sub run {
         } else {
             tag 'search.html-doesnt-load-search-index', $html_filename;
         }
+        for my $cruft (qw(.buildinfo .doctrees/ _static/websupport.js)) {
+            my $filename = "$directory/$cruft";
+            if (exists $index->{$filename}) {
+                tag 'sphinx-cruft-in-binary-package', $filename;
+            }
+        }
     }
 }
 

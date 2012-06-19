@@ -78,3 +78,7 @@ Info: If the documentation was built with <tt>html_copy_source = True</tt> then
  fix this problem.
 Ref: http://sphinx.pocoo.org/config.html#confval-html_copy_source,
  #637492
+
+Tag: sphinx-cruft-in-binary-package
+Severity: pedantic
+Certainty: possible
