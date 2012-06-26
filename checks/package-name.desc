@@ -1,0 +1,12 @@
+Check-Script: package-name
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: nam
+Type: binary
+Info: binary package names
+Needs-Info: index
+
+Tag: incorrect-package-name
+Severity: normal
+Certainty: possible
+Ref: python-policy 2.2
+Experimental: yes

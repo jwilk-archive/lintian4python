@@ -1,0 +1,115 @@
+# python-package-name -- lintian check script -*- perl -*-
+#
+# Copyright © 2012 Jakub Wilk
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, you can find it on the World Wide
+# Web at http://www.gnu.org/copyleft/gpl.html, or write to the Free
+# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+
+package Lintian::package_name;
+
+use strict;
+use warnings;
+
+use Lintian::Tags qw(tag);
+use Lintian::Util qw(fail);
+
+my $_extension_suffix = qr{
+(?: -(?:\d+)mu?
+  | (?<!_d)
+)
+\. so
+}x;
+
+my $_module_name = qr{
+(?: usr/lib/python3/dist-packages/
+  | usr/lib/python2(?:.\d+)?/(?:site|dist)-packages/
+  | usr/lib/pyshared/python2(?:.\d+)?/
+  | usr/share/pyshared/
+  | usr/share/python-support/[^/]+/
+)
+(?: gtk-2\.0/ )? # .pth additions
+( (?: [^/]*/ )* )
+(?: (\w+)module$_extension_suffix
+  | (\w+)$_extension_suffix
+  | (\w+)\.py
+) $
+}x;
+
+sub reduce {
+    my ($key, $node) = @_;
+    if (ref $node) {
+        if (exists $node->{'__init__'} or exists $node->{'__main__'}) {
+            return $key;
+        }
+        if (scalar keys %{$node} == 1) {
+            my ($subkey) = keys %{$node};
+            my ($subvalue) = $node->{$subkey};
+            return sprintf('%s.%s', $key, reduce($subkey, $subvalue));
+        } else {
+            return $key;
+        }
+    } else {
+        return $key;
+    }
+}
+
+sub run {
+    my ($package, $type, $info) = @_;
+    my $index = $info->index;
+    $package =~ m/^(python3?)-/ or return;
+    my $prefix = $1;
+    my %data = ();
+    for my $file ($info->sorted_index) {
+        next unless $index->{$file}->type eq '-';
+        if ($file =~ $_module_name) {
+            my $path = $1;
+            my $module = $2 // $3 // $4;
+            my @path = split '/', $path;
+            my $current = \%data;
+            for (@path) {
+                $current->{$_} //= {};
+                $current = $current->{$_};
+            }
+            $current->{$module} = 1
+                if $module =~ m/^__.*__$/
+                or $module !~ m/^_/;
+        }
+    }
+    if (scalar keys %data > 0) {
+        my $ok = 0;
+        my @proposed_names = map {
+            $_ = reduce($_, $data{$_});
+            y/_/-/;
+            $_ = "$prefix-\L$_";
+            if ($package eq $_) {
+                $ok = 1;
+            }
+            $_;
+        } keys %data;
+        unless ($ok) {
+            local $" = ' | ';
+            tag 'incorrect-package-name', "@proposed_names";
+        }
+    }
+}
+
+1;
+
+# Local Variables:
+# indent-tabs-mode: nil
+# cperl-indent-level: 4
+# End:
+# vim: syntax=perl sw=4 sts=4 sr et

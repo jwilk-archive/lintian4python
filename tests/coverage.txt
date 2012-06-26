@@ -40,6 +40,10 @@ bytecompilation
 | [ ] pycompile-for-foreign-package
 | [ ] python-module-not-byte-compiled
 
+package-name
+~~~~~~~~~~~~
+| [ ] incorrect-package-name
+
 documentation
 ~~~~~~~~~~~~~
 | [ ] cannot-parse-sphinx-searchindex.js
