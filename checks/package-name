@@ -71,6 +71,9 @@ sub run {
     my $index = $info->index;
     $package =~ m/^(python3?)-/ or return;
     my $prefix = $1;
+    if ($package eq 'python-support') {
+        return;
+    }
     my %data = ();
     for my $file ($info->sorted_index) {
         next unless $index->{$file}->type eq '-';
