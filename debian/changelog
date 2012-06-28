@@ -1,3 +1,10 @@
+lintian4python (0.6.1) UNRELEASED; urgency=low
+
+  * tests/*.tdesc:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 28 Jun 2012 18:13:21 +0200
+
 lintian4python (0.6) experimental; urgency=low
 
   * Summary of tag changes:
