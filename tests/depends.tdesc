@@ -11,3 +11,11 @@ Files:
  e461e9144cc82f032487dc46a146db252c71e113 nipy_0.1.999-2.debian.tar.gz
 Test-For:
  w: nipy source: missing-epoch-in-dependency python-numpy (>= 1.2)
+
+Name: hardcoded-dependency-on-numpy-virtual-package
+Files:
+ 467ebde343a63dc7e23e87c154092b6512c0268d  mathgl_1.11.2-14.dsc
+ 3e947b029b28eac45c0b241438f54c751902b434  mathgl_1.11.2-14.debian.tar.gz
+ 16b9ab58e654c5b91374f8a35eafc33630d7f5c0  mathgl_1.11.2.orig.tar.gz
+Test-For:
+ e: mathgl source: hardcoded-dependency-on-numpy-virtual-package python-numpy-abi9

@@ -66,6 +66,7 @@ pth
 
 depends
 ~~~~~~~
+| [X] hardcoded-dependency-on-numpy-virtual-package
 | [2] missing-epoch-in-dependency
 
 helpers

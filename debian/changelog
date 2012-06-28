@@ -1,12 +1,16 @@
-lintian4python (0.6.1) UNRELEASED; urgency=low
+lintian4python (0.7) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + hardcoded-dependency-on-numpy-virtual-package
 
   * check/depends:
     + Port to the Lintian::Relation::visit API.
+    + Check for hardcoded dependency on Numpy virtual packages.
 
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 28 Jun 2012 18:28:28 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 28 Jun 2012 19:04:08 +0200
 
 lintian4python (0.6) experimental; urgency=low
 

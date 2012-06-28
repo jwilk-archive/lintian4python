@@ -3,7 +3,12 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: dep
 Type: source, binary
 Info: package (build-)dependencies
+Needs-Info: debfiles
 
 Tag: missing-epoch-in-dependency
 Severity: normal
 Certainty: certain
+
+Tag: hardcoded-dependency-on-numpy-virtual-package
+Severity: important
+Certainty: possible
