@@ -3,7 +3,7 @@ lintian4python (0.7) UNRELEASED; urgency=low
   * Summary of tag changes:
     + hardcoded-dependency-on-numpy-virtual-package
 
-  * check/depends:
+  * checks/depends:
     + Port to the Lintian::Relation::visit API.
     + Check for hardcoded dependency on Numpy virtual packages.
 
@@ -28,7 +28,7 @@ lintian4python (0.6) experimental; urgency=low
   * checks/scripts:
     + Fix false positive versioned-python-shebang for idle-python2.X packages.
 
-  * check/package-name:
+  * checks/package-name:
     + Check if package names conform to Python Policy §2.2.
 
   * data/python/projects*:
@@ -196,7 +196,7 @@ lintian4python (0.3.1) experimental; urgency=low
     + Add ‘unpacked’ to Needs-Info.
   * checks/pth:
     + Add ‘unpacked’ to Needs-Info.
-  * check/pyflakes:
+  * checks/pyflakes:
     + Tighten a regex.
     + Reduce number of forks by executing the Python helper only once per
       package.
