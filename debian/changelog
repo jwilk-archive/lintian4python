@@ -1,9 +1,12 @@
 lintian4python (0.6.1) UNRELEASED; urgency=low
 
+  * check/depends:
+    + Port to the Lintian::Relation::visit API.
+
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 28 Jun 2012 18:13:21 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 28 Jun 2012 18:28:28 +0200
 
 lintian4python (0.6) experimental; urgency=low
 
