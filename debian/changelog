@@ -7,13 +7,16 @@ lintian4python (0.7) UNRELEASED; urgency=low
     + Port to the Lintian::Relation::visit API.
     + Check for hardcoded dependency on Numpy virtual packages.
 
+  * data/python/projects*:
+    + Refresh.
+
   * debian/control:
     + Update lintian dependency (2.5.9, 2.5.10).
 
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 30 Jun 2012 19:28:48 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 30 Jun 2012 19:30:19 +0200
 
 lintian4python (0.6) experimental; urgency=low
 
