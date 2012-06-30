@@ -1,4 +1,4 @@
-lintian4python (0.7) UNRELEASED; urgency=low
+lintian4python (0.7) experimental; urgency=low
 
   * Summary of tag changes:
     + hardcoded-dependency-on-numpy-virtual-package
@@ -16,7 +16,7 @@ lintian4python (0.7) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 30 Jun 2012 19:30:19 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 30 Jun 2012 19:31:34 +0200
 
 lintian4python (0.6) experimental; urgency=low
 
