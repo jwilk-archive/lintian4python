@@ -3,7 +3,10 @@ lintian4python (0.7.1) UNRELEASED; urgency=low
   * data/python/projects*:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 05 Jul 2012 21:15:31 +0200
+  * private/refresh-python-projects:
+    + Use http.debian.net as the default mirror.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 06 Jul 2012 13:05:17 +0200
 
 lintian4python (0.7) experimental; urgency=low
 
