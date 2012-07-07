@@ -44,7 +44,7 @@ unshift(@path_additions, undef, undef);
 
 my $_module_name = qr{
 (?:
-  (?: usr/lib/python2(?:.\d+)?/(?:site|dist)-packages/
+  (?: usr/lib/python2\.\d+/(?:site|dist)-packages/
     | usr/lib/pyshared/python2(?:.\d+)?/
     | usr/share/pyshared/
     | usr/share/python-support/[^/]+/
