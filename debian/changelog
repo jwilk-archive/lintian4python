@@ -6,7 +6,7 @@ lintian4python (0.8) UNRELEASED; urgency=low
     + New data files with lists of packages that add extra entries to sys.path
       via .pth files.
 
-  * check/package-name:
+  * checks/package-name:
     + Take extra entries to sys.path that could be added via .pth files into
       account.
     + Tighten a regex.
@@ -19,7 +19,7 @@ lintian4python (0.8) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 07 Jul 2012 15:30:47 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 07 Jul 2012 15:31:13 +0200
 
 lintian4python (0.7) experimental; urgency=low
 
