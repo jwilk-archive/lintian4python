@@ -1,0 +1,8 @@
+Name: incorrect-package-name
+Files:
+ 1eb4373c77b123998fb5216fa05a942f72a88a46  python-input-pad_1.0.1-2_i386.deb
+Test-Against:
+ x: python-input-pad: incorrect-package-name python-input-pad-1.0
+Info:
+ Fixed in lintian4python 0.8.  Prior versions did not take .pth contents into
+ account.

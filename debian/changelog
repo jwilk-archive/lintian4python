@@ -1,12 +1,24 @@
-lintian4python (0.7.1) UNRELEASED; urgency=low
+lintian4python (0.8) UNRELEASED; urgency=low
 
   * data/python/projects*:
     + Refresh.
+  * data/python/sys.path.additions{,-py3k}:
+    + New data files with lists of packages that add extra entries to sys.path
+      via .pth files.
+
+  * check/package-name:
+    + Take extra entries to sys.path that could be added via .pth files into
+      account.
 
   * private/refresh-python-projects:
     + Use http.debian.net as the default mirror.
+  * private/refresh-sys.path-additions
+    + New script to update data/python/sys.path-additions*.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 06 Jul 2012 13:05:17 +0200
+  * tests/*.tdesc:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 07 Jul 2012 10:39:43 +0200
 
 lintian4python (0.7) experimental; urgency=low
 

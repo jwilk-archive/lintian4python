@@ -33,14 +33,26 @@ my $_extension_suffix = qr{
 \. so
 }x;
 
+my @path_additions = map {
+    my $data = Lintian::Data->new("python/sys.path-additions$_", ' => ');
+    my @result = $data->all();
+    @result = grep { ! m,^/, } @result;
+    my $result = join('|', map(quotemeta, @result));
+    qr/$result/;
+} ('', '-py3k');
+unshift(@path_additions, undef, undef);
+
 my $_module_name = qr{
-(?: usr/lib/python3/dist-packages/
-  | usr/lib/python2(?:.\d+)?/(?:site|dist)-packages/
-  | usr/lib/pyshared/python2(?:.\d+)?/
-  | usr/share/pyshared/
-  | usr/share/python-support/[^/]+/
+(?:
+  (?: usr/lib/python2(?:.\d+)?/(?:site|dist)-packages/
+    | usr/lib/pyshared/python2(?:.\d+)?/
+    | usr/share/pyshared/
+    | usr/share/python-support/[^/]+/
+  )
+  (?: $path_additions[2] / )?
+    | usr/lib/python3/dist-packages/
+  (?: $path_additions[3] / )?
 )
-(?: gtk-2\.0/ )? # .pth additions
 ( (?: [^/]*/ )* )
 (?: (\w+)module$_extension_suffix
   | (\w+)$_extension_suffix
