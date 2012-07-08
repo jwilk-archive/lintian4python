@@ -156,6 +156,9 @@ def main():
                     pth_item = pymodules_regex.sub('', pth_item)
                     pth_item = re.sub('//+', '/', pth_item)
                     results[version][pth_item].add(pkgname)
+    pygtk2_additions = results[2]['gtk-2.0']
+    assert pygtk2_additions == {'python-gobject-2'}
+    pygtk2_additions.add('python-gtk2')
     for version in 2, 3:
         path = '{root}/data/python/sys.path-additions'.format(root=lintian_root)
         if version == 3:

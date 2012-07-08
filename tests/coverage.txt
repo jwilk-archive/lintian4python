@@ -62,6 +62,7 @@ documentation
 
 pth
 ~~~
+| [X] misssing-dependency-for-sys.path-addition
 | [X] pth-file-modifies-sys.path
 
 depends

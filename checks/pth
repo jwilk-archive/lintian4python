@@ -20,37 +20,98 @@
 
 package Lintian::pth;
 
+use v5.10; # for the %+ hash
+
 use strict;
 use warnings;
 
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
+my @dist_packages_re = (undef, undef,
+    qr{(?: # Python 2.X:
+      usr/lib/pyshared/python2\.\d+ # python-support >= 0.90
+    | usr/share/pyshared # python-support >= 0.90, python-central, dh_python2
+    | usr/lib/python-support/[^/]+/python2\.\d+ # python-support < 0.90
+    | usr/share/python-support/[^/]+ # python-support < 0.90
+    | usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
+    )}x,
+    qr{ # Python 3.X:
+    usr/lib/python3/dist-packages
+    }x
+);
+
+my $dist_packages_re = qr{
+  ( $dist_packages_re[2] )
+| ( $dist_packages_re[3] )
+}x;
+
+use Data::Dumper;
+
+my @path_additions = map {
+    Lintian::Data->new("python/sys.path-additions$_", ' => ');
+} ('', '-py3k');
+unshift(@path_additions, undef, undef);
+
+my $i;
+my @path_additions_re = map {
+    my $result = undef;
+    if (defined $_) {
+        my @result = $_->all();
+        @result = map {
+            my $result = "(?P<addition>\Q$_\E)";
+            unless (m,^/,) {
+                $result = "$dist_packages_re[$i]/$result";
+            }
+            $result;
+        } @result;
+        $result = join('|', @result);
+        $result = qr/$result/;
+    }
+    $i++;
+    $result;
+} @path_additions;
+
 sub run {
 
-my ($pkg, $type, $info) = @_;
+    my ($package, $type, $info) = @_;
 
-my $version = $info->field('version');
-my %egg_versions = ();
-my $index = $info->index;
-my $depends = $info->relation('strong');
-for my $file ($info->sorted_index) {
-    next unless $index->{$file}->type eq '-';
-    if ($file =~ m,usr/(?:lib/python[23](?:\.\d+)?/(?:site|dist)-packages|share/(?:pyshared|python-support/[^/]+))/([^/]+)[.]pth$,) {
-        open(my $fh, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
-        while (<$fh>) {
-            if (m,^import[ \t],) {
-                # executable import statements
-                # TODO: allow setuptools magic, but discourage anything else
-            } else {
-                chomp;
-                tag 'pth-file-modifies-sys.path', $file, $_;
+    my $version = $info->field('version');
+    my %egg_versions = ();
+    my $index = $info->index;
+    my $depends = $info->relation('strong');
+    my $self_relation = Lintian::Relation->new("$package (= $version)");
+    my %required_depends = ();
+    for my $file ($info->sorted_index) {
+        next unless $index->{$file}->type eq '-';
+        if ($file =~ m,^$dist_packages_re/([^/]+)[.]pth$,) {
+            open(my $fh, '<', $info->unpacked($file)) or fail("cannot open .pth file: $!");
+            while (<$fh>) {
+                if (m,^import[ \t],) {
+                    # executable import statements
+                    # TODO: allow setuptools magic, but discourage anything else
+                } else {
+                    chomp;
+                    tag 'pth-file-modifies-sys.path', $file, $_;
+                }
+            }
+            close($fh);
+        } else {
+            for my $version (2, 3) {
+                if ($file =~ m,^$path_additions_re[$version],) {
+                    my $addition = $+{'addition'};
+                    my $rd = $path_additions[$version]->value($addition);
+                    $required_depends{$rd} = "$addition => $rd";
+                    last;
+                }
             }
         }
-        close($fh);
     }
-}
-
+    foreach my $rd (sort keys %required_depends) {
+        next if $self_relation->implies($rd);
+        next if $depends->implies($rd);
+        tag 'misssing-dependency-for-sys.path-addition', $required_depends{$rd};
+    }
 }
 
 1;

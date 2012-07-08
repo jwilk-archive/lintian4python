@@ -1,5 +1,8 @@
 lintian4python (0.8) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + misssing-dependency-for-sys.path-addition
+
   * data/python/projects*:
     + Refresh.
   * data/python/sys.path.additions{,-py3k}:
@@ -10,6 +13,9 @@ lintian4python (0.8) UNRELEASED; urgency=low
     + Take extra entries to sys.path that could be added via .pth files into
       account.
     + Tighten a regex.
+  * checks/pth:
+    + Check for missing dependency on a package that provides a sys.path
+      addition, which is needed for the shipped modules to be importable.
 
   * private/refresh-python-projects:
     + Use http.debian.net as the default mirror.
@@ -19,7 +25,7 @@ lintian4python (0.8) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 07 Jul 2012 15:31:13 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 08 Jul 2012 19:22:57 +0200
 
 lintian4python (0.7) experimental; urgency=low
 

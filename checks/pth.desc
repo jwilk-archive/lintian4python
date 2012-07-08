@@ -8,3 +8,7 @@ Needs-Info: index, unpacked
 Tag: pth-file-modifies-sys.path
 Severity: important
 Certainty: certain
+
+Tag: misssing-dependency-for-sys.path-addition
+Severity: serious
+Certainty: possible
