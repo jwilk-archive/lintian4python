@@ -9,6 +9,9 @@ lintian4python (0.8) UNRELEASED; urgency=low
     + New data files with lists of packages that add extra entries to sys.path
       via .pth files.
 
+  * checks/depends:
+    + Add "use strict; use warnings;". Thanks to Niels Thykier for the bug
+      report.
   * checks/package-name:
     + Take extra entries to sys.path that could be added via .pth files into
       account.
@@ -25,7 +28,7 @@ lintian4python (0.8) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 08 Jul 2012 19:22:57 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 10 Jul 2012 15:53:56 +0200
 
 lintian4python (0.7) experimental; urgency=low
 
