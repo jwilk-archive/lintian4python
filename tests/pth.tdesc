@@ -10,5 +10,3 @@ Files:
  1eb4373c77b123998fb5216fa05a942f72a88a46  python-input-pad_1.0.1-2_i386.deb
 Test-For:
  e: python-input-pad: pth-file-modifies-sys.path usr/share/pyshared/pyinput_pad.pth input-pad-1.0
-
-
