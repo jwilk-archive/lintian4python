@@ -5,7 +5,7 @@ lintian4python (0.8) UNRELEASED; urgency=low
 
   * data/python/projects*:
     + Refresh.
-  * data/python/sys.path.additions{,-py3k}:
+  * data/python/sys.path-additions{,-py3k}:
     + New data files with lists of packages that add extra entries to sys.path
       via .pth files.
 
