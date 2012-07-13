@@ -3,8 +3,9 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * private/refresh-sys.path-additions:
     + Use the built-in gzip module instead of spawning an external gzip
       process. (It's a bit slower, but makes the code simpler.)
+    + Assume that *-nspkg.pth files don't add anything to sys.path.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 13 Jul 2012 17:45:23 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 13 Jul 2012 17:51:27 +0200
 
 lintian4python (0.8) experimental; urgency=low
 
