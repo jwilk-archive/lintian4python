@@ -19,8 +19,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
 import collections
-import contextlib
 import datetime
+import gzip
 import os
 import re
 import shutil
@@ -57,14 +57,6 @@ pth_regex = re.compile(br'''
 
 pymodules_regex = re.compile('^/usr/lib/pymodules/python2\.[0-9]+/')
 
-@contextlib.contextmanager
-def zcat(filename):
-    with open(filename, 'rb') as stdin:
-        child = ipc.Popen(['gzip', '-dc'], stdin=stdin, stdout=ipc.PIPE)
-        yield child.stdout
-    if child.wait() != 0:
-        raise IOError
-
 def run_fetcher(fetcher):
     rc = fetcher.run()
     if rc != fetcher.RESULT_CONTINUE:
@@ -96,7 +88,7 @@ def main():
     )
     run_fetcher(fetcher)
     contents_path = os.path.join(tmpdir, contents_filename)
-    with zcat(contents_path) as file:
+    with gzip.open(contents_path) as file:
         contents = file.read()
     os.unlink(contents_path)
     del contents_file, contents_path
@@ -119,7 +111,7 @@ def main():
         packages.update(subpath_info.keys())
     debs = {}
     packages_path = os.path.join(tmpdir, packages_filename)
-    with zcat(packages_path) as file:
+    with gzip.open(packages_path) as file:
         for para in apt_pkg.TagFile(file):
             try:
                 pkgname = para['package']
