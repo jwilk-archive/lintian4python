@@ -25,6 +25,7 @@ import os
 import re
 import shutil
 import subprocess as ipc
+import sys
 import tempfile
 
 import apt
@@ -70,7 +71,7 @@ def main():
     lintian_root = os.getenv('LINTIAN_ROOT') or '.'
     mirror = os.getenv('DEB_MIRROR') or 'http://http.debian.net/debian'
     tmpdir = tempfile.mkdtemp(prefix='lintian4python.private.')
-    progress = apt.progress.text.AcquireProgress()
+    progress = apt.progress.text.AcquireProgress(outfile=sys.stderr)
     fetcher = apt_pkg.Acquire(progress)
     uri = '{mirror}/dists/unstable/main/Contents-{arch}.gz'.format(mirror=mirror, arch=architecture)
     contents_filename = uri.split('/')[-1]
