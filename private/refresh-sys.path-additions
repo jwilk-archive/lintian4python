@@ -47,7 +47,8 @@ pth_regex = re.compile(br'''
     usr/share/pyshared | # python-support >= 0.90, python-central, dh_python2
     usr/lib/python-support/[^/]+/python2\.\d+ | # python-support < 0.90
     usr/share/python-support/[^/]+ | # python-support < 0.90
-    usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
+    usr/lib/python2\.\d+/(?:site|dist)-packages | # python-central, dh_python2
+    usr/lib/wx/python # /usr/lib/python2.X/dist-packages/wx.pth is a symlink to /usr/lib/wx/python/wxY.Z.pth
 ) | (
     usr/lib/python3/dist-packages
 )) /
