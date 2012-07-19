@@ -1,5 +1,7 @@
 lintian4python (0.8.1) UNRELEASED; urgency=low
 
+  * data/python/projects*:
+    + Refresh.
   * data/python/sys.path-additions*:
     + Refresh.
 
@@ -10,7 +12,7 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
     + Output apt progress to stderr (rather than to stdout).
     + Look for .pth files also in /usr/lib/wx/python/.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 17 Jul 2012 22:04:01 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 19 Jul 2012 20:18:02 +0200
 
 lintian4python (0.8) experimental; urgency=low
 
