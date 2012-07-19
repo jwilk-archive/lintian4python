@@ -5,6 +5,12 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * data/python/sys.path-additions*:
     + Refresh.
 
+  * debian/source/options:
+    + Ignore __pycache__ directories when generating tarball.
+
+  * private/misc.py:
+    + Split some code from private/refresh-sys.path-additions, which could be
+      useful for other private/* scripts in the future, here.
   * private/refresh-sys.path-additions:
     + Use the built-in gzip module instead of spawning an external gzip
       process. (It's a bit slower, but makes the code simpler.)
@@ -12,7 +18,7 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
     + Output apt progress to stderr (rather than to stdout).
     + Look for .pth files also in /usr/lib/wx/python/.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 19 Jul 2012 20:18:02 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 19 Jul 2012 20:45:14 +0200
 
 lintian4python (0.8) experimental; urgency=low
 

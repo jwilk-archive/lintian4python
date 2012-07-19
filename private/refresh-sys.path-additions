@@ -25,12 +25,9 @@ import os
 import re
 import shutil
 import subprocess as ipc
-import sys
 import tempfile
 
-import apt
-import apt_inst
-import apt_pkg
+import misc
 
 header = '''\
 # This file contains list of {python} packages that add extra entries to
@@ -59,36 +56,31 @@ pth_regex = re.compile(br'''
 
 pymodules_regex = re.compile('^/usr/lib/pymodules/python2\.[0-9]+/')
 
-def run_fetcher(fetcher):
-    rc = fetcher.run()
-    if rc != fetcher.RESULT_CONTINUE:
-        raise RuntimeError('fetching files failed')
-    for file in fetcher.items:
-        if file.status != file.STAT_DONE:
-            raise RuntimeError('fetching file failed: {uri}'.format(uri=file.desc_uri))
-
 def main():
-    architecture = 'i386'
-    lintian_root = os.getenv('LINTIAN_ROOT') or '.'
-    mirror = os.getenv('DEB_MIRROR') or 'http://http.debian.net/debian'
     tmpdir = tempfile.mkdtemp(prefix='lintian4python.private.')
-    progress = apt.progress.text.AcquireProgress(outfile=sys.stderr)
-    fetcher = apt_pkg.Acquire(progress)
-    uri = '{mirror}/dists/unstable/main/Contents-{arch}.gz'.format(mirror=mirror, arch=architecture)
+    progress = misc.AcquireProgress()
+    fetcher = misc.Acquire(progress)
+    uri = '{mirror}/dists/unstable/main/Contents-{arch}.gz'.format(
+        mirror=misc.mirror,
+        arch=misc.architecture,
+    )
     contents_filename = uri.split('/')[-1]
-    contents_file = apt_pkg.AcquireFile(fetcher,
+    contents_file = misc.AcquireFile(fetcher,
         uri=uri,
-        descr='Contents-{arch}'.format(arch=architecture),
+        descr='Contents-{arch}'.format(arch=misc.architecture),
         destfile=os.path.join(tmpdir, contents_filename)
     )
-    uri = '{mirror}/dists/unstable/main/binary-i386/Packages.gz'.format(mirror=mirror, arch=architecture)
+    uri = '{mirror}/dists/unstable/main/binary-i386/Packages.gz'.format(
+        mirror=misc.mirror,
+        arch=misc.architecture,
+    )
     packages_filename = uri.split('/')[-1]
-    packages_file = apt_pkg.AcquireFile(fetcher,
+    packages_file = misc.AcquireFile(fetcher,
         uri=uri,
-        descr='Packages-{arch}'.format(arch=architecture),
+        descr='Packages-{arch}'.format(arch=misc.architecture),
         destfile=os.path.join(tmpdir, packages_filename)
     )
-    run_fetcher(fetcher)
+    fetcher.run()
     contents_path = os.path.join(tmpdir, contents_filename)
     with gzip.open(contents_path) as file:
         contents = file.read()
@@ -118,7 +110,7 @@ def main():
     debs = {}
     packages_path = os.path.join(tmpdir, packages_filename)
     with gzip.open(packages_path) as file:
-        for para in apt_pkg.TagFile(file):
+        for para in misc.TagFile(file):
             try:
                 pkgname = para['package']
                 packages.remove(pkgname)
@@ -126,20 +118,20 @@ def main():
                 continue
             path = para['filename']
             base = os.path.basename(path)
-            debs[pkgname] = apt_pkg.AcquireFile(fetcher,
-                uri='{mirror}/{path}'.format(mirror=mirror, path=path),
+            debs[pkgname] = misc.AcquireFile(fetcher,
+                uri='{mirror}/{path}'.format(mirror=misc.mirror, path=path),
                 descr=base,
                 destfile=os.path.join(tmpdir, base),
             )
     os.unlink(packages_path)
     del packages_file, packages_path
-    run_fetcher(fetcher)
+    fetcher.run()
     results = {
         2: collections.defaultdict(set),
         3: collections.defaultdict(set),
     }
     for pkgname, file in debs.items():
-        tar = apt_inst.DebFile(file.destfile).data
+        tar = misc.DebFile(file.destfile).data
         for version in 2, 3:
             try:
                 paths = path_info[version][pkgname]
@@ -158,7 +150,7 @@ def main():
     assert pygtk2_additions == {'python-gobject-2'}
     pygtk2_additions.add('python-gtk2')
     for version in 2, 3:
-        path = '{root}/data/python/sys.path-additions'.format(root=lintian_root)
+        path = '{root}/data/python/sys.path-additions'.format(root=misc.lintian_root)
         if version == 3:
             path += '-py3k'
         with open(path, 'wt', encoding='ASCII') as file:
