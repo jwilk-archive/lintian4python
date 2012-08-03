@@ -10,6 +10,8 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
     + Don't complain about .py files within standard libraries of alternative
       Python interpreters (jython, pypy) that are not byte-compiled.
 
+  * debian/control:
+    + Update lintian dependency (2.5.9, 2.5.10, 2.5.10.1).
   * debian/source/options:
     + Ignore __pycache__ directories when generating tarball.
 
@@ -26,7 +28,7 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 17:39:37 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 22:45:07 +0200
 
 lintian4python (0.8) experimental; urgency=low
 
