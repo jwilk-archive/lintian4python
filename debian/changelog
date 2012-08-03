@@ -6,7 +6,9 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
     + Refresh.
 
   * checks/bytecompilation:
-    + Do not complain about .py files in /etc that are not byte-compiled.
+    + Don't complain about .py files in /etc that are not byte-compiled.
+    + Don't complain about .py files within standard libraries of alternative
+      Python interpreters (jython, pypy).
 
   * debian/source/options:
     + Ignore __pycache__ directories when generating tarball.
@@ -24,7 +26,7 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 15:36:09 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 17:39:37 +0200
 
 lintian4python (0.8) experimental; urgency=low
 

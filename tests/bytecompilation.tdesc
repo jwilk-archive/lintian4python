@@ -33,3 +33,19 @@ Test-Against:
  e: ezmlm-browse: python-module-not-byte-compiled etc/ezmlm-browse/config.py
 Info:
  Fixed in lintian4python 0.8.1.
+
+Name: python-module-not-byte-compiled/pypy
+Files:
+ 25f1111452e69d26046ef52332b2b73b66489086  pypy-lib_1.9+dfsg-2_all.deb
+Test-Against:
+ e: pypy-lib: python-module-not-byte-compiled usr/lib/pypy/lib_pypy/...
+Info:
+ Fixed in lintian4python 0.8.1.
+
+Name: python-module-not-byte-compiled/jython
+Files:
+ e1a83f42755c81542f0416de069825d2ed9b3bd8  jython_2.5.2-1_all.deb
+Test-Against:
+ e: jython: python-module-not-byte-compiled usr/share/jython/...
+Info:
+ Fixed in lintian4python 0.8.1.
