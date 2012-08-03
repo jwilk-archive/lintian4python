@@ -5,6 +5,9 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * data/python/sys.path-additions*:
     + Refresh.
 
+  * checks/bytecompilation:
+    + Do not complain about .py files in /etc that are not byte-compiled.
+
   * debian/source/options:
     + Ignore __pycache__ directories when generating tarball.
 
@@ -18,7 +21,10 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
     + Output apt progress to stderr (rather than to stdout).
     + Look for .pth files also in /usr/lib/wx/python/.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 19 Jul 2012 20:45:14 +0200
+  * tests/*.tdesc:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 15:36:09 +0200
 
 lintian4python (0.8) experimental; urgency=low
 

@@ -31,6 +31,11 @@ use Lintian::Python qw(parse_update_python_modules parse_pycompile);
 
 my $package_name_re = qr/[a-z0-9][a-z0-9.+-]+/;
 
+my $bytecompilation_not_needed_re = qr{
+  usr/share/doc/
+| etc/
+}x;
+
 my %helper_depends = (
     'update-python-modules' => 'python-support',
     'update-python-modules/modern' => 'python-support (>= 0.90)',
@@ -221,8 +226,8 @@ for my $file (sort keys %version_map) {
     my $versions = $version_map{$file};
     if ($versions) {
         # TODO: Try to actually byte-compile
-    } elsif ($file =~ m,usr/share/doc/,) {
-        # TODO: Check syntax for stuff in /usr/share/doc/, too.
+    } elsif ($file =~ m/^$bytecompilation_not_needed_re/) {
+        # TODO: Check syntax for stuff in /usr/share/doc/ etc., too.
     } else {
         tag 'python-module-not-byte-compiled', $file;
     }
