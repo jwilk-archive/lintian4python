@@ -1,4 +1,4 @@
-lintian4python (0.8.1) UNRELEASED; urgency=low
+lintian4python (0.8.1) experimental; urgency=low
 
   * data/python/projects*:
     + Refresh.
@@ -28,7 +28,7 @@ lintian4python (0.8.1) UNRELEASED; urgency=low
   * tests/*.tdesc:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 03 Aug 2012 22:45:07 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 04 Aug 2012 08:55:41 +0200
 
 lintian4python (0.8) experimental; urgency=low
 
