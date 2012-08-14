@@ -114,7 +114,7 @@ egg-info
 | [X] egg-info-version-mismatch
 | [ ] missing-requires.txt-dependency
 | [ ] missing-requires.txt-optional-dependency
-| [ ] strict-versioned-dependency-in-requires.txt
+| [X] strict-versioned-dependency-in-requires.txt
 | [ ] unknown-optional-project-in-requires.txt
 | [ ] unknown-project-in-requires.txt
 

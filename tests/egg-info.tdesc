@@ -19,3 +19,15 @@ Files:
  57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
 Test-For:
  p: python-clientcookie: SOURCES.txt-in-binary-package
+
+Name: strict-versioned-dependency-in-requires.txt
+Files:
+ 51ef0bd17678c3b0588d70dcadf693f4f7f159ae  python-jsonpipe_0.0.8-4_all.deb
+Test-For:
+ e: python-jsonpipe: strict-versioned-dependency-in-requires.txt calabash==0.0.3
+
+Name: strict-versioned-dependency-in-requires.txt/alternative
+Files:
+ f0f4100f440cc5369aac013af8e6a3b9d80584cb  tahoe-lafs_1.9.2-1_all.deb
+Test-Against:
+ e: python-jsonpipe: strict-versioned-dependency-in-requires.txt ...
