@@ -1,12 +1,15 @@
 lintian4python (0.8.2) UNRELEASED; urgency=low
 
+  * checks/egg-info:
+    + Don't define variables inside conditionals.
+
   * data/python/projects*:
     + Refresh.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 14 Aug 2012 20:29:07 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 14 Aug 2012 20:31:27 +0200
 
 lintian4python (0.8.1) experimental; urgency=low
 
