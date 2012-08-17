@@ -4,6 +4,7 @@ lintian4python (0.8.2) UNRELEASED; urgency=low
     + Fix the regexp that was meant to exclude file in /usr/bin/ etc. from
       bytecompilation checks.
     + Exclude /usr/games from bytecompilation checks.
+    + Exclude /usr/lib/debug/usr/bin/ etc. from bytecompilation checks.
 
   * checks/egg-info:
     + Don't define variables inside conditionals.
@@ -14,7 +15,7 @@ lintian4python (0.8.2) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 17 Aug 2012 16:15:57 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 17 Aug 2012 16:21:05 +0200
 
 lintian4python (0.8.1) experimental; urgency=low
 
