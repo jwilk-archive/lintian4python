@@ -33,7 +33,18 @@ my $package_name_re = qr/[a-z0-9][a-z0-9.+-]+/;
 
 my $bytecompilation_not_needed_re = qr{
   etc/
+| bin/
+| sbin/
+| usr/bin/
+| usr/games/
+| usr/lib/debug/bin/
+| usr/lib/debug/sbin/
+| usr/lib/debug/usr/bin/
+| usr/lib/debug/usr/games/
+| usr/lib/debug/usr/lib/pypy/
+| usr/lib/debug/usr/sbin/
 | usr/lib/pypy/
+| usr/sbin/
 | usr/share/doc/
 | usr/share/jython/
 }x;
@@ -78,7 +89,6 @@ my $update_version_map = sub {
 
 for my $file ($info->sorted_index) {
     next unless $index->{$file}->type eq '-';
-    next if $file =~ m,^(?:usr/lib/debug/)?(?:(?:usr/)?s?bin|usr/games)/,; # TODO: check syntax of scripts
     next unless $file =~ /[.]py$/; # TODO: check also compressed .py files
     $version_map{$file} = 0;
 }
