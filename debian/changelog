@@ -1,4 +1,4 @@
-lintian4python (0.8.2) UNRELEASED; urgency=low
+lintian4python (0.8.2) experimental; urgency=low
 
   * checks/bytecompilation:
     + Fix the regexp that was meant to exclude file in /usr/bin/ etc. from
@@ -18,7 +18,7 @@ lintian4python (0.8.2) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 17 Sep 2012 17:13:10 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 17 Sep 2012 17:18:27 +0200
 
 lintian4python (0.8.1) experimental; urgency=low
 
