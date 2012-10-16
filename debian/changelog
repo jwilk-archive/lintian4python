@@ -3,7 +3,10 @@ lintian4python (0.8.3) UNRELEASED; urgency=low
   * data/python/projects*:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 25 Sep 2012 20:59:12 +0200
+  * debian/lintian4python.lintian-overrides:
+    + Add override for pyflakes-redefined-function.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Oct 2012 16:41:34 +0200
 
 lintian4python (0.8.2) experimental; urgency=low
 
