@@ -6,7 +6,7 @@ lintian4python (0.8.3) UNRELEASED; urgency=low
   * debian/lintian4python.lintian-overrides:
     + Add override for pyflakes-redefined-function.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Oct 2012 16:41:34 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 17 Oct 2012 14:11:31 +0200
 
 lintian4python (0.8.2) experimental; urgency=low
 
