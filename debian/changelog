@@ -78,7 +78,8 @@ lintian4python (0.8.1) experimental; urgency=low
 lintian4python (0.8) experimental; urgency=low
 
   * Summary of tag changes:
-    + misssing-dependency-for-sys.path-addition
+    + Added:
+      - misssing-dependency-for-sys.path-addition
 
   * data/python/projects*:
     + Refresh.
@@ -110,7 +111,8 @@ lintian4python (0.8) experimental; urgency=low
 lintian4python (0.7) experimental; urgency=low
 
   * Summary of tag changes:
-    + hardcoded-dependency-on-numpy-virtual-package
+    + Added:
+      - hardcoded-dependency-on-numpy-virtual-package
 
   * checks/depends:
     + Port to the Lintian::Relation::visit API.
@@ -131,8 +133,8 @@ lintian4python (0.6) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
-      + incorrect-package-name
-      + sphinx-cruft-in-binary-package
+      - incorrect-package-name
+      - sphinx-cruft-in-binary-package
 
   * checks/documentation:
     + Add tag descriptions for
@@ -473,7 +475,7 @@ lintian4python (0.2) experimental; urgency=low
 
 lintian4python (0.1) experimental; urgency=low
 
-  * Summary of tag changes
+  * Summary of tag changes:
     + Added:
       - insufficient-dependency-on-byte-compilation-helper
       - missing-dependency-on-byte-compilation-helper
@@ -505,7 +507,7 @@ lintian4python (0.1) experimental; urgency=low
 
 lintian4python (0+20120504) experimental; urgency=low
 
-  * Summary of tag changes
+  * Summary of tag changes:
     + Added:
       - python-stdeb-boilerplate
       - python3-extension-without-abi-tag
@@ -534,7 +536,7 @@ lintian4python (0+20120504) experimental; urgency=low
 
 lintian4python (0+20120429) experimental; urgency=low
 
-  * Summary of tag changes
+  * Summary of tag changes:
     + Added:
       - versioned-python-shebang
       - usr-bin-env-python-shebang
