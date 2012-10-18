@@ -1,4 +1,4 @@
-lintian4python (0.9) UNRELEASED; urgency=low
+lintian4python (0.9) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
@@ -13,7 +13,7 @@ lintian4python (0.9) UNRELEASED; urgency=low
   * debian/lintian4python.lintian-overrides:
     + Add override for pyflakes-redefined-function.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Oct 2012 11:05:19 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Oct 2012 11:25:19 +0200
 
 lintian4python (0.8.2) experimental; urgency=low
 
