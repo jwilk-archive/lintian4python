@@ -46,3 +46,9 @@ Certainty: possible
 Tag: extension-is-symlink
 Severity: minor
 Certainty: possible
+
+Tag: extension-in-multi-arch-foreign-package
+Severity: important
+Certainty: certain
+Info: Packages shipping public Python extension modules must not be marked
+ "Multi-Arch: foreign".

@@ -70,9 +70,11 @@ my $index = $info->index;
 my $objdump = $info->objdump_info;
 my $uses_old_pyrex_import_type = 0;
 my $seen_wrong_version = 0;
+my $has_extensions = 0;
 my @linked_with_libpython = ();
 for my $file ($info->sorted_index) {
     if (my @pyversion = ($file =~ $py_extension)) {
+        $has_extensions = 1;
         check_so_symlink($index, $file);
         next unless $index->{$file}->type eq '-';
         my $string = slurp_entire_file($info->strings($file));
@@ -97,6 +99,7 @@ for my $file ($info->sorted_index) {
         }
         check_static_extension($index, $file);
     } elsif ($file =~ $tagless_py3_extension) {
+        $has_extensions = 1;
         check_so_symlink($index, $file);
         next unless $index->{$file}->type eq '-';
         tag 'python3-extension-without-abi-tag', $file;
@@ -106,6 +109,12 @@ for my $file ($info->sorted_index) {
 unless ($seen_wrong_version) {
     for my $file (@linked_with_libpython) {
         tag 'extension-linked-with-libpython', $file;
+    }
+}
+if ($has_extensions) {
+    my $multiarch = $info->field('multi-arch') // 'none';
+    if ($multiarch eq 'foreign') {
+        tag 'extension-in-multi-arch-foreign-package';
     }
 }
 

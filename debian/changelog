@@ -1,4 +1,11 @@
-lintian4python (0.8.3) UNRELEASED; urgency=low
+lintian4python (0.9) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - extension-in-multi-arch-foreign-package
+
+  * checks/extensions:
+    + Check for "Multi-Arch: foreign" packages shipping extension modules.
 
   * data/python/projects*:
     + Refresh.
@@ -6,7 +13,7 @@ lintian4python (0.8.3) UNRELEASED; urgency=low
   * debian/lintian4python.lintian-overrides:
     + Add override for pyflakes-redefined-function.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 17 Oct 2012 14:11:31 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Oct 2012 11:05:19 +0200
 
 lintian4python (0.8.2) experimental; urgency=low
 
