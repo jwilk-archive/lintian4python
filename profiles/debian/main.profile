@@ -8,6 +8,7 @@ Enable-Tags-From-Check:
  extensions,
  helpers,
  imports,
+ multi-arch,
  package-name,
  pth,
  pyflakes,

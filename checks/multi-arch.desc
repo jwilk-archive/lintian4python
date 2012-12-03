@@ -1,0 +1,12 @@
+Check-Script: multi-arch
+Author: Jakub Wilk <jwilk@debian.org>
+Abbrev: ma
+Type: binary
+Info: multi-arch support
+Needs-Info: index
+
+Tag: python-module-in-multi-arch-foreign-package
+Severity: important
+Certainty: possible
+Info: Packages shipping public Python modules must not be marked as
+ "Multi-Arch: foreign".

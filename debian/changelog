@@ -1,8 +1,19 @@
-lintian4python (0.9.1) UNRELEASED; urgency=low
+lintian4python (0.10) UNRELEASED; urgency=low
 
-  * 
+  * Summary of tag changes:
+    + Added:
+      - python-module-in-multi-arch-foreign-package
+    + Removed:
+      - extension-in-multi-arch-foreign-package
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Oct 2012 11:49:42 +0200
+  * checks/extensions:
+    + Remove the check for "Multi-Arch: foreign" packages shipping extension
+      modules (it hasn been replaced by a more generic check).
+
+  * checks/multi-arch:
+    + Check for "Multi-Arch: foreign" packages shipping Python modules.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 03 Dec 2012 19:25:38 +0100
 
 lintian4python (0.9) experimental; urgency=low
 

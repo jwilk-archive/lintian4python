@@ -111,12 +111,6 @@ unless ($seen_wrong_version) {
         tag 'extension-linked-with-libpython', $file;
     }
 }
-if ($has_extensions) {
-    my $multiarch = $info->field('multi-arch') // 'none';
-    if ($multiarch eq 'foreign') {
-        tag 'extension-in-multi-arch-foreign-package';
-    }
-}
 
 }
 
