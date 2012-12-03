@@ -1,4 +1,4 @@
-lintian4python (0.10) UNRELEASED; urgency=low
+lintian4python (0.10) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
@@ -13,7 +13,7 @@ lintian4python (0.10) UNRELEASED; urgency=low
   * checks/multi-arch:
     + Check for "Multi-Arch: foreign" packages shipping Python modules.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 03 Dec 2012 19:25:38 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 03 Dec 2012 19:36:04 +0100
 
 lintian4python (0.9) experimental; urgency=low
 
