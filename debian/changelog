@@ -1,3 +1,10 @@
+lintian4python (0.10.1) UNRELEASED; urgency=low
+
+  * debian/control:
+    + Update lintian dependency (for compatibility with 2.5.11).
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 12 Dec 2012 13:29:40 +0100
+
 lintian4python (0.10) experimental; urgency=low
 
   * Summary of tag changes:
