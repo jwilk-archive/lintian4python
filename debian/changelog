@@ -1,4 +1,4 @@
-lintian4python (0.11) UNRELEASED; urgency=low
+lintian4python (0.11) experimental; urgency=low
 
   * debian/control:
     + Update lintian dependency (2.5.11).
@@ -9,7 +9,7 @@ lintian4python (0.11) UNRELEASED; urgency=low
   * libextra/Lintian/Python.pm:
     + Port to Lintian 2.5.11 API.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 14 Dec 2012 21:17:35 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 14 Dec 2012 22:42:09 +0100
 
 lintian4python (0.10.2) experimental; urgency=low
 
