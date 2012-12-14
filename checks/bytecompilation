@@ -62,7 +62,6 @@ sub run {
 
 my ($package, $type, $info, $proc) = @_;
 my $source_package = $proc->pkg_src() // '';
-my $index = $info->index;
 my %version_map;
 
 my $depends = $info->relation('strong');
@@ -88,7 +87,7 @@ my $update_version_map = sub {
 };
 
 for my $file ($info->sorted_index) {
-    next unless $index->{$file}->type eq '-';
+    next unless $info->index($file)->type eq '-';
     next unless $file =~ /[.]py$/; # TODO: check also compressed .py files
     $version_map{$file} = 0;
 }

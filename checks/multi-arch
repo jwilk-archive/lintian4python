@@ -38,11 +38,10 @@ my $dist_packages_re = qr{
 
 sub run {
     my ($package, $type, $info) = @_;
-    my $index = $info->index;
     my $ma = $info->field('multi-arch') // 'none';
     my $has_modules = 0;
     for my $file ($info->sorted_index) {
-        next unless $index->{$file}->type eq '-';
+        next unless $info->index($file)->type eq '-';
         if ($file =~ m,^$dist_packages_re/.*[.](py|so)$,o) {
             $has_modules = 1;
             last; 

@@ -80,7 +80,6 @@ sub reduce {
 
 sub run {
     my ($package, $type, $info) = @_;
-    my $index = $info->index;
     $package =~ m/^(python3?)-/ or return;
     my $prefix = $1;
     if ($package eq 'python-support') {
@@ -91,7 +90,7 @@ sub run {
     }
     my %data = ();
     for my $file ($info->sorted_index) {
-        next unless $index->{$file}->type eq '-';
+        next unless $info->index($file)->type eq '-';
         if ($file =~ $_module_name) {
             my $path = $1;
             my $module = $2 // $3 // $4;

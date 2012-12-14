@@ -137,7 +137,7 @@ sub classify_python_modules {
     my @python3files = ();
     for my $file ($info->sorted_index) {
         my $version = 0;
-        next unless $info->index->{$file}->type eq '-';
+        next unless $info->index($file)->type eq '-';
         if ($file =~ $python2regex) {
             $version = 2;
         } elsif ($file =~ $python3regex) {

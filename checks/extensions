@@ -38,19 +38,19 @@ my $py_extension = qr{
 my $tagless_py3_extension = qr,usr/lib/python3/dist-packages/(?:.+/)?\w+\.so$,;
 
 sub check_static_extension {
-    my ($index, $file) = @_;
+    my ($info, $file) = @_;
     $file =~ s,\.so$,\.a,;
-    if (exists $index->{$file}) {
+    if (defined $info->index($file)) {
         tag 'static-extension', $file;
     }
 }
 
 sub check_so_symlink {
-    my ($index, $file) = @_;
-    return unless $index->{$file}->type eq 'l';
+    my ($info, $file) = @_;
+    return unless $info->index($file)->type eq 'l';
     my $basename = $file;
     $basename =~ s,.*/,,;
-    my $link = $index->{$file}->link;
+    my $link = $info->index($file)->link;
     if ($link =~ m,^\Q$basename\E\.,) {
         tag 'extension-is-symlink', $file, '->', $link;
     }
@@ -66,7 +66,6 @@ if ($pkg =~ /-dbg$/) {
 }
 
 my $srcpkg = $proc->pkg_src() // '';
-my $index = $info->index;
 my $objdump = $info->objdump_info;
 my $uses_old_pyrex_import_type = 0;
 my $seen_wrong_version = 0;
@@ -75,8 +74,8 @@ my @linked_with_libpython = ();
 for my $file ($info->sorted_index) {
     if (my @pyversion = ($file =~ $py_extension)) {
         $has_extensions = 1;
-        check_so_symlink($index, $file);
-        next unless $index->{$file}->type eq '-';
+        check_so_symlink($info, $file);
+        next unless $info->index($file)->type eq '-';
         my $string = slurp_entire_file($info->strings($file));
         if ($string =~ m,does not appear to be the correct type object,) {
             tag 'extension-uses-old-pyrex-import-type', $file;
@@ -94,16 +93,17 @@ for my $file ($info->sorted_index) {
                 }
             }
         }
-        if (defined $objdump->{$file}->{SONAME}) {
-            tag 'extension-with-soname', $file, "(@{$objdump->{$file}->{SONAME}})";
+        my @sonames = @{$objdump->{$file}->{SONAME}};
+        if (@sonames) {
+            tag 'extension-with-soname', $file, "(@sonames)";
         }
-        check_static_extension($index, $file);
+        check_static_extension($info, $file);
     } elsif ($file =~ $tagless_py3_extension) {
         $has_extensions = 1;
-        check_so_symlink($index, $file);
-        next unless $index->{$file}->type eq '-';
+        check_so_symlink($info, $file);
+        next unless $info->index($file)->type eq '-';
         tag 'python3-extension-without-abi-tag', $file;
-        check_static_extension($index, $file);
+        check_static_extension($info, $file);
     }
 }
 unless ($seen_wrong_version) {

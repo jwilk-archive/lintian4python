@@ -40,8 +40,8 @@ sub run {
     );
 
     if ($type eq 'source') {
-        my $binpkgs = $info->binaries;
-        for my $binpkg (keys %$binpkgs) {
+        my @binpkgs = sort $info->binaries;
+        for my $binpkg (@binpkgs) {
             my $relation = $info->binary_relation($binpkg, 'all');
             $relation->visit(
                 sub {

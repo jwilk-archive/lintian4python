@@ -59,7 +59,6 @@ sub uri_path
 sub check_js
 {
     my ($info, $html_filename, $directory, $js_url) = @_;
-    my $index = $info->index;
     my @js_url = uri_split($js_url);
     if (not uri_is_local(@js_url)) {
         if ($js_url =~ m,/usr/share/javascript/[^/]+/[^/]+\.js$,) {
@@ -73,8 +72,8 @@ sub check_js
     my $result = my $js_filename = uri_path(@js_url);
     $js_filename = "$directory/$js_filename";
     1 while $js_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
-    if (exists $index->{$js_filename}) {
-        if ($index->{$js_filename}->type eq '-') {
+    if (defined $info->index($js_filename)) {
+        if ($info->index($js_filename)->type eq '-') {
             given (basename($js_filename)) {
                 when ('doctools.js') {
                     my $js = slurp_entire_file($info->unpacked($js_filename));
@@ -95,7 +94,7 @@ sub check_js
         }
     } else {
         my $tag = 'js-file-referenced-by-search.html-does-not-exist';
-        if (exists $index->{"$js_filename.gz"}) {
+        if (defined $info->index("$js_filename.gz")) {
             $js_filename .= '.gz';
             $tag = 'js-file-referenced-by-search.html-is-compressed';
         }
@@ -106,19 +105,18 @@ sub check_js
 
 sub check_searchindex {
     my ($info, $directory, $searchindex_filename) = @_;
-    my $index = $info->index;
     $searchindex_filename = "$directory/$searchindex_filename";
-    exists $index->{$searchindex_filename} or return;
-    $index->{$searchindex_filename}->type eq '-' or return;
+    defined $info->index($searchindex_filename) or return;
+    $info->index($searchindex_filename)->type eq '-' or return;
     my $searchindex = slurp_entire_file($info->unpacked($searchindex_filename));
     if ($searchindex =~ m{^Search\.setIndex\(.*?filenames:\["(.*?)"\].*\)$}) {
         $searchindex = $1;
         my @searchindex = split(/","/, $searchindex);
         for my $filename (@searchindex) {
             $filename = "$directory/_sources/$filename.txt";
-            if (not exists $index->{$filename}) {
+            if (not defined $info->index($filename)) {
                 my $tag = 'rst-source-referenced-by-searchindex.js-does-not-exist';
-                if (exists $index->{"$filename.gz"}) {
+                if (defined $info->index("$filename.gz")) {
                     $filename .= '.gz';
                     $tag = 'rst-source-referenced-by-searchindex.js-is-compressed';
                 }
@@ -132,9 +130,8 @@ sub check_searchindex {
 
 sub run {
     my ($pkg, undef, $info) = @_;
-    my $index = $info->index;
     for my $html_filename ($info->sorted_index) {
-        next unless $index->{$html_filename}->type eq '-';
+        next unless $info->index($html_filename)->type eq '-';
         next unless my ($directory) = $html_filename =~ m,^(.*)/search\.html$,;
         my $html = slurp_entire_file($info->unpacked($html_filename));
         $html =~ m/\svar\s+DOCUMENTATION_OPTIONS\s*=/ or next;
@@ -181,7 +178,7 @@ sub run {
         }
         for my $cruft (qw(.buildinfo .doctrees/ _static/websupport.js)) {
             my $filename = "$directory/$cruft";
-            if (exists $index->{$filename}) {
+            if (defined $info->index($filename)) {
                 tag 'sphinx-cruft-in-binary-package', $filename;
             }
         }

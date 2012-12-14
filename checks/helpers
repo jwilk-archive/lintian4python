@@ -146,8 +146,8 @@ sub run_source {
         tag 'debian-pycompat-is-obsolete';
     }
 
-    my $binpkgs = $info->binaries;
-    for my $binpkg (keys %$binpkgs) {
+    my @binpkgs = sort $info->binaries;
+    for my $binpkg (@binpkgs) {
         if ($info->binary_relation($binpkg, 'all')->implies('${python:Depends}')) {
             $python_depends{$binpkg} = 1;
             if ($binpkg =~ m/^python3-/) {
@@ -225,7 +225,7 @@ sub run_binary {
 
     my ($pkg, $type, $info) = @_;
     my $pycentral_data_path = "usr/share/pyshared-data/$pkg";
-    my $pycentral_data_stat = $info->index->{$pycentral_data_path};
+    my $pycentral_data_stat = $info->index($pycentral_data_path);
     if (defined($pycentral_data_stat) and $pycentral_data_stat->{'type'} eq '-') {
         my %files = ();
         open(my $fh, '<', $info->unpacked($pycentral_data_path)) or fail("cannot open python-central metadata: $!");
@@ -250,8 +250,8 @@ sub run_binary {
         close($fh);
         while (my ($filename, $type) = each %files) {
             my $fileinfo =
-                $info->index->{$filename} ||
-                $info->index->{"$filename/"};
+                $info->index($filename) ||
+                $info->index("$filename/");
             if (not defined $fileinfo) {
                 tag 'python-central-metadata-for-missing-files', $filename;
             }
