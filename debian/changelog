@@ -7,10 +7,13 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * checks/bytecompilation:
     + Check for source package containing .pyc and .pyo files.
 
+  * data/python/projects*:
+    + Refresh.
+
   * debian/copyright:
     + Update copyright years.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Jan 2013 18:53:50 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Jan 2013 19:01:10 +0100
 
 lintian4python (0.11) experimental; urgency=low
 
