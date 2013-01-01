@@ -94,6 +94,10 @@ helpers
 | [X] xs-python-version-instead-of-x-python-version
 | [X] xs-python3-version-instead-of-x-python3-version
 
+multi-arch
+~~~~~~~~~~
+| [2] python-module-in-multi-arch-foreign-package
+
 teams
 ~~~~~
 | [ ] incorrect-team-name
