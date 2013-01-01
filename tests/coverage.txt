@@ -39,6 +39,7 @@ bytecompilation
 | [ ] pycentral-pkginstall-for-foreign-package
 | [ ] pycompile-for-foreign-package
 | [ ] python-module-not-byte-compiled
+| [X] source-contains-python-bytecode
 
 package-name
 ~~~~~~~~~~~~

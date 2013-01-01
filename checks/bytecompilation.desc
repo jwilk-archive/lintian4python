@@ -1,7 +1,7 @@
 Check-Script: bytecompilation
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pyc
-Type: binary
+Type: binary, source
 Info: byte-compilation of Python modules
 Needs-Info: index, bin-pkg-control
 
@@ -27,3 +27,11 @@ Certainty: possible
 Tag: insufficient-dependency-on-byte-compilation-helper
 Severity: normal
 Certainty: possible
+
+Tag: source-contains-python-bytecode
+Severity: pedantic
+Certainty: certain
+Info: The source tarball contains pre-compiled Python modules.  They are
+ usually left by mistake when generating the tarball by not cleaning the source
+ directory first.  You may want to report this as an upstream bug, in case
+ there is no sign that this was intended.

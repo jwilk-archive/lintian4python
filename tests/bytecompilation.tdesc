@@ -49,3 +49,13 @@ Test-Against:
  e: jython: python-module-not-byte-compiled usr/share/jython/...
 Info:
  Fixed in lintian4python 0.8.1.
+
+Name: source-contains-python-bytecode
+Files:
+ 97db53569010102d48d731152099016d73529ab2 wicd_1.7.2.4-4.dsc
+ 043321f59bef1eb1d1e49c4c14316deca7e5e1c6 wicd_1.7.2.4.orig.tar.gz
+ d1460ad1f5fd43008367831e6e0f448b8200cea3 wicd_1.7.2.4-4.debian.tar.gz
+Test-For:
+ p: wicd source: source-contains-python-bytecode curses/curses_misc.pyc
+ p: wicd source: source-contains-python-bytecode curses/netentry_curses.pyc
+ p: wicd source: source-contains-python-bytecode curses/prefs_curses.pyc
