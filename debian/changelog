@@ -56,7 +56,7 @@ lintian4python (0.10) experimental; urgency=low
 
   * checks/extensions:
     + Remove the check for "Multi-Arch: foreign" packages shipping extension
-      modules (it hasn been replaced by a more generic check).
+      modules (it has been replaced by a more generic check).
 
   * checks/multi-arch:
     + Check for "Multi-Arch: foreign" packages shipping Python modules.
