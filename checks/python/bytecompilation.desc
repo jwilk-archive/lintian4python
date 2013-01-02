@@ -1,4 +1,4 @@
-Check-Script: bytecompilation
+Check-Script: python/bytecompilation
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pyc
 Type: binary, source

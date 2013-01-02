@@ -1,6 +1,6 @@
-Check-Script: scripts
+Check-Script: python/scripts
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: scr
+Abbrev: pyscr
 Type: binary
 Info: #! lines of scripts
 Needs-Info: scripts

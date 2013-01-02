@@ -1,4 +1,4 @@
-Check-Script: pth
+Check-Script: python/pth
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pth
 Type: binary

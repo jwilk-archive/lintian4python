@@ -1,6 +1,6 @@
-# python-code-analysis -- lintian check script -*- perl -*-
+# python::pyflakes -- lintian check script -*- perl -*-
 #
-# Copyright © 2011, 2012 Jakub Wilk
+# Copyright © 2011, 2012, 2013 Jakub Wilk
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 # Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-package Lintian::code_analysis;
+package Lintian::python::pyflakes;
 
 use strict;
 use warnings;
@@ -28,43 +28,37 @@ use Cwd qw(getcwd);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
-use Lintian::Python qw(classify_python_modules);
+use Lintian::Python qw(classify_python_modules is_public_module);
 
 sub run {
     my ($pkg, $type, $info) = @_;
-    my ($py2files, $py3files) = classify_python_modules($pkg, $info);
+    my ($py2files, undef) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    analyse($py2files, '/usr/bin/python', '-tt');
-    analyse($py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
-    chdir $cwd or fail("cannot chdir back from unpacked: $!");
-}
-
-sub analyse {
-    my ($files, @interpreter) = @_;
-    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
+    open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
+    my %underscores = ();
     my $file;
     while (<$fp>) {
-        if (m,^(\S+) (-|\d+)(?: (.+))?$,) {
+        if (m,^(pyflakes-\S+) (.*),) {
             my $tag = $1;
-            my $lineno = $2;
-            my $extra = $3;
-            my $message = $file;
-            if ($lineno ne '-') {
-                $message .= ":$lineno";
+            my $rest = $2;
+            if ($tag eq 'pyflakes-undefined-name' and $rest =~ m/ _$/ and not is_public_module($file)) {
+                if (not exists ($underscores{$file})) {
+                    tag "pyflakes-undefined-name-underscore", "$file:$rest";
+                    $underscores{$file} = 1;
+                }
+            } else {
+                tag $tag, "$file:$rest";
             }
-            if (defined $extra) {
-                $message .= ": $extra";
-            }
-            tag $tag, $message;
         } elsif (m,^# (.+)$,) {
             $file = $1;
         } else {
-            chomp;
-            fail("unexpected output from code-analysis helper: $_");
+            # We used to emit syntax-error here, but now it's taken care by
+            # the code-analysis check.
         }
     }
-    close($fp) or fail("code-analysis helper failed");
+    close($fp) or fail("pyflakes helper failed");
+    chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 1;

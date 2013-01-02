@@ -1,6 +1,6 @@
-Check-Script: teams
+Check-Script: python/teams
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: egg
+Abbrev: pytms
 Type: binary, source
 Info: Debian Python Modules Team and Python Applications Module Team policies
 Needs-Info: index

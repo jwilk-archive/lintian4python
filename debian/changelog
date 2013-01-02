@@ -4,7 +4,12 @@ lintian4python (0.12) UNRELEASED; urgency=low
     + Added:
       - source-contains-python-bytecode
 
-  * checks/bytecompilation:
+  * checks/*:
+    + Move the checks to the python/ subdirectory.
+      Thanks to Niels Thykier for the bug report.
+    + Change check name abbreviations so that they all start with “py”.
+    
+  * checks/python/bytecompilation:
     + Check for source package containing .pyc and .pyo files.
 
   * data/python/projects*:
@@ -31,7 +36,7 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * profiles/, vendors/:
     + Rename the ‘main’ profile as ‘python’.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 20:18:54 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 20:37:18 +0100
 
 lintian4python (0.11) experimental; urgency=low
 

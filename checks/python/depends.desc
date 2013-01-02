@@ -1,6 +1,6 @@
-Check-Script: depends
+Check-Script: python/depends
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: dep
+Abbrev: pydep
 Type: source, binary
 Info: package (build-)dependencies
 Needs-Info: debfiles

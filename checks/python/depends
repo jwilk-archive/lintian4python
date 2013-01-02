@@ -1,6 +1,6 @@
-# python-multi-arch -- lintian check script -*- perl -*-
+# python::depends -- lintian check script -*- perl -*-
 #
-# Copyright © 2012 Jakub Wilk
+# Copyright © 2012, 2013 Jakub Wilk
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,38 +18,41 @@
 # Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-package Lintian::multi_arch;
+package Lintian::python::depends;
 
 use strict;
 use warnings;
 
 use Lintian::Tags qw(tag);
-
-my $dist_packages_re = qr{
-^(?:
-  usr/lib/pyshared/python2\.\d+ # python-support >= 0.90
-| usr/share/pyshared # python-support >= 0.90, python-central, dh_python2
-| usr/lib/python-support/[^/]+/python2\.\d+ # python-support < 0.90
-| usr/share/python-support/[^/]+ # python-support < 0.90
-| usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
-| usr/lib/python3/dist-packages # Python 3.X:
-)
-}x;
+use Lintian::Relation qw(:constants);
 
 sub run {
-    my ($package, $type, $info) = @_;
-    my $ma = $info->field('multi-arch') // 'none';
-    my $has_modules = 0;
-    for my $file ($info->sorted_index) {
-        next unless $info->index($file)->type eq '-';
-        if ($file =~ m,^$dist_packages_re/.*[.](py|so)$,o) {
-            $has_modules = 1;
-            last; 
+
+    my ($pkg, $type, $info) = @_;
+
+    my $relation = $info->relation($type eq 'binary' ? 'all' : 'build-depends-all');
+    $relation->visit(
+        sub {
+            if (m/^(python3?-numpy)\s+\((>>|>=|=)\s+([1-9][^:)]*)\)$/) {
+                tag 'missing-epoch-in-dependency', "$1 ($2 $3)";
+            }
+        }, VISIT_PRED_FULL
+    );
+
+    if ($type eq 'source') {
+        my @binpkgs = sort $info->binaries;
+        for my $binpkg (@binpkgs) {
+            my $relation = $info->binary_relation($binpkg, 'all');
+            $relation->visit(
+                sub {
+                    if (m/(python3?-numpy-a[bp]i\d+)$/) {
+                        tag 'hardcoded-dependency-on-numpy-virtual-package', $1;
+                    }
+                }, VISIT_PRED_FULL
+            );
         }
     }
-    if ($has_modules and ($ma eq 'foreign')) {
-        tag 'python-module-in-multi-arch-foreign-package';
-    }
+
 }
 
 1;
