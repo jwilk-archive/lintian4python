@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+# /usr/share/lintian4python/lib used to be a symlink, but it's now a regular
+# directory. As per Policy §6.6, dpkg can't handle such a switch itself.
+lib=/usr/share/lintian4python/lib
+if [ "$1" = 'upgrade' ] && [ -L "$lib" ] && dpkg --compare-versions "$2" lt 0.12
+then
+    rm -f $lib
+fi
+unset lib
+
+#DEBHELPER#

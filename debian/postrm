@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = 'abort-upgrade' ] && dpkg --compare-versions "$2" lt 0.12
+then
+    # preinst might have removed some important files, so leave the package
+    # in the Half-Installed state
+    exit 1
+fi
+
+#DEBHELPER#

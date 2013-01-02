@@ -13,20 +13,25 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * debian/copyright:
     + Update copyright years.
   * debian/rules:
-    + Don't install lib; Lintian Perl modules are now public.
+    + Don't install ‘libextra’; it's been superseded by ‘lib’.
   * debian/*.lintian-overrides:
     + Update.
+  * debian/postinst, debian/postrm, debian/prerm:
+    + Add code to handle /usr/share/lintian4python/lib switch from being
+      symlink to regular directory.
 
-  * lib:
-    + Remove; Lintian Perl modules are now public.
+  * lib, libextra:
+    + Remove /usr/share/lintian/lib symlink; it's no longer needed, as Lintian
+      Perl modules are now public. Rename ‘libextra’ as ‘lib’ instead.
 
   * lintian4py, lintian4py-info:
     + Use --profile debian/python.
+    + Don't modify @INC, no longer needed.
 
   * profiles/, vendors/:
     + Rename the ‘main’ profile as ‘python’.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:56:48 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 20:18:54 +0100
 
 lintian4python (0.11) experimental; urgency=low
 

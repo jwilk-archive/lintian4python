@@ -7,8 +7,6 @@ use Cwd qw();
 use File::Basename qw();
 $ENV{'LINTIAN_ROOT'} = Cwd::abs_path(File::Basename::dirname($0));
 
-unshift @INC, "$ENV{'LINTIAN_ROOT'}/lib";
-unshift @INC, "$ENV{'LINTIAN_ROOT'}/libextra";
 require Lintian::Output;
 
 use Getopt::Long qw();
