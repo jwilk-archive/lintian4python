@@ -2,5 +2,9 @@
 lintian4python: package-contains-broken-symlink usr/share/lintian4python/checks/lintian.desc ../../lintian/checks/lintian.desc
 # False-positive: the symlink target is provided by lintian.
 lintian4python: package-contains-broken-symlink usr/share/lintian4python/collection ../lintian/collection
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/vendors/debian/python/data/common ../../../../../lintian/data/common
+# False-positive: the symlink target is provided by lintian.
+lintian4python: package-contains-broken-symlink usr/share/lintian4python/vendors/debian/python/data/output ../../../../../lintian/data/output
 # False-positive: different functions are defined for different Python versions.
 lintian4python: pyflakes-redefined-function usr/share/lintian4python/helpers/code-analysis:49: python_open line 44
