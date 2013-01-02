@@ -2,7 +2,7 @@
 
 # refresh-sys.path-additions -- Refresh Lintian data about sys.path additions
 #
-# Copyright © 2012 Jakub Wilk
+# Copyright © 2012, 2013 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
