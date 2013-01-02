@@ -14,6 +14,8 @@ lintian4python (0.12) UNRELEASED; urgency=low
     + Update copyright years.
   * debian/rules:
     + Don't install lib; Lintian Perl modules are now public.
+  * debian/*.lintian-overrides:
+    + Update.
 
   * lib:
     + Remove; Lintian Perl modules are now public.
@@ -24,7 +26,10 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * profiles/debian/:
     + Rename main.profile as python.profile.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:19:49 +0100
+  * vendors/debian/main/data/{common,output}:
+    + Fix broken symlinks.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:36:02 +0100
 
 lintian4python (0.11) experimental; urgency=low
 
