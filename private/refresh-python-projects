@@ -69,7 +69,7 @@ my $date = strftime('%Y-%m-%d', gmtime);
 
 for my $py3k (0..1) {
     my $python = sprintf 'Python %d.X', 2 + $py3k;
-    open(my $fh, '>', 'data/projects' . ('-py3k' x $py3k)) or die $!;
+    open(my $fh, '>', sprintf('data/python%d-projects', 2 + $py3k)) or die $!;
     print $fh <<EOF ;
 # This file contains mapping between $python project names (as used by
 # setuptools) and Debian package names.

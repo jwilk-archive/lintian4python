@@ -34,12 +34,12 @@ my $_extension_suffix = qr{
 }x;
 
 my @path_additions = map {
-    my $data = Lintian::Data->new("sys.path-additions$_", ' => ');
+    my $data = Lintian::Data->new("python$_-sys.path-additions", ' => ');
     my @result = $data->all();
     @result = grep { ! m,^/, } @result;
     my $result = join('|', map(quotemeta, @result));
     qr/$result/;
-} ('', '-py3k');
+} (2..3);
 unshift(@path_additions, undef, undef);
 
 my $_module_name = qr{

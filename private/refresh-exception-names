@@ -57,7 +57,7 @@ for my $v (@versions) {
 }
 my @exceptions = sort keys %exceptions;
 my $date = strftime('%Y-%m-%d', gmtime);
-open(my $fh, '>', 'data/exceptions') or die $!;
+open(my $fh, '>', 'data/python-exceptions') or die $!;
 $" = ", ";
 print $fh <<EOF ;
 # This file contains name of built-in exceptions that exist in the following
