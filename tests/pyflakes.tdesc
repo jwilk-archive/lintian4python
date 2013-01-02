@@ -2,7 +2,7 @@ Name: pyflakes/tokenization
 Files:
  3e8b3444653bfd2d72f6b359555917b0de59d70b  gnuspool_1.7_i386.deb
 Test-Check:
- pyflakes
+ python/pyflakes
 Info:
  Fixed in lintian4python 0.3.  Prior versions incorrectly died with internal
  error if a Python file had token-level syntax errors.

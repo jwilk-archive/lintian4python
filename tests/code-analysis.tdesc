@@ -49,4 +49,5 @@ Info:
 Name: code-analysis/python3-encoding
 Files:
  85d98547318e7737d8cf5f89ab7b935b3781b3fc  python3-pipeline_0.1.3-3_all.deb
-Test-Check: code-analysis
+Test-Check:
+ python/code-analysis
