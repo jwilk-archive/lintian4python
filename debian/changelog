@@ -20,7 +20,7 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * lib:
     + Remove; Lintian Perl modules are now public.
 
-  * lintian4py:
+  * lintian4py, lintian4py-info:
     + Use --profile debian/python.
 
   * profiles/, vendors/:
