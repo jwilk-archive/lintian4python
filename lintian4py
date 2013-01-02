@@ -82,6 +82,7 @@ my $monkey3 = Monkey::Patch::patch_package 'Getopt::Long' => 'GetOptions' => sub
     return $original->(%opt);
 };
 
+unshift @ARGV, '--profile', 'debian/python';
 do '/usr/bin/lintian';
 if ($@) {
     die $@;

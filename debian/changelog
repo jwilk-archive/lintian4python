@@ -18,7 +18,13 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * lib:
     + Remove; Lintian Perl modules are now public.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 15:53:56 +0100
+  * lintian4py:
+    + Use --profile debian/python.
+
+  * profiles/debian/:
+    + Rename main.profile as python.profile.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:19:49 +0100
 
 lintian4python (0.11) experimental; urgency=low
 
