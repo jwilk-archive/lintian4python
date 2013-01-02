@@ -47,7 +47,7 @@ my $dist_packages_re = qr{
 }x;
 
 my @path_additions = map {
-    Lintian::Data->new("python/sys.path-additions$_", ' => ');
+    Lintian::Data->new("sys.path-additions$_", ' => ');
 } ('', '-py3k');
 unshift(@path_additions, undef, undef);
 

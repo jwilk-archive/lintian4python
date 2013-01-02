@@ -34,7 +34,7 @@ my $_extension_suffix = qr{
 }x;
 
 my @path_additions = map {
-    my $data = Lintian::Data->new("python/sys.path-additions$_", ' => ');
+    my $data = Lintian::Data->new("sys.path-additions$_", ' => ');
     my @result = $data->all();
     @result = grep { ! m,^/, } @result;
     my $result = join('|', map(quotemeta, @result));

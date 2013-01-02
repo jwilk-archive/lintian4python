@@ -23,13 +23,10 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * lintian4py:
     + Use --profile debian/python.
 
-  * profiles/debian/:
-    + Rename main.profile as python.profile.
+  * profiles/, vendors/:
+    + Rename the ‘main’ profile as ‘python’.
 
-  * vendors/debian/main/data/{common,output}:
-    + Fix broken symlinks.
-
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:36:02 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 16:56:48 +0100
 
 lintian4python (0.11) experimental; urgency=low
 

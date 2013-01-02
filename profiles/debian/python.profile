@@ -1,4 +1,4 @@
-Profile: debian/main
+Profile: debian/python
 Enable-Tags-From-Check:
  bytecompilation,
  code-analysis,

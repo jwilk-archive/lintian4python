@@ -28,7 +28,7 @@ use Lintian::Tags qw(tag);
 use Lintian::Relation ();
 use Lintian::Util qw(fail);
 
-my @PROJECTS = map { Lintian::Data->new("python/projects$_", '\|\|') } ('', '-py3k');
+my @PROJECTS = map { Lintian::Data->new("projects$_", '\|\|') } ('', '-py3k');
 
 sub egg_version_to_regex {
     my $version = lc(shift);
