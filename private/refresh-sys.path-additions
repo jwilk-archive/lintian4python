@@ -150,7 +150,7 @@ def main():
     assert pygtk2_additions == {'python-gobject-2'}
     pygtk2_additions.add('python-gtk2')
     for version in 2, 3:
-        path = '{root}/data/python/sys.path-additions'.format(root=misc.lintian_root)
+        path = '{root}/data/sys.path-additions'.format(root=misc.lintian_root)
         if version == 3:
             path += '-py3k'
         with open(path, 'wt', encoding='ASCII') as file:
