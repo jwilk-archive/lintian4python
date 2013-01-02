@@ -12,8 +12,13 @@ lintian4python (0.12) UNRELEASED; urgency=low
 
   * debian/copyright:
     + Update copyright years.
+  * debian/rules:
+    + Don't install lib; Lintian Perl modules are now public.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Jan 2013 19:01:10 +0100
+  * lib:
+    + Remove; Lintian Perl modules are now public.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 15:53:56 +0100
 
 lintian4python (0.11) experimental; urgency=low
 
