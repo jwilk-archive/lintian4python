@@ -108,16 +108,17 @@ class TestCase(unittest.TestCase):
 
     def test(self):
         tags = ','.join(self.get_affected_tags())
-        main_file = os.path.join(
-            self.parent.cache_directory,
-            self.files[0].filename
-        )
+        interesting_files = [
+            os.path.join(self.parent.cache_directory, file.filename)
+            for file in self.files
+            if file.filename.endswith(('.dsc', '.changes', '.deb', '.udeb'))
+        ]
         commandline = ['lintian4py', '--no-cfg']
         if self.test_check:
             commandline += ['--check-part', self.test_check]
         if tags:
             commandline += ['--tags', tags]
-        commandline += [main_file]
+        commandline += interesting_files
         lintian = ipc.Popen(commandline,
             stdout=ipc.PIPE,
             stderr=ipc.PIPE
