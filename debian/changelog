@@ -12,7 +12,15 @@ lintian4python (0.12) UNRELEASED; urgency=low
   * checks/python/bytecompilation:
     + Check for source package containing .pyc and .pyo files.
 
-  * data/python/projects*:
+  * data/*:
+    + Fix broken symlinks.
+    + Rename data files:
+      - python/exceptions → python-exceptions
+      - python/projects → python2-projects
+      - python/projects-py3k → python3-projects
+      - python/sys.additions → python3-sys.additions
+      - python/sys.additions-py3k → python3-sys.additions
+  * data/python/python*-projects:
     + Refresh.
 
   * debian/copyright:
@@ -33,10 +41,18 @@ lintian4python (0.12) UNRELEASED; urgency=low
     + Use --profile debian/python.
     + Don't modify @INC, no longer needed.
 
-  * profiles/, vendors/:
+  * profiles/:
     + Rename the ‘main’ profile as ‘python’.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 02 Jan 2013 20:37:18 +0100
+  * tests/*:
+    + New tests.
+    + Make it possible to run tests against multiple packages at once.
+      Thanks to Niels Thykier for the bug report.
+
+  * vendors/:
+    + Rename the ‘main’ profile as ‘python’.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 04 Jan 2013 19:07:37 +0100
 
 lintian4python (0.11) experimental; urgency=low
 
