@@ -29,7 +29,7 @@ Severity: normal
 Certainty: possible
 
 Tag: source-contains-python-bytecode
-Severity: pedantic
+Severity: normal
 Certainty: certain
 Info: The source tarball contains pre-compiled Python modules.  They are
  usually left by mistake when generating the tarball by not cleaning the source
