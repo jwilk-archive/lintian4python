@@ -12,7 +12,10 @@ lintian4python (0.13) UNRELEASED; urgency=low
   * private/update-coverage:
     + Look into the checks/python/ directory.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 09 Jan 2013 19:52:19 +0100
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 09 Jan 2013 20:03:43 +0100
 
 lintian4python (0.12) experimental; urgency=low
 

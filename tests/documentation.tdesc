@@ -57,3 +57,14 @@ Files:
  9616848a379558801f98022f741cf092d2345e04  python-sqlkit-doc_0.9.5-1_all.deb
 Test-For:
  w: python-sqlkit-doc: sphinx-js-with-jinja2-templates usr/share/doc/python-sqlkit-doc/html/_static/searchtools.js {{ search_language_stemming_code|safe }}
+
+Name: source-contains-sphinx-cache
+Files:
+ fe542a678d3fc9c09fe461200bdf78a81c51d5e0  python-pynast_1.1-3.dsc
+ 69932b10807535084f8c9daed02a928719883361  python-pynast_1.1-3.debian.tar.gz
+ ca79b852930c195c9c43d3fc979481301f1b229f  python-pynast_1.1.orig.tar.gz
+Test-For:
+ w: python-pynast source: source-contains-sphinx-cache doc/_build/doctrees/environment.pickle
+ w: python-pynast source: source-contains-sphinx-cache doc/_build/doctrees/index.doctree
+ w: python-pynast source: source-contains-sphinx-cache doc/_build/doctrees/install.doctree
+ w: python-pynast source: source-contains-sphinx-cache doc/_build/doctrees/install_gui.doctree
