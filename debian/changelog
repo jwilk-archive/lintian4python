@@ -9,7 +9,10 @@ lintian4python (0.13) UNRELEASED; urgency=low
   * checks/documentation:
     + Check for source packages containing Sphinx cache files.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 09 Jan 2013 19:50:00 +0100
+  * private/update-coverage:
+    + Look into the checks/python/ directory.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 09 Jan 2013 19:52:19 +0100
 
 lintian4python (0.12) experimental; urgency=low
 

@@ -48,10 +48,8 @@ def main():
         return main_(stdout=stdout)
 
 def main_(stdout):
-    for filename in glob.glob('checks/*.desc'):
+    for filename in glob.glob('checks/python/*.desc'):
         check, _ = os.path.splitext(os.path.basename(filename))
-        if check == 'lintian':
-            continue
         tags_for = {}
         with open('{root}/{file}'.format(root=LINTIAN_ROOT, file=filename)) as file:
             for para in deb822.Deb822.iter_paragraphs(file):
