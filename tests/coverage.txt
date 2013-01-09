@@ -56,6 +56,7 @@ documentation
 | [X] search.html-references-non-local-js-file
 | [X] search.html-with-invalid-root-url
 | [ ] search.html-with-non-local-root-url
+| [ ] source-contains-sphinx-cache
 | [2] sphinx-cruft-in-binary-package
 | [X] sphinx-js-incompatible-with-jquery-1.4
 | [X] sphinx-js-incompatible-with-jquery-1.5
