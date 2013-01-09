@@ -129,7 +129,16 @@ sub check_searchindex {
 }
 
 sub run {
-    my ($pkg, undef, $info) = @_;
+    my ($pkg, $type, $info) = @_;
+    if ($type eq 'source') {
+        return run_source($pkg, $info)
+    } else {
+        return run_binary($pkg, $info)
+    }
+}
+
+sub run_binary {
+    my ($pkg, $info) = @_;
     for my $html_filename ($info->sorted_index) {
         next unless $info->index($html_filename)->type eq '-';
         next unless my ($directory) = $html_filename =~ m,^(.*)/search\.html$,;
@@ -181,6 +190,15 @@ sub run {
             if (defined $info->index($filename)) {
                 tag 'sphinx-cruft-in-binary-package', $filename;
             }
+        }
+    }
+}
+
+sub run_source {
+    my ($pkg, $info) = @_;
+    for my $file ($info->sorted_index) {
+        if ($file =~ m,(environment[.]pickle|[.]doctree)$,) {
+            tag 'source-contains-sphinx-cache', $file;
         }
     }
 }

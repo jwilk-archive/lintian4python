@@ -1,7 +1,7 @@
 Check-Script: python/documentation
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pydoc
-Type: binary
+Type: binary, source
 Info: documentation
 Needs-Info: index, unpacked
 
@@ -82,3 +82,12 @@ Ref: http://sphinx.pocoo.org/config.html#confval-html_copy_source,
 Tag: sphinx-cruft-in-binary-package
 Severity: pedantic
 Certainty: possible
+
+Tag: source-contains-sphinx-cache
+Severity: normal
+Certainty: certain
+Info: The source tarball contains cache files created by Sphinx
+ (<tt>environment.pickle</tt>, <tt>*.doctree</tt>).  They are
+ usually left by mistake when generating the tarball by not cleaning the
+ source directory first.  You may want to report this as an upstream bug, in
+ case there is no sign that this was intended.
