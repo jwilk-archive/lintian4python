@@ -5,7 +5,7 @@ lintian4python (0.13) UNRELEASED; urgency=low
       - source-contains-sphinx-cache
 
   * checks/bytecompilation:
-    - Bump source-contains-python-bytecode severity to normal.
+    + Bump source-contains-python-bytecode severity to normal.
   * checks/documentation:
     + Check for source packages containing Sphinx cache files.
 
