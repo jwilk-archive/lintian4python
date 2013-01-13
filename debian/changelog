@@ -1,3 +1,10 @@
+lintian4python (0.13.1) UNRELEASED; urgency=low
+
+  * private/refresh-python-projects:
+    + Consider packages from both unstable and experimental.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 13 Jan 2013 18:40:41 +0100
+
 lintian4python (0.13) experimental; urgency=low
 
   * Summary of tag changes:

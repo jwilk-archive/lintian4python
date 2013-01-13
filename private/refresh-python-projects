@@ -29,7 +29,8 @@ chdir $LINTIAN_ROOT or die $!;
 my $mirror = $ENV{'DEB_MIRROR'} // 'http://http.debian.net/debian';
 my @data = ({}, {});
 
-open(my $fh, "wget -q -O - $mirror/dists/unstable/main/Contents-i386.gz | zcat |") or die $!;
+my @urls = map { "$mirror/dists/$_/main/Contents-i386.gz" } qw(unstable experimental);
+open(my $fh, "wget -q -O - @urls | zcat |") or die $!;
 while (<$fh>) {
     if (m{^
         (?: (
