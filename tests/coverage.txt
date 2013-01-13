@@ -43,7 +43,7 @@ bytecompilation
 
 package-name
 ~~~~~~~~~~~~
-| [ ] incorrect-package-name
+| [2] incorrect-package-name
 
 documentation
 ~~~~~~~~~~~~~

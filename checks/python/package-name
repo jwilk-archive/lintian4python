@@ -27,7 +27,7 @@ use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
 my $_extension_suffix = qr{
-(?: -(?:\d+)mu?
+(?: [.]cpython-(?:\d+)mu?
   | (?<!_d)
 )
 \. so

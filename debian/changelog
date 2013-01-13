@@ -1,12 +1,18 @@
 lintian4python (0.13.1) UNRELEASED; urgency=low
 
+  * checks/python/package-name:
+    + Fix regexp, so that Python 3 extensions modules are taken into account.
+
   * data/python*-projects:
     + Refresh.
 
   * private/refresh-python-projects:
     + Consider packages from both unstable and experimental.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 13 Jan 2013 18:41:46 +0100
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 13 Jan 2013 19:03:30 +0100
 
 lintian4python (0.13) experimental; urgency=low
 
