@@ -1,4 +1,4 @@
-lintian4python (0.13.1) UNRELEASED; urgency=low
+lintian4python (0.13.1) experimental; urgency=low
 
   * checks/python/package-name:
     + Fix regexp, so that Python 3 extensions modules are taken into account.
@@ -12,7 +12,7 @@ lintian4python (0.13.1) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 13 Jan 2013 19:03:30 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 17 Jan 2013 23:19:58 +0100
 
 lintian4python (0.13) experimental; urgency=low
 
