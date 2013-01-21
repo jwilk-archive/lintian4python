@@ -1,3 +1,10 @@
+lintian4python (0.13.2) UNRELEASED; urgency=low
+
+  * data/python*-projects:
+    + Refresh.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 21 Jan 2013 02:07:26 +0100
+
 lintian4python (0.13.1) experimental; urgency=low
 
   * checks/python/package-name:
