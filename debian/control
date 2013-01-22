@@ -6,6 +6,7 @@ Build-Depends: debhelper (>= 7)
 Standards-Version: 3.9.4
 Vcs-Hg: https://bitbucket.org/jwilk/lintian4python
 Vcs-Browser: https://bitbucket.org/jwilk/lintian4python
+Homepage: http://jwilk.net/software/lintian4python
 
 Package: lintian4python
 Architecture: all
