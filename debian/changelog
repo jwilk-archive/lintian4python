@@ -6,7 +6,10 @@ lintian4python (0.13.2) UNRELEASED; urgency=low
   * debian/control:
     + Add the Homepage field.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 01 Feb 2013 19:57:09 +0100
+  * debian/README.source:
+    + Ask to change source format when forking.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Feb 2013 23:06:35 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 
