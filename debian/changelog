@@ -9,7 +9,14 @@ lintian4python (0.13.2) UNRELEASED; urgency=low
   * debian/README.source:
     + Ask to change source format when forking.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Feb 2013 23:06:35 +0100
+  * checks/python/pyflakes:
+    + Mark pyflakes-import-star-used as experimental.
+    + Emit pyflakes-import-star-used at most once per file.
+
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 09 Feb 2013 22:55:05 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 

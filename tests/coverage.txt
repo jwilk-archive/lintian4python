@@ -6,7 +6,7 @@ pyflakes
 ~~~~~~~~
 | [ ] pyflakes-duplicate-argument
 | [ ] pyflakes-import-shadowed-by-loop-var
-| [ ] pyflakes-import-star-used
+| [X] pyflakes-import-star-used
 | [ ] pyflakes-late-future-import
 | [ ] pyflakes-redefined-function
 | [ ] pyflakes-redefined-while-unused

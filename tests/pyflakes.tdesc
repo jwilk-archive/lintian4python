@@ -7,6 +7,27 @@ Info:
  Fixed in lintian4python 0.3.  Prior versions incorrectly died with internal
  error if a Python file had token-level syntax errors.
 
+Name: pyflakes-import-star-used
+Files:
+ 3c702ae5eb4a3a46b8a35b77117382aaea8907fa  ezmlm-browse_0.10-3_i386.deb
+Test-For:
+ x: ezmlm-browse: pyflakes-import-star-used etc/ezmlm-browse/config.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/author.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/configure.py:3: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/feed.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/lists.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/monthbydate.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/monthbythread.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/months.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/search.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/showmsg.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/showthread.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/commands/threadindex.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/ezmlm.py:9: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/feedgen.py:1: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/globalfns.py:7: globals
+ x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/main.py:14: globals
+
 Name: pyflakes-undefined-name-underscore
 Files:
  f8a8b0922e647ee7e9c63217b1a1f3ab0f5af911  rhythmbox-ampache_0.11.1-1_all.deb

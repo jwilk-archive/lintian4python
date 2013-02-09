@@ -37,6 +37,7 @@ sub run {
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
     open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
     my %underscores = ();
+    my %import_star = ();
     my $file;
     while (<$fp>) {
         if (m,^(pyflakes-\S+) (.*),) {
@@ -46,6 +47,11 @@ sub run {
                 if (not exists ($underscores{$file})) {
                     tag "pyflakes-undefined-name-underscore", "$file:$rest";
                     $underscores{$file} = 1;
+                }
+            } elsif ($tag eq 'pyflakes-import-star-used') {
+                if (not exists ($import_star{$file})) {
+                    tag $tag, "$file:$rest";
+                    $import_star{$file} = 1;
                 }
             } else {
                 tag $tag, "$file:$rest";

@@ -16,6 +16,7 @@ Certainty: possible
 Tag: pyflakes-import-star-used
 Severity: wishlist
 Certainty: certain
+Experimental: yes
 
 Tag: pyflakes-late-future-import
 Severity: serious
