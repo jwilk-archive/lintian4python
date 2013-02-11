@@ -1,5 +1,8 @@
 lintian4python (0.13.2) UNRELEASED; urgency=low
 
+  * COPYING:
+    + Add full text of the GPLv2 license.
+
   * data/python*-projects:
     + Refresh.
 
@@ -16,7 +19,7 @@ lintian4python (0.13.2) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 09 Feb 2013 22:55:05 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Feb 2013 00:16:33 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 
