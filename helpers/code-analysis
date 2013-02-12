@@ -23,17 +23,28 @@ import os
 import sys
 
 builtin_exception_types = set()
+pil_modules = set()
 
-def load_data():
+def load_data_file(ident):
+    result = set()
     lintian_root = os.environ['LINTIAN_ROOT']
-    with open('{root}/vendors/debian/python/data/python-exceptions'.format(root=lintian_root)) as file:
+    path = '{root}/vendors/debian/python/data/{ident}'.format(root=lintian_root, ident=ident)
+    with open(path) as file:
         for line in file:
             line = line.strip()
             if not line:
                 continue
             if line.startswith('#'):
                 continue
-            builtin_exception_types.add(line)
+            yield line
+
+def load_data():
+    builtin_exception_types.update(
+        load_data_file('python-exceptions')
+    )
+    pil_modules.update(
+        load_data_file('python-imaging-modules')
+    )
 
 if sys.version_info >= (3, 2):
     import tokenize
@@ -76,6 +87,25 @@ def check_node(node):
     elif isinstance(node, ast.Assert):
         if isinstance(node.test, ast.Tuple) and len(node.test.elts) > 0:
             yield tag('assertion-always-true', node.lineno)
+    elif isinstance(node, ast.Import):
+        imp_modules = frozenset(mod.name for mod in node.names)
+        imp_pil_modules = imp_modules & pil_modules
+        for mod in sorted(imp_pil_modules):
+            yield tag('obsolete-pil-import', node.lineno, mod)
+        imp_pil_modules = (
+            frozenset(mod[4:] for mod in imp_modules if mod.startswith('PIL.'))
+            & pil_modules
+        )
+        for mod in sorted(imp_pil_modules):
+            yield ('*modern-pil-import', node.lineno, mod)
+    elif isinstance(node, ast.ImportFrom):
+        if node.level == 0 and node.module in pil_modules:
+            yield tag('obsolete-pil-import', node.lineno, node.module)
+        elif node.level == 0 and node.module == 'PIL':
+            imp_modules = frozenset(mod.name for mod in node.names)
+            imp_pil_modules = imp_modules & pil_modules
+            for mod in sorted(imp_pil_modules):
+                yield ('*modern-pil-import', node.lineno, mod)
     for child in ast.iter_child_nodes(node):
         for t in check_node(child):
             yield t
@@ -105,7 +135,11 @@ def check_contents(contents, catch_tab_errors=True):
         return [tag('syntax-error', exc.lineno, exc.msg)]
     except Exception as exc:
         return [tag('syntax-error', '-', str(exc))]
-    return check_node(contents)
+    return (
+        taginfo
+        for taginfo in check_node(contents)
+        if not taginfo[0].startswith('*')
+    )
 
 def main(self):
     load_data()

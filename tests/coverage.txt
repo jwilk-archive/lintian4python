@@ -111,6 +111,7 @@ code-analysis
 | [X] assertion-always-true
 | [X] except-shadows-builtin
 | [X] inconsistent-use-of-tabs-and-spaces-in-indentation
+| [ ] obsolete-pil-import
 | [X] string-exception
 | [2] syntax-error
 

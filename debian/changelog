@@ -1,10 +1,16 @@
 lintian4python (0.14) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - obsolete-pil-import
+
   * COPYING:
     + Add full text of the GPLv2 license.
 
   * data/python*-projects:
     + Refresh.
+  * data/python-imaging-modules:
+    + Add list of top-level PIL modules.
 
   * debian/control:
     + Add the Homepage field.
@@ -15,11 +21,16 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * checks/python/pyflakes:
     + Mark pyflakes-import-star-used as experimental.
     + Emit pyflakes-import-star-used at most once per file.
+  * checks/python/code-analysis:
+    + Check for obsolete PIL imports.
+
+  * helpers/code-analysis:
+    + Check for obsolete PIL imports.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Feb 2013 16:56:05 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Feb 2013 16:59:25 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 

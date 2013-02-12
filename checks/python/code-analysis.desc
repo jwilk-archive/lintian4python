@@ -44,6 +44,12 @@ Info: The source file mixes tabs and spaces for indentation in a way that makes
  You can check consistency of indentation with the following command:
   python -m tabnanny <i>path-to-source-file</i>
 
+Tag: obsolete-pil-import
+Severity: important
+Certainty: possible
+Ref: http://mail.python.org/pipermail/image-sig/2011-January/006650.html,
+ http://lists.debian.org/5117D0B7.801@debian.org
+
 Tag: string-exception
 Severity: important
 Certainty: possible
