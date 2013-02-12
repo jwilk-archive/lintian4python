@@ -49,6 +49,14 @@ Severity: important
 Certainty: possible
 Ref: http://mail.python.org/pipermail/image-sig/2011-January/006650.html,
  http://lists.debian.org/5117D0B7.801@debian.org
+Info: Python Imaging Library 1.2 and Pillow (a PIL fork) no longer support this
+ style of imports:
+ .
+   import Image
+ .
+ Imports from the PIL namespace should be used instead:
+ .
+   from PIL import Image
 
 Tag: string-exception
 Severity: important
