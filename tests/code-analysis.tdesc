@@ -16,6 +16,28 @@ Files:
 Test-For:
  w: python-slides: inconsistent-use-of-tabs-and-spaces-in-indentation usr/share/pyshared/slides.py:39
 
+Name: obsolete-pil-import/python2
+Files:
+ cf0f365f88204468ff367903e9a5d001df870114  didjvu_0.2.3-2_all.deb
+Test-For:
+ e: didjvu: obsolete-pil-import usr/share/didjvu/lib/gamera_extra.py:24: Image
+
+Name: obsolete-pil-import/python2/try-except
+Files:
+ fb39aa66a227c74e985a08a1a842d4b73bce5954  python-docutils_0.10-1_all.deb
+Test-Against:
+ e: python-docutils: obsolete-pil-import usr/share/pyshared/docutils/parsers/rst/directives/images.py:23: Image
+ e: python-docutils: obsolete-pil-import usr/share/pyshared/docutils/writers/html4css1/__init__.py:28: Image
+ e: python-docutils: obsolete-pil-import usr/share/pyshared/docutils/writers/odf_odt/__init__.py:69: Image
+
+Name: obsolete-pil-import/python3/try-except
+Files:
+ b84c021199d6a48e78dc406fb8c3bf6fca4a9d7b  python3-docutils_0.10-1_all.deb
+Test-Against:
+ e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/parsers/rst/directives/images.py:23: Image
+ e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/html4css1/__init__.py:28: Image
+ e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/odf_odt/__init__.py:69: Image
+
 Name: string-exception
 Files:
  3cff5aa6eefba08867fdbce973e283e2b3178173  bittorrent_3.4.2-11.4_all.deb
