@@ -106,6 +106,41 @@ def check_node(node):
             imp_pil_modules = imp_modules & pil_modules
             for mod in sorted(imp_pil_modules):
                 yield ('*modern-pil-import', node.lineno, mod)
+    elif isinstance(node, ast.TryExcept):
+        body_modern_pil_imp = set()
+        except_modern_pil_imp = set()
+        pending_body_tags = []
+        pending_except_tags = []
+        for child in node.body:
+            for t in check_node(child):
+                if t[0] == 'obsolete-pil-import':
+                    pending_body_tags += [t]
+                    continue
+                if t[0] == '*modern-pil-import':
+                    _, _, mod = t
+                    body_modern_pil_imp.add(mod)
+                yield t
+        for child in node.handlers:
+            for t in check_node(child):
+                if t[0] == 'obsolete-pil-import':
+                    pending_except_tags += [t]
+                    continue
+                if t[0] == '*modern-pil-import':
+                    _, _, mod = t
+                    except_modern_pil_imp.add(mod)
+                yield t
+        for t in pending_body_tags:
+            _, _, mod = t
+            if not mod in except_modern_pil_imp:
+                yield t
+        for t in pending_except_tags:
+            _, _, mod = t
+            if not mod in body_modern_pil_imp:
+                yield t
+        for child in node.orelse:
+            for t in check_node(child):
+                yield t
+        return
     for child in ast.iter_child_nodes(node):
         for t in check_node(child):
             yield t
