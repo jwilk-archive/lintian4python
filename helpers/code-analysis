@@ -26,7 +26,6 @@ builtin_exception_types = set()
 pil_modules = set()
 
 def load_data_file(ident):
-    result = set()
     lintian_root = os.environ['LINTIAN_ROOT']
     path = '{root}/vendors/debian/python/data/{ident}'.format(root=lintian_root, ident=ident)
     with open(path) as file:
