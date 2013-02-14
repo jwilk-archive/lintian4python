@@ -19,7 +19,9 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * debian/control:
     + Add the Homepage field.
     + Update pyflakes dependency (0.6.1).
-
+  * debian/lintian4python.lintian-overrides:
+    + Drop override for pyflakes-redefined-function (no longer emitted by
+      pyflakes 0.6.1).
   * debian/README.source:
     + Ask to change source format when forking.
 
@@ -40,7 +42,7 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 14 Feb 2013 16:55:32 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 14 Feb 2013 17:20:16 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 
