@@ -74,6 +74,7 @@ notmuch||python3-notmuch
 numpy||python3-numpy
 oauthlib||python3-oauthlib
 objgraph||python3-objgraph
+pandas||python3-pandas
 pbs||python3-pbs
 pgpdump||python3-pgpdump
 pip||python3-pip
