@@ -28,13 +28,17 @@ import pyflakes.messages as messages
 
 def main():
     LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
-    tags = set()
+    tags = {}
     for cls in messages.Message.__subclasses__():
-        tag = re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
-        tags.add('pyflakes' + tag)
+        tag = 'pyflakes'  + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
+        description = (cls.message
+            .replace('line %r', 'line <i>n</i>')
+            .replace('%r', '<i>var</i>')
+            .replace('%s', '<i>var</i>')
+        )
+        tags[tag] = description
     t = 'pyflakes-undefined-name'
-    if t in tags:
-        tags.add(t + '-underscore')
+    tags[t + '-underscore'] = tags[t]
     del t
     old_tags = {}
     first = True
@@ -48,7 +52,7 @@ def main():
     first = True
     with open('{root}/checks/python/pyflakes.desc'.format(root=LINTIAN_ROOT), 'w') as file:
         file.write(unicode(first_para).encode('UTF-8'))
-        for tag in sorted(tags):
+        for tag, description in sorted(tags.items()):
             try:
                 para = old_tags[tag]
             except LookupError:
@@ -57,6 +61,7 @@ def main():
                 para['Severity'] = 'wishlist'
                 para['Certainty'] = 'wild-guess'
                 para['Experimental'] = 'yes'
+                para['Info'] = 'pyflakes emitted the following message:\n  ' + description
             file.write('\n')
             file.write(unicode(para).encode('UTF-8'))
             first = False
