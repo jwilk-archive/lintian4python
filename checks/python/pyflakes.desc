@@ -8,53 +8,81 @@ Needs-Info: index, bin-pkg-control, scripts, unpacked
 Tag: pyflakes-duplicate-argument
 Severity: serious
 Certainty: certain
+Info: pyflakes emitted the following message:
+  duplicate argument <i>var</i> in function definition
 
 Tag: pyflakes-import-shadowed-by-loop-var
 Severity: important
 Certainty: possible
+Info: pyflakes emitted the following message:
+  import <i>var</i> from line <i>n</i> shadowed by loop variable
 
 Tag: pyflakes-import-star-used
 Severity: wishlist
 Certainty: certain
 Experimental: yes
+Info: pyflakes emitted the following message:
+  'from <i>mod</i> import *' used; unable to detect undefined names
+ This is usually not a bug in the tested code itself, but merely an indication
+ that the code couldn't be tested thoroughly enough.
 
 Tag: pyflakes-late-future-import
 Severity: serious
 Certainty: certain
+Info: pyflakes emitted the following message:
+  future import(s) <i>feature</i> after other statements
 
 Tag: pyflakes-redefined
 Severity: normal
 Certainty: wild-guess
+Info: pyflakes emitted the following message:
+  redefinition of <i>var</i> from line <i>n</i>
 
 Tag: pyflakes-redefined-in-list-comp
 Severity: normal
 Certainty: possible
+Info: pyflakes emitted the following message:
+  list comprehension redefines <i>var</i> from line <i>n</i>
 
 Tag: pyflakes-redefined-while-unused
 Severity: minor
 Certainty: possible
+Info: pyflakes emitted the following message:
+  redefinition of unused <i>var</i> from line <i>n</i>
 
 Tag: pyflakes-undefined-export
 Severity: normal
 Certainty: possible
+Info: pyflakes emitted the following message:
+  undefined name <i>var</i> in <b>__all__</b>
 
 Tag: pyflakes-undefined-local
 Severity: serious
 Certainty: possible
+Info: pyflakes emitted the following message:
+  local variable <i>var</i> (defined in enclosing scope on line <i>n</i>) referenced before assignment
 
 Tag: pyflakes-undefined-name
 Severity: serious
 Certainty: possible
+Info: pyflakes emitted the following message:
+  undefined name <i>var</i>
 
 Tag: pyflakes-undefined-name-underscore
 Severity: serious
 Certainty: wild-guess
 Experimental: yes
+Info: pyflakes emitted the following message:
+  undefined name <b>_</b>
 
 Tag: pyflakes-unused-import
 Severity: pedantic
 Certainty: possible
+Info: pyflakes emitted the following message:
+  <i>var</i> imported but unused
 
 Tag: pyflakes-unused-variable
 Severity: pedantic
 Certainty: possible
+Info: pyflakes emitted the following message:
+  local variable <i>var</i> is assigned to but never used
