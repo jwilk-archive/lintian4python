@@ -3,6 +3,10 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * Summary of tag changes:
     + Added:
       - obsolete-pil-import
+      - pyflakes-redefined
+      - pyflakes-redefined-in-list-comp
+    + Removed:
+      - pyflakes-redefined-function
 
   * COPYING:
     + Add full text of the GPLv2 license.
@@ -14,6 +18,7 @@ lintian4python (0.14) UNRELEASED; urgency=low
 
   * debian/control:
     + Add the Homepage field.
+    + Update pyflakes dependency (0.6.1).
 
   * debian/README.source:
     + Ask to change source format when forking.
@@ -21,6 +26,7 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * checks/python/pyflakes:
     + Mark pyflakes-import-star-used as experimental.
     + Emit pyflakes-import-star-used at most once per file.
+    + Update tags list for pyflakes 0.6.1.
   * checks/python/code-analysis:
     + Check for obsolete PIL imports.
 
@@ -30,7 +36,7 @@ lintian4python (0.14) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Feb 2013 14:51:43 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 14 Feb 2013 12:00:16 +0100
 
 lintian4python (0.13.1) experimental; urgency=low
 

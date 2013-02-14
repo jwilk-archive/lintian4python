@@ -22,7 +22,11 @@ Tag: pyflakes-late-future-import
 Severity: serious
 Certainty: certain
 
-Tag: pyflakes-redefined-function
+Tag: pyflakes-redefined
+Severity: normal
+Certainty: wild-guess
+
+Tag: pyflakes-redefined-in-list-comp
 Severity: normal
 Certainty: possible
 
