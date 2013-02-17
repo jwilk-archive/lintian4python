@@ -263,8 +263,9 @@ sub run_binary {
             unless ($info->relation('all')->implies('python-central'));
     }
 
-    unless (-l 'changelog' or not -f 'changelog') {
-        check_changelog('changelog');
+    my $changelog = $info->lab_data_path('changelog');
+    unless (-l $changelog or not -f $changelog) {
+        check_changelog($changelog);
     }
 
 }
@@ -279,7 +280,7 @@ sub check_changelog {
             return if $entry_no >= 2;
         }
         elsif (m,(source package automatically created by stdeb(?: [0-9]\S+)?),i,) {
-            tag 'python-stdeb-boilerplate', "$filename:$.", "\"$1\"";
+            tag 'python-stdeb-boilerplate', "changelog:$.", "\"$1\"";
         }
     }
     close $fh;

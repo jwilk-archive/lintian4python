@@ -86,7 +86,7 @@ helpers
 | [X] python-module-but-no-python-depends
 | [ ] python-module-but-python3-depends
 | [X] python-provides-considered-harmful
-| [X] python-stdeb-boilerplate
+| [2] python-stdeb-boilerplate
 | [ ] python3-module-but-no-python3-depends
 | [ ] python3-module-but-python-depends
 | [X] substitution-variable-in-xs-python-version

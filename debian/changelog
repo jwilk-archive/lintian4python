@@ -5,8 +5,12 @@ lintian4python (0.14.1) UNRELEASED; urgency=low
 
   * checks/python/helpers:
     + Fix a typo in debian-pycompat-is-obsolete description.
+    + Fix reading changelogs from binary packages.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 17 Feb 2013 22:17:04 +0100
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 17 Feb 2013 23:02:39 +0100
 
 lintian4python (0.14) experimental; urgency=low
 
