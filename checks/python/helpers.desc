@@ -3,7 +3,7 @@ Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pyhlp
 Type: source, binary
 Info: (mis)use of Python helpers
-Needs-Info: changelog-file, debfiles, index, unpacked
+Needs-Info: changelog-file, bin-pkg-control, debfiles, index, unpacked
 
 Tag: python-module-but-no-python-depends
 Severity: serious
@@ -118,3 +118,10 @@ Severity: wishlist
 Certainty: certain
 Info: debian/pycompat is not used by any modern Python helper.  It should be
  safe to remove this file.
+
+Tag: unneeded-pycentral-pkgremove-in-preinst
+Severity: normal
+Certainty: possible
+Info: Preinst script of this package calls "pycentral pkgremove". This would be
+ required to clean up after python-central from lenny. However, the package
+ changelog indicates that his package hasn't been included in lenny.

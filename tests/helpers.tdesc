@@ -153,3 +153,9 @@ Files:
  c951f8198160c8c096130fc5574d2df8ce7cf5a4  flashbake_0.26.2-4_all.deb
 Test-For:
  w: flashbake: xb-python-version-is-deprecated
+
+Name: unneeded-pycentral-pkgremove-in-preinst
+Files:
+ ee723e9a3d7c8f54eb8883827ba3221fe6836bb0  cpuset_1.5.6-2_all.deb
+Test-For:
+ w: cpuset: unneeded-pycentral-pkgremove-in-preinst

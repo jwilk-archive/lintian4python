@@ -91,6 +91,7 @@ helpers
 | [ ] python3-module-but-python-depends
 | [X] substitution-variable-in-xs-python-version
 | [ ] typo-in-python-version-declaration
+| [X] unneeded-pycentral-pkgremove-in-preinst
 | [X] x-python-version-instead-of-xs-python-version
 | [X] xb-python-version-is-deprecated
 | [X] xs-python-version-current-is-deprecated

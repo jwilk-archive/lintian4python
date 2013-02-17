@@ -265,7 +265,13 @@ sub run_binary {
 
     my $changelog = $info->lab_data_path('changelog');
     unless (-l $changelog or not -f $changelog) {
-        check_changelog($changelog);
+        my $in_lenny = check_changelog($changelog);
+        if (not $in_lenny) {
+            my $preinst = $info->control('preinst');
+            unless (-l $preinst or not -f $preinst) {
+                check_preinst($preinst);
+            }
+        }
     }
 
 }
@@ -274,13 +280,29 @@ sub check_changelog {
     my ($filename) = @_;
     open (my $fh, '<', $filename) or fail("cannot open $filename");
     my $entry_no = 0;
+    my $in_lenny = 0;
     while (<$fh>) {
         if (m,^\S,) {
             $entry_no += 1;
-            return if $entry_no >= 2;
-        }
-        elsif (m,(source package automatically created by stdeb(?: [0-9]\S+)?),i,) {
+        } elsif ($entry_no < 2 and m,(source package automatically created by stdeb(?: [0-9]\S+)?),i,) {
             tag 'python-stdeb-boilerplate', "changelog:$.", "\"$1\"";
+        } elsif (m/^ -- .+  [A-Z][a-z]{2}, [0-3][0-9] [A-Z][a-z]{2} ([0-9]{4}) \d{2}:\d{2}:\d{2} [+-]\d{4}$/) {
+            # Lenny was released in Feb 2009, so every package in lenny must
+            # have had a release in 2008.
+            $in_lenny = $in_lenny || (int($1) < 2009);
+        }
+    }
+    close $fh;
+    return $in_lenny;
+}
+
+sub check_preinst {
+    my ($filename) = @_;
+    open (my $fh, '<', $filename) or fail("cannot open $filename: $!");
+    while (<$fh>) {
+        if (m/^\s*pycentral\s+pkgremove\s/) {
+            tag 'unneeded-pycentral-pkgremove-in-preinst';
+            last;
         }
     }
     close $fh;

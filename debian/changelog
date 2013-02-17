@@ -1,16 +1,21 @@
 lintian4python (0.14.1) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      + unneeded-pycentral-pkgremove-in-preinst
+
   * data/python*-projects:
     + Refresh.
 
   * checks/python/helpers:
     + Fix a typo in debian-pycompat-is-obsolete description.
     + Fix reading changelogs from binary packages.
+    + Check for unneeded “pycentral pkgremove” in preinst scripts.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 17 Feb 2013 23:02:39 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 17 Feb 2013 23:26:03 +0100
 
 lintian4python (0.14) experimental; urgency=low
 
