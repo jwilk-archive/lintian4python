@@ -21,6 +21,8 @@
 use strict;
 use warnings;
 
+use v5.10; # for the // operator
+
 use POSIX qw(strftime);
 
 my $LINTIAN_ROOT = $ENV{'LINTIAN_ROOT'} // '.';

@@ -22,7 +22,8 @@ package Lintian::python::documentation;
 
 use strict;
 use warnings;
-use v5.10;
+
+use v5.10; # for the // operator
 
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(slurp_entire_file);

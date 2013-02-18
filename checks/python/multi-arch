@@ -23,6 +23,8 @@ package Lintian::python::multi_arch;
 use strict;
 use warnings;
 
+use v5.10; # for the //= operator
+
 use Lintian::Tags qw(tag);
 
 my $dist_packages_re = qr{

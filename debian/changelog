@@ -7,15 +7,21 @@ lintian4python (0.15) UNRELEASED; urgency=low
   * data/python*-projects:
     + Refresh.
 
+  * checks/python/*:
+    + Document Perl version requirements for each Perl module.
+
   * checks/python/helpers:
     + Fix a typo in debian-pycompat-is-obsolete description.
     + Fix reading changelogs from binary packages.
     + Check for unneeded “pycentral pkgremove” in preinst scripts.
 
+  * private/*:
+    + Document Perl version requirements for each Perl script.
+
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Feb 2013 13:26:19 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Feb 2013 22:39:45 +0100
 
 lintian4python (0.14) experimental; urgency=low
 

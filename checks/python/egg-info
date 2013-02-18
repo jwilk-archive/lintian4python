@@ -23,6 +23,8 @@ package Lintian::python::egg_info;
 use strict;
 use warnings;
 
+use v5.10; # for the //= operator
+
 use Lintian::Data;
 use Lintian::Tags qw(tag);
 use Lintian::Relation ();

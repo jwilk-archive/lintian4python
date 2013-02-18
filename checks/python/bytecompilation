@@ -23,6 +23,8 @@ package Lintian::python::bytecompilation;
 use strict;
 use warnings;
 
+use v5.10; # for the // operator
+
 use Lintian::Relation qw();
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);

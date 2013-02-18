@@ -23,6 +23,8 @@ package Lintian::python::extensions;
 use strict;
 use warnings;
 
+use v5.10; # for the // operator
+
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(slurp_entire_file);
 
