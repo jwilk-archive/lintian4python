@@ -30,7 +30,7 @@ extensions
 
 scripts
 ~~~~~~~
-| [ ] usr-bin-env-python-shebang
+| [X] usr-bin-env-python-shebang
 | [X] versioned-python-shebang
 
 bytecompilation

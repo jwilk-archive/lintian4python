@@ -1,3 +1,9 @@
+Name: usr-bin-env-python-shebang
+Files:
+ fa1de0eadb33143ce8df66d70f61652d0d493334  autojump_20-2_all.deb
+Test-For:
+ w: autojump: usr-bin-env-python-shebang usr/bin/autojump
+
 Name: versioned-python-shebang
 Files: b3b67527ef0a418d40d162620ca12af3a7539f84  snimpy_0.6.3-1_i386.deb
 Test-For:
