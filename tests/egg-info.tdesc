@@ -27,6 +27,14 @@ Test-For:
  e: python-pebl: missing-requires.txt-dependency pydot => python-pydot
  e: python-pebl: missing-requires.txt-dependency pyparsing => python-pyparsing
 
+Name: missing-requires.txt-optional-dependency
+Files:
+ 4f70701bd21059c8c327acb14c2f9e2622326e57  rst2pdf_0.16-2_all.deb
+Test-For:
+ w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
+ w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
+ w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
+
 Name: strict-versioned-dependency-in-requires.txt
 Files:
  51ef0bd17678c3b0588d70dcadf693f4f7f159ae  python-jsonpipe_0.0.8-4_all.deb
