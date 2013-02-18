@@ -1,0 +1,5 @@
+Name: incorrect-team-name/papt
+Files:
+ c1fc458ec2f1d76238837f2ddbf7771848b5c32c  s3ql_1.12-1_i386.deb
+Test-For:
+ x: s3ql: incorrect-team-name Debian Python Apps Team -> Python Applications Packaging Team
