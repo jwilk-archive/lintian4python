@@ -12,6 +12,14 @@ Test-For:
  w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/_static/searchtools.js.gz (usr/share/doc/atheist/html/search.html)
  w: atheist: js-file-referenced-by-search.html-is-compressed usr/share/doc/atheist/html/searchindex.js.gz (usr/share/doc/atheist/html/search.html)
 
+Name: rst-source-referenced-by-searchindex.js-does-not-exist
+Files:
+ f84f1e36bcceb8f22d33b9906be1b6da0cb2495e  python-argparse-doc_1.2.1-2_all.deb
+Test-For:
+ w: python-argparse-doc: rst-source-referenced-by-searchindex.js-does-not-exist usr/share/doc/python-argparse-doc/html/_sources/argparse.txt (usr/share/doc/python-argparse-doc/html/searchindex.js)
+ w: python-argparse-doc: rst-source-referenced-by-searchindex.js-does-not-exist usr/share/doc/python-argparse-doc/html/_sources/license.txt (usr/share/doc/python-argparse-doc/html/searchindex.js)
+ w: python-argparse-doc: rst-source-referenced-by-searchindex.js-does-not-exist usr/share/doc/python-argparse-doc/html/_sources/index.txt (usr/share/doc/python-argparse-doc/html/searchindex.js)
+
 Name: search.html-references-non-local-js-file
 Files:
  0012df70983af5e443af746790db3ffc8126df98  pynast_1.1-3_all.deb

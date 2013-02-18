@@ -51,7 +51,7 @@ documentation
 | [ ] cannot-parse-sphinx-searchindex.js
 | [X] js-file-referenced-by-search.html-does-not-exist
 | [X] js-file-referenced-by-search.html-is-compressed
-| [ ] rst-source-referenced-by-searchindex.js-does-not-exist
+| [X] rst-source-referenced-by-searchindex.js-does-not-exist
 | [ ] rst-source-referenced-by-searchindex.js-is-compressed
 | [ ] search.html-doesnt-load-search-index
 | [X] search.html-references-non-local-js-file
