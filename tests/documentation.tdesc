@@ -20,6 +20,17 @@ Test-For:
  w: python-argparse-doc: rst-source-referenced-by-searchindex.js-does-not-exist usr/share/doc/python-argparse-doc/html/_sources/license.txt (usr/share/doc/python-argparse-doc/html/searchindex.js)
  w: python-argparse-doc: rst-source-referenced-by-searchindex.js-does-not-exist usr/share/doc/python-argparse-doc/html/_sources/index.txt (usr/share/doc/python-argparse-doc/html/searchindex.js)
 
+Name: rst-source-referenced-by-searchindex.js-is-compressed
+Files:
+ 1b0c799eb914124b57864ca5970917a7b155e8a2  python-cairo-dev_1.8.8-1_all.deb
+Test-For:
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/patterns.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/matrix.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/context.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/constants.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/surfaces.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+ w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/text.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
+
 Name: search.html-references-non-local-js-file
 Files:
  0012df70983af5e443af746790db3ffc8126df98  pynast_1.1-3_all.deb

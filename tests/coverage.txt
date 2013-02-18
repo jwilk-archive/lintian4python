@@ -52,7 +52,7 @@ documentation
 | [X] js-file-referenced-by-search.html-does-not-exist
 | [X] js-file-referenced-by-search.html-is-compressed
 | [X] rst-source-referenced-by-searchindex.js-does-not-exist
-| [ ] rst-source-referenced-by-searchindex.js-is-compressed
+| [X] rst-source-referenced-by-searchindex.js-is-compressed
 | [ ] search.html-doesnt-load-search-index
 | [X] search.html-references-non-local-js-file
 | [X] search.html-with-invalid-root-url
