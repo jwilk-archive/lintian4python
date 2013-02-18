@@ -121,7 +121,7 @@ egg-info
 ~~~~~~~~
 | [X] SOURCES.txt-in-binary-package
 | [X] egg-info-version-mismatch
-| [ ] missing-requires.txt-dependency
+| [X] missing-requires.txt-dependency
 | [ ] missing-requires.txt-optional-dependency
 | [X] strict-versioned-dependency-in-requires.txt
 | [ ] unknown-optional-project-in-requires.txt

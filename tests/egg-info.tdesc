@@ -14,6 +14,13 @@ Test-Against:
 Info:
  Fixed in lintian4python 0.3.  Prior versions didn't strip the +bN suffix.
 
+Name: missing-requires.txt-dependency
+Files:
+ ae76d144eeb4483c3e775adbb7e2e404e65a4a97  python-pebl_1.0.2-2_i386.deb
+Test-For:
+ e: python-pebl: missing-requires.txt-dependency pydot => python-pydot
+ e: python-pebl: missing-requires.txt-dependency pyparsing => python-pyparsing
+
 Name: SOURCES.txt-in-binary-package
 Files:
  57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
