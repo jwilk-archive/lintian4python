@@ -6,6 +6,8 @@ lintian4python (0.15) UNRELEASED; urgency=low
 
   * data/python*-projects:
     + Refresh.
+  * data/python-exceptions:
+    + Refresh.
 
   * checks/python/*:
     + Document Perl version requirements for each Perl module.
@@ -17,11 +19,13 @@ lintian4python (0.15) UNRELEASED; urgency=low
 
   * private/*:
     + Document Perl version requirements for each Perl script.
+  * private/refresh-exception-names:
+    + Scan Python 3.4 documentation, too.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Feb 2013 22:42:27 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 19 Feb 2013 12:18:24 +0100
 
 lintian4python (0.14) experimental; urgency=low
 
