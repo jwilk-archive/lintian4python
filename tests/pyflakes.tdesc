@@ -45,3 +45,9 @@ Test-Against:
  e: rhythmbox-ampache: pyflakes-undefined-name ...: _
 Info:
  Fixed in lintian4python 0.5.
+
+Name: pyflakes-unused-import
+Files:
+ a0452f86380bf557d6989897a78f3d76ed2875a8  python-sqlparse_0.1.4-1_all.deb
+Test-For:
+ p: python-sqlparse: pyflakes-unused-import usr/bin/sqlformat:9: os
