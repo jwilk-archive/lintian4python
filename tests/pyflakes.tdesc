@@ -28,6 +28,13 @@ Test-For:
  x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/globalfns.py:7: globals
  x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/main.py:14: globals
 
+Name: pyflakes-undefined-name
+Files:
+ cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb
+Test-For:
+ e: python-argvalidate: pyflakes-undefined-name usr/share/python-support/python-argvalidate/argvalidate.py:325: DecoratorKeyLengthException
+ e: python-argvalidate: pyflakes-undefined-name usr/share/python-support/python-argvalidate/argvalidate.py:561: argvalidate_kwarg_as_arg
+
 Name: pyflakes-undefined-name-underscore
 Files:
  f8a8b0922e647ee7e9c63217b1a1f3ab0f5af911  rhythmbox-ampache_0.11.1-1_all.deb
