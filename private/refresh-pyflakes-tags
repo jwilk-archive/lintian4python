@@ -38,6 +38,7 @@ def main():
         )
         tags[tag] = description
     t = 'pyflakes-undefined-name'
+    assert t in tags
     tags[t + '-underscore'] = tags[t]
     del t
     old_tags = {}
