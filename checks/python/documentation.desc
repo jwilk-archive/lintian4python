@@ -25,7 +25,7 @@ Tag: search.html-references-non-local-js-file
 Severity: normal
 Certainty: possible
 
-Tag: search.html-doesnt-load-search-index
+Tag: search.html-does-not-load-search-index
 Severity: normal
 Certainty: possible
 

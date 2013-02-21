@@ -1,8 +1,11 @@
 lintian4python (0.15) UNRELEASED; urgency=low
 
   * Summary of tag changes:
+    + Removed:
+      - search.html-doesnt-load-search-index
     + Added:
-      + unneeded-pycentral-pkgremove-in-preinst
+      - unneeded-pycentral-pkgremove-in-preinst
+      - search.html-does-not-load-search-index
 
   * data/python*-projects:
     + Refresh.
@@ -17,6 +20,10 @@ lintian4python (0.15) UNRELEASED; urgency=low
     + Fix reading changelogs from binary packages.
     + Check for unneeded “pycentral pkgremove” in preinst scripts.
 
+  * checks/python/documentation:
+    + Rename search.html-doesnt-load-search-index as
+      search.html-does-not-load-search-index.
+
   * private/*:
     + Document Perl version requirements for each Perl script.
   * private/refresh-exception-names:
@@ -25,7 +32,7 @@ lintian4python (0.15) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Feb 2013 17:10:31 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Feb 2013 17:37:08 +0100
 
 lintian4python (0.14) experimental; urgency=low
 

@@ -184,7 +184,7 @@ sub run_binary {
                 check_searchindex($info, $directory, $searchindex_path);
             }
         } else {
-            tag 'search.html-doesnt-load-search-index', $html_filename;
+            tag 'search.html-does-not-load-search-index', $html_filename;
         }
         for my $cruft (qw(.buildinfo .doctrees/ _static/websupport.js)) {
             my $filename = "$directory/$cruft";
