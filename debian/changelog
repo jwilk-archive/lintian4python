@@ -1,8 +1,8 @@
-lintian4python (0.15.1) UNRELEASED; urgency=low
+lintian4python (0.16) UNRELEASED; urgency=low
 
   * 
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Feb 2013 19:24:23 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 00:15:16 +0100
 
 lintian4python (0.15) experimental; urgency=low
 
