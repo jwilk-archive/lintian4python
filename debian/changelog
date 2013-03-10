@@ -2,12 +2,17 @@ lintian4python (0.16) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
-      - insufficient-build-dependency-on-python-helper
+      - insufficient-build-dependency
+      - missing-build-dependency
+      - missing-versioned-build-dependency
 
   * checks/python/helpers:
-    + Check for insufficient build-dependency on python for packages using
-      *.pyinstall and *.pyremove files.
+    + Check for insufficient or missing build-dependency on python for
+      packages using dh_python2.
 
+  * data/dh-python2-option:
+    + New data file that lists new dh_python2 options with versions in which
+      they were introduced.
   * data/python*-projects:
     + Refresh.
 
@@ -19,7 +24,7 @@ lintian4python (0.16) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 02:25:07 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 19:30:48 +0100
 
 lintian4python (0.15) experimental; urgency=low
 

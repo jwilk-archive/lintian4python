@@ -1,0 +1,8 @@
+--namespace 2.6.6-14
+--clean-pycentral 2.7.2-2
+--ignore-namespace 2.7.2-2
+--ignore-shebangs 2.7.2-2
+--compile-all 2.7.2-5
+--no-dbg-cleaning 2.7.2-5
+--no-shebang-rewrite 2.7.3-1
+--shebang 2.7.3-1
