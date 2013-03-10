@@ -35,6 +35,7 @@ BEGIN {
         parse_pycompile
         is_public_module
         classify_python_modules
+        python_alt_dep
     );
 }
 
@@ -164,6 +165,15 @@ sub classify_python_modules {
         }
     }
     return (\@python2files, \@python3files);
+}
+
+sub python_alt_dep
+{
+    my ($major, $constraint) = @_;
+    $_ = 'python | python-all | python-dev | python-all-dev';
+    s/\bpython\b/python$major/g if $major > 2;
+    s/\S\K(\s*)(?=\||$)/ ($constraint)$1/g if defined $constraint;
+    return $_;
 }
 
 1;

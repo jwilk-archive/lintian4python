@@ -5,6 +5,22 @@ Files:
 Test-For:
  i: apt-forktracer source: debian-pycompat-is-obsolete
 
+Name: insufficient-build-dependency-on-python-helper
+Files:
+ 20bec191acde70fdb5f445f2e6a09058241fecf4  flufl.enum_3.3.2-1.dsc
+ b2943b038f585e31437baff8ab9af80fd44224a1  flufl.enum_3.3.2-1.debian.tar.gz
+ 6c60f4bafd56b263d9a3cd577aca3e7abe78abe3  flufl.enum_3.3.2.orig.tar.gz
+Test-For:
+ e: flufl.enum source: insufficient-build-dependency-on-python-helper python (>= 2.6.6-6~)
+
+Name: insufficient-build-dependency-on-python-helper/sufficient
+Files:
+ 96700ab6bd6f9e8b026f7accfbb615d1b1dd0879  flask-wtf_0.6-1.dsc
+ fa9c08633785accdc9359cecd1cc47027bdf6bfe  flask-wtf_0.6-1.diff.gz
+ 4fcbe0975847cbed9bef3e9d5db75079807915a7  flask-wtf_0.6.orig.tar.gz
+Test-Against:
+ e: flask.wtf source: insufficient-build-dependency-on-python-helper python (>= 2.6.6-6~)
+
 Name: invalid-python-version-declaration/lt-only
 Files:
  ed411857e8471ea984a91df76965bb96983d7350  codespeak-lib_1.4.8-1.dsc

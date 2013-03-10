@@ -78,6 +78,7 @@ helpers
 | [ ] cannot-parse-python-central-metadata
 | [X] debian-pycompat-is-obsolete
 | [X] hardcoded-dependency-on-python-helper
+| [X] insufficient-build-dependency-on-python-helper
 | [2] invalid-python-version-declaration
 | [2] multiple-python-version-declarations
 | [X] python-breaks-is-obsolete

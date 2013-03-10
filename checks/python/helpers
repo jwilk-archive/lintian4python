@@ -27,6 +27,7 @@ use v5.10; # for the //= operator
 
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
+use Lintian::Python qw(python_alt_dep);
 
 use List::MoreUtils qw(each_array);
 use Text::Levenshtein qw();
@@ -220,6 +221,18 @@ sub run_source {
     close($fh);
     if (keys %python_depends) {
         tag 'python-depends-but-no-python-helper', keys %python_depends;
+    }
+
+    my $droot = $info->debfiles;
+    opendir(my $fp, $droot) or fail("cannot open $droot: $!");
+    my $has_pyinstall = grep { m/[.]py(install|remove)$/ } readdir $fp;
+    close($fp);
+    if ($has_pyinstall) {
+        my $constraint = '>= 2.6.6-6~';
+        my $python_alt_dep = python_alt_dep(2, $constraint);
+        if (not $bdepends->implies($python_alt_dep)) {
+            tag 'insufficient-build-dependency-on-python-helper', "python ($constraint)";
+        }
     }
 }
 

@@ -1,8 +1,22 @@
 lintian4python (0.16) UNRELEASED; urgency=low
 
-  * 
+  * Summary of tag changes:
+    + Added:
+      - insufficient-build-dependency-on-python-helper
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 00:15:16 +0100
+  * checks/python/helpers:
+    + Check for insufficient build-dependency on python for packages using
+      *.pyinstall and *.pyremove files.
+
+  * lib/Lintian/Python.pm:
+    + Add function python_alt_dep to generate (possibly versioned) dependency
+      on python(3), with alternative for other packages that are guaranteed to
+      transitively depend on python(3).
+
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 01:48:43 +0100
 
 lintian4python (0.15) experimental; urgency=low
 
