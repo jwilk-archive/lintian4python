@@ -126,14 +126,14 @@ Info: Preinst script of this package calls "pycentral pkgremove". This would be
  required to clean up after python-central from lenny. However, the package
  changelog indicates that his package hasn't been included in lenny.
 
-Tag: insufficient-build-dependency
+Tag: insufficient-build-dependency-on-python-helper
 Severity: pedantic
 Certainty: possible
 
-Tag: missing-versioned-build-dependency
+Tag: missing-versioned-build-dependency-on-python-helper
 Severity: important
 Certainty: possible
 
-Tag: missing-build-dependency
+Tag: missing-build-dependency-on-python-helper
 Severity: serious
 Certainty: possible

@@ -248,11 +248,11 @@ sub run_source {
             my $tag;
             my $python_alt_dep = python_alt_dep(2);
             if (not $bdepends->implies($python_alt_dep)) {
-                $tag = 'missing-build-dependency';
+                $tag = 'missing-build-dependency-on-python-helper';
             } elsif (versions_lte($version, $dh_python2_stable_ver)) {
-                $tag = 'insufficient-build-dependency';
+                $tag = 'insufficient-build-dependency-on-python-helper';
             } else {
-                $tag = 'missing-versioned-build-dependency';
+                $tag = 'missing-versioned-build-dependency-on-python-helper';
             }
             tag $tag, "$feature => python ($constraint)";
             last;

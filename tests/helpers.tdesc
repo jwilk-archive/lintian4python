@@ -5,13 +5,13 @@ Files:
 Test-For:
  i: apt-forktracer source: debian-pycompat-is-obsolete
 
-Name: insufficient-build-dependency
+Name: insufficient-build-dependency-on-python-helper
 Files:
  927e3889feda6da0ddebabd902819dfdee7eb7d0  markupsafe_0.15-1.debian.tar.gz
  a4328c89611b5896771653526d43a44204a2983a  markupsafe_0.15-1.dsc
  81e0c898c289721d5b1aa70ffc0dfc35886ea92a  markupsafe_0.15.orig.tar.gz
 Test-For:
- p: markupsafe source: insufficient-build-dependency dh_python2 => python (>= 2.6.6-3~)
+ p: markupsafe source: insufficient-build-dependency-on-python-helper dh_python2 => python (>= 2.6.6-3~)
 
 Name: invalid-python-version-declaration/lt-only
 Files:
@@ -38,29 +38,29 @@ Files:
 Test-Against:
  e: python-pipeline source: invalid-python-version-declaration X-Python3-Version: >= 3.0
 
-Name: missing-versioned-build-dependency/pyinstall
+Name: missing-versioned-build-dependency-on-python-helper/pyinstall
 Files:
  20bec191acde70fdb5f445f2e6a09058241fecf4  flufl.enum_3.3.2-1.dsc
  b2943b038f585e31437baff8ab9af80fd44224a1  flufl.enum_3.3.2-1.debian.tar.gz
  6c60f4bafd56b263d9a3cd577aca3e7abe78abe3  flufl.enum_3.3.2.orig.tar.gz
 Test-For:
- e: flufl.enum source: missing-versioned-build-dependency dh_python2 .pyinstall/.pyremove support => python (>= 2.6.6-6~)
+ e: flufl.enum source: missing-versioned-build-dependency-on-python-helper dh_python2 .pyinstall/.pyremove support => python (>= 2.6.6-6~)
 
-Name: missing-versioned-build-dependency/option
+Name: missing-versioned-build-dependency-on-python-helper/option
 Files:
  5a2de8a7704b93686122be47b3f6a55f554c2411  radare2-bindings_0.9-1.dsc
  b4fd0682984db34f42a5e13aefdf1946cde0f729  radare2-bindings_0.9-1.debian.tar.gz
  81bf941e2fd687e2d3cabc67fe797314177c89c9  radare2-bindings_0.9.orig.tar.gz
 Test-For:
- e: radare2-bindings source: missing-versioned-build-dependency dh_python2 --namespace => python (>= 2.6.6-14~)
+ e: radare2-bindings source: missing-versioned-build-dependency-on-python-helper dh_python2 --namespace => python (>= 2.6.6-14~)
 
-Name: missing-versioned-build-dependency/ok
+Name: missing-versioned-build-dependency-on-python-helper/ok
 Files:
  96700ab6bd6f9e8b026f7accfbb615d1b1dd0879  flask-wtf_0.6-1.dsc
  fa9c08633785accdc9359cecd1cc47027bdf6bfe  flask-wtf_0.6-1.diff.gz
  4fcbe0975847cbed9bef3e9d5db75079807915a7  flask-wtf_0.6.orig.tar.gz
 Test-Against:
- e: flask.wtf source: missing-versioned-build-dependency ...
+ e: flask.wtf source: missing-versioned-build-dependency-on-python-helper ...
 
 Name: python-module-but-no-python-depends/development-packages
 Files:

@@ -2,9 +2,9 @@ lintian4python (0.16) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
-      - insufficient-build-dependency
-      - missing-build-dependency
-      - missing-versioned-build-dependency
+      - insufficient-build-dependency-on-python-helper
+      - missing-build-dependency-on-python-helper
+      - missing-versioned-build-dependency-on-python-helper
 
   * checks/python/helpers:
     + Check for insufficient or missing build-dependency on python for
