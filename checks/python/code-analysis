@@ -31,17 +31,18 @@ use Lintian::Util qw(fail);
 use Lintian::Python qw(classify_python_modules);
 
 sub run {
-    my ($pkg, $type, $info) = @_;
+    my ($pkg, $type, $info, $proc) = @_;
+    my $srcpkg = $proc->pkg_src() // '';
     my ($py2files, $py3files) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    analyse($py2files, '/usr/bin/python', '-tt');
-    analyse($py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
+    analyse($srcpkg, $py2files, '/usr/bin/python', '-tt');
+    analyse($srcpkg, $py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
     chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 sub analyse {
-    my ($files, @interpreter) = @_;
+    my ($srcpkg, $files, @interpreter) = @_;
     open(my $fp, '-|', @interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
@@ -55,6 +56,9 @@ sub analyse {
             }
             if (defined $extra) {
                 $message .= ": $extra";
+            }
+            if ($tag eq 'obsolete-pil-import' and $srcpkg eq 'python-imaging') {
+                next;
             }
             tag $tag, $message;
         } elsif (m,^# (.+)$,) {

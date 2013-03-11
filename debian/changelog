@@ -6,6 +6,9 @@ lintian4python (0.16) UNRELEASED; urgency=low
       - missing-build-dependency-on-python-helper
       - missing-versioned-build-dependency-on-python-helper
 
+  * checks/python/code-analysis:
+    + Don't emit obsolete-pil-import for packages built from the
+      python-imaging source package.
   * checks/python/helpers:
     + Check for insufficient or missing build-dependency on python for
       packages using dh_python2.
@@ -24,7 +27,7 @@ lintian4python (0.16) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 10 Mar 2013 19:30:48 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Mar 2013 19:15:07 +0100
 
 lintian4python (0.15) experimental; urgency=low
 
