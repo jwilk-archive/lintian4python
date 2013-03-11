@@ -241,7 +241,7 @@ sub run_source {
     if ($has_pyinstall) {
         $req_python_version{'2.6.6-6'} //= 'dh_python2 .pyinstall/.pyremove support';
     }
-    foreach my $version (sort { versions_lte($a, $b) } keys %req_python_version) {
+    foreach my $version (sort { versions_lte($a, $b) ? 1 : -1 } keys %req_python_version) {
         my $feature = $req_python_version{$version};
         my $constraint = ">= $version~";
         my $python_alt_dep = python_alt_dep(2, $constraint);
