@@ -13,7 +13,7 @@ lintian4python (0.16) UNRELEASED; urgency=low
     + Check for insufficient or missing build-dependency on python for
       packages using dh_python2.
 
-  * data/dh-python2-option:
+  * data/dh-python2-options:
     + New data file that lists new dh_python2 options with versions in which
       they were introduced.
   * data/python*-projects:
