@@ -1,4 +1,4 @@
-lintian4python (0.16) UNRELEASED; urgency=low
+lintian4python (0.16) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
@@ -33,7 +33,7 @@ lintian4python (0.16) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Mar 2013 19:39:50 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Mar 2013 22:13:29 +0100
 
 lintian4python (0.15) experimental; urgency=low
 
