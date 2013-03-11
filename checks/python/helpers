@@ -25,9 +25,10 @@ use warnings;
 
 use v5.10; # for the //= operator
 
+use Lintian::Relation::Version qw(versions_lte);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
-use Lintian::Relation::Version qw(versions_lte);
+
 use Lintian::Python qw(python_alt_dep);
 
 use List::MoreUtils qw(each_array);
