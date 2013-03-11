@@ -18,16 +18,22 @@ lintian4python (0.16) UNRELEASED; urgency=low
       they were introduced.
   * data/python*-projects:
     + Refresh.
+  * data/python*-sys.path-additions:
+    + Refresh.
 
   * lib/Lintian/Python.pm:
     + Add function python_alt_dep to generate (possibly versioned) dependency
       on python(3), with alternative for other packages that are guaranteed to
       transitively depend on python(3).
 
+  * private/refresh-sys.path-additions:
+    + Ignore addition of the PIL directory to sys.path. Future versions for
+      PIL won't add this directory, and packages shouldn't rely on it.
+
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Mar 2013 19:15:07 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 11 Mar 2013 19:39:50 +0100
 
 lintian4python (0.15) experimental; urgency=low
 

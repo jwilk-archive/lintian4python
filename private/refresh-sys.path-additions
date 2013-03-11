@@ -149,6 +149,9 @@ def main():
     pygtk2_additions = results[2]['gtk-2.0']
     assert pygtk2_additions == {'python-gobject-2'}
     pygtk2_additions.add('python-gtk2')
+    pil_additions = results[2]['PIL']
+    assert pil_additions == {'python-imaging'}
+    pil_additions.clear()
     for version in 2, 3:
         path = '{root}/data/python{version}-sys.path-additions'.format(
             version=version,
@@ -160,6 +163,8 @@ def main():
                 today=datetime.date.today(),
             ))
             for item, packages in sorted(results[version].items()):
+                if not packages:
+                    continue
                 print('{item} => {packages}'.format(
                     item=item,
                     packages=' | '.join(sorted(packages))
