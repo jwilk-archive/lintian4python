@@ -16,7 +16,7 @@ pyflakes
 | [X] pyflakes-undefined-name
 | [X] pyflakes-undefined-name-underscore
 | [X] pyflakes-unused-import
-| [ ] pyflakes-unused-variable
+| [X] pyflakes-unused-variable
 
 extensions
 ~~~~~~~~~~

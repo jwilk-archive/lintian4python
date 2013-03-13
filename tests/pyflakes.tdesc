@@ -63,3 +63,9 @@ Files:
  a0452f86380bf557d6989897a78f3d76ed2875a8  python-sqlparse_0.1.4-1_all.deb
 Test-For:
  p: python-sqlparse: pyflakes-unused-import usr/bin/sqlformat:9: os
+
+Name: pyflakes-unused-variable
+Files:
+ cf0f365f88204468ff367903e9a5d001df870114  didjvu_0.2.3-2_all.deb
+Test-For:
+ p: didjvu: pyflakes-unused-variable usr/share/didjvu/lib/didjvu.py:307: bytes_in
