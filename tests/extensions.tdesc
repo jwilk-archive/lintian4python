@@ -7,7 +7,7 @@ Info: http://bugs.debian.org/665803
 
 Name: extension-linked-with-libpython
 Files:
- 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.2-3_i386.deb
+ 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.1-2_i386.deb
 Test-For:
  i: python-nflog: extension-linked-with-libpython usr/lib/python2.6/dist-packages/_nflog.so
  i: python-nflog: extension-linked-with-libpython usr/lib/python2.7/dist-packages/_nflog.so

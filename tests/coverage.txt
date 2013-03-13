@@ -39,7 +39,7 @@ bytecompilation
 | [X] missing-dependency-on-byte-compilation-helper
 | [ ] pycentral-pkginstall-for-foreign-package
 | [ ] pycompile-for-foreign-package
-| [ ] python-module-not-byte-compiled
+| [2] python-module-not-byte-compiled
 | [X] source-contains-python-bytecode
 
 package-name
