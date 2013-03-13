@@ -23,9 +23,10 @@ Test-For:
 
 Name: extension-with-soname
 Files:
- 32f754c145ddeb4c3886256a696537bf70fbdcb5  python-aubio_0.3.2-4.2+b1_i386.deb
+ 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.1-2_i386.deb
 Test-For:
- p: python-aubio: extension-with-soname usr/lib/pyshared/python2.7/aubio/_aubiowrapper.so (_aubiowrapper.so)
+ p: python-nflog: extension-with-soname usr/lib/python2.6/dist-packages/_nflog.so (_nflog.so)
+ p: python-nflog: extension-with-soname usr/lib/python2.7/dist-packages/_nflog.so (_nflog.so)
 
 Name: python3-extension-without-abi-tag
 Files:
