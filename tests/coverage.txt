@@ -10,7 +10,7 @@ pyflakes
 | [ ] pyflakes-late-future-import
 | [ ] pyflakes-redefined
 | [ ] pyflakes-redefined-in-list-comp
-| [ ] pyflakes-redefined-while-unused
+| [X] pyflakes-redefined-while-unused
 | [ ] pyflakes-undefined-export
 | [ ] pyflakes-undefined-local
 | [X] pyflakes-undefined-name
