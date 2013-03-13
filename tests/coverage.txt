@@ -11,7 +11,7 @@ pyflakes
 | [ ] pyflakes-redefined
 | [ ] pyflakes-redefined-in-list-comp
 | [X] pyflakes-redefined-while-unused
-| [ ] pyflakes-undefined-export
+| [X] pyflakes-undefined-export
 | [ ] pyflakes-undefined-local
 | [X] pyflakes-undefined-name
 | [X] pyflakes-undefined-name-underscore

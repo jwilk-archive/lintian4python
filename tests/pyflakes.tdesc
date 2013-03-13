@@ -34,6 +34,12 @@ Files:
 Test-For:
  i: atheist: pyflakes-redefined-while-unused usr/share/pyshared/atheist/utils.py:12: logging line 9
 
+Name: pyflakes-undefined-export
+Files:
+ 4f70701bd21059c8c327acb14c2f9e2622326e57  rst2pdf_0.16-2_all.deb
+Test-For:
+ w: rst2pdf: pyflakes-undefined-export usr/share/pyshared/rst2pdf/tenjin.py:46: html
+
 Name: pyflakes-undefined-name
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb
