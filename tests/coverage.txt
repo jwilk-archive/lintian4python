@@ -109,7 +109,7 @@ teams
 ~~~~~
 | [X] incorrect-team-name
 | [ ] incorrect-vcs-field
-| [ ] missing-vcs-field
+| [2] missing-vcs-field
 
 code-analysis
 ~~~~~~~~~~~~~

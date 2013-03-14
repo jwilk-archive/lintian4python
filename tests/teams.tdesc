@@ -3,3 +3,21 @@ Files:
  c1fc458ec2f1d76238837f2ddbf7771848b5c32c  s3ql_1.12-1_i386.deb
 Test-For:
  x: s3ql: incorrect-team-name Debian Python Apps Team -> Python Applications Packaging Team
+
+Name: missing-vcs-field/dpmt
+Files:
+ 2c728ed51f42c23059cca6136333468c1f7a378a  cssutils_0.9.7~b2-2.dsc
+ 4661a5780097bbb1d3c269d757f04de5f3884d62  cssutils_0.9.7~b2-2.diff.gz
+ d3536e60df9133912890626e3b3e991bfc603430  cssutils_0.9.7~b2.orig.tar.gz
+Test-For:
+ x: cssutils source: missing-vcs-field vcs-svn svn://svn.debian.org/python-modules/packages/cssutils/trunk/
+ x: cssutils source: missing-vcs-field vcs-browser http://svn.debian.org/viewsvn/python-modules/packages/cssutils/trunk/
+
+Name: missing-vcs-field/papt
+Files:
+ a2ce92a0e300a108738271b4ae97766f3d61fa3c  mimms_3.2.1-2.dsc
+ ecfb1659a1256793e9c7af6192e50042cfb6c7e3  mimms_3.2.1-2.diff.gz
+ 2f7a6b526740276a545eae8f6b5424bb2a229c44  mimms_3.2.1.orig.tar.gz
+Test-For:
+ x: mimms source: missing-vcs-field vcs-svn svn://svn.debian.org/python-apps/packages/mimms/trunk/
+ x: mimms source: missing-vcs-field vcs-browser http://svn.debian.org/viewsvn/python-apps/packages/mimms/trunk/
