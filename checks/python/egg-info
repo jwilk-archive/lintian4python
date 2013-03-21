@@ -50,7 +50,7 @@ sub egg_version_to_regex {
         $_;
     } @version_regex;
     my $version_regex = join '', @version_regex;
-    return qr/^$version_regex(?:[[:punct:]]*(?:repack|debian|ds|nmu)\d*)?$/;
+    return qr/^$version_regex$/;
 }
 
 sub run {
@@ -118,7 +118,7 @@ if (scalar keys %egg_versions == 1 and defined $version) {
         or $upstream_version =~ s/\+b\d+$//; # strip +bN suffix (unless there was a Debian revision)
     $upstream_version =~ s/^\d+://; # strip epoch
     $upstream_version =~ s/[+]nmu\d+$//; # strip +nmuN suffix
-    $upstream_version =~ s/[[:punct:]]+dfsg.*//; # strip DFSG suffix
+    $upstream_version =~ s/(?:(?<=\d)|[[:punct:]]+)(?:debian|dfsg|ds|repack)[[:punct:]]*\d*$//; # strip repack suffixes
     my $version_re = egg_version_to_regex($egg_version);
     if (not $upstream_version =~ $version_re) {
         tag 'egg-info-version-mismatch', $egg_version, $upstream_version

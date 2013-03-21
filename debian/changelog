@@ -3,10 +3,14 @@ lintian4python (0.16.1) UNRELEASED; urgency=low
   * data/python*-projects:
     + Refresh.
 
+  * checks/egg-info:
+    + When comparing egg-info version with Debian version, strip various
+      repack suffixes (“debian”, “dfsg”, “ds”, “repack”) is a consistent way.
+
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Mar 2013 15:28:01 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Mar 2013 20:12:26 +0100
 
 lintian4python (0.16) experimental; urgency=low
 
