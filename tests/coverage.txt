@@ -35,7 +35,7 @@ scripts
 
 bytecompilation
 ~~~~~~~~~~~~~~~
-| [ ] insufficient-dependency-on-byte-compilation-helper
+| [X] insufficient-dependency-on-byte-compilation-helper
 | [X] missing-dependency-on-byte-compilation-helper
 | [ ] pycentral-pkginstall-for-foreign-package
 | [ ] pycompile-for-foreign-package

@@ -1,3 +1,9 @@
+Name: insufficient-dependency-on-byte-compilation-helper/pycompile
+Files:
+ e9a10ee620d264a637c5567029237001cafb84d6  cloud-init_0.7.1-3_all.deb
+Test-For:
+ w: cloud-init: insufficient-dependency-on-byte-compilation-helper pycompile => python (>= 2.6.5)
+
 Name: missing-dependency-on-byte-compilation-helper/modern
 Files:
  652c79092c64756d2135982bb36d4ebcb3da2246  gettext-lint_0.4-2_all.deb
