@@ -4,10 +4,10 @@ lintian4python (0.16.1) UNRELEASED; urgency=low
     + Refresh.
 
   * checks/python/egg-info:
-    + When comparing egg-info version with Debian version:
+    + When comparing egg-info versions with Debian versions:
       - strip various repack suffixes (“debian”, “dfsg”, “ds”, “repack”) in a
         consistent way;
-      - handle X.rcY egg-info versions correctly (closes: #703572).
+      - handle X.rcY versions correctly (closes: #703572).
       Thanks to Julian Taylor for the bug report.
 
   * tests/*:
