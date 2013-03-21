@@ -9,11 +9,13 @@ lintian4python (0.16.1) UNRELEASED; urgency=low
         consistent way;
       - handle X.rcY versions correctly (closes: #703572).
       Thanks to Julian Taylor for the bug report.
+  * checks/python/pyflakes:
+    + Beautify pyflakes-late-future-import output.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Mar 2013 21:07:51 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Mar 2013 22:47:48 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

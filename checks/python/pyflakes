@@ -54,6 +54,11 @@ sub run {
                     $import_star{$file} = 1;
                 }
             } else {
+                if ($tag eq 'pyflakes-late-future-import') {
+                    $rest =~ s/(?<= )\['//g and
+                    $rest =~ s/'\]$//g and
+                    $rest =~ s/', '//g;
+                }
                 tag $tag, "$file:$rest";
             }
         } elsif (m,^# (.+)$,) {
