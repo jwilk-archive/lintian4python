@@ -40,6 +40,12 @@ Files:
 Test-For:
  w: rst2pdf: pyflakes-undefined-export usr/share/pyshared/rst2pdf/tenjin.py:46: html
 
+Name: pyflakes-undefined-local
+Files:
+ efb8916bd3cb7c6d921db9c66e6b1b8012232aea  python-jsonrpc2_0.3.2-3_all.deb
+Test-For:
+ e: python-jsonrpc2: pyflakes-undefined-local usr/share/pyshared/jsonrpc2/gae.py:32: name line 30
+
 Name: pyflakes-undefined-name
 Files:
  cf01845b4ad64ed44b118bd097c717d9ccfe6dcd  python-argvalidate_0.9.0-1_all.deb
