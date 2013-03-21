@@ -7,7 +7,7 @@ pyflakes
 | [ ] pyflakes-duplicate-argument
 | [ ] pyflakes-import-shadowed-by-loop-var
 | [X] pyflakes-import-star-used
-| [ ] pyflakes-late-future-import
+| [X] pyflakes-late-future-import
 | [ ] pyflakes-redefined
 | [ ] pyflakes-redefined-in-list-comp
 | [X] pyflakes-redefined-while-unused
