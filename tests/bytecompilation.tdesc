@@ -4,7 +4,7 @@ Files:
 Test-For:
  w: cloud-init: insufficient-dependency-on-byte-compilation-helper pycompile => python (>= 2.6.5)
 
-Name: missing-dependency-on-byte-compilation-helper/modern
+Name: missing-dependency-on-byte-compilation-helper/modern-pysupport
 Files:
  652c79092c64756d2135982bb36d4ebcb3da2246  gettext-lint_0.4-2_all.deb
 Test-For:
@@ -13,7 +13,7 @@ Info:
  Fixed in lintian4python 0.2.  Prior versions incorrectly emitted:
   e: ...: missing-dependency-on-byte-compilation-helper update-python-modules/modern => ...
 
-Name: missing-dependency-on-byte-compilation-helper/self-dependency
+Name: missing-dependency-on-byte-compilation-helper/pysupport-self-dependency
 Files:
  810d860b7ec68ad2219e1baf151d64377c316a01  python-support_1.0.14_all.deb
 Test-Against:
@@ -22,7 +22,7 @@ Info:
  Fixed in lintian4python 0.2.  Prior versions incorrectly suggested that
  python-support should have a self-dependency.
 
-Name: python-module-not-byte-compiled/post-install
+Name: python-module-not-byte-compiled/pysupport-post-install
 Files:
  810d860b7ec68ad2219e1baf151d64377c316a01  python-support_1.0.14_all.deb
 Test-Against:
