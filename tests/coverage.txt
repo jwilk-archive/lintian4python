@@ -9,7 +9,7 @@ pyflakes
 | [X] pyflakes-import-star-used
 | [X] pyflakes-late-future-import
 | [ ] pyflakes-redefined
-| [ ] pyflakes-redefined-in-list-comp
+| [X] pyflakes-redefined-in-list-comp
 | [X] pyflakes-redefined-while-unused
 | [X] pyflakes-undefined-export
 | [X] pyflakes-undefined-local
