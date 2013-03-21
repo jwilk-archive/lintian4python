@@ -20,6 +20,14 @@ Test-For:
 Info:
  Fixed in lintian4python 0.2.  Prior versions didn't strip the +nmuN suffix.
 
+Name: egg-info-version-mismatch/dot-rc
+Files:
+ 551078902e56f0bb51b367c87c0f3d32a5b2f3f2  pytimechart_1.0.0~rc1-3_all.deb
+Test-Against:
+ w: pytimechart: egg-info-version-mismatch 1.0.0.rc1 1.0.0~rc1
+Info:
+ Fixed in lintian4python 0.16.1; bug #703572.
+
 Name: missing-requires.txt-dependency
 Files:
  ae76d144eeb4483c3e775adbb7e2e404e65a4a97  python-pebl_1.0.2-2_i386.deb

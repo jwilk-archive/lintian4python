@@ -50,6 +50,7 @@ sub egg_version_to_regex {
         $_;
     } @version_regex;
     my $version_regex = join '', @version_regex;
+    $version_regex =~ s/([[:punct:]])~/$1?~/g;
     return qr/^$version_regex$/;
 }
 
