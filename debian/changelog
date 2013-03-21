@@ -6,7 +6,7 @@ lintian4python (0.16.1) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 13 Mar 2013 22:35:51 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 21 Mar 2013 15:28:01 +0100
 
 lintian4python (0.16) experimental; urgency=low
 
