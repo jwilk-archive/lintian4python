@@ -55,3 +55,9 @@ Test-For:
  w: rst2pdf: unknown-optional-project-in-requires.txt svglib
  w: rst2pdf: unknown-optional-project-in-requires.txt swftools
  w: rst2pdf: unknown-optional-project-in-requires.txt wordaxe
+
+Name: unknown-project-in-requires.txt
+Files:
+ 31cb3d622d7d50bcd8ed2097c6ad5c6a047041ff  python3-pygraph_1.8.2-3_all.deb
+Test-For:
+ e: python3-pygraph: unknown-project-in-requires.txt pydot

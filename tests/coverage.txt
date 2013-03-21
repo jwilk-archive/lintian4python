@@ -128,5 +128,5 @@ egg-info
 | [X] missing-requires.txt-optional-dependency
 | [X] strict-versioned-dependency-in-requires.txt
 | [X] unknown-optional-project-in-requires.txt
-| [ ] unknown-project-in-requires.txt
+| [X] unknown-project-in-requires.txt
 
