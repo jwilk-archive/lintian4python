@@ -16,6 +16,8 @@ lintian4python (0.17) UNRELEASED; urgency=low
     + Use common regex from Lintian::Python to select files from dist-packages
       and friends.
     + Skip “test” and “tests” subdirectories.
+  * checks/python/documentation:
+    + Remove some unused code.
   * checks/python/extensions:
     + Check for public dbg extension modules in non-dbg packages.
       Thanks to Sebastian Ramacher for the bug report.
@@ -32,7 +34,7 @@ lintian4python (0.17) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 18:49:36 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 19:48:35 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

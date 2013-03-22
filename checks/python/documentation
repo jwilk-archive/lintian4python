@@ -69,7 +69,6 @@ sub check_js
         tag 'search.html-references-non-local-js-file', $html_filename, '->', $js_url;
         return '';
     }
-    my $local_directory = $directory;
     my $result = my $js_filename = uri_path(@js_url);
     $js_filename = "$directory/$js_filename";
     1 while $js_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
