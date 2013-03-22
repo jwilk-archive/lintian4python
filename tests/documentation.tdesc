@@ -31,7 +31,13 @@ Test-For:
  w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/surfaces.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
  w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/text.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
 
-Name: search.html-references-non-local-file
+Name: search.html-references-non-local-file/css
+Files:
+ a4dc325326996c2c5e7405bfe22882d10bc4adfe  python-nipype-doc_0.5.3-2_all.deb
+Test-For:
+ w: python-nipype-doc: search.html-references-non-local-file usr/share/doc/python-nipype-doc/html/search.html -> http://www.google.com/cse/style/look/default.css
+
+Name: search.html-references-non-local-file/js
 Files:
  0012df70983af5e443af746790db3ffc8126df98  pynast_1.1-3_all.deb
 Test-For:

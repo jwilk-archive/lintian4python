@@ -55,7 +55,7 @@ documentation
 | [X] rst-source-referenced-by-searchindex.js-does-not-exist
 | [X] rst-source-referenced-by-searchindex.js-is-compressed
 | [ ] search.html-does-not-load-search-index
-| [X] search.html-references-non-local-file
+| [2] search.html-references-non-local-file
 | [X] search.html-with-invalid-root-url
 | [ ] search.html-with-non-local-root-url
 | [X] source-contains-sphinx-cache
