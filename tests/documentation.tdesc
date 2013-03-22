@@ -31,18 +31,18 @@ Test-For:
  w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/surfaces.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
  w: python-cairo-dev: rst-source-referenced-by-searchindex.js-is-compressed usr/share/doc/python-cairo-dev/html/_sources/reference/text.txt.gz (usr/share/doc/python-cairo-dev/html/searchindex.js)
 
-Name: search.html-references-non-local-js-file
+Name: search.html-references-non-local-file
 Files:
  0012df70983af5e443af746790db3ffc8126df98  pynast_1.1-3_all.deb
 Test-For:
- w: pynast: search.html-references-non-local-js-file usr/share/doc/pynast/html/search.html -> http://www.google.com/jsapi?key=ABQIAAAAdyJBQQABvxRaME0S-wyQoxTmluCkmlcBcOZMfdDozzndIHJ6lxRpv5opdXpr1SRwPuMUtSSFwWiDgw
+ w: pynast: search.html-references-non-local-file usr/share/doc/pynast/html/search.html -> http://www.google.com/jsapi?key=ABQIAAAAdyJBQQABvxRaME0S-wyQoxTmluCkmlcBcOZMfdDozzndIHJ6lxRpv5opdXpr1SRwPuMUtSSFwWiDgw
 
-Name: search.html-references-non-local-js-file/usr-share-javascript
+Name: search.html-references-non-local-file/usr-share-javascript
 Files:
  9616848a379558801f98022f741cf092d2345e04  python-sqlkit-doc_0.9.5-1_all.deb
 Test-Against:
- w: python-sqlkit-doc: search.html-references-non-local-js-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery/jquery.js
- w: python-sqlkit-doc: search.html-references-non-local-js-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery-ui/jquery-ui.js
+ w: python-sqlkit-doc: search.html-references-non-local-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery/jquery.js
+ w: python-sqlkit-doc: search.html-references-non-local-file usr/share/doc/python-sqlkit-doc/html/search.html -> /usr/share/javascript/jquery-ui/jquery-ui.js
 
 Name: search.html-with-invalid-root-url/fragment
 Files:
@@ -71,11 +71,12 @@ Test-For:
  w: python-argvalidate: sphinx-js-incompatible-with-jquery-1.4 usr/share/doc/python-argvalidate/html/_static/doctools.js
  w: python-argvalidate: sphinx-js-incompatible-with-jquery-1.5 usr/share/doc/python-argvalidate/html/_static/searchtools.js
 
-Name: sphinx-js-with-jinja2-templates
+Name: sphinx-static-file-with-jinja2-templates
 Files:
  9616848a379558801f98022f741cf092d2345e04  python-sqlkit-doc_0.9.5-1_all.deb
 Test-For:
- w: python-sqlkit-doc: sphinx-js-with-jinja2-templates usr/share/doc/python-sqlkit-doc/html/_static/searchtools.js {{ search_language_stemming_code|safe }}
+ w: python-sqlkit-doc: sphinx-static-file-with-jinja2-templates usr/share/doc/python-sqlkit-doc/html/_static/searchtools.js {{ search_language_stemming_code|safe }}
+ w: python-sqlkit-doc: sphinx-static-file-with-jinja2-templates usr/share/doc/python-sqlkit-doc/html/_static/default.css {{ theme_bodyfont }}
 
 Name: source-contains-sphinx-cache
 Files:

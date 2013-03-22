@@ -3,10 +3,19 @@ lintian4python (0.17) UNRELEASED; urgency=low
   * Summary of tag changes:
     + Added:
       - dbg-extension-in-non-dbg-package
+      - search.html-references-non-local-file
+      - sphinx-static-file-with-jinja2-templates
+    + Removed:
+      - search.html-references-non-local-js-file
+      - sphinx-js-with-jinja2-templates
 
   * data/python*-projects:
     + Refresh.
 
+  * checks/python/documentation:
+    + Remove some unused code.
+    + Check for non-local CSS files.
+    + Check for CSS files with unexpanded Jinja2 templates.
   * checks/python/egg-info:
     + When comparing egg-info versions with Debian versions:
       - strip various repack suffixes (“debian”, “dfsg”, “ds”, “repack”) in a
@@ -16,8 +25,6 @@ lintian4python (0.17) UNRELEASED; urgency=low
     + Use common regex from Lintian::Python to select files from dist-packages
       and friends.
     + Skip “test” and “tests” subdirectories.
-  * checks/python/documentation:
-    + Remove some unused code.
   * checks/python/extensions:
     + Check for public dbg extension modules in non-dbg packages.
       Thanks to Sebastian Ramacher for the bug report.
@@ -34,7 +41,7 @@ lintian4python (0.17) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 19:48:35 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 20:03:45 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

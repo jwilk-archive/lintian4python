@@ -66,7 +66,7 @@ sub check_js
             # TODO: Check if it really exists.
             return '';
         }
-        tag 'search.html-references-non-local-js-file', $html_filename, '->', $js_url;
+        tag 'search.html-references-non-local-file', $html_filename, '->', $js_url;
         return '';
     }
     my $result = my $js_filename = uri_path(@js_url);
@@ -87,7 +87,7 @@ sub check_js
                         tag 'sphinx-js-incompatible-with-jquery-1.5', $js_filename;
                     }
                     if ($js =~ /({{ .*? }})/) {
-                        tag 'sphinx-js-with-jinja2-templates', $js_filename, $1;
+                        tag 'sphinx-static-file-with-jinja2-templates', $js_filename, $1;
                     }
                 }
             }
@@ -101,6 +101,26 @@ sub check_js
         tag $tag, $js_filename, "($html_filename)";
     }
     return $result;
+}
+
+sub check_css {
+    my ($info, $html_filename, $directory, $css_url) = @_;
+    my @css_url = uri_split($css_url);
+    if (not uri_is_local(@css_url)) {
+        tag 'search.html-references-non-local-file', $html_filename, '->', $css_url;
+        return '';
+    }
+    my $css_filename = uri_path(@css_url);
+    $css_filename = "$directory/$css_filename";
+    $css_filename =~ s,[^/]+$,default.css,;
+    1 while $css_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
+    my $css_info = $info->index($css_filename);
+    return unless defined $css_info;
+    return unless $css_info->type eq '-';
+    my $css = slurp_entire_file($info->unpacked($css_filename));
+    if ($css =~ m/({{ theme_.*? }})/) {
+        tag 'sphinx-static-file-with-jinja2-templates', $css_filename, $1;
+    }
 }
 
 sub check_searchindex {
@@ -174,6 +194,15 @@ sub run_binary {
             if (basename($js_path) eq 'searchindex.js') {
                 $searchindex_path = $js_path;
             }
+        }
+        my %css_directories = ();
+        while ($html =~ m{<link rel="stylesheet" href="([^"]++)"}g) {
+            my $path = my $dir = $1;
+            $dir =~ s,[^/]*$,,;
+            $css_directories{$dir} = $path;
+        }
+        foreach (sort values %css_directories) {
+            check_css($info, $html_filename, $directory, $_);
         }
         if ($html =~ m/\QjQuery(function() { Search.loadIndex("searchindex.js"); });\E/) {
             $searchindex_path = check_js($info, $html_filename, $directory, 'searchindex.js') || $searchindex_path;

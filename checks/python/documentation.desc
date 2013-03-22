@@ -21,7 +21,7 @@ Info: A JavaScript file referenced by search.html (a Sphinx search page) is
  fix this problem.
 Ref: #603553
 
-Tag: search.html-references-non-local-js-file
+Tag: search.html-references-non-local-file
 Severity: normal
 Certainty: possible
 
@@ -53,7 +53,7 @@ Info: The JavaScript code is not compatible with jQuery >= 1.5.  Rebuilding the
 Ref: https://bitbucket.org/birkenfeld/sphinx/changeset/dd303c75281e,
  #625208
 
-Tag: sphinx-js-with-jinja2-templates
+Tag: sphinx-static-file-with-jinja2-templates
 Severity: normal
 Certainty: possible
 
