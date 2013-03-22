@@ -74,6 +74,7 @@ for my $file ($info->sorted_index) {
     if ($file =~ m,$dist_packages_re/(.+)\.egg-info(?:/|$),) {
         my $py3k = int(defined $2);
         my $egg_name = $3;
+        next if $egg_name =~ m,/tests?,;
         if ($egg_name =~ m,^(?:[^-]+)-([^-]+)(?:-py(?:[^-]+)(-.+)?)?$,) {
             $egg_versions{$1} = 1;
         }

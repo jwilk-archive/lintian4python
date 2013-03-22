@@ -1,3 +1,15 @@
+Name: egg-info-tests
+Files:
+ fe866c3819599ac11908ae94bf322c1c2041b921  python-van.pydeb_1.3.3-1_all.deb
+Test-Against:
+ e: python-van.pydeb: unknown-project-in-requires.txt foo
+ e: python-van.pydeb: unknown-project-in-requires.txt foobar
+ e: python-van.pydeb: unknown-project-in-requires.txt bar
+ e: python-van.pydeb: unknown-project-in-requires.txt bar
+Info:
+ Fixed in lintian4python 0.17.  Prior versions incorrectly emitted tags for
+ .egg-info files that were parts of a test suite.
+
 Name: SOURCES.txt-in-binary-package
 Files:
  57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
