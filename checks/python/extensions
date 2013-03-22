@@ -33,7 +33,7 @@ my $py_extension = qr{
   usr/lib/pyshared/python(2\.\d+)/.+
 | usr/lib/python(2\.\d+)/(?:site|dist)-packages/.+
 | usr/lib/python-support/(?:[^/]+)/python(2\.\d+)/.+
-| usr/lib/python3/dist-packages/.+-(\d+)mu?
+| usr/lib/python3/dist-packages/.+\.cpython-(\d+)d?mu?
 ) \.so $
 }x;
 
