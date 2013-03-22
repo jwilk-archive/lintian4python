@@ -14,7 +14,7 @@ lintian4python (0.17) UNRELEASED; urgency=low
       - handle X.rcY versions correctly (closes: #703572).
       Thanks to Julian Taylor for the bug report.
   * checks/python/extensions:
-    + Check for dbg extension modules in non-dbg packages.
+    + Check for public dbg extension modules in non-dbg packages.
       Thanks to Sebastian Ramacher for the bug report.
   * checks/python/pyflakes:
     + Beautify pyflakes-late-future-import output.
