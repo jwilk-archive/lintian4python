@@ -1,3 +1,9 @@
+lintian4python (0.17.1) UNRELEASED; urgency=low
+
+  * 
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 22:12:47 +0100
+
 lintian4python (0.17) experimental; urgency=low
 
   * Summary of tag changes:
