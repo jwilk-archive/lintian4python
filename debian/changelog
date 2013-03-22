@@ -19,10 +19,13 @@ lintian4python (0.17) UNRELEASED; urgency=low
   * checks/python/pyflakes:
     + Beautify pyflakes-late-future-import output.
 
+  * lib/Lintian/Python.pm:
+    + Classify modules in /usr/lib/pyshared/python2.X as public.
+
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 01:22:07 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 17:54:08 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

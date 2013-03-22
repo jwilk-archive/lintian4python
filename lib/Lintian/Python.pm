@@ -87,6 +87,7 @@ sub parse_pycompile {
 my $_public2 = qr(
 ^ (?:
   usr/lib/python2\.\d+
+| usr/lib/pyshared/python2\.\d+
 | usr/share/pyshared
 | usr/share/python-support
 ) /
