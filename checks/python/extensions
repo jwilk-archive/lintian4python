@@ -37,6 +37,13 @@ my $py_extension = qr{
 ) \.so $
 }x;
 
+my $dbg_extension_re = qr{
+(?:
+  _d
+| \.cpython-\d+dmu?
+) \. so $
+}x;
+
 my $tagless_py3_extension = qr,usr/lib/python3/dist-packages/(?:.+/)?\w+\.so$,;
 
 sub check_static_extension {
@@ -98,6 +105,9 @@ for my $file ($info->sorted_index) {
         my @sonames = @{$objdump->{$file}->{SONAME}};
         if (@sonames) {
             tag 'extension-with-soname', $file, "(@sonames)";
+        }
+        if ($file =~ $dbg_extension_re) {
+            tag 'dbg-extension-in-non-dbg-package', $file;
         }
         check_static_extension($info, $file);
     } elsif ($file =~ $tagless_py3_extension) {

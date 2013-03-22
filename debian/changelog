@@ -1,4 +1,8 @@
-lintian4python (0.16.1) UNRELEASED; urgency=low
+lintian4python (0.17) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - dbg-extension-in-non-dbg-package
 
   * data/python*-projects:
     + Refresh.
@@ -10,14 +14,15 @@ lintian4python (0.16.1) UNRELEASED; urgency=low
       - handle X.rcY versions correctly (closes: #703572).
       Thanks to Julian Taylor for the bug report.
   * checks/python/extensions:
-    + Tighten a regex.
+    + Check for dbg extension modules in non-dbg packages.
+      Thanks to Sebastian Ramacher for the bug report.
   * checks/python/pyflakes:
     + Beautify pyflakes-late-future-import output.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 01:07:21 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 01:22:07 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

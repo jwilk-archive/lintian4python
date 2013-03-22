@@ -20,6 +20,7 @@ pyflakes
 
 extensions
 ~~~~~~~~~~
+| [X] dbg-extension-in-non-dbg-package
 | [X] extension-compiled-for-wrong-version
 | [X] extension-is-symlink
 | [X] extension-linked-with-libpython

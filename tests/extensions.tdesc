@@ -1,3 +1,10 @@
+Name: dbg-extension-in-non-dbg-package
+Files:
+ da242a92cc8d33389aba205519b22474f4a0f9e2  python-gevent_0.13.7-1_i386.deb
+Test-For:
+ e: python-gevent: dbg-extension-in-non-dbg-package usr/lib/python2.6/dist-packages/gevent/core_d.so
+ e: python-gevent: dbg-extension-in-non-dbg-package usr/lib/python2.7/dist-packages/gevent/core_d.so
+
 Name: extension-compiled-for-wrong-version
 Files:
  254fe536c56593f5effd46c95ec2dfdf4e55d2d0  python-semanage_2.1.6-2_i386.deb

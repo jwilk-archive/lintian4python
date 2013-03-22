@@ -47,3 +47,6 @@ Tag: extension-is-symlink
 Severity: minor
 Certainty: possible
 
+Tag: dbg-extension-in-non-dbg-package
+Severity: important
+Certainty: possible
