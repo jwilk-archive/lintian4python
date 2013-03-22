@@ -28,18 +28,7 @@ use warnings;
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
-my @dist_packages_re = (undef, undef,
-    qr{(?: # Python 2.X:
-      usr/lib/pyshared/python2\.\d+ # python-support >= 0.90
-    | usr/share/pyshared # python-support >= 0.90, python-central, dh_python2
-    | usr/lib/python-support/[^/]+/python2\.\d+ # python-support < 0.90
-    | usr/share/python-support/[^/]+ # python-support < 0.90
-    | usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
-    )}x,
-    qr{ # Python 3.X:
-    usr/lib/python3/dist-packages
-    }x
-);
+use Lintian::Python qw(@dist_packages_re);
 
 my $dist_packages_re = qr{
   ( $dist_packages_re[2] )

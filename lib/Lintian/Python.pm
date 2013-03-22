@@ -34,6 +34,7 @@ BEGIN {
         parse_update_python_modules
         parse_pycompile
         is_public_module
+        @dist_packages_re
         classify_python_modules
         python_alt_dep
     );
@@ -84,28 +85,45 @@ sub parse_pycompile {
     return ($package, $versions, @{$args});
 }
 
-my $_public2 = qr(
+my $_distpackages2 = qr{
 ^ (?:
-  usr/lib/python2\.\d+
-| usr/lib/pyshared/python2\.\d+
-| usr/share/pyshared
-| usr/share/python-support
-) /
-)x;
+  usr/lib/pyshared/python2\.\d+ # python-support >= 0.90
+| usr/share/pyshared # python-support >= 0.90, python-central, dh_python2
+| usr/lib/python-support/[^/]+/python2\.\d+ # python-support < 0.90
+| usr/share/python-support/[^/]+ # python-support < 0.90
+| usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
+)
+}x;
 
-my $_public3 = qr(^
-  usr/lib/python3/
-)x;
+my $_public2 = qr{
+^ usr/lib/python2\.\d+
+| $_distpackages2
+}x;
 
-my $_public = qr(
+my $_distpackages3 = qr{
+^ usr/lib/python3/dist-packages
+}x;
+
+my $_public3 = qr{
+^ usr/lib/python3
+}x;
+
+my $_distpackages = qr{
+  $_distpackages2
+| $_distpackages3
+}x;
+
+my $_public = qr{
   $_public2
 | $_public3
-)x;
+}x;
 
 sub is_public_module {
     my ($file) = @_;
     return $file =~ $_public;
 }
+
+our @dist_packages_re = (undef, undef, $_distpackages2, $_distpackages3);
 
 sub classify_python_modules {
     my ($package, $info) = @_;
@@ -133,7 +151,7 @@ sub classify_python_modules {
         }
         close($fp);
     }
-    my $python2regex = qr($_public2.*[^/][.]py$);
+    my $python2regex = qr($_public2/.*[^/][.]py$);
     my $python3regex = sprintf('^(?:%s)/.*[^/][.]py$', join('|', map { quotemeta } @python3paths));
     my @python2files = ();
     my @python3files = ();

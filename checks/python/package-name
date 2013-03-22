@@ -28,6 +28,8 @@ use v5.10; # for the // operator
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
+use Lintian::Python qw(@dist_packages_re);
+
 my $_extension_suffix = qr{
 (?: [.]cpython-(?:\d+)mu?
   | (?<!_d)
@@ -46,14 +48,8 @@ unshift(@path_additions, undef, undef);
 
 my $_module_name = qr{
 (?:
-  (?: usr/lib/python2\.\d+/(?:site|dist)-packages/
-    | usr/lib/pyshared/python2(?:.\d+)?/
-    | usr/share/pyshared/
-    | usr/share/python-support/[^/]+/
-  )
-  (?: $path_additions[2] / )?
-    | usr/lib/python3/dist-packages/
-  (?: $path_additions[3] / )?
+  $dist_packages_re[2]/(?: $path_additions[2] / )?
+| $dist_packages_re[3]/(?: $path_additions[3] / )?
 )
 ( (?: [^/]*/ )* )
 (?: (\w+)module$_extension_suffix

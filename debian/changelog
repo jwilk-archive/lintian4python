@@ -13,19 +13,25 @@ lintian4python (0.17) UNRELEASED; urgency=low
         consistent way;
       - handle X.rcY versions correctly (closes: #703572).
       Thanks to Julian Taylor for the bug report.
+    + Use common regex from Lintian::Python to select files from dist-packages
+      and friends.
   * checks/python/extensions:
     + Check for public dbg extension modules in non-dbg packages.
       Thanks to Sebastian Ramacher for the bug report.
+  * checks/python/{multi-arch,package-name,pth}
+    + Use common regex from Lintian::Python to select files from dist-packages
+      and friends.
   * checks/python/pyflakes:
     + Beautify pyflakes-late-future-import output.
 
   * lib/Lintian/Python.pm:
     + Classify modules in /usr/lib/pyshared/python2.X as public.
+    + Add regex for selecting files from dist-packages and friends.
 
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 17:54:08 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 18:29:23 +0100
 
 lintian4python (0.16) experimental; urgency=low
 

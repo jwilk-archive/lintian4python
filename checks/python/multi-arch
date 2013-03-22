@@ -27,15 +27,11 @@ use v5.10; # for the //= operator
 
 use Lintian::Tags qw(tag);
 
+use Lintian::Python qw(@dist_packages_re);
+
 my $dist_packages_re = qr{
-^(?:
-  usr/lib/pyshared/python2\.\d+ # python-support >= 0.90
-| usr/share/pyshared # python-support >= 0.90, python-central, dh_python2
-| usr/lib/python-support/[^/]+/python2\.\d+ # python-support < 0.90
-| usr/share/python-support/[^/]+ # python-support < 0.90
-| usr/lib/python2\.\d+/(?:site|dist)-packages # python-central, dh_python2
-| usr/lib/python3/dist-packages # Python 3.X:
-)
+  $dist_packages_re[2]
+| $dist_packages_re[3]
 }x;
 
 sub run {
@@ -44,7 +40,7 @@ sub run {
     my $has_modules = 0;
     for my $file ($info->sorted_index) {
         next unless $info->index($file)->type eq '-';
-        if ($file =~ m,^$dist_packages_re/.*[.](py|so)$,o) {
+        if ($file =~ m,$dist_packages_re/.*[.](py|so)$,o) {
             $has_modules = 1;
             last; 
         }

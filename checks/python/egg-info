@@ -30,6 +30,13 @@ use Lintian::Tags qw(tag);
 use Lintian::Relation ();
 use Lintian::Util qw(fail);
 
+use Lintian::Python qw(@dist_packages_re);
+
+my $dist_packages_re = qr{
+  ( $dist_packages_re[2] )
+| ( $dist_packages_re[3] )
+}x;
+
 my @PROJECTS = map { Lintian::Data->new("python$_-projects", '\|\|') } (2..3);
 
 sub egg_version_to_regex {
@@ -64,7 +71,7 @@ my $depends = $info->relation('strong');
 my $all_depends = $info->relation('all');
 for my $file ($info->sorted_index) {
     next unless $info->index($file)->type eq '-';
-    if ($file =~ m,usr/(?:(lib/python2\.\d+/(?:site|dist)-packages|share/pyshared)|(lib/python3/dist-packages))/(.+)\.egg-info(?:/|$),) {
+    if ($file =~ m,$dist_packages_re/(.+)\.egg-info(?:/|$),) {
         my $py3k = int(defined $2);
         my $egg_name = $3;
         if ($egg_name =~ m,^(?:[^-]+)-([^-]+)(?:-py(?:[^-]+)(-.+)?)?$,) {
