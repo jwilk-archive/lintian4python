@@ -108,7 +108,7 @@ sub check_css {
     my @css_url = uri_split($css_url);
     if (not uri_is_local(@css_url)) {
         tag 'search.html-references-non-local-file', $html_filename, '->', $css_url;
-        return '';
+        return;
     }
     my $css_filename = uri_path(@css_url);
     $css_filename = "$directory/$css_filename";
