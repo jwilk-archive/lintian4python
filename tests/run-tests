@@ -69,8 +69,13 @@ class FileItem(object):
         if os.path.exists(dest_filename):
             # The file might have been downloaded in the mean time.
             return
-        if sha1file(tmp_filename) != self.sha1:
-            raise RuntimeError
+        computed_sha1 = sha1file(tmp_filename)
+        if computed_sha1 != self.sha1:
+            raise RuntimeError('{file} SHA-1 mismatch: {comp_sha1} but expected {sha1}'.format(
+                file=self.filename,
+                comp_sha1=computed_sha1,
+                sha1=self.sha1)
+            )
         os.rename(tmp_filename, dest_filename)
 
     def __repr__(self):
