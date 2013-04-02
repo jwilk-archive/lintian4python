@@ -1,8 +1,10 @@
 lintian4python (0.17.1) UNRELEASED; urgency=low
 
-  * 
+  * helpers/code-analysis:
+    + Fix compatibility with Python 3.3 (closes: #704250).
+      Thanks to Julian Taylor for the bug report.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 22 Mar 2013 22:12:47 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 02 Apr 2013 20:51:44 +0200
 
 lintian4python (0.17) experimental; urgency=low
 
