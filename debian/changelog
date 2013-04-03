@@ -1,5 +1,8 @@
 lintian4python (0.17.1) UNRELEASED; urgency=low
 
+  * data/python*-projects:
+    + Refresh.
+
   * helpers/code-analysis:
     + Fix compatibility with Python 3.3 (closes: #704250).
       Thanks to Julian Taylor for the bug report.
@@ -7,7 +10,7 @@ lintian4python (0.17.1) UNRELEASED; urgency=low
   * tests/run-tests:
     + Raise a more friendly exception on SHA-1 mismatch.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 02 Apr 2013 21:17:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 03 Apr 2013 16:33:59 +0200
 
 lintian4python (0.17) experimental; urgency=low
 
