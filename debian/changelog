@@ -9,8 +9,10 @@ lintian4python (0.17.1) UNRELEASED; urgency=low
 
   * tests/run-tests:
     + Raise a more friendly exception on SHA-1 mismatch.
+    + Print a more friendly assertion message when lintian's stderr is
+      non-empty.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 04 Apr 2013 21:31:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 04 Apr 2013 22:03:45 +0200
 
 lintian4python (0.17) experimental; urgency=low
 

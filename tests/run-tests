@@ -129,7 +129,10 @@ class TestCase(unittest.TestCase):
             stderr=ipc.PIPE
         )
         stdout, stderr = (s.decode('ASCII').splitlines() for s in lintian.communicate())
-        self.assertEqual(stderr, [])
+        if stderr:
+            raise AssertionError('Non-empty stderr:\n' +
+                '\n'.join('| ' + line for line in stderr)
+            )
         stdout.sort()
         self.assertEqual(stdout, self.test_for)
 
