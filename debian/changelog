@@ -1,3 +1,9 @@
+lintian4python (0.17.3) UNRELEASED; urgency=low
+
+  * 
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 17 Apr 2013 22:49:32 +0200
+
 lintian4python (0.17.2) experimental; urgency=low
 
   * data/python*-projects:
