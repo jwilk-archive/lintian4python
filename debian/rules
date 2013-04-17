@@ -19,7 +19,7 @@ binary binary-indep:
 	dh_install $(directories) $(share)
 	dh_install lintian4py* /usr/bin/
 	sed -i \
-		-e "s,\($$ENV{'LINTIAN_ROOT'}\) = .*,\1 = '$(share)';," \
+		-e "s,\($$ENV{LINTIAN4PYTHON_ROOT}\) = .*,\1 = '$(share)';," \
 		-e "s,\(\$$lintian4python_version\) = undef;,\1 = '$(version)';," \
 		debian/*/usr/bin/*
 	dh_perl

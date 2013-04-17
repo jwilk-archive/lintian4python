@@ -35,7 +35,7 @@ sub run {
     my ($py2files, undef) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    open(my $fp, '-|', "$ENV{LINTIAN_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
+    open(my $fp, '-|', "$ENV{LINTIAN4PYTHON_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
     my %underscores = ();
     my %import_star = ();
     my $file;

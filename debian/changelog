@@ -3,7 +3,26 @@ lintian4python (0.17.2) UNRELEASED; urgency=low
   * data/python*-projects:
     + Refresh.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 14 Apr 2013 02:10:19 +0200
+  + checks/python/bytecompilation
+    + Port to Lintian 2.5.12 API.
+
+  * checks/python/code-analysis:
+    + Use the LINTIAN4PYTHON_ROOT environemnt variable.
+
+  * checks/python/pyflakes:
+    + Use the LINTIAN4PYTHON_ROOT environemnt variable.
+
+  * debian/control:
+    + Update lintian dependency (2.5.12).
+
+  * helpers/code-analysis:
+    + Use the LINTIAN4PYTHON_ROOT environemnt variable.
+
+  * lintian4py, lintian4py-info:
+    + Use --include-dir.
+    + Use the LINTIAN4PYTHON_ROOT environemnt variable.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 17 Apr 2013 21:15:07 +0200
 
 lintian4python (0.17.1) experimental; urgency=low
 

@@ -109,7 +109,7 @@ unless (-l $postinst or not -f $postinst) {
                 $arg =~ s,^/usr/share/python-support/,, and $arg =~ s,/+$,,;
                 next unless $arg =~ m/^$package_name_re$/;
                 my $path = "usr/share/python-support/$arg";
-                my $unpacked = $info->unpacked("/$path");
+                my $unpacked = $info->unpacked($path);
                 next if -l $unpacked;
                 if (-d $unpacked) {
                     my $regex = qr{^\Q$path\E/};

@@ -5,7 +5,7 @@ use warnings;
 
 use Cwd qw();
 use File::Basename qw();
-$ENV{'LINTIAN_ROOT'} = Cwd::abs_path(File::Basename::dirname($0));
+$ENV{LINTIAN4PYTHON_ROOT} = Cwd::abs_path(File::Basename::dirname($0));
 
 require Lintian::Output;
 
@@ -23,7 +23,7 @@ $SIG{'__WARN__'} = sub {
 
 my $lintian4python_version = undef;
 unless (defined $lintian4python_version) {
-    open(my $fh, '<', "$ENV{'LINTIAN_ROOT'}/debian/changelog") or die 'cannot open debian/changelog';
+    open(my $fh, '<', "$ENV{LINTIAN4PYTHON_ROOT}/debian/changelog") or die 'cannot open debian/changelog';
     my $line = <$fh>;
     close $fh;
     if ($line =~ m/[(]\K([^)]++)/ ) {
@@ -80,7 +80,7 @@ my $monkey3 = Monkey::Patch::patch_package 'Getopt::Long' => 'GetOptions' => sub
     return $original->(%opt);
 };
 
-unshift @ARGV, '--profile', 'debian/python';
+unshift @ARGV, '--include-dir', $ENV{LINTIAN4PYTHON_ROOT}, '--profile', 'debian/python';
 do '/usr/bin/lintian';
 if ($@) {
     die $@;

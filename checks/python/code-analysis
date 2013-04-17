@@ -45,7 +45,7 @@ sub run {
 
 sub analyse {
     my ($srcpkg, $files, @interpreter) = @_;
-    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
+    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
         if (m,^(\S+) (-|\d+)(?: (.+))?$,) {
