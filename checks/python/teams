@@ -32,11 +32,11 @@ my %TEAMS = (
         name => 'Debian Python Modules Team',
         email => 'python-modules-team@lists.alioth.debian.org',
         vcs_browser => [
-            'http://svn.debian.org/viewsvn/python-modules/packages/%s/trunk/',
+            'http://anonscm.debian.org/viewvc/python-modules/packages/%s/trunk/',
             '^http://(?:anonscm|svn)[.]debian[.]org/view(?:svn|vc)/python-modules/packages/%s/trunk/?$',
         ],
         vcs_svn => [
-            'svn://svn.debian.org/python-modules/packages/%s/trunk/',
+            'svn://anonscm.debian.org/python-modules/packages/%s/trunk/',
             '^svn://(?:svn|anonscm)[.]debian[.]org/(?:svn/)?python-modules/packages/%s(?:/trunk)?/?$'
         ],
     },
@@ -44,11 +44,11 @@ my %TEAMS = (
         name => 'Python Applications Packaging Team',
         email => 'python-apps-team@lists.alioth.debian.org',
         vcs_browser => [
-            'http://svn.debian.org/viewsvn/python-apps/packages/%s/trunk/',
+            'http://anonscm.debian.org/viewvc/python-apps/packages/%s/trunk/',
             '^http://(?:anonscm|svn)[.]debian[.]org/view(?:svn|vc)/python-apps/packages/%s/trunk/?$',
         ],
         vcs_svn => [
-            'svn://svn.debian.org/python-apps/packages/%s/trunk/',
+            'svn://anonscm.debian.org/python-apps/packages/%s/trunk/',
             '^svn://(?:svn|anonscm)[.]debian[.]org/(?:svn/)?python-apps/packages/%s(?:/trunk)?/?$'
         ]
     }
