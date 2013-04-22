@@ -9,7 +9,7 @@ lintian4python (0.17.3) UNRELEASED; urgency=low
   * tests/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Apr 2013 22:53:13 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 22 Apr 2013 21:24:45 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
