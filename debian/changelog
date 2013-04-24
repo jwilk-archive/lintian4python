@@ -1,7 +1,14 @@
-lintian4python (0.17.3) UNRELEASED; urgency=low
+lintian4python (0.18) UNRELEASED; urgency=low
  
+  * Summary of tag changes:
+    + Added:
+      - mkstemp-file-descriptor-leak
+
   * data/python*-projects:
     + Refresh.
+
+  * checks/python/code-analysis:
+    + Check for mkstemp() file descriptor leaks.
 
   * checks/python/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
@@ -9,7 +16,7 @@ lintian4python (0.17.3) UNRELEASED; urgency=low
   * tests/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 22 Apr 2013 21:24:45 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 24 Apr 2013 22:44:53 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
