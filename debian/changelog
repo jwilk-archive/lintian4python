@@ -9,14 +9,16 @@ lintian4python (0.18) UNRELEASED; urgency=low
 
   * checks/python/code-analysis:
     + Check for mkstemp() file descriptor leaks.
-
+  * checks/python/pyflakes:
+    + Add link to “Idioms and Anti-Idioms in Python” to the
+      pyflakes-import-star-used description.
   * checks/python/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
 
   * tests/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 24 Apr 2013 22:44:53 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 24 Apr 2013 22:55:20 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
