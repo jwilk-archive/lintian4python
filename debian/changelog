@@ -4,8 +4,19 @@ lintian4python (0.18) UNRELEASED; urgency=low
     + Added:
       - mkstemp-file-descriptor-leak
 
+  * checks/lintian.desc, collection, vendors/debian/python/data/common,
+    vendors/debian/python/data/output:
+    + Remove; they were symlinks to /usr/share/lintian, which are no longer
+      needed since we started using --include-dir.
+      Thanks to Niels Thykier for the bug report.
+
   * data/python*-projects:
     + Refresh.
+
+  * debian/*.lintian-overrides:
+    + Remove; no longer needed.
+  * debian/rules:
+    + Don't install ‘collection’.
 
   * checks/python/code-analysis:
     + Check for mkstemp() file descriptor leaks.
@@ -20,7 +31,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 24 Apr 2013 22:55:20 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 25 Apr 2013 22:55:31 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 

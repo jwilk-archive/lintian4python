@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-directories = checks collection helpers lib profiles vendors
+directories = checks helpers lib profiles vendors
 share = /usr/share/lintian4python/
 version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
 
