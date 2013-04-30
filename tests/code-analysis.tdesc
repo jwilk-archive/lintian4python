@@ -10,6 +10,12 @@ Files:
 Test-For:
  e: python-pebl: except-shadows-builtin usr/share/pyshared/pebl/network.py:69: ValueError
 
+Name: except-without-exception-type
+Files:
+ 2bfb202a9e17e12aa4bb6dacf80612e33ef4d453  python-dput_1.0_all.deb
+Test-For:
+ x: python-dput: except-without-exception-type usr/share/pyshared/dput/uploaders/sftp.py:51
+
 Name: hardcoded-errno-value
 Files:
  2bfb202a9e17e12aa4bb6dacf80612e33ef4d453  python-dput_1.0_all.deb

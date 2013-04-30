@@ -128,6 +128,8 @@ class Visitor(ast.NodeVisitor):
             ex_type = node.type
         except AttributeError:
             ex_type = node.exc
+        if ex_type is None:
+            yield ('*reraise',)
         while isinstance(ex_type, ast.BinOp):
             ex_type = ex_type.left
         if isinstance(ex_type, ast.Str):
@@ -213,6 +215,7 @@ class Visitor(ast.NodeVisitor):
                     body_modern_pil_imp.add(mod)
                 yield t
         for child in node.handlers:
+            reraised = False
             for t in self.visit(child):
                 if t[0] == 'obsolete-pil-import':
                     pending_except_tags += [t]
@@ -224,7 +227,11 @@ class Visitor(ast.NodeVisitor):
                     _, lineno, n = t
                     code = i386_errno[n]
                     yield tag('hardcoded-errno-value', lineno, n, '->', 'errno.{code}'.format(code=code))
+                if t[0] == '*reraise':
+                    reraised = True
                 yield t
+            if child.type is None and not reraised:
+                yield tag('except-without-exception-type', child.lineno)
         for t in pending_body_tags:
             _, _, mod = t
             if not mod in except_modern_pil_imp:

@@ -2,8 +2,9 @@ lintian4python (0.18) UNRELEASED; urgency=low
  
   * Summary of tag changes:
     + Added:
-      - mkstemp-file-descriptor-leak
+      - except-without-exception-type
       - hardcoded-errno-value
+      - mkstemp-file-descriptor-leak
 
   * checks/lintian.desc, collection, vendors/debian/python/data/common,
     vendors/debian/python/data/output:
@@ -22,8 +23,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
     + Don't install ‘collection’.
 
   * checks/python/code-analysis:
-    + Check for mkstemp() file descriptor leaks.
-    + Check for hardcoded errno values.
+    + Add new tags.
   * checks/python/pyflakes:
     + Add link to “Idioms and Anti-Idioms in Python” to the
       pyflakes-import-star-used description.
@@ -37,13 +37,14 @@ lintian4python (0.18) UNRELEASED; urgency=low
       it's not).
     + Check for mkstemp() file descriptor leaks.
     + Check for hardcoded errno values.
+    + Check for “except” clauses that don't specify any exception type.
 
   * tests/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 00:10:38 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 00:48:06 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 

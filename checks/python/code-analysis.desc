@@ -34,6 +34,12 @@ Info: One error that Python programmers occasionally make is writing the
    except (TypeError, ValueError):
        ...
 
+Tag: except-without-exception-type
+Severity: normal
+Certainty: possible
+Experimental: yes
+Ref: http://docs.python.org/2/howto/doanddont.html#except
+
 Tag: hardcoded-errno-value
 Severity: normal
 Certainty: possible
