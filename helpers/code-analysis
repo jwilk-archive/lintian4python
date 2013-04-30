@@ -23,51 +23,9 @@ import os
 import sys
 import warnings
 
-i386_errno = {
-    1: 'EPERM',
-    2: 'ENOENT',
-    3: 'ESRCH',
-    4: 'EINTR',
-    5: 'EIO',
-    6: 'ENXIO',
-    7: 'E2BIG',
-    8: 'ENOEXEC',
-    9: 'EBADF',
-    10: 'ECHILD',
-    11: 'EAGAIN',
-    12: 'ENOMEM',
-    13: 'EACCES',
-    14: 'EFAULT',
-    15: 'ENOTBLK',
-    16: 'EBUSY',
-    17: 'EEXIST',
-    18: 'EXDEV',
-    19: 'ENODEV',
-    20: 'ENOTDIR',
-    21: 'EISDIR',
-    22: 'EINVAL',
-    23: 'ENFILE',
-    24: 'EMFILE',
-    25: 'ENOTTY',
-    26: 'ETXTBSY',
-    27: 'EFBIG',
-    28: 'ENOSPC',
-    29: 'ESPIPE',
-    30: 'EROFS',
-    31: 'EMLINK',
-    32: 'EPIPE',
-    33: 'EDOM',
-    34: 'ERANGE',
-    35: 'EDEADLOCK',
-    36: 'ENAMETOOLONG',
-    37: 'ENOLCK',
-    38: 'ENOSYS',
-    39: 'ENOTEMPTY',
-    40: 'ELOOP',
-}
-
 builtin_exception_types = set()
 pil_modules = set()
+errno_constants = {}
 
 def load_data_file(ident):
     try:
@@ -98,6 +56,9 @@ def load_data():
     pil_modules.update(
         load_data_file('python-imaging-modules')
     )
+    for line in load_data_file('errno-constants'):
+        n, code = line.split()
+        errno_constants[int(n)] = code
 
 if sys.version_info >= (3, 2):
     import tokenize
@@ -193,7 +154,7 @@ class Visitor(ast.NodeVisitor):
                 isinstance(op, (ast.Eq, ast.NotEq)) and
                 isinstance(right, ast.Num) and
                 isinstance(right.n, int) and
-                right.n in i386_errno
+                right.n in errno_constants
             )
             if hardcoded_errno:
                 yield ('*hardcoded-errno-value', node.lineno, right.n)
@@ -225,7 +186,7 @@ class Visitor(ast.NodeVisitor):
                     except_modern_pil_imp.add(mod)
                 if t[0] == '*hardcoded-errno-value':
                     _, lineno, n = t
-                    code = i386_errno[n]
+                    code = errno_constants[n]
                     yield tag('hardcoded-errno-value', lineno, n, '->', 'errno.{code}'.format(code=code))
                 if t[0] == '*reraise':
                     reraised = True
