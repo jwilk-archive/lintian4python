@@ -21,6 +21,7 @@ import ast
 import itertools
 import os
 import sys
+import warnings
 
 try:
     # Python ≥ 3.3
@@ -33,7 +34,17 @@ builtin_exception_types = set()
 pil_modules = set()
 
 def load_data_file(ident):
-    lintian_root = os.environ['LINTIAN4PYTHON_ROOT']
+    try:
+        lintian_root = os.environ['LINTIAN4PYTHON_ROOT']
+    except LookupError:
+        lintian_root = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), os.pardir)
+        )
+        warnings.warn(
+            'setting LINTIAN4PYTHON_ROOT={root}'.format(root=lintian_root),
+            category=RuntimeWarning,
+            stacklevel=3,
+        )
     path = '{root}/vendors/debian/python/data/{ident}'.format(root=lintian_root, ident=ident)
     with open(path) as file:
         for line in file:
