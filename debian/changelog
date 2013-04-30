@@ -29,6 +29,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
     + Prefer anonscm.debian.org to svn.debian.org.
 
   * helpers/code-analysis:
+    + Check for mkstemp() file descriptor leaks.
     + Make sure it's always run with tab check enabled.
 
   * tests/teams:
@@ -36,7 +37,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 30 Apr 2013 12:35:28 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 30 Apr 2013 12:37:00 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
