@@ -23,13 +23,6 @@ import os
 import sys
 import warnings
 
-try:
-    # Python ≥ 3.3
-    ast.TryExcept = ast.Try
-except AttributeError:
-    # Python ≤ 3.2
-    pass
-
 builtin_exception_types = set()
 pil_modules = set()
 
@@ -80,8 +73,14 @@ else:
 def tag(*s):
     return s
 
-def check_node(node):
-    if isinstance(node, ast.Raise):
+class Visitor(ast.NodeVisitor):
+
+    def generic_visit(self, node):
+        for child in ast.iter_child_nodes(node):
+            for t in self.visit(child):
+                yield t
+
+    def visit_Raise(self, node):
         try:
             ex_type = node.type
         except AttributeError:
@@ -90,7 +89,10 @@ def check_node(node):
             ex_type = ex_type.left
         if isinstance(ex_type, ast.Str):
             yield tag('string-exception', node.lineno)
-    elif isinstance(node, ast.ExceptHandler):
+        for t in self.generic_visit(node):
+            yield t
+
+    def visit_ExceptHandler(self, node):
         node_name = None
         if isinstance(node.name, ast.Name):
             # Python 2
@@ -100,11 +102,16 @@ def check_node(node):
             node_name = node.name
         if node_name in builtin_exception_types:
             yield tag('except-shadows-builtin', node.lineno, node_name)
-        del node_name
-    elif isinstance(node, ast.Assert):
+        for t in self.generic_visit(node):
+            yield t
+
+    def visit_Assert(self, node):
         if isinstance(node.test, ast.Tuple) and len(node.test.elts) > 0:
             yield tag('assertion-always-true', node.lineno)
-    elif isinstance(node, ast.Import):
+        for t in self.generic_visit(node):
+            yield t
+
+    def visit_Import(self, node):
         imp_modules = frozenset(mod.name for mod in node.names)
         imp_pil_modules = imp_modules & pil_modules
         for mod in sorted(imp_pil_modules):
@@ -115,7 +122,10 @@ def check_node(node):
         )
         for mod in sorted(imp_pil_modules):
             yield ('*modern-pil-import', node.lineno, mod)
-    elif isinstance(node, ast.ImportFrom):
+        for t in self.generic_visit(node):
+            yield t
+
+    def visit_ImportFrom(self, node):
         if node.level == 0 and node.module in pil_modules:
             yield tag('obsolete-pil-import', node.lineno, node.module)
         elif node.level == 0 and node.module == 'PIL':
@@ -123,13 +133,16 @@ def check_node(node):
             imp_pil_modules = imp_modules & pil_modules
             for mod in sorted(imp_pil_modules):
                 yield ('*modern-pil-import', node.lineno, mod)
-    elif isinstance(node, ast.TryExcept):
+        for t in self.generic_visit(node):
+            yield t
+
+    def visit_TryExcept(self, node):
         body_modern_pil_imp = set()
         except_modern_pil_imp = set()
         pending_body_tags = []
         pending_except_tags = []
         for child in node.body:
-            for t in check_node(child):
+            for t in self.visit(child):
                 if t[0] == 'obsolete-pil-import':
                     pending_body_tags += [t]
                     continue
@@ -138,7 +151,7 @@ def check_node(node):
                     body_modern_pil_imp.add(mod)
                 yield t
         for child in node.handlers:
-            for t in check_node(child):
+            for t in self.visit(child):
                 if t[0] == 'obsolete-pil-import':
                     pending_except_tags += [t]
                     continue
@@ -155,10 +168,12 @@ def check_node(node):
             if not mod in body_modern_pil_imp:
                 yield t
         for child in node.orelse:
-            for t in check_node(child):
+            for t in self.visit(child):
                 yield t
-        return
-    elif isinstance(node, ast.Subscript):
+
+    visit_Try = visit_TryExcept
+
+    def visit_Subscript(self, node):
         func = None
         if isinstance(node.value, ast.Call):
             call = node.value
@@ -171,10 +186,11 @@ def check_node(node):
                 index = node.slice.value
                 if isinstance(index, ast.Num) and index.n == 1:
                     yield tag('mkstemp-file-descriptor-leak', node.lineno)
-                    return
-    for child in ast.iter_child_nodes(node):
-        for t in check_node(child):
+        for t in self.generic_visit(node):
             yield t
+
+def check_node(node):
+    return Visitor().visit(node)
 
 def check_file(filename):
     with python_open(filename) as file:

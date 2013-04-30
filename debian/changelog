@@ -29,6 +29,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
     + Prefer anonscm.debian.org to svn.debian.org.
 
   * helpers/code-analysis:
+    + Refactor to use the visitor pattern.
     + Check for mkstemp() file descriptor leaks.
     + Make sure it's always run with tab check enabled.
     + Don't require LINTIAN4PYTHON_ROOT to be set (but emit a warning when
@@ -39,7 +40,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 30 Apr 2013 17:57:49 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 30 Apr 2013 23:26:13 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
