@@ -197,6 +197,11 @@ def check_contents(contents, catch_tab_errors=True):
     )
 
 def main(self):
+    try:
+        if sys.flags.tabcheck < 2:
+            raise RuntimeError('tab check disabled')
+    except AttributeError:
+        pass
     load_data()
     for filename in sys.argv[1:]:
         print('# {0}'.format(filename.replace('\n', '?')))
