@@ -10,6 +10,12 @@ Files:
 Test-For:
  e: python-pebl: except-shadows-builtin usr/share/pyshared/pebl/network.py:69: ValueError
 
+Name: hardcoded-errno-value
+Files:
+ 2bfb202a9e17e12aa4bb6dacf80612e33ef4d453  python-dput_1.0_all.deb
+Test-For:
+ w: python-dput: hardcoded-errno-value usr/share/pyshared/dput/uploaders/sftp.py:222: 13 -> errno.EACCES
+
 Name: inconsistent-use-of-tabs-and-spaces-in-indentation
 Files:
  efa5529f00662e26dd6d0609e1603e08de5bfe32  python-slides_1.0.1-13_all.deb

@@ -34,6 +34,11 @@ Info: One error that Python programmers occasionally make is writing the
    except (TypeError, ValueError):
        ...
 
+Tag: hardcoded-errno-value
+Severity: normal
+Certainty: possible
+Ref: http://lists.debian.org/20100803162901.GA5419@jwilk.net
+
 Tag: inconsistent-use-of-tabs-and-spaces-in-indentation
 Severity: normal
 Certainty: certain

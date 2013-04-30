@@ -3,6 +3,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * Summary of tag changes:
     + Added:
       - mkstemp-file-descriptor-leak
+      - hardcoded-errno-value
 
   * checks/lintian.desc, collection, vendors/debian/python/data/common,
     vendors/debian/python/data/output:
@@ -22,6 +23,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
 
   * checks/python/code-analysis:
     + Check for mkstemp() file descriptor leaks.
+    + Check for hardcoded errno values.
   * checks/python/pyflakes:
     + Add link to “Idioms and Anti-Idioms in Python” to the
       pyflakes-import-star-used description.
@@ -30,17 +32,18 @@ lintian4python (0.18) UNRELEASED; urgency=low
 
   * helpers/code-analysis:
     + Refactor to use the visitor pattern.
-    + Check for mkstemp() file descriptor leaks.
     + Make sure it's always run with tab check enabled.
     + Don't require LINTIAN4PYTHON_ROOT to be set (but emit a warning when
       it's not).
+    + Check for mkstemp() file descriptor leaks.
+    + Check for hardcoded errno values.
 
   * tests/teams:
     + Prefer anonscm.debian.org to svn.debian.org.
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 30 Apr 2013 23:26:13 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 00:10:38 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
