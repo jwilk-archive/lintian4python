@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# refresh-exception-names -- Refresh Lintian data about Python exception names
+# update-exception-names -- update Lintian data about Python exception names
 #
 # Copyright © 2012, 2013 Jakub Wilk
 #
