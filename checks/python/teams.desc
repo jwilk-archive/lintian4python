@@ -2,7 +2,7 @@ Check-Script: python/teams
 Author: Jakub Wilk <jwilk@debian.org>
 Abbrev: pytms
 Type: binary, source
-Info: Debian Python Modules Team and Python Applications Module Team policies
+Info: Debian Python Modules Team and Python Applications Packaging Team policies
 Needs-Info: index
 
 Tag: missing-vcs-field

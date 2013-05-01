@@ -34,6 +34,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
     + Add link to “Idioms and Anti-Idioms in Python” to the
       pyflakes-import-star-used description.
   * checks/python/teams:
+    + Fix a typo.
     + Prefer anonscm.debian.org to svn.debian.org.
 
   * helpers/code-analysis:
@@ -57,7 +58,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 01:30:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 02:31:14 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 
