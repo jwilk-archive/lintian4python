@@ -6,8 +6,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
       - hardcoded-errno-value
       - mkstemp-file-descriptor-leak
 
-  * checks/lintian.desc, collection, vendors/debian/python/data/common,
-    vendors/debian/python/data/output:
+  * checks/lintian.desc, collection, data/common, data/output:
     + Remove; they were symlinks to /usr/share/lintian, which are no longer
       needed since we started using --include-dir.
       Thanks to Niels Thykier for the bug report.
