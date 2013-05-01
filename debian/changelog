@@ -36,6 +36,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * checks/python/teams:
     + Fix a typo.
     + Prefer anonscm.debian.org to svn.debian.org.
+    + Remove “Experimental” flag from all tags.
 
   * helpers/code-analysis:
     + Refactor to use the visitor pattern.
@@ -58,7 +59,7 @@ lintian4python (0.18) UNRELEASED; urgency=low
   * tests/*:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 02:31:14 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 01 May 2013 02:36:23 +0200
 
 lintian4python (0.17.2) experimental; urgency=low
 

@@ -8,14 +8,11 @@ Needs-Info: index
 Tag: missing-vcs-field
 Severity: normal
 Certainty: certain
-Experimental: yes
 
 Tag: incorrect-vcs-field
 Severity: normal
 Certainty: possible
-Experimental: yes
 
 Tag: incorrect-team-name
 Severity: normal
 Certainty: possible
-Experimental: yes
