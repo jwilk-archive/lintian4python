@@ -4,6 +4,15 @@ Files:
 Test-For:
  w: s3ql: incorrect-team-name Debian Python Apps Team -> Python Applications Packaging Team
 
+Name: incorrect-vcs-field
+Files:
+ fa6649b85208100c9be42dbd57be111fc7132180  bjsonrpc_0.2.0-1.dsc
+ 20af63f9706a9188e23ddcad45d93936a27e6aab  bjsonrpc_0.2.0-1.debian.tar.bz2
+ 446ed948bf95a79087a49d354caa71bf0436ca04  bjsonrpc_0.2.0.orig.tar.gz
+Test-For:
+ w: bjsonrpc source: incorrect-vcs-field vcs-svn svn://svn.debian.org/svn/python-apps/packages/bjsonrpc/trunk -> svn://anonscm.debian.org/python-modules/packages/bjsonrpc/trunk/
+ w: bjsonrpc source: incorrect-vcs-field vcs-browser http://svn.debian.org/viewsvn/python-apps/packages/bjsonrpc/trunk/ -> http://anonscm.debian.org/viewvc/python-modules/packages/bjsonrpc/trunk/
+
 Name: missing-vcs-field/dpmt
 Files:
  2c728ed51f42c23059cca6136333468c1f7a378a  cssutils_0.9.7~b2-2.dsc

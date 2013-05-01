@@ -109,7 +109,7 @@ multi-arch
 teams
 ~~~~~
 | [X] incorrect-team-name
-| [ ] incorrect-vcs-field
+| [X] incorrect-vcs-field
 | [2] missing-vcs-field
 
 code-analysis
