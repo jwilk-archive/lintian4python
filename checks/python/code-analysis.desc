@@ -35,7 +35,7 @@ Info: One error that Python programmers occasionally make is writing the
        ...
 
 Tag: except-without-exception-type
-Severity: normal
+Severity: minor
 Certainty: possible
 Experimental: yes
 Ref: http://docs.python.org/2/howto/doanddont.html#except
