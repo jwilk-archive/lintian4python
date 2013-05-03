@@ -11,6 +11,7 @@ configobj => python-configobj || This is the base class for all errors that Conf
 doctest => python || Module doctest -- a framework for running examples in docstrings\.
 optparse => python (>= 2.3) || [Aa] powerful, extensible, and easy-to-use option parser\.
 pexpect => python-pexpect || Pexpect is a Python module for spawning child
+sets => python (>= 2.3) || Classes to represent arbitrary sets \(including sets of sets\)
 subprocess => python (>= 2.4) || subprocess - Subprocesses with accessible I/O streams\s+This module allows you to spawn processes,
 textwrap => python (>= 2.3) || ^Text wrapping and filling\.\s*$
 uuid => python (>= 2.5) || This module provides immutable UUID objects \(class UUID\) and the functions\s+uuid1\(\), uuid3\(\), uuid4\(\), uuid5\(\)

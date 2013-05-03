@@ -35,6 +35,12 @@ Test-For:
  e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/optparse.py: optparse => python (>= 2.3)
  e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/pexpect.py: pexpect => python-pexpect
 
+Name: embedded-code-copy/sets
+Files:
+ bb77ca977f202a011545fabefd46786eda30513c  spambayes_1.0.4-5.1_all.deb
+Test-For:
+ e: spambayes: embedded-code-copy usr/share/pyshared/spambayes/compatsets.py: sets => python (>= 2.3)
+
 Name: embedded-code-copy/subprocess
 Files:
  5492e75e51e26a8c15ce10a7f15f1aadd86c9814  sshuttle_0.54-2_all.deb
