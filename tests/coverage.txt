@@ -115,7 +115,7 @@ teams
 code-analysis
 ~~~~~~~~~~~~~
 | [X] assertion-always-true
-| [8] embedded-code-copy
+| [12] embedded-code-copy
 | [X] except-shadows-builtin
 | [X] except-without-exception-type
 | [X] hardcoded-errno-value
