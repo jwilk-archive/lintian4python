@@ -60,6 +60,12 @@ Files:
 Test-For:
  e: spambayes: embedded-code-copy usr/share/pyshared/spambayes/compatsets.py: sets => python (>= 2.3)
 
+Name: embedded-code-copy/smartypants
+Files:
+ 4f70701bd21059c8c327acb14c2f9e2622326e57  rst2pdf_0.16-2_all.deb
+Test-For:
+ e: rst2pdf: embedded-code-copy usr/share/pyshared/rst2pdf/smartypants.py: smartypants => python-smartypants
+
 Name: embedded-code-copy/subprocess
 Files:
  5492e75e51e26a8c15ce10a7f15f1aadd86c9814  sshuttle_0.54-2_all.deb

@@ -16,6 +16,7 @@ ply.lex => python-ply || ^lex: =+ MASTER REGEXS FOLLOW =+$
 ply.yacc => python-ply || ^PLY: PARSE DEBUG START$
 pyparsing => python-pyparsing || pyparsing module - Classes and methods to define and execute parsing grammars
 sets => python (>= 2.3) || Classes to represent arbitrary sets \(including sets of sets\)
+smartypants => python-smartypants || Smart-quotes, smart-ellipses, and smart-dashes for weblog entries in pyblosxom
 subprocess => python (>= 2.4) || subprocess - Subprocesses with accessible I/O streams\s+This module allows you to spawn processes,
 textwrap => python (>= 2.3) || ^Text wrapping and filling\.\s*$
 uuid => python (>= 2.5) || This module provides immutable UUID objects \(class UUID\) and the functions\s+uuid1\(\), uuid3\(\), uuid4\(\), uuid5\(\)
