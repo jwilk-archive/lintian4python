@@ -14,6 +14,7 @@ optparse => python (>= 2.3) || [Aa] powerful, extensible, and easy-to-use option
 pexpect => python-pexpect || Pexpect is a Python module for spawning child
 ply.lex => python-ply || ^lex: =+ MASTER REGEXS FOLLOW =+$
 ply.yacc => python-ply || ^PLY: PARSE DEBUG START$
+pyparsing => python-pyparsing || pyparsing module - Classes and methods to define and execute parsing grammars
 sets => python (>= 2.3) || Classes to represent arbitrary sets \(including sets of sets\)
 subprocess => python (>= 2.4) || subprocess - Subprocesses with accessible I/O streams\s+This module allows you to spawn processes,
 textwrap => python (>= 2.3) || ^Text wrapping and filling\.\s*$

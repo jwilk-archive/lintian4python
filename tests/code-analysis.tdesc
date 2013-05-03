@@ -48,6 +48,12 @@ Test-For:
  e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/optparse.py: optparse => python (>= 2.3)
  e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/pexpect.py: pexpect => python-pexpect
 
+Name: embedded-code-copy/pyparsing
+Files:
+ 388a4f24d66885ab300ba924c76e85facf5a1eb9  mitmproxy_0.8-2_i386.deb
+Test-For:
+ e: mitmproxy: embedded-code-copy usr/share/pyshared/libmproxy/contrib/pyparsing.py: pyparsing => python-pyparsing
+
 Name: embedded-code-copy/sets
 Files:
  bb77ca977f202a011545fabefd46786eda30513c  spambayes_1.0.4-5.1_all.deb
