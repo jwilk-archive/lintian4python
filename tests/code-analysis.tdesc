@@ -4,6 +4,12 @@ Files:
 Test-For:
  w: python-clientcookie: assertion-always-true usr/share/pyshared/ClientCookie/_MSIECookieJar.py:261
 
+Name: embedded-code-copy/beautifulsoup
+Files:
+ 98406b9308b950d6538ca2e32bdc67f3d2ea54b9  python-imdbpy_4.9-1_i386.deb
+Test-For:
+ e: python-imdbpy: embedded-code-copy usr/share/pyshared/imdb/parser/http/bsouplxml/_bsoup.py: BeautifulSoup => python-beautifulsup
+
 Name: embedded-code-copy/configparser
 Files:
  910c1858deed9418a37f00099b2a03bb8b9367dc  mucous_0.2+svn20100315.r1208-2_all.deb
@@ -27,6 +33,13 @@ Files:
  f34104077e8589cf763aee73d469f26e9d3cd5ef  python-setuptools_0.6.24-1_all.deb
 Test-For:
  e: python-setuptools: embedded-code-copy usr/share/pyshared/setuptools/tests/doctest.py: doctest => python
+
+Name: embedded-code-copy/ply
+Files:
+ 5a1e8acd9ed5869af8b02cf1d95ceca2435519cd  python-pyke_1.1.1-1_all.deb
+Test-For:
+ e: python-pyke: embedded-code-copy usr/share/pyshared/pyke/krb_compiler/ply/lex.py: ply.lex => python-ply
+ e: python-pyke: embedded-code-copy usr/share/pyshared/pyke/krb_compiler/ply/yacc.py: ply.yacc => python-ply
 
 Name: embedded-code-copy/pexpect+optparse
 Files:

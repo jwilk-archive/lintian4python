@@ -5,12 +5,15 @@
 #
 # Please keep the list sorted.
 
+BeautifulSoup => python-beautifulsup || Beautiful Soup parses a \(possibly invalid\) XML or HTML document
 ConfigParser => python || A setup file consists of sections, lead by a "\[section\]" header,
 argparse => python (>= 2.7) | python-argparse || This module is an optparse-inspired command-line parsing library that:
 configobj => python-configobj || This is the base class for all errors that ConfigObj raises\.
 doctest => python || Module doctest -- a framework for running examples in docstrings\.
 optparse => python (>= 2.3) || [Aa] powerful, extensible, and easy-to-use option parser\.
 pexpect => python-pexpect || Pexpect is a Python module for spawning child
+ply.lex => python-ply || ^lex: =+ MASTER REGEXS FOLLOW =+$
+ply.yacc => python-ply || ^PLY: PARSE DEBUG START$
 sets => python (>= 2.3) || Classes to represent arbitrary sets \(including sets of sets\)
 subprocess => python (>= 2.4) || subprocess - Subprocesses with accessible I/O streams\s+This module allows you to spawn processes,
 textwrap => python (>= 2.3) || ^Text wrapping and filling\.\s*$
