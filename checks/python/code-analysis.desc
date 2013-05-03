@@ -10,6 +10,11 @@ Severity: minor
 Certainty: certain
 Ref: http://docs.python.org/reference/simple_stmts.html#grammar-token-assert_stmt
 
+Tag: embedded-code-copy
+Severity: important
+Certainty: possible
+Ref: policy 4.13
+
 Tag: except-shadows-builtin
 Severity: important
 Certainty: possible

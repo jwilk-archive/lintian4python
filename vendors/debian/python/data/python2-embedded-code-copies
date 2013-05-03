@@ -1,0 +1,17 @@
+# This file contains regular expressions that identify common embedded copies
+# of Python 2.x modules.
+# "Common" is defined as: at least two source packages in the archve contained
+# a copy of the module at the time when it was added to the list.
+#
+# Please keep the list sorted.
+
+ConfigParser => python || A setup file consists of sections, lead by a "\[section\]" header,
+argparse => python (>= 2.7) | python-argparse || This module is an optparse-inspired command-line parsing library that:
+configobj => python-configobj || This is the base class for all errors that ConfigObj raises\.
+doctest => python || Module doctest -- a framework for running examples in docstrings\.
+optparse => python (>= 2.3) || [Aa] powerful, extensible, and easy-to-use option parser\.
+pexpect => python-pexpect || Pexpect is a Python module for spawning child
+subprocess => python (>= 2.4) || subprocess - Subprocesses with accessible I/O streams\s+This module allows you to spawn processes,
+textwrap => python (>= 2.3) || ^Text wrapping and filling\.\s*$
+uuid => python (>= 2.5) || This module provides immutable UUID objects \(class UUID\) and the functions\s+uuid1\(\), uuid3\(\), uuid4\(\), uuid5\(\)
+youtube-dl || File downloader objects are the ones responsible of downloading the\s+actual video file and writing it to disk

@@ -1,0 +1,6 @@
+# This file contains regular expressions that identify common embedded copies
+# of Python 3.x modules.
+# "Common" is defined as: at least two source packages in the archve contained
+# a copy of the module at the time when it was added to the list.
+#
+# Please keep the list sorted.

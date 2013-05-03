@@ -20,12 +20,15 @@
 import ast
 import itertools
 import os
+import re
 import sys
 import warnings
 
 builtin_exception_types = set()
 pil_modules = set()
 errno_constants = {}
+code_copies = []
+code_copies_regex = None
 
 def load_data_file(ident):
     try:
@@ -50,6 +53,7 @@ def load_data_file(ident):
             yield line
 
 def load_data():
+    global code_copies_regex
     builtin_exception_types.update(
         load_data_file('python-exceptions')
     )
@@ -59,6 +63,14 @@ def load_data():
     for line in load_data_file('errno-constants'):
         n, code = line.split()
         errno_constants[int(n)] = code
+    regex = []
+    for line in load_data_file('python{n}-embedded-code-copies'.format(n=sys.version_info[0])):
+        regex += [None]
+        package, regex[-1] = map(str.strip, line.split('||'))
+        code_copies.append(package)
+    if regex:
+        regex = '|'.join('(%s)' % r for r in regex)
+        code_copies_regex = re.compile(regex, re.DOTALL)
 
 if sys.version_info >= (3, 2):
     import tokenize
@@ -78,6 +90,11 @@ def tag(*s):
     return s
 
 class Visitor(ast.NodeVisitor):
+
+    def __init__(self):
+        class state:
+            code_copy = False
+        self.state = state
 
     def generic_visit(self, node):
         for child in ast.iter_child_nodes(node):
@@ -222,6 +239,23 @@ class Visitor(ast.NodeVisitor):
                     yield tag('mkstemp-file-descriptor-leak', node.lineno)
         for t in self.generic_visit(node):
             yield t
+
+    def visit_Str(self, node):
+        if self.state.code_copy:
+            return
+        if code_copies_regex is None:
+            return
+        match = code_copies_regex.search(node.s)
+        if match is None:
+            return
+        for match, info in zip(match.groups(), code_copies):
+            if match is not None:
+                break
+        else:
+            info = None
+        if info is not None:
+            yield tag('embedded-code-copy', '-', info)
+            self.state.code_copy = True
 
 def check_node(node):
     return Visitor().visit(node)

@@ -34,17 +34,19 @@ use Lintian::Python qw(classify_python_modules);
 
 sub run {
     my ($pkg, $type, $info, $proc) = @_;
+    my $version = $info->field('version');
     my $srcpkg = $proc->pkg_src() // '';
     my ($py2files, $py3files) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    analyse($srcpkg, $py2files, '/usr/bin/python', '-tt');
-    analyse($srcpkg, $py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
+    my @pkginfo = ($pkg, $srcpkg, $version);
+    analyse(@pkginfo, $py2files, '/usr/bin/python', '-tt');
+    analyse(@pkginfo, $py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
     chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 sub analyse {
-    my ($srcpkg, $files, @interpreter) = @_;
+    my ($pkg, $srcpkg, $version, $files, @interpreter) = @_;
     open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
@@ -61,6 +63,20 @@ sub analyse {
             }
             if ($tag eq 'obsolete-pil-import' and $srcpkg eq 'python-imaging') {
                 next;
+            }
+            if ($tag eq 'embedded-code-copy') {
+                if ($extra =~ m,=> python(?:\s|$), and $srcpkg =~ m,^(?:python2\.\d+|jython|pypy)$,) {
+                    next;
+                } else {
+                    my ($depends) = $extra =~ m,=>\s*+(.++),;
+                    if (not defined $depends) {
+                        $depends = $extra;
+                    }
+                    my $self_relation = Lintian::Relation->new("$pkg (= $version)");
+                    if ($self_relation->implies($depends)) {
+                        next;
+                    }
+                }
             }
             tag $tag, $message;
         } elsif (m,^# (.+)$,) {

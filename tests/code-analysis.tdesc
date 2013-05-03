@@ -4,6 +4,56 @@ Files:
 Test-For:
  w: python-clientcookie: assertion-always-true usr/share/pyshared/ClientCookie/_MSIECookieJar.py:261
 
+Name: embedded-code-copy/configparser
+Files:
+ 910c1858deed9418a37f00099b2a03bb8b9367dc  mucous_0.2+svn20100315.r1208-2_all.deb
+Test-For:
+ e: mucous: embedded-code-copy usr/share/pyshared/pymucous/ConfigParser.py: ConfigParser => python
+
+Name: embedded-code-copy/argparse
+Files:
+ 25e370e2ad50bff7a3e6a73abfc5f724ba92ec8c  pgxnclient_1.0.3-1_all.deb
+Test-For:
+ e: pgxnclient: embedded-code-copy usr/share/pyshared/pgxnclient/utils/argparse.py: argparse => python (>= 2.7) | python-argparse
+
+Name: embedded-code-copy/configobj
+Files:
+ 20624eb08e8be88ac0694a37fa03c82c8be217bb  rest2web_0.5.2~alpha+svn-r248-2_all.deb
+Test-For:
+ e: rest2web: embedded-code-copy usr/share/pyshared/rest2web/pythonutils/configobj.py: configobj => python-configobj
+
+Name: embedded-code-copy/doctest
+Files:
+ f34104077e8589cf763aee73d469f26e9d3cd5ef  python-setuptools_0.6.24-1_all.deb
+Test-For:
+ e: python-setuptools: embedded-code-copy usr/share/pyshared/setuptools/tests/doctest.py: doctest => python
+
+Name: embedded-code-copy/pexpect+optparse
+Files:
+ 7875c3bc405e158698531c64af84dc532c92ed63  python-smartpm_1.4-2_i386.deb
+Test-For:
+ e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/optparse.py: optparse => python (>= 2.3)
+ e: python-smartpm: embedded-code-copy usr/share/pyshared/smart/util/pexpect.py: pexpect => python-pexpect
+
+Name: embedded-code-copy/subprocess
+Files:
+ 5492e75e51e26a8c15ce10a7f15f1aadd86c9814  sshuttle_0.54-2_all.deb
+Test-For:
+ e: sshuttle: embedded-code-copy usr/lib/sshuttle/compat/ssubprocess.py: subprocess => python (>= 2.4)
+
+Name: embedded-code-copy/uuid+youtube-dl
+Files:
+ 9b97da0e902ff54c627de6f5703ecef7ebcad3cd  python-coherence_0.6.6.2-6_all.deb
+Test-For:
+ e: python-coherence: embedded-code-copy usr/share/pyshared/coherence/extern/uuid/uuid.py: uuid => python (>= 2.5)
+ e: python-coherence: embedded-code-copy usr/share/pyshared/coherence/extern/youtubedl/youtubedl.py: youtube-dl
+
+Name: embedded-code-copy/textwrap
+Files:
+ 6e5340d36e03eee1dbe94eabbd087514fe3c6008  translate-toolkit_1.9.0-2_all.deb
+Test-For:
+ e: translate-toolkit: embedded-code-copy usr/share/pyshared/translate/misc/textwrap.py: textwrap => python (>= 2.3)
+
 Name: except-shadows-builtin
 Files:
  ae76d144eeb4483c3e775adbb7e2e404e65a4a97  python-pebl_1.0.2-2_i386.deb

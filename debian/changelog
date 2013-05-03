@@ -1,9 +1,25 @@
-lintian4python (0.18.1) UNRELEASED; urgency=low
+lintian4python (0.19) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - embedded-code-copy
+
+  * checks/python/code-analysis:
+    + Check for common embedded code copies of Python modules.
 
   * data/python*-projects:
     + Update.
+  * data/python*-embedded-code-copies:
+    + New data files containing regular expressions that identify common
+      embedded copies of Python modules.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 03 May 2013 00:45:38 +0200
+  * helpers/code-analysis:
+    + Check for common embedded code copies of Python modules.
+
+  * tests/*:
+    + New tests.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 03 May 2013 22:45:06 +0200
 
 lintian4python (0.18) experimental; urgency=low
  
