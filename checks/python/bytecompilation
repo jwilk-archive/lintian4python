@@ -147,11 +147,11 @@ unless (-l $postinst or not -f $postinst) {
             if ($pyc_package ne $package) {
                 tag 'pycentral-pkginstall-for-foreign-package', $pyc_package;
             }
-            my $path = "/usr/share/pyshared-data/$package";
+            my $path = "usr/share/pyshared-data/$package";
             my $unpacked = $info->unpacked($path);
             next if -l $unpacked or not -f $unpacked;
             next unless -f $unpacked;
-            open(my $fp, '<', $unpacked) or fail("cannot open $path: $!");
+            open(my $fp, '<', $unpacked) or fail("cannot open /$path: $!");
             $helper = 'pycentral/modern';
             my $section = '';
             my $versions = '2.0-';
