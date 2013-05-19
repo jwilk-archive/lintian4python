@@ -2,7 +2,7 @@ lintian4python (0.20) UNRELEASED; urgency=low
 
   * checks/python/code-analysis:
     + Don't run the helper if there are no files to check.
-  * checks/python/helper:
+  * checks/python/helpers:
     + Update dh_python2 stable version to the wheezy one. This effectively
       downgrades all missing-versioned-build-dependency-on-python-helper tags
       to insufficient-build-dependency-on-python-helper.
@@ -16,7 +16,7 @@ lintian4python (0.20) UNRELEASED; urgency=low
   * tests/helpers:
     + Update missing-versioned-build-dependency-on-python-helper tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:46:16 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:47:06 +0200
 
 lintian4python (0.19) experimental; urgency=low
 
