@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# Copyright © 2011, 2012 Jakub Wilk
+# Copyright © 2011, 2012, 2013 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -20,6 +20,15 @@
 import re
 import sys
 
+if sys.version_info > (3,):
+    if not sys.flags.dont_write_bytecode:
+        raise RuntimeError('cowardly refusing to import Python 2.X modules')
+    # Close your eyes here.
+    sys.path += ['/usr/share/pyshared']
+    import pyflakes
+    del sys.path[-1]
+    # You can open your eyes now.
+
 import pyflakes.scripts.pyflakes as flakes
 import pyflakes.messages
 
@@ -33,7 +42,7 @@ def my_compile(*args, **kwargs):
     # See bugs #674796 and #674797.
     try:
         return original_compile(*args, **kwargs)
-    except Exception, ex:
+    except Exception as ex:
         raise CompileError(ex)
 
 __builtins__.compile = my_compile
@@ -61,7 +70,7 @@ pyflakes.messages.Message.__str__ = Message_str
 if __name__ == '__main__':
     sys.stderr = sys.stdout
     for filename in sys.argv[1:]:
-        print '# {0}'.format(filename.replace('\n', '?'))
+        print('# {0}'.format(filename.replace('\n', '?')))
         try:
             flakes.checkPath(filename)
         except CompileError:

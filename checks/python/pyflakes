@@ -32,10 +32,17 @@ use Lintian::Python qw(classify_python_modules is_public_module);
 
 sub run {
     my ($pkg, $type, $info) = @_;
-    my ($py2files, undef) = classify_python_modules($pkg, $info);
+    my ($py2files, $py3files) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    open(my $fp, '-|', "$ENV{LINTIAN4PYTHON_ROOT}/helpers/pyflakes", @{$py2files}) or fail("cannot execute pyflakes helper");
+    analyse($py2files, '/usr/bin/python');
+    analyse($py3files, '/usr/bin/python3', '-B') if -x '/usr/bin/python3';
+    chdir $cwd or fail("cannot chdir back from unpacked: $!");
+}
+
+sub analyse {
+    my ($pyfiles, @interpreter) = @_;
+    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/pyflakes", @{$pyfiles}) or fail("cannot execute pyflakes helper");
     my %underscores = ();
     my %import_star = ();
     my $file;
@@ -69,7 +76,6 @@ sub run {
         }
     }
     close($fp) or fail("pyflakes helper failed");
-    chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 1;

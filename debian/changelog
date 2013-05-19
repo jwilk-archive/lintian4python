@@ -4,11 +4,16 @@ lintian4python (0.20) UNRELEASED; urgency=low
     + Update dh_python2 stable version to the wheezy one. This effectively
       downgrades all missing-versioned-build-dependency-on-python-helper tags
       to insufficient-build-dependency-on-python-helper.
+  * checks/python/pyflakes:
+    + Run pyflakes on Python 3 modules, too.
+
+  * helpers/pyflakes:
+    + Port to Python 3.
 
   * tests/helpers:
     + Update missing-versioned-build-dependency-on-python-helper tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 11:59:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:29:17 +0200
 
 lintian4python (0.19) experimental; urgency=low
 
