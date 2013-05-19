@@ -291,7 +291,7 @@ def check_contents(contents, catch_tab_errors=True):
         if not taginfo[0].startswith('*')
     )
 
-def main(self):
+def main():
     try:
         if sys.flags.tabcheck < 2:
             raise RuntimeError('tab check disabled')
@@ -304,7 +304,7 @@ def main(self):
             print(' '.join(map(str, t)))
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
 
 # Local Variables:
 # indent-tabs-mode: nil
