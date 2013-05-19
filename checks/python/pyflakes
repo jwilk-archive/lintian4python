@@ -42,6 +42,7 @@ sub run {
 
 sub analyse {
     my ($pyfiles, @interpreter) = @_;
+    return unless @{$pyfiles};
     open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/pyflakes", @{$pyfiles}) or fail("cannot execute pyflakes helper");
     my %underscores = ();
     my %import_star = ();

@@ -47,6 +47,7 @@ sub run {
 
 sub analyse {
     my ($pkg, $srcpkg, $version, $files, @interpreter) = @_;
+    return unless @{$files};
     open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
