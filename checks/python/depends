@@ -53,6 +53,22 @@ sub run {
         }
     }
 
+    if ($type eq 'binary') {
+        for my $field (qw(conflicts replaces provides)) {
+            my $relation = $info->relation($field);
+            $relation->visit(
+                sub {
+                    if (m/python2[.][34]/) {
+                        # obsolete-provides or
+                        # obsolete-conflicts or
+                        # obsolete-replaces
+                        tag "obsolete-$field", $_;
+                    }
+                }, VISIT_PRED_FULL
+            );
+        }
+    }
+
 }
 
 1;

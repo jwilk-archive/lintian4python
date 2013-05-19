@@ -12,3 +12,15 @@ Certainty: certain
 Tag: hardcoded-dependency-on-numpy-virtual-package
 Severity: important
 Certainty: possible
+
+Tag: obsolete-conflicts
+Severity: wishlist
+Certainty: certain
+
+Tag: obsolete-provides
+Severity: wishlist
+Certainty: certain
+
+Tag: obsolete-replaces
+Severity: wishlist
+Certainty: certain

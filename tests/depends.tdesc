@@ -19,3 +19,13 @@ Files:
  16b9ab58e654c5b91374f8a35eafc33630d7f5c0  mathgl_1.11.2.orig.tar.gz
 Test-For:
  e: mathgl source: hardcoded-dependency-on-numpy-virtual-package python-numpy-abi9
+
+Name: obsolete-field
+Files:
+ 57e235913a75a8f88a71cb5ced79f4b38e032c56  python-clientcookie_1.3.0-1.2_all.deb
+Test-For:
+ i: python-clientcookie: obsolete-conflicts python2.3-clientcookie
+ i: python-clientcookie: obsolete-conflicts python2.4-clientcookie
+ i: python-clientcookie: obsolete-replaces python2.3-clientcookie
+ i: python-clientcookie: obsolete-replaces python2.4-clientcookie
+ i: python-clientcookie: obsolete-provides python2.4-clientcookie

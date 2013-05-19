@@ -1,7 +1,17 @@
 lintian4python (0.20) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - embedded-code-copy
+      - obsolete-conflicts
+      - obsolete-provides
+      - obsolete-replaces
+
   * checks/python/code-analysis:
     + Don't run the helper if there are no files to check.
+  * checks/python/depends:
+    + Check for python2.3-* and python2.4-* package names in Conflicts,
+      Replaces and Provides.
   * checks/python/helpers:
     + Update dh_python2 stable version to the wheezy one. This effectively
       downgrades all missing-versioned-build-dependency-on-python-helper tags
@@ -19,7 +29,7 @@ lintian4python (0.20) UNRELEASED; urgency=low
   * tests/helpers:
     + Update missing-versioned-build-dependency-on-python-helper tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:49:00 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 21:19:16 +0200
 
 lintian4python (0.19) experimental; urgency=low
 
