@@ -10,13 +10,16 @@ lintian4python (0.20) UNRELEASED; urgency=low
     + Run pyflakes on Python 3 modules, too.
     + Don't run the helper if there are no files to check.
 
+  * data/python*-projects:
+    + Update.
+
   * helpers/pyflakes:
     + Port to Python 3.
 
   * tests/helpers:
     + Update missing-versioned-build-dependency-on-python-helper tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:47:06 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 19 May 2013 12:49:00 +0200
 
 lintian4python (0.19) experimental; urgency=low
 
