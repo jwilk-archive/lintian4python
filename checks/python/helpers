@@ -40,7 +40,7 @@ my @METAPKG_REGEX =
      qr/(?:dependency|empty|transitional|virtual) package/);
 
 my $dh_python2_options = Lintian::Data->new('dh-python2-options', '\s+');
-my $dh_python2_stable_ver = '2.6.6-3';
+my $dh_python2_stable_ver = '2.7.3-4';
 
 sub run {
 
