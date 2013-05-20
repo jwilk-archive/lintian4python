@@ -4,3 +4,5 @@
 # a copy of the module at the time when it was added to the list.
 #
 # Please keep the list sorted.
+
+ssl.match_hostname() => python3 (>= 3.2) || Verify that [*]cert[*] [(]in decoded format as returned by
