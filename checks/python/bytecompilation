@@ -47,6 +47,7 @@ my $bytecompilation_not_needed_re = qr{
 | usr/lib/debug/usr/sbin/
 | usr/lib/pypy/
 | usr/sbin/
+| usr/share/apport/package-hooks/
 | usr/share/doc/
 | usr/share/jython/
 }x;
