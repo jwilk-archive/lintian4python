@@ -2,7 +2,6 @@ lintian4python (0.20) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
-      - embedded-code-copy
       - obsolete-conflicts
       - obsolete-provides
       - obsolete-replaces
