@@ -59,9 +59,9 @@ sub run {
             $relation->visit(
                 sub {
                     if (m/python2[.][34]/) {
-                        # obsolete-provides or
                         # obsolete-conflicts or
-                        # obsolete-replaces
+                        # obsolete-replaces or
+                        # obsolete-provides
                         tag "obsolete-$field", $_;
                     }
                 }, VISIT_PRED_FULL
