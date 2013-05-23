@@ -73,6 +73,9 @@ depends
 ~~~~~~~
 | [X] hardcoded-dependency-on-numpy-virtual-package
 | [2] missing-epoch-in-dependency
+| [X] obsolete-conflicts
+| [X] obsolete-provides
+| [X] obsolete-replaces
 
 helpers
 ~~~~~~~
