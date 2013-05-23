@@ -181,11 +181,19 @@ Files:
 Test-For:
  i: python-minimock source: python-breaks-is-obsolete python-minimock
 
-Name: xb-python-version-is-deprecated
+Name: xb-python-version-is-deprecated/binary
 Files:
  c951f8198160c8c096130fc5574d2df8ce7cf5a4  flashbake_0.26.2-4_all.deb
 Test-For:
  w: flashbake: xb-python-version-is-deprecated
+
+Name: xb-python-version-is-deprecated/source
+Files:
+ 014ed17e9b40e42ecd969685cf57531303436fa6  cpuset_1.5.6-2.dsc
+ f66075f0554312d073c89ef86b38601b19361124  cpuset_1.5.6-2.debian.tar.gz
+ c0bbb0272e18187c3249162dc36b1fa5ef2daf7e  cpuset_1.5.6.orig.tar.gz
+Test-For:
+ w: cpuset source: xb-python-version-is-deprecated cpuset
 
 Name: unneeded-pycentral-pkgremove-in-preinst
 Files:

@@ -98,6 +98,7 @@ sub run_source {
 
     my @python_version_declarations = ();
     my $pysupport_bd = $bdepends->implies('python-support');
+    my $pycentral_bd = $bdepends->implies('python-central');
     if (defined (my $pv = $info->source_field('xs-python-version'))) {
         while ($pv =~ /\$\{[^}]++\}/g) {
             tag 'substitution-variable-in-xs-python-version', $pv;
@@ -187,6 +188,10 @@ sub run_source {
             if ($info->binary_relation($binpkg, 'breaks')->implies("\${$python:Breaks}")) {
                 tag 'python-breaks-is-obsolete', $binpkg;
             }
+        }
+        if (defined $info->binary_field($binpkg, 'xb-python-version')) {
+            tag 'xb-python-version-is-deprecated', $binpkg
+                unless $pycentral_bd;
         }
     }
 
