@@ -36,7 +36,7 @@ lintian4python (0.20) UNRELEASED; urgency=low
   * tests/helpers:
     + Update missing-versioned-build-dependency-on-python-helper tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 21 May 2013 13:21:49 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 23 May 2013 20:25:45 +0200
 
 lintian4python (0.19) experimental; urgency=low
 
