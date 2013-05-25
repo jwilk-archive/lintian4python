@@ -41,7 +41,7 @@ Info: pyflakes emitted the following message:
 
 Tag: pyflakes-redefined-in-list-comp
 Severity: normal
-Certainty: possible
+Certainty: wild-guess
 Info: pyflakes emitted the following message:
   list comprehension redefines <i>var</i> from line <i>n</i>
 

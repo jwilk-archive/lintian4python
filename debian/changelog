@@ -1,8 +1,10 @@
 lintian4python (0.20.1) UNRELEASED; urgency=low
 
-  * 
+  * checks/python/pyflakes:
+    + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
+      #700565).
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 24 May 2013 01:19:45 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 25 May 2013 11:27:25 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
