@@ -1,5 +1,8 @@
 lintian4python (0.20.1) UNRELEASED; urgency=low
 
+  * checks/python/depends:
+    + Check for pythonX.Y-* package names in Conflicts, Replaces and Provides
+      for X.Y << 2.3, too.
   * checks/python/pyflakes:
     + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
       #700565).
@@ -7,7 +10,7 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 27 May 2013 19:40:02 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 27 May 2013 22:45:15 +0200
 
 lintian4python (0.20) experimental; urgency=low
 

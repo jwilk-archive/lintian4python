@@ -58,7 +58,7 @@ sub run {
             my $relation = $info->relation($field);
             $relation->visit(
                 sub {
-                    if (m/^python2[.][34]-/) {
+                    if (m/^python(1[.][0-9]+|2[.][0-4])-/) {
                         # obsolete-conflicts or
                         # obsolete-replaces or
                         # obsolete-provides
