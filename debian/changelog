@@ -3,6 +3,9 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * checks/python/depends:
     + Check for pythonX.Y-* package names in Conflicts, Replaces and Provides
       for X.Y << 2.3, too.
+  * checks/python/documentation:
+    + Don't use given/when statements. This feature is deemed experimental as
+      of Perl 5.18.
   * checks/python/pyflakes:
     + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
       #700565).
@@ -13,7 +16,7 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 28 May 2013 18:07:18 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 28 May 2013 18:12:37 +0200
 
 lintian4python (0.20) experimental; urgency=low
 

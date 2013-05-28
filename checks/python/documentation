@@ -74,21 +74,19 @@ sub check_js
     1 while $js_filename =~ s,(?:^|/+)[^/]+/+\.\./+,/,;
     if (defined $info->index($js_filename)) {
         if ($info->index($js_filename)->type eq '-') {
-            given (basename($js_filename)) {
-                when ('doctools.js') {
-                    my $js = slurp_entire_file($info->unpacked($js_filename));
-                    if ($js =~ m/\bjQuery\.className\b/) {
-                        tag 'sphinx-js-incompatible-with-jquery-1.4', $js_filename;
-                    }
+            my $js_basename = basename($js_filename);
+            if ($js_basename eq 'doctools.js') {
+                my $js = slurp_entire_file($info->unpacked($js_filename));
+                if ($js =~ m/\bjQuery\.className\b/) {
+                    tag 'sphinx-js-incompatible-with-jquery-1.4', $js_filename;
                 }
-                when ('searchtools.js') {
-                    my $js = slurp_entire_file($info->unpacked($js_filename));
-                    if ($js !~ /"text"/) {
-                        tag 'sphinx-js-incompatible-with-jquery-1.5', $js_filename;
-                    }
-                    if ($js =~ /({{ .*? }})/) {
-                        tag 'sphinx-static-file-with-jinja2-templates', $js_filename, $1;
-                    }
+            } elsif ($js_basename eq 'searchtools.js') {
+                my $js = slurp_entire_file($info->unpacked($js_filename));
+                if ($js !~ /"text"/) {
+                    tag 'sphinx-js-incompatible-with-jquery-1.5', $js_filename;
+                }
+                if ($js =~ /({{ .*? }})/) {
+                    tag 'sphinx-static-file-with-jinja2-templates', $js_filename, $1;
                 }
             }
         }
