@@ -31,13 +31,14 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * lib/Lintian/Contrib/Python.pm:
     + Rename from lib/Lintian/Python.pm.
 
-  * lintian4py{,-info}:
+  * lintian4py*:
     + Don't set LINTIAN4PYTHON_ROOT environment variable.
+    + Don't hardcode vendor name.
 
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 15:02:05 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:10:45 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
