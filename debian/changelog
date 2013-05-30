@@ -6,9 +6,12 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * checks/python/documentation:
     + Don't use given/when statements. This feature is deemed experimental as
       of Perl 5.18.
+  * checks/python/code-analysis:
+    + Use Lintian::Util::locale_helper_tool().
   * checks/python/pyflakes:
     + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
       #700565).
+    + Use Lintian::Util::locale_helper_tool().
 
   * data/python*-projects:
     + Update.
@@ -16,10 +19,20 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * debian/control:
     + Update lintian dependency (2.5.13).
 
+  * debian/rules:
+    + Update to follow the changes in the frontend.
+
+  * helpers/python/code-analysis:
+    + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
+      LINTIAN4PYTHON_ROOT).
+
+  * lintian4py{,-info}:
+    + Don't set LINTIAN4PYTHON_ROOT environment variable.
+
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 11:52:08 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 12:01:22 +0200
 
 lintian4python (0.20) experimental; urgency=low
 

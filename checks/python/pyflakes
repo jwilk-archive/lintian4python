@@ -26,7 +26,7 @@ use warnings;
 use Cwd qw(getcwd);
 
 use Lintian::Tags qw(tag);
-use Lintian::Util qw(fail);
+use Lintian::Util qw(fail locate_helper_tool);
 
 use Lintian::Python qw(classify_python_modules is_public_module);
 
@@ -43,7 +43,7 @@ sub run {
 sub analyse {
     my ($pyfiles, @interpreter) = @_;
     return unless @{$pyfiles};
-    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/pyflakes", @{$pyfiles}) or fail("cannot execute pyflakes helper");
+    open(my $fp, '-|', @interpreter, locate_helper_tool('python/pyflakes'), @{$pyfiles}) or fail("cannot execute pyflakes helper");
     my %underscores = ();
     my %import_star = ();
     my $file;

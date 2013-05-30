@@ -28,7 +28,7 @@ use v5.10; # for the // operator
 use Cwd qw(getcwd);
 
 use Lintian::Tags qw(tag);
-use Lintian::Util qw(fail);
+use Lintian::Util qw(fail locate_helper_tool);
 
 use Lintian::Python qw(classify_python_modules);
 
@@ -48,7 +48,7 @@ sub run {
 sub analyse {
     my ($pkg, $srcpkg, $version, $files, @interpreter) = @_;
     return unless @{$files};
-    open(my $fp, '-|', @interpreter, "$ENV{LINTIAN4PYTHON_ROOT}/helpers/code-analysis", @{$files}) or fail("cannot execute code-analysis helper");
+    open(my $fp, '-|', @interpreter, locate_helper_tool('python/code-analysis'), @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
     while (<$fp>) {
         if (m,^(\S+) (-|\d+)(?: (.+))?$,) {

@@ -5,9 +5,10 @@ use warnings;
 
 use Cwd qw();
 use File::Basename qw();
-$ENV{LINTIAN4PYTHON_ROOT} = Cwd::abs_path(File::Basename::dirname($0));
 
-unshift @ARGV, '--include-dir', $ENV{LINTIAN4PYTHON_ROOT}, '--profile', 'debian/python';
+my $lintian4python_root = Cwd::abs_path(File::Basename::dirname($0));
+
+unshift @ARGV, '--include-dir', $lintian4python_root, '--profile', 'debian/python';
 do '/usr/bin/lintian-info';
 if ($@) {
     die $@;

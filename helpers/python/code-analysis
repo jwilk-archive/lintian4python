@@ -30,19 +30,25 @@ errno_constants = {}
 code_copies = []
 code_copies_regex = None
 
+class DataFileNotFound(OSError):
+    pass
+
 def load_data_file(ident):
     try:
-        lintian_root = os.environ['LINTIAN4PYTHON_ROOT']
+        include_dirs = os.environ['LINTIAN_INCLUDE_DIRS']
     except LookupError:
-        lintian_root = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), os.pardir)
+        include_dirs = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
         )
         warnings.warn(
-            'setting LINTIAN4PYTHON_ROOT={root}'.format(root=lintian_root),
+            'setting LINTIAN_INCLUDE_DIRS={root}'.format(root=include_dirs),
             category=RuntimeWarning,
             stacklevel=3,
         )
-    path = '{root}/vendors/debian/python/data/{ident}'.format(root=lintian_root, ident=ident)
+    for include_dir in include_dirs.split(':'):
+        path = '{root}/vendors/debian/python/data/{ident}'.format(root=include_dir, ident=ident)
+        if os.path.exists(path):
+            break
     with open(path) as file:
         for line in file:
             line = line.strip()
