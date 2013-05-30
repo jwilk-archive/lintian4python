@@ -1,3 +1,9 @@
 syntax: glob
-cache
+
 __pycache__
+cache
+
+debian/files
+debian/lintian4python/
+debian/lintian4python.substvars
+debian/lintian4python.debhelper.log
