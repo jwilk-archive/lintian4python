@@ -19,7 +19,7 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 11:25:01 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 11:52:08 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
