@@ -20,12 +20,10 @@ lintian4python (0.21) UNRELEASED; urgency=low
 
   * debian/control:
     + Update lintian dependency (2.5.13).
-
+    + Capitalize “Lintian” in the package description.
   * debian/rules:
     + Update to follow the changes in the frontend.
     + Install to /usr/share/lintian/.
-  * debian/control:
-    + Capitalize “Lintian” in the package description.
 
   * helpers/python/code-analysis:
     + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
