@@ -26,8 +26,11 @@ lintian4python (0.21) UNRELEASED; urgency=low
     + Install to /usr/share/lintian/.
 
   * helpers/python/code-analysis:
+    + Rename from helpers/code-analysis.
     + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
       LINTIAN4PYTHON_ROOT).
+  * helpers/python/pyflakes:
+    + Rename from helpers/pyflakes.
 
   * lib/Lintian/Contrib/Python.pm:
     + Rename from lib/Lintian/Python.pm.
