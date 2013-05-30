@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 directories = checks helpers lib profiles vendors
-share = /usr/share/lintian4python/
+share = /usr/share/lintian/
 version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
 
 .PHONY: clean
@@ -19,7 +19,7 @@ binary binary-indep:
 	dh_install $(directories) $(share)
 	dh_install lintian4py* /usr/bin/
 	sed -i \
-		-e "s,\(\$$lintian4python_root\) = .*,\1 = '$(share)';," \
+		-e "s,\(\$$lintian4python_root\) = .*,\1 = undef;," \
 		-e "s,\(\$$lintian4python_version\) = undef;,\1 = '$(version)';," \
 		debian/*/usr/bin/*
 	dh_perl

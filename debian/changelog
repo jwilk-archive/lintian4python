@@ -1,4 +1,4 @@
-lintian4python (0.20.1) UNRELEASED; urgency=low
+lintian4python (0.21) UNRELEASED; urgency=low
 
   * checks/python/depends:
     + Check for pythonX.Y-* package names in Conflicts, Replaces and Provides
@@ -23,6 +23,7 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
 
   * debian/rules:
     + Update to follow the changes in the frontend.
+    + Install to /usr/share/lintian/.
 
   * helpers/python/code-analysis:
     + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
@@ -32,13 +33,14 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
     + Rename from lib/Lintian/Python.pm.
 
   * lintian4py*:
-    + Don't set LINTIAN4PYTHON_ROOT environment variable.
+    + Don't set LINTIAN4PYTHON_ROOT environment variable, and don't pass
+      --include-dir unless the script is run from a local directory.
     + Don't hardcode vendor name.
 
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:10:45 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:44:48 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
