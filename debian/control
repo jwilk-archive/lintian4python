@@ -22,5 +22,5 @@ Description: Debian package checker (for Python packages)
  violations. It contains automated checks for many aspects of Debian
  policy as well as some checks for common errors.
  .
- This package provides an experimental flavor of lintian designed to check
+ This package provides an experimental flavor of Lintian designed to check
  packages implemented in Python.
