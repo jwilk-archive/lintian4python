@@ -13,10 +13,13 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * debian/control:
+    + Update lintian dependency (2.5.13).
+
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 29 May 2013 10:24:34 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 11:25:01 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
