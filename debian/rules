@@ -5,15 +5,13 @@ share = /usr/share/lintian/
 version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
 
 .PHONY: clean
-clean:
-	dh_testdir
+clean: debian/control
 	dh_clean
 
 .PHONY: build build-arch build-indep
 
 .PHONY: binary binary-arch binary-indep
-binary binary-indep:
-	dh_testdir
+binary binary-indep: debian/control
 	dh_testroot
 	dh_prep
 	dh_install $(directories) $(share)

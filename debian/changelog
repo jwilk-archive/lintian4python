@@ -24,6 +24,8 @@ lintian4python (0.21) UNRELEASED; urgency=low
   * debian/rules:
     + Update to follow the changes in the frontend.
     + Install to /usr/share/lintian/.
+    + Don't use dh_testdir; instead, use makefile rules to ensure that
+      debian/rules can be only run in the correct directory.
 
   * helpers/python/code-analysis:
     + Rename from helpers/code-analysis.
@@ -43,7 +45,7 @@ lintian4python (0.21) UNRELEASED; urgency=low
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:55:40 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 17:18:14 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
