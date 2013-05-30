@@ -30,9 +30,6 @@ errno_constants = {}
 code_copies = []
 code_copies_regex = None
 
-class DataFileNotFound(OSError):
-    pass
-
 def load_data_file(ident):
     try:
         include_dirs = os.environ['LINTIAN_INCLUDE_DIRS']
