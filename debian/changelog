@@ -7,11 +7,11 @@ lintian4python (0.21) UNRELEASED; urgency=low
     + Don't use given/when statements. This feature is deemed experimental as
       of Perl 5.18.
   * checks/python/code-analysis:
-    + Use Lintian::Util::locale_helper_tool().
+    + Use Lintian::Util::locate_helper_tool().
   * checks/python/pyflakes:
     + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
       #700565).
-    + Use Lintian::Util::locale_helper_tool().
+    + Use Lintian::Util::locate_helper_tool().
   * checks/*:
     + Use Lintian::Contrib::Python instead of Lintian::Python.
 
@@ -42,7 +42,7 @@ lintian4python (0.21) UNRELEASED; urgency=low
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:51:08 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 16:55:40 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
