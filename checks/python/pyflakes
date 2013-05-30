@@ -28,7 +28,7 @@ use Cwd qw(getcwd);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail locate_helper_tool);
 
-use Lintian::Python qw(classify_python_modules is_public_module);
+use Lintian::Contrib::Python qw(classify_python_modules is_public_module);
 
 sub run {
     my ($pkg, $type, $info) = @_;

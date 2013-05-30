@@ -12,6 +12,8 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
     + Reduce pyflakes-redefined-in-list-comp certainty to wild-guess (see bug
       #700565).
     + Use Lintian::Util::locale_helper_tool().
+  * checks/*:
+    + Use Lintian::Contrib::Python instead of Lintian::Python.
 
   * data/python*-projects:
     + Update.
@@ -26,13 +28,16 @@ lintian4python (0.20.1) UNRELEASED; urgency=low
     + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
       LINTIAN4PYTHON_ROOT).
 
+  * lib/Lintian/Contrib/Python.pm:
+    + Rename from lib/Lintian/Python.pm.
+
   * lintian4py{,-info}:
     + Don't set LINTIAN4PYTHON_ROOT environment variable.
 
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 12:01:22 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 15:02:05 +0200
 
 lintian4python (0.20) experimental; urgency=low
 

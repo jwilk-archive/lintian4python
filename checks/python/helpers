@@ -29,7 +29,7 @@ use Lintian::Relation::Version qw(versions_lte);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
-use Lintian::Python qw(python_alt_dep);
+use Lintian::Contrib::Python qw(python_alt_dep);
 
 use List::MoreUtils qw(each_array);
 use Text::Levenshtein qw();

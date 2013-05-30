@@ -28,7 +28,7 @@ use v5.10; # for the // operator
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail);
 
-use Lintian::Python qw(@dist_packages_re);
+use Lintian::Contrib::Python qw(@dist_packages_re);
 
 my $_extension_suffix = qr{
 (?: [.]cpython-(?:\d+)mu?

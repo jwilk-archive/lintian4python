@@ -30,7 +30,7 @@ use Lintian::Tags qw(tag);
 use Lintian::Relation ();
 use Lintian::Util qw(fail);
 
-use Lintian::Python qw(@dist_packages_re);
+use Lintian::Contrib::Python qw(@dist_packages_re);
 
 my $dist_packages_re = qr{
   ( $dist_packages_re[2] )

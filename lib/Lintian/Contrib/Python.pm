@@ -1,7 +1,4 @@
-# -*- perl -*-
-# Lintian::Python
-
-# Copyright © 2012 Jakub Wilk
+# Copyright © 2012, 2013 Jakub Wilk
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +16,7 @@
 # Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 
-package Lintian::Python;
+package Lintian::Contrib::Python;
 
 use strict;
 use warnings;

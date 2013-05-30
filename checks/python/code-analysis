@@ -30,7 +30,7 @@ use Cwd qw(getcwd);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail locate_helper_tool);
 
-use Lintian::Python qw(classify_python_modules);
+use Lintian::Contrib::Python qw(classify_python_modules);
 
 sub run {
     my ($pkg, $type, $info, $proc) = @_;
