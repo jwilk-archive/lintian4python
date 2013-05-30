@@ -1,4 +1,4 @@
-lintian4python (0.21) UNRELEASED; urgency=low
+lintian4python (0.21) experimental; urgency=low
 
   * checks/python/depends:
     + Check for pythonX.Y-* package names in Conflicts, Replaces and Provides
@@ -48,7 +48,7 @@ lintian4python (0.21) UNRELEASED; urgency=low
   * tests/pyflakes:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 17:18:14 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 30 May 2013 17:19:55 +0200
 
 lintian4python (0.20) experimental; urgency=low
 
