@@ -27,6 +27,9 @@ lintian4python (0.21) UNRELEASED; urgency=low
     + Don't use dh_testdir; instead, use makefile rules to ensure that
       debian/rules can be only run in the correct directory.
 
+  * frontend/*:
+    + Remove, no longer used.
+
   * helpers/python/code-analysis:
     + Rename from helpers/code-analysis.
     + Use the LINTIAN_INCLUDE_DIRS environment variable (rather than
