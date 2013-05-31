@@ -3,7 +3,10 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * checks/python/*:
     + Drop the Abbrev field.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:27:50 +0200
+  * private/update-code-analysis-tags:
+    + Update paths.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:40:53 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

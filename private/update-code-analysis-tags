@@ -39,7 +39,7 @@ def extract_tags(node):
 
 def main():
     LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
-    filename = '{root}/helpers/code-analysis'.format(root=LINTIAN_ROOT)
+    filename = '{root}/helpers/python/code-analysis'.format(root=LINTIAN_ROOT)
     with open(filename, 'r') as file:
         contents = file.read()
         node = ast.parse(contents, filename=filename)
