@@ -43,7 +43,6 @@ my $bytecompilation_not_needed_re = qr{
 | usr/lib/debug/sbin/
 | usr/lib/debug/usr/bin/
 | usr/lib/debug/usr/games/
-| usr/lib/debug/usr/lib/pypy/
 | usr/lib/debug/usr/sbin/
 | usr/lib/pypy/
 | usr/sbin/

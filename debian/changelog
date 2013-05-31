@@ -2,6 +2,9 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
 
   * checks/python/*:
     + Drop the Abbrev field.
+  * checks/python/bytecompilation:
+    + Remove /usr/lib/debug/usr/lib/pypy/ from the list of directories that
+      are not checked for bytecompilation.
 
   * data/python*-projects:
     + Update.
@@ -18,7 +21,7 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * private/*:
     + Don't use LINTIAN_ROOT environment variable.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:06:34 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:15:07 +0200
 
 lintian4python (0.21) experimental; urgency=low
 
