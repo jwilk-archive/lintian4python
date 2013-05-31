@@ -1,4 +1,6 @@
-# Copyright © 2012 Jakub Wilk
+# encoding=UTF-8
+
+# Copyright © 2012, 2013 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -21,7 +23,8 @@ import apt
 import apt_inst
 import apt_pkg
 
-lintian_root = os.getenv('LINTIAN_ROOT') or '.'
+_here = os.path.dirname(__file__)
+root = '{here}/..'.format(here=_here)
 architecture = 'i386'
 mirror = os.getenv('DEB_MIRROR') or 'http://http.debian.net/debian'
 

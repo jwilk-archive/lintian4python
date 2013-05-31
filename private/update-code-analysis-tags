@@ -23,6 +23,8 @@ import os
 
 import deb822
 
+import misc
+
 def extract_tags(node):
     for child in ast.iter_child_nodes(node):
         for t in extract_tags(child):
@@ -37,15 +39,14 @@ def extract_tags(node):
         yield node.args[0].s
 
 def main():
-    LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
-    filename = '{root}/helpers/python/code-analysis'.format(root=LINTIAN_ROOT)
+    filename = '{root}/helpers/python/code-analysis'.format(root=misc.root)
     with open(filename, 'r') as file:
         contents = file.read()
         node = ast.parse(contents, filename=filename)
         tags = set(extract_tags(node))
     old_tags = {}
     first = True
-    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'r', encoding='UTF-8') as file:
+    with open('{root}/checks/python/code-analysis.desc'.format(root=misc.root), 'r', encoding='UTF-8') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -53,7 +54,7 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'w', encoding='UTF-8') as file:
+    with open('{root}/checks/python/code-analysis.desc'.format(root=misc.root), 'w', encoding='UTF-8') as file:
         file.write(str(first_para))
         for tag in sorted(tags):
             try:

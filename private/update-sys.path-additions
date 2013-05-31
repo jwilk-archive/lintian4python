@@ -154,7 +154,7 @@ def main():
     for version in 2, 3:
         path = '{root}/data/python{version}-sys.path-additions'.format(
             version=version,
-            root=misc.lintian_root
+            root=misc.root
         )
         with open(path, 'wt', encoding='ASCII') as file:
             file.write(header.format(

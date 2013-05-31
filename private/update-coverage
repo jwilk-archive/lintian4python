@@ -22,7 +22,7 @@ import re
 
 import deb822
 
-LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
+import misc
 
 _lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9.+-]+)(?: (?P<pkgtype>[a-z]+))?: (?P<tag>[a-zA-Z0-9._-]+)( (?P<extra>.+))?$')
 
@@ -43,21 +43,21 @@ def count_tags(lintian_output, d):
         done.add(tag)
 
 def main():
-    with open('{root}/tests/blackbox/coverage.txt'.format(root=LINTIAN_ROOT), 'wt', encoding='UTF-8') as stdout:
+    with open('{root}/tests/blackbox/coverage.txt'.format(root=misc.root), 'wt', encoding='UTF-8') as stdout:
         return main_(stdout=stdout)
 
 def main_(stdout):
     for filename in glob.glob('checks/python/*.desc'):
         check, _ = os.path.splitext(os.path.basename(filename))
         tags_for = {}
-        with open('{root}/{file}'.format(root=LINTIAN_ROOT, file=filename)) as file:
+        with open('{root}/{file}'.format(root=misc.root, file=filename)) as file:
             for para in deb822.Deb822.iter_paragraphs(file):
                 try:
                     tags_for[para['tag']] = 0
                 except LookupError:
                     continue
         tags_against = tags_for.copy()
-        tdesc_filename = '{root}/tests/blackbox/{check}.tdesc'.format(root=LINTIAN_ROOT, check=check)
+        tdesc_filename = '{root}/tests/blackbox/{check}.tdesc'.format(root=misc.root, check=check)
         if os.path.exists(tdesc_filename):
             with open(tdesc_filename, 'rt', encoding='UTF-8') as file:
                 for para in deb822.Deb822.iter_paragraphs(file):

@@ -22,10 +22,10 @@ use warnings;
 
 use v5.10; # for the // operator
 
+use File::Basename qw(dirname);
 use POSIX qw(strftime);
 
-my $LINTIAN_ROOT = $ENV{'LINTIAN_ROOT'} // '.';
-chdir $LINTIAN_ROOT or die $!;
+chdir(dirname($0) . '/..') or die $!;
 
 sub extract_exceptions
 {

@@ -26,8 +26,9 @@ import debian.deb822 as deb822
 
 import pyflakes.messages as messages
 
+import misc
+
 def main():
-    LINTIAN_ROOT = os.getenv('LINTIAN_ROOT') or '.'
     tags = {}
     for cls in messages.Message.__subclasses__():
         tag = 'pyflakes'  + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
@@ -43,7 +44,7 @@ def main():
     del t
     old_tags = {}
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=LINTIAN_ROOT), 'r') as file:
+    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'r') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -51,7 +52,7 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=LINTIAN_ROOT), 'w') as file:
+    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'w') as file:
         file.write(unicode(first_para).encode('UTF-8'))
         for tag, description in sorted(tags.items()):
             try:

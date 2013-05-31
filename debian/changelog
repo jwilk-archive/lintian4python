@@ -13,8 +13,10 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
     + Port to Python 3.
   * private/update-sys.path-additions:
     + Remove an unused import.
+  * private/*:
+    + Don't use LINTIAN_ROOT environment variable.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:02:31 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:03:02 +0200
 
 lintian4python (0.21) experimental; urgency=low
 
