@@ -3,6 +3,9 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * checks/python/*:
     + Drop the Abbrev field.
 
+  * data/python*-projects:
+    + Update.
+
   * private/update-code-analysis-tags:
     + Update paths.
     + Port to Python 3.
@@ -11,7 +14,7 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * private/update-sys.path-additions:
     + Remove an unused import.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:49:06 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:02:31 +0200
 
 lintian4python (0.21) experimental; urgency=low
 
