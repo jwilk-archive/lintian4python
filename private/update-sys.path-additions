@@ -24,7 +24,6 @@ import gzip
 import os
 import re
 import shutil
-import subprocess as ipc
 import tempfile
 
 import misc

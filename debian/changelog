@@ -8,8 +8,10 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
     + Port to Python 3.
   * private/update-coverage:
     + Port to Python 3.
+  * private/update-sys.path-additions:
+    + Remove an unused import.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:47:19 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:49:06 +0200
 
 lintian4python (0.21) experimental; urgency=low
 
