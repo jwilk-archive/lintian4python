@@ -44,7 +44,7 @@ def count_tags(lintian_output, d):
         done.add(tag)
 
 def main():
-    with open('{root}/tests/coverage.txt'.format(root=LINTIAN_ROOT), 'wt') as stdout:
+    with open('{root}/tests/blackbox/coverage.txt'.format(root=LINTIAN_ROOT), 'wt') as stdout:
         return main_(stdout=stdout)
 
 def main_(stdout):
@@ -58,7 +58,7 @@ def main_(stdout):
                 except LookupError:
                     continue
         tags_against = tags_for.copy()
-        tdesc_filename = '{root}/tests/{check}.tdesc'.format(root=LINTIAN_ROOT, check=check)
+        tdesc_filename = '{root}/tests/blackbox/{check}.tdesc'.format(root=LINTIAN_ROOT, check=check)
         if os.path.exists(tdesc_filename):
             with open(tdesc_filename) as file:
                 for para in deb822.Deb822.iter_paragraphs(file):
