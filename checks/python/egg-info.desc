@@ -1,6 +1,5 @@
 Check-Script: python/egg-info
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyegg
 Type: binary
 Info: egg metadata
 Needs-Info: index, unpacked

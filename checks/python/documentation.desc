@@ -1,6 +1,5 @@
 Check-Script: python/documentation
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pydoc
 Type: binary, source
 Info: documentation
 Needs-Info: index, unpacked

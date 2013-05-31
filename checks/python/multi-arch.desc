@@ -1,6 +1,5 @@
 Check-Script: python/multi-arch
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyma
 Type: binary
 Info: multi-arch support
 Needs-Info: index

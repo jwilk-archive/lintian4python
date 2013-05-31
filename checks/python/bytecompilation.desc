@@ -1,6 +1,5 @@
 Check-Script: python/bytecompilation
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyc
 Type: binary, source
 Info: byte-compilation of Python modules
 Needs-Info: index, bin-pkg-control

@@ -1,6 +1,5 @@
 Check-Script: python/code-analysis
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyan
 Type: binary
 Info: analysis of Python code
 Needs-Info: index, bin-pkg-control, scripts, unpacked

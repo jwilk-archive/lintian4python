@@ -1,6 +1,5 @@
 Check-Script: python/extensions
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyext
 Type: binary
 Info: Python extension modules
 Needs-Info: index, strings, objdump-info

@@ -1,6 +1,5 @@
 Check-Script: python/pyflakes
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyflk
 Type: binary
 Info: run pyflakes over Python code
 Needs-Info: index, bin-pkg-control, scripts, unpacked

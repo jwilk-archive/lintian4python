@@ -1,6 +1,5 @@
 Check-Script: python/pth
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pth
 Type: binary
 Info: analyze *.pth files
 Needs-Info: index, unpacked

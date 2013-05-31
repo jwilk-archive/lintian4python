@@ -1,6 +1,5 @@
 Check-Script: python/helpers
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyhlp
 Type: source, binary
 Info: (mis)use of Python helpers
 Needs-Info: changelog-file, bin-pkg-control, debfiles, index, unpacked

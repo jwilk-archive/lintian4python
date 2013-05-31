@@ -1,6 +1,5 @@
 Check-Script: python/package-name
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pynam
 Type: binary
 Info: binary package names
 Needs-Info: index

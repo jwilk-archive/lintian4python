@@ -1,6 +1,5 @@
 Check-Script: python/teams
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pytms
 Type: binary, source
 Info: Debian Python Modules Team and Python Applications Packaging Team policies
 Needs-Info: index

@@ -1,6 +1,5 @@
 Check-Script: python/imports
 Author: Jakub Wilk <jwilk@debian.org>
-Abbrev: pyimp
 Type: binary
 Info: module imports
 Needs-Info: index, scripts, unpacked
