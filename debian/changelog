@@ -5,8 +5,9 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
 
   * private/update-code-analysis-tags:
     + Update paths.
+    + Port to Python 3.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:40:53 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 21:43:55 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

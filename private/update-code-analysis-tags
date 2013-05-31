@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# encoding=UTF-8
+#!/usr/bin/python3
 
 # update-code-analysis-tags -- update Lintian data about code-analysis tags
 #
@@ -46,7 +45,7 @@ def main():
         tags = set(extract_tags(node))
     old_tags = {}
     first = True
-    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'r') as file:
+    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'r', encoding='UTF-8') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -54,8 +53,8 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'w') as file:
-        file.write(unicode(first_para).encode('UTF-8'))
+    with open('{root}/checks/python/code-analysis.desc'.format(root=LINTIAN_ROOT), 'w', encoding='UTF-8') as file:
+        file.write(str(first_para))
         for tag in sorted(tags):
             try:
                 para = old_tags[tag]
@@ -66,7 +65,7 @@ def main():
                 para['Certainty'] = 'wild-guess'
                 para['Experimental'] = 'yes'
             file.write('\n')
-            file.write(unicode(para).encode('UTF-8'))
+            file.write(str(para))
             first = False
 
 if __name__ == '__main__':
