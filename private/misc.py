@@ -1,5 +1,3 @@
-# encoding=UTF-8
-
 # Copyright © 2012, 2013 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU

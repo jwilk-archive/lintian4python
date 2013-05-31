@@ -9,6 +9,8 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * private/update-code-analysis-tags:
     + Update paths.
     + Port to Python 3.
+  * private/update-pyflakes-tags:
+    + Port to Python 3.
   * private/update-coverage:
     + Port to Python 3.
   * private/update-sys.path-additions:
@@ -16,7 +18,7 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * private/*:
     + Don't use LINTIAN_ROOT environment variable.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:03:02 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:06:34 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

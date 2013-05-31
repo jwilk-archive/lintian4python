@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# encoding=UTF-8
+#!/usr/bin/python3 -B
 
 # update-pyflakes-tags -- update Lintian data about pyflakes tags
 #
@@ -21,8 +20,18 @@
 
 import os
 import re
+import sys
 
 import debian.deb822 as deb822
+
+if sys.version_info > (3,):
+    if not sys.flags.dont_write_bytecode:
+        raise RuntimeError('cowardly refusing to import Python 2.X modules')
+    # Close your eyes here.
+    sys.path += ['/usr/share/pyshared']
+    import pyflakes
+    del sys.path[-1]
+    # You can open your eyes now.
 
 import pyflakes.messages as messages
 
@@ -44,7 +53,7 @@ def main():
     del t
     old_tags = {}
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'r') as file:
+    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'r', encoding='UTF-8') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -52,8 +61,8 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'w') as file:
-        file.write(unicode(first_para).encode('UTF-8'))
+    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'w', encoding='UTF-8') as file:
+        file.write(str(first_para))
         for tag, description in sorted(tags.items()):
             try:
                 para = old_tags[tag]
@@ -65,7 +74,7 @@ def main():
                 para['Experimental'] = 'yes'
                 para['Info'] = 'pyflakes emitted the following message:\n  ' + description
             file.write('\n')
-            file.write(unicode(para).encode('UTF-8'))
+            file.write(str(para))
             first = False
 
 if __name__ == '__main__':
