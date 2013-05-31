@@ -1,7 +1,6 @@
-#!/usr/bin/python
-# encoding=UTF-8
+#!/usr/bin/python3
 
-# Copyright © 2011, 2012 Jakub Wilk
+# Copyright © 2011, 2012, 2013 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -44,7 +43,7 @@ def count_tags(lintian_output, d):
         done.add(tag)
 
 def main():
-    with open('{root}/tests/blackbox/coverage.txt'.format(root=LINTIAN_ROOT), 'wt') as stdout:
+    with open('{root}/tests/blackbox/coverage.txt'.format(root=LINTIAN_ROOT), 'wt', encoding='UTF-8') as stdout:
         return main_(stdout=stdout)
 
 def main_(stdout):
@@ -60,16 +59,16 @@ def main_(stdout):
         tags_against = tags_for.copy()
         tdesc_filename = '{root}/tests/blackbox/{check}.tdesc'.format(root=LINTIAN_ROOT, check=check)
         if os.path.exists(tdesc_filename):
-            with open(tdesc_filename) as file:
+            with open(tdesc_filename, 'rt', encoding='UTF-8') as file:
                 for para in deb822.Deb822.iter_paragraphs(file):
                     count_tags(para.get('test-for', ''), tags_for)
                     count_tags(para.get('test-against', ''), tags_against)
-        print >>stdout, check
-        print >>stdout, '~' * len(check)
+        print(check, file=stdout)
+        print('~' * len(check), file=stdout)
         for tag, n in sorted(tags_for.items()):
             c = {0: ' ', 1: 'X'}.get(n, n)
-            print >>stdout, '| [{c}] {tag}'.format(c=c, tag=tag)
-        print >>stdout
+            print('| [{c}] {tag}'.format(c=c, tag=tag), file=stdout)
+        print(file=stdout)
 
 if __name__ == '__main__':
     main()
