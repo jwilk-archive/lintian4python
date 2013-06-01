@@ -1,0 +1,8 @@
+# mkstemp-file-descriptor-leak 4
+# mkstemp-file-descriptor-leak 6
+
+path = mkstemp()[1]
+
+path = tempfile.mkstemp()[1]
+
+# vim: syntax=python sw=4 sts=4 sr et

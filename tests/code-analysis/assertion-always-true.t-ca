@@ -1,0 +1,5 @@
+# assertion-always-true 3
+
+assert('spam' != 'ham', 'spam, spam, spam, lovely spam!')
+
+# vim: syntax=python sw=4 sts=4 sr et

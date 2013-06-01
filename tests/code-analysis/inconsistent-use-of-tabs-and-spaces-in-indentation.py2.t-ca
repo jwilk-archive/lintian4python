@@ -1,0 +1,7 @@
+# inconsistent-use-of-tabs-and-spaces-in-indentation 5
+
+def main():
+	do_stuff()
+        do_other_stuff()
+
+# vim: syntax=python sw=8 sts=8 sr et

@@ -1,0 +1,10 @@
+| [X] assertion-always-true
+| [ ] embedded-code-copy
+| [X] except-shadows-builtin
+| [X] except-without-exception-type
+| [X] hardcoded-errno-value
+| [X] inconsistent-use-of-tabs-and-spaces-in-indentation
+| [X] mkstemp-file-descriptor-leak
+| [X] obsolete-pil-import
+| [X] string-exception
+| [X] syntax-error

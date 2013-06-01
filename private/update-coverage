@@ -43,19 +43,31 @@ def count_tags(lintian_output, d):
         done.add(tag)
 
 def main():
-    with open('{root}/tests/blackbox/coverage.txt'.format(root=misc.root), 'wt', encoding='UTF-8') as stdout:
-        return main_(stdout=stdout)
+    update_blackbox_coverage()
+    update_code_analysis_coverage()
 
-def main_(stdout):
+def read_tags(path):
+    tags = {}
+    with open(path, 'rt', encoding='UTF-8') as file:
+        for para in deb822.Deb822.iter_paragraphs(file):
+            try:
+                tags[para['tag']] = 0
+            except LookupError:
+                continue
+    return tags
+
+def print_coverage(tags, file):
+    for tag, n in sorted(tags.items()):
+        c = {0: ' ', 1: 'X'}.get(n, n)
+        print('| [{c}] {tag}'.format(c=c, tag=tag), file=file)
+
+def update_blackbox_coverage(stdout=None):
+    if stdout is None:
+        with open('{root}/tests/blackbox/coverage.txt'.format(root=misc.root), 'wt', encoding='UTF-8') as stdout:
+            return update_blackbox_coverage(stdout=stdout)
     for filename in glob.glob('{root}/checks/python/*.desc'.format(root=misc.root)):
         check, _ = os.path.splitext(os.path.basename(filename))
-        tags_for = {}
-        with open(filename) as file:
-            for para in deb822.Deb822.iter_paragraphs(file):
-                try:
-                    tags_for[para['tag']] = 0
-                except LookupError:
-                    continue
+        tags_for = read_tags(filename)
         tags_against = tags_for.copy()
         tdesc_filename = '{root}/tests/blackbox/{check}.tdesc'.format(root=misc.root, check=check)
         if os.path.exists(tdesc_filename):
@@ -65,10 +77,25 @@ def main_(stdout):
                     count_tags(para.get('test-against', ''), tags_against)
         print(check, file=stdout)
         print('~' * len(check), file=stdout)
-        for tag, n in sorted(tags_for.items()):
-            c = {0: ' ', 1: 'X'}.get(n, n)
-            print('| [{c}] {tag}'.format(c=c, tag=tag), file=stdout)
+        print_coverage(tags_for, file=stdout)
         print(file=stdout)
+
+def update_code_analysis_coverage():
+    path = '{root}/checks/python/code-analysis.desc'.format(root=misc.root)
+    tags = read_tags(path)
+    for path in glob.glob('{root}/tests/code-analysis/*.t-ca'.format(root=misc.root)):
+        done = set()
+        with open(path, 'rt', encoding='UTF-8') as file:
+            for line in file:
+                if line.startswith('# '):
+                    _, tag, *_ = line.split()
+                    done.add(tag)
+                else:
+                    break
+        for tag in done:
+            tags[tag] += 1
+    with open('{root}/tests/code-analysis/coverage.txt'.format(root=misc.root), 'wt', encoding='UTF-8') as stdout:
+        print_coverage(tags, file=stdout)
 
 if __name__ == '__main__':
     main()

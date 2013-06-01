@@ -1,0 +1,9 @@
+# except-shadows-builtin 5 OSError
+
+try:
+    pass
+except IOError, OSError:
+    pass
+
+# vim: syntax=python sw=4 sts=4 sr et
+

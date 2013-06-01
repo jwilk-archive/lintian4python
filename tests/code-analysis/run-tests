@@ -1,0 +1,94 @@
+#!/usr/bin/python
+# encoding=UTF-8
+
+# Copyright © 2013 Jakub Wilk
+#
+# This program is free software.  It is distributed under the terms of the GNU
+# General Public License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program.  If not, you can find it on the World Wide Web at
+# http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+import difflib
+import os
+import subprocess as ipc
+import sys
+import unittest
+
+import nose
+import nose.plugins
+
+root = os.path.join(
+    os.path.dirname(__file__),
+    '../../'
+)
+helper_path = os.path.join(
+    root,
+    'helpers/python/code-analysis',
+)
+os.environ['LINTIAN_INCLUDE_DIRS'] = root
+os.environ['NOSE_WITH_CODE_ANALYSIS_HELPER'] = '1'
+
+class Plugin(nose.plugins.Plugin):
+
+    name = 'code-analysis-helper'
+
+    def wantFile(self, file):
+        if file.endswith('.t-ca'):
+            return True
+
+    def loadTestsFromFile(self, path):
+        yield TestCase(path)
+
+class TestCase(unittest.TestCase):
+
+    def __init__(self, path):
+        super(TestCase, self).__init__('test')
+        self.path = path
+        self.name = os.path.splitext(os.path.basename(path))[0]
+
+    def test(self):
+        if '.py2.' in self.path and sys.version_info >= (3,):
+            raise nose.SkipTest
+        if '.py3.' in self.path and sys.version_info < (3,):
+            raise nose.SkipTest
+        commandline = [sys.executable, '-tt', '-B', helper_path, self.path]
+        helper = ipc.Popen(commandline,
+            stdout=ipc.PIPE,
+            stderr=ipc.PIPE
+        )
+        expected = ['# ' + self.path]
+        with open(self.path, 'rt') as file:
+            for line in file:
+                if line.startswith('# '):
+                    expected += [line[2:-1]]
+                else:
+                    break
+        stdout, stderr = (s.decode('ASCII').splitlines() for s in helper.communicate())
+        if stderr:
+            raise AssertionError('non-empty stderr:\n' +
+                '\n'.join('| ' + line for line in stderr)
+            )
+        if stdout != expected:
+            message = ['unexpected helper output:', '']
+            diff = list(
+                difflib.unified_diff(expected, stdout, n=9999)
+            )
+            message += diff[3:]
+            raise AssertionError('\n'.join(message))
+
+    def __str__(self):
+        return self.name
+
+if __name__ == '__main__':
+    nose.main(addplugins=[Plugin()])
+
+# vim: syntax=python sw=4 sts=4 sr et

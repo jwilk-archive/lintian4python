@@ -16,12 +16,16 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
     + Port to Python 3.
   * private/update-coverage:
     + Port to Python 3.
+    + Update coverage for code-analysis helper tests, too.
   * private/update-sys.path-additions:
     + Remove an unused import.
   * private/*:
     + Don't use LINTIAN_ROOT environment variable.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 31 May 2013 22:15:07 +0200
+  * tests/code-analysis:
+    + New tests for the code-analysis helper.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 01 Jun 2013 12:01:03 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

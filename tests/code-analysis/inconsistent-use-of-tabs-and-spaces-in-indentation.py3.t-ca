@@ -1,0 +1,7 @@
+# syntax-error 5 inconsistent use of tabs and spaces in indentation
+
+def main():
+	do_stuff()
+        do_other_stuff()
+
+# vim: syntax=python sw=8 sts=8 sr et

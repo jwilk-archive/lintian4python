@@ -1,0 +1,34 @@
+# hardcoded-errno-value 9 2 -> errno.ENOENT
+# hardcoded-errno-value 17 13 -> errno.EACCES
+# hardcoded-errno-value 25 20 -> errno.ENOTDIR
+# hardcoded-errno-value 31 28 -> errno.ENOSPC
+
+try:
+    do_stuff()
+except IOError as exc:
+    if exc.errno == 2:
+        pass
+    else:
+        raise
+
+try:
+    do_stuff()
+except IOError as exc:
+    if 13 == exc.errno:
+        pass
+    else:
+        raise
+
+try:
+    do_stuff()
+except IOError as exc:
+    if exc.errno != 20:
+        raise
+
+try:
+    do_stuff()
+except IOError as exc:
+    if 28 != exc.errno:
+        raise
+
+# vim: syntax=python sw=4 sts=4 sr et

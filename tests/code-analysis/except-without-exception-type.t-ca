@@ -1,0 +1,14 @@
+# except-without-exception-type 5
+
+try:
+    do_stuff()
+except:
+    pass
+
+try:
+    do_stuff()
+except:
+    if not exception_okay_to_ignore():
+        raise
+
+# vim: syntax=python sw=4 sts=4 sr et

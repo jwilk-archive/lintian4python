@@ -1,0 +1,15 @@
+# obsolete-pil-import 3 Image
+
+import Image
+
+try:
+    import Image
+except ImportError:
+    from PIL import Image
+
+try:
+    import Image as PIL
+except ImportError:
+    import PIL.Image as PIL
+
+# vim: syntax=python sw=4 sts=4 sr et
