@@ -18,6 +18,7 @@
 # http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import os
 import re
 import sys
 
@@ -37,6 +38,7 @@ import pyflakes.messages as messages
 import misc
 
 def main():
+    os.chdir(misc.root)
     tags = {}
     for cls in messages.Message.__subclasses__():
         tag = 'pyflakes'  + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
@@ -52,7 +54,7 @@ def main():
     del t
     old_tags = {}
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'r', encoding='UTF-8') as file:
+    with open('checks/python/pyflakes.desc', 'r', encoding='UTF-8') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
@@ -60,7 +62,7 @@ def main():
                 old_tags[para['tag']] = para
             first = False
     first = True
-    with open('{root}/checks/python/pyflakes.desc'.format(root=misc.root), 'w', encoding='UTF-8') as file:
+    with open('checks/python/pyflakes.desc', 'w', encoding='UTF-8') as file:
         file.write(str(first_para))
         for tag, description in sorted(tags.items()):
             try:

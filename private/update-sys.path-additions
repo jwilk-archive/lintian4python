@@ -56,6 +56,7 @@ pth_regex = re.compile(br'''
 pymodules_regex = re.compile('^/usr/lib/pymodules/python2\.[0-9]+/')
 
 def main():
+    os.chdir(misc.root)
     tmpdir = tempfile.mkdtemp(prefix='lintian4python.private.')
     progress = misc.AcquireProgress()
     fetcher = misc.Acquire(progress)
@@ -152,9 +153,8 @@ def main():
     assert pil_additions == {'python-imaging'}
     pil_additions.clear()
     for version in 2, 3:
-        path = '{root}/data/python{version}-sys.path-additions'.format(
+        path = 'data/python{version}-sys.path-additions'.format(
             version=version,
-            root=misc.root
         )
         with open(path, 'wt', encoding='ASCII') as file:
             file.write(header.format(
