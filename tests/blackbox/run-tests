@@ -223,7 +223,7 @@ class TestSuite(unittest.TestSuite):
 
 def setup_apt():
     apt_pkg.init()
-    # APT might not be happy with our use of snapshot.debian.org:
+    # APT proxy might not be happy with our use of snapshot.debian.org:
     for key in [key for key in apt_pkg.config.keys() if key.startswith('Acquire::http::')]:
         apt_pkg.config[key] = ''
 
