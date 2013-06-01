@@ -47,10 +47,10 @@ def main():
         return main_(stdout=stdout)
 
 def main_(stdout):
-    for filename in glob.glob('checks/python/*.desc'):
+    for filename in glob.glob('{root}/checks/python/*.desc'.format(root=misc.root)):
         check, _ = os.path.splitext(os.path.basename(filename))
         tags_for = {}
-        with open('{root}/{file}'.format(root=misc.root, file=filename)) as file:
+        with open(filename) as file:
             for para in deb822.Deb822.iter_paragraphs(file):
                 try:
                     tags_for[para['tag']] = 0
