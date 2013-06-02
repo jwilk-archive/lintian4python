@@ -24,8 +24,11 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
 
   * tests/code-analysis:
     + New tests for the code-analysis helper.
+  * tests/blackbox:
+    + Move the old tests here.
+    + Change test extension from “.tdesc” to “.t”.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 01 Jun 2013 12:01:03 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 02 Jun 2013 12:21:47 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

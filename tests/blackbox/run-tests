@@ -159,7 +159,7 @@ class TestSuite(unittest.TestSuite):
             directory = os.path.dirname(__file__)
         self.directory = directory
         if not tdesc_filenames:
-            tdesc_filenames = glob.glob(os.path.join(self.directory, '*.tdesc'))
+            tdesc_filenames = glob.glob(os.path.join(self.directory, '*.t'))
         self.tdesc_filenames = tdesc_filenames
         self.cache_directory = os.path.join(directory, 'cache')
         try:
@@ -242,7 +242,7 @@ class TestProgram(unittest.TestProgram):
         parser.add_argument('-f', '--failfast', action='store_true', help='stop on first failure')
         parser.add_argument('-c', '--catch', dest='catchbreak', action='store_true', help='catch Control+C and display results')
         parser.add_argument('-b', '--buffer', action='store_true', help='buffer stdout and stderr during test runs')
-        parser.add_argument('tdesc', metavar='<tdesc-file>', nargs='*', help='path to test description (*.tdesc) file')
+        parser.add_argument('tdesc', metavar='<test-file>', nargs='*', help='path to test file (*.t)')
         options = parser.parse_args()
         for k, v in vars(options).items():
             setattr(self, k, v)
