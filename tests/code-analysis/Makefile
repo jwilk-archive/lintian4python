@@ -4,4 +4,4 @@ PYTHON = python
 all:
 	$(PYTHON) ./run-tests --verbose
 
-# vim: syntax=make sw=4 sts=4 sr noet
+# vim: syntax=make ts=4 sw=4 noet
