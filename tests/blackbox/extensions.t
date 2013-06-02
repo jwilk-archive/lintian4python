@@ -14,7 +14,7 @@ Info: http://bugs.debian.org/665803
 
 Name: extension-linked-with-libpython
 Files:
- 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.1-2_i386.deb
+ 32fc3d93837bcf15d08377ee70a0b8f6edd47794  python-nflog_0.1-2_i386.deb
 Test-For:
  i: python-nflog: extension-linked-with-libpython usr/lib/python2.6/dist-packages/_nflog.so
  i: python-nflog: extension-linked-with-libpython usr/lib/python2.7/dist-packages/_nflog.so
@@ -30,7 +30,7 @@ Test-For:
 
 Name: extension-with-soname
 Files:
- 4845357f46a0dbdb0409b23a0ce421c62100c53f  python-nflog_0.1-2_i386.deb
+ 32fc3d93837bcf15d08377ee70a0b8f6edd47794  python-nflog_0.1-2_i386.deb
 Test-For:
  p: python-nflog: extension-with-soname usr/lib/python2.6/dist-packages/_nflog.so (_nflog.so)
  p: python-nflog: extension-with-soname usr/lib/python2.7/dist-packages/_nflog.so (_nflog.so)
