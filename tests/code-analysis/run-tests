@@ -27,6 +27,7 @@ import nose
 import nose.plugins
 
 lintian_root = os.environ.get('LINTIAN_ROOT', '/usr/share/lintian/')
+lintian_root = os.path.abspath(lintian_root)
 helper_path = os.path.join(
     lintian_root,
     'helpers/python/code-analysis',
