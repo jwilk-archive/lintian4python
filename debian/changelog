@@ -28,8 +28,13 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
     + Move the old tests here.
     + Change test extension from “.tdesc” to “.t”.
     + Correct some SHA-1 hashes. 
+    + Don't unset http::Proxy::* APT configuration options. It was previously
+      done because some APT proxies don't let through requests to
+      http://snapshot.debian.org/. Users of such proxies are advised to add
+      the following line to their APT configuration file:
+      Acquire::http::Proxy::snapshot.debian.org "DIRECT";
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 02 Jun 2013 12:47:33 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 02 Jun 2013 12:58:59 +0200
 
 lintian4python (0.21) experimental; urgency=low
 
