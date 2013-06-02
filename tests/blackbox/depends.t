@@ -6,9 +6,9 @@ Test-For:
 
 Name: missing-epoch-in-dependency/source
 Files:
- 5faf3b6185937f04ad566b871b7398b75c43ccc9 nipy_0.1.999-2.dsc
- a0f2ac914064be16fd1da60441023d88376621c8 nipy_0.1.999.orig.tar.gz
- e461e9144cc82f032487dc46a146db252c71e113 nipy_0.1.999-2.debian.tar.gz
+ 5faf3b6185937f04ad566b871b7398b75c43ccc9  nipy_0.1.999-2.dsc
+ a0f2ac914064be16fd1da60441023d88376621c8  nipy_0.1.999.orig.tar.gz
+ e461e9144cc82f032487dc46a146db252c71e113  nipy_0.1.999-2.debian.tar.gz
 Test-For:
  w: nipy source: missing-epoch-in-dependency python-numpy (>= 1.2)
 
