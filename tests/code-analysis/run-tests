@@ -26,15 +26,14 @@ import unittest
 import nose
 import nose.plugins
 
-root = os.path.join(
-    os.path.dirname(__file__),
-    '../../'
-)
+lintian_root = os.environ.get('LINTIAN_ROOT', '/usr/share/lintian/')
 helper_path = os.path.join(
-    root,
+    lintian_root,
     'helpers/python/code-analysis',
 )
-os.environ['LINTIAN_INCLUDE_DIRS'] = root
+os.stat(helper_path)
+os.environ['LINTIAN_ROOT'] = lintian_root
+os.environ['LINTIAN_INCLUDE_DIRS'] = lintian_root
 os.environ['NOSE_WITH_CODE_ANALYSIS_HELPER'] = '1'
 
 class Plugin(nose.plugins.Plugin):
