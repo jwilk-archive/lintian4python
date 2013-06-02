@@ -7,3 +7,5 @@ debian/files
 debian/lintian4python/
 debian/lintian4python.substvars
 debian/lintian4python.debhelper.log
+debian/tmp/
+debian/*-stamp

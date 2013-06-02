@@ -9,6 +9,13 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * debian/control:
+    + Add all packages required to run lintian4py to Build-Depends-Indep.
+    + Add python-all and python3-all to Build-Depends-Indep.
+  * debian/rules:
+    + Run code-analysis tests at build time.
+    + Run lintian4py against the just-built .deb, as a build-time test.
+
   * private/update-code-analysis-tags:
     + Update paths.
     + Port to Python 3.
@@ -36,7 +43,7 @@ lintian4python (0.21.1) UNRELEASED; urgency=low
   * tests:
     + Add makefiles to ease running tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 02 Jun 2013 13:17:19 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 02 Jun 2013 18:04:46 +0200
 
 lintian4python (0.21) experimental; urgency=low
 

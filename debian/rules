@@ -7,8 +7,15 @@ version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
 .PHONY: clean
 clean: debian/control
 	dh_clean
+	rm -f debian/*-stamp
 
 .PHONY: build build-arch build-indep
+ifeq "$(filter nocheck,$(DEB_BUILD_OPTIONS))" ""
+build build-indep: debian/test-stamp
+debian/test-stamp:
+	$(MAKE) -C tests/code-analysis/ test-local
+	touch $(@)
+endif
 
 .PHONY: binary binary-arch binary-indep
 binary binary-indep: debian/control
@@ -30,6 +37,12 @@ binary binary-indep: debian/control
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
+ifeq "$(filter nocheck,$(DEB_BUILD_OPTIONS))" ""
+	mkdir -p debian/tmp
+	dh_builddeb --destdir=debian/tmp
+	export LINTIAN_INTERNAL_TESTSUITE=1 && \
+	./lintian4py --allow-root --no-cfg debian/tmp/*.deb 2>&1 | ( ! grep . )
+endif
 	dh_builddeb
 
 # vim:ts=4 sw=4 noet
