@@ -27,6 +27,7 @@ use v5.10; # for the // operator
 
 use Cwd qw(getcwd);
 
+use Lintian::Relation qw(:constants);
 use Lintian::Tags qw(tag);
 use Lintian::Util qw(fail locate_helper_tool);
 
@@ -35,18 +36,19 @@ use Lintian::Contrib::Python qw(classify_python_modules);
 sub run {
     my ($pkg, $type, $info, $proc) = @_;
     my $version = $info->field('version');
+    my $depends = $info->relation('all');
     my $srcpkg = $proc->pkg_src() // '';
     my ($py2files, $py3files) = classify_python_modules($pkg, $info);
     my $cwd = getcwd();
     chdir $info->unpacked('.') or fail("cannot chdir to unpacked: $!");
-    my @pkginfo = ($pkg, $srcpkg, $version);
+    my @pkginfo = ($pkg, $srcpkg, $version, $depends);
     analyse(@pkginfo, $py2files, '/usr/bin/python', '-tt');
     analyse(@pkginfo, $py3files, '/usr/bin/python3') if -x '/usr/bin/python3';
     chdir $cwd or fail("cannot chdir back from unpacked: $!");
 }
 
 sub analyse {
-    my ($pkg, $srcpkg, $version, $files, @interpreter) = @_;
+    my ($pkg, $srcpkg, $version, $depends, $files, @interpreter) = @_;
     return unless @{$files};
     open(my $fp, '-|', @interpreter, locate_helper_tool('python/code-analysis'), @{$files}) or fail("cannot execute code-analysis helper");
     my $file;
@@ -78,6 +80,21 @@ sub analyse {
                         next;
                     }
                 }
+            }
+            if ($tag eq 'missing-dependency-on-ply-virtual-package') {
+                my $vpkg = $extra;
+                my $depends_on_vpkg = 0;
+                $depends->visit(
+                    sub {
+                        if ($_ eq $vpkg) {
+                            $depends_on_vpkg = 1;
+                        }
+                    }, VISIT_PRED_FULL
+                );
+                if (not $depends_on_vpkg) {
+                    tag $tag, "$file => $vpkg";
+                }
+                next;
             }
             tag $tag, $message;
         } elsif (m,^# (.+)$,) {

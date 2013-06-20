@@ -59,6 +59,10 @@ Info: The source file mixes tabs and spaces for indentation in a way that makes
  You can check consistency of indentation with the following command:
   python -m tabnanny <i>path-to-source-file</i>
 
+Tag: missing-dependency-on-ply-virtual-package
+Severity: important
+Certainty: possible
+
 Tag: mkstemp-file-descriptor-leak
 Severity: normal
 Certainty: possible

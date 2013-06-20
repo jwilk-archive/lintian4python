@@ -260,6 +260,28 @@ class Visitor(ast.NodeVisitor):
             yield tag('embedded-code-copy', '-', info)
             self.state.code_copy = True
 
+    def visit_Module(self, node):
+        python_pkg_prefix = 'python3-' if sys.version_info >= (3,) else 'python-'
+        tabversion = None
+        for child in node.body:
+            if not isinstance(child, ast.Assign):
+                continue
+            if len(child.targets) != 1:
+                continue
+            [target] = child.targets
+            if isinstance(target, ast.Name) and isinstance(target.ctx, ast.Store):
+                if target.id == '_tabversion' and isinstance(child.value, ast.Str):
+                    tabversion = child.value.s
+                elif tabversion is not None:
+                    if target.id == '_lr_method' and isinstance(child.value, ast.Str):
+                        yield tag('missing-dependency-on-ply-virtual-package', '-', python_pkg_prefix + 'ply-yacc-' + tabversion)
+                        break
+                    elif target.id == '_lextokens' and isinstance(child.value, ast.Dict):
+                        yield tag('missing-dependency-on-ply-virtual-package', '-', python_pkg_prefix + 'ply-lex-' + tabversion)
+                        break
+        for t in self.generic_visit(node):
+            yield t
+
 def check_node(node):
     return Visitor().visit(node)
 

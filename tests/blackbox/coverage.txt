@@ -123,6 +123,7 @@ code-analysis
 | [X] except-without-exception-type
 | [X] hardcoded-errno-value
 | [X] inconsistent-use-of-tabs-and-spaces-in-indentation
+| [2] missing-dependency-on-ply-virtual-package
 | [2] mkstemp-file-descriptor-leak
 | [X] obsolete-pil-import
 | [X] string-exception

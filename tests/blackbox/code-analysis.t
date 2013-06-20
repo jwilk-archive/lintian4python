@@ -109,6 +109,26 @@ Files:
 Test-For:
  w: python-slides: inconsistent-use-of-tabs-and-spaces-in-indentation usr/share/pyshared/slides.py:39
 
+Name: missing-dependency-on-ply-virtual-package/py2
+Files:
+ 2c415db11026b30293cbca029bbbe15f3b5494dd  python-pycparser_2.09.1+dfsg-1_all.deb
+Test-For:
+ e: python-pycparser: missing-dependency-on-ply-virtual-package usr/share/pyshared/pycparser/lextab.py => python-ply-lex-3.4
+ e: python-pycparser: missing-dependency-on-ply-virtual-package usr/share/pyshared/pycparser/yacctab.py => python-ply-yacc-3.2
+
+Name: missing-dependency-on-ply-virtual-package/py3
+Files:
+ a4474dd62d912f1d3f84c5559f48cff050fd15a6  python3-pycparser_2.09.1+dfsg-1_all.deb
+Test-For:
+ e: python3-pycparser: missing-dependency-on-ply-virtual-package usr/lib/python3/dist-packages/pycparser/lextab.py => python3-ply-lex-3.4
+ e: python3-pycparser: missing-dependency-on-ply-virtual-package usr/lib/python3/dist-packages/pycparser/yacctab.py => python3-ply-yacc-3.2
+
+Name: missing-dependency-on-ply-virtual-package/py2-okay
+Files:
+ e0d61f533a2b840ef879d8a15a417336e80b62fc  python-pyke_1.1.1-3_all.deb
+Test-Against:
+ e: python-pyke: missing-dependency-on-ply-virtual-package ...
+
 Name: mkstemp-file-descriptor-leak/1
 Files:
  e9bcd22e0aebc1be9dd604c275f9df00f22d5e74  lfm_2.3-1_all.deb

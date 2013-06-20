@@ -1,0 +1,4 @@
+# missing-dependency-on-ply-virtual-package - python-ply-lex-3.2
+
+_tabversion = '3.2'
+_lextokens = {'DUMMY': 1}
