@@ -12,6 +12,10 @@ use Monkey::Patch qw();
 use Lintian::Output;
 
 my $lintian4python_root = Cwd::abs_path(File::Basename::dirname($0));
+if (defined $lintian4python_root) {
+    unshift @INC, "$lintian4python_root/lib";
+    require Lintian::Contrib::Python;
+}
 
 $SIG{'__WARN__'} = sub {
     # work-around for bug #677145

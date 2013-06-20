@@ -1,8 +1,9 @@
 lintian4python (0.22.1) UNRELEASED; urgency=low
 
-  * 
+  * lintian4py:
+    + Set module search path if run locally.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 20 Jun 2013 23:51:23 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 21 Jun 2013 00:07:06 +0200
 
 lintian4python (0.22) experimental; urgency=low
 
