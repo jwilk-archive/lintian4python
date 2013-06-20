@@ -15,6 +15,7 @@ lintian4python (0.22) UNRELEASED; urgency=low
   * debian/control:
     + Add all packages required to run lintian4py to Build-Depends-Indep.
     + Add python-all and python3-all to Build-Depends-Indep.
+    + Add python-nose and python3-nose to Build-Depends-Indep.
   * debian/rules:
     + Run code-analysis tests at build time.
     + Run lintian4py against the just-built .deb, as a build-time test.
