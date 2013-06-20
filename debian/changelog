@@ -8,7 +8,7 @@ lintian4python (0.22) UNRELEASED; urgency=low
   * checks/python/bytecompilation:
     + Remove /usr/lib/debug/usr/lib/pypy/ from the list of directories that
       are not checked for bytecompilation.
-  * helpers/python/code-analysis:
+  * checks/python/code-analysis:
     + Check for missing dependencies on PLY virtual packages
       (python-ply-{lex,yacc}-X.Y and their python3-* counterparts).
 
