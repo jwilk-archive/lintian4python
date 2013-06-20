@@ -70,7 +70,7 @@ def update_blackbox_coverage(stdout=None):
         check, _ = os.path.splitext(os.path.basename(filename))
         tags_for = read_tags(filename)
         tags_against = tags_for.copy()
-        tdesc_filename = 'tests/blackbox/{check}.tdesc'.format(check=check)
+        tdesc_filename = 'tests/blackbox/{check}.t'.format(check=check)
         if os.path.exists(tdesc_filename):
             with open(tdesc_filename, 'rt', encoding='UTF-8') as file:
                 for para in deb822.Deb822.iter_paragraphs(file):
