@@ -62,6 +62,7 @@ Info: The source file mixes tabs and spaces for indentation in a way that makes
 Tag: missing-dependency-on-ply-virtual-package
 Severity: important
 Certainty: possible
+Ref: dh_python-ply(1)
 
 Tag: mkstemp-file-descriptor-leak
 Severity: normal
