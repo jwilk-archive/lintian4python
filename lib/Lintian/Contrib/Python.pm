@@ -25,6 +25,8 @@ use base 'Exporter';
 
 use Getopt::Long qw();
 
+use Lintian::Relation qw(:constants);
+
 our (@EXPORT_OK);
 BEGIN {
     @EXPORT_OK = qw(
@@ -131,7 +133,18 @@ sub classify_python_modules {
         $is_python3_package = 1;
     } else {
         my $depends = $info->relation('strong');
-        if ($depends->implies('python3') and not $depends->implies('python')) {
+        my $has_python2_dep = 0;
+        my $has_python3_dep = 0;
+        $depends->visit(
+            sub {
+                if (m/^python3/) {
+                    $has_python3_dep = 1;
+                } elsif (m/^python/) {
+                    $has_python2_dep = 1;
+                }
+            }, VISIT_PRED_FULL
+        );
+        if ($has_python3_dep and not $has_python2_dep) {
             $is_python3_package = 1;
         }
     }

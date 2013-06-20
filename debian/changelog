@@ -1,9 +1,14 @@
 lintian4python (0.22.1) UNRELEASED; urgency=low
 
+  * lib/Lintian/Contrib/Python.pm:
+    + Improve dependency analysis for deciding whether a package is
+      implemented in Python 2 or Python 3.
+
   * lintian4py:
     + Set module search path if run locally.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 21 Jun 2013 00:07:06 +0200
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 21 Jun 2013 00:08:14 +0200
 
 lintian4python (0.22) experimental; urgency=low
 
