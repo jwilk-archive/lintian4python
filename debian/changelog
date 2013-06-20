@@ -51,6 +51,7 @@ lintian4python (0.22) UNRELEASED; urgency=low
       http://snapshot.debian.org/. Users of such proxies are advised to add
       the following line to their APT configuration file:
       Acquire::http::Proxy::snapshot.debian.org "DIRECT";
+    + Add new tests.
   * tests:
     + Add makefiles to ease running tests.
 
