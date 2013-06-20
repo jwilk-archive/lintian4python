@@ -35,11 +35,14 @@ helper_path = os.path.join(
 os.stat(helper_path)
 os.environ['LINTIAN_ROOT'] = lintian_root
 os.environ['LINTIAN_INCLUDE_DIRS'] = lintian_root
-os.environ['NOSE_WITH_CODE_ANALYSIS_HELPER'] = '1'
 
 class Plugin(nose.plugins.Plugin):
 
     name = 'code-analysis-helper'
+    enabled = True
+
+    def options(self, parser, env):
+        pass
 
     def wantFile(self, file):
         if file.endswith('.t-ca'):
