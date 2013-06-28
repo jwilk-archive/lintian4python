@@ -1,0 +1,5 @@
+Tests: code-analysis
+Depends: lintian4python,
+ make,
+ python, python-nose,
+ python3, python3-nose

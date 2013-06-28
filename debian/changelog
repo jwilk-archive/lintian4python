@@ -12,6 +12,10 @@ lintian4python (0.23) UNRELEASED; urgency=low
 
   * debian/control:
     + Update pyflakes dependency.
+    + Add “XS-Testsuite: autopkgtest”.
+
+  * debian/tests:
+    + Add DEP-8 tests.
 
   * lib/Lintian/Contrib/Python.pm:
     + Improve dependency analysis for deciding whether a package is
@@ -20,7 +24,7 @@ lintian4python (0.23) UNRELEASED; urgency=low
   * lintian4py:
     + Set module search path if run locally.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 22:25:45 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 22:40:15 +0200
 
 lintian4python (0.22) experimental; urgency=low
 
