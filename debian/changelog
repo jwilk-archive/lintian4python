@@ -1,7 +1,17 @@
-lintian4python (0.22.1) UNRELEASED; urgency=low
+lintian4python (0.23) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - pyflakes-doctest-syntax-error
+
+  * checks/python/pyflakes:
+    + Update for pyflakes 0.7.2.
 
   * data/python*-projects:
     + Update.
+
+  * debian/control:
+    + Update pyflakes dependency.
 
   * lib/Lintian/Contrib/Python.pm:
     + Improve dependency analysis for deciding whether a package is
@@ -10,7 +20,7 @@ lintian4python (0.22.1) UNRELEASED; urgency=low
   * lintian4py:
     + Set module search path if run locally.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 21:58:42 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 22:25:45 +0200
 
 lintian4python (0.22) experimental; urgency=low
 

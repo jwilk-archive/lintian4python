@@ -7,7 +7,7 @@ Build-Depends-Indep:
  lintian (>= 2.5.13~), lintian (<< 2.5.14~),
  libmonkey-patch-perl,
  perl (>= 5.10), libtext-levenshtein-perl, liblist-moreutils-perl, liburi-perl,
- python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.6.1+),
+ python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.7.2+),
  python-all, python-nose,
  python3-all, python3-nose,
 Standards-Version: 3.9.4
@@ -21,7 +21,7 @@ Depends: ${misc:Depends}, ${perl:Depends},
  lintian (>= 2.5.13~), lintian (<< 2.5.14~),
  libmonkey-patch-perl,
  perl (>= 5.10), libtext-levenshtein-perl, liblist-moreutils-perl, liburi-perl,
- python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.6.1+)
+ python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.7.2+)
 Recommends:
  python3
 Description: Debian package checker (for Python packages)

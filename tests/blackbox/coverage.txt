@@ -4,6 +4,7 @@ imports
 
 pyflakes
 ~~~~~~~~
+| [ ] pyflakes-doctest-syntax-error
 | [ ] pyflakes-duplicate-argument
 | [ ] pyflakes-import-shadowed-by-loop-var
 | [X] pyflakes-import-star-used

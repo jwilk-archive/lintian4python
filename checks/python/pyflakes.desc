@@ -4,6 +4,12 @@ Type: binary
 Info: run pyflakes over Python code
 Needs-Info: index, bin-pkg-control, scripts, unpacked
 
+Tag: pyflakes-doctest-syntax-error
+Severity: normal
+Certainty: possible
+Info: pyflakes emitted the following message:
+  syntax error in doctest
+
 Tag: pyflakes-duplicate-argument
 Severity: serious
 Certainty: certain
