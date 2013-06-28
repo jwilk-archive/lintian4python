@@ -29,7 +29,8 @@ lintian4python (0.23) UNRELEASED; urgency=low
 lintian4python (0.22) experimental; urgency=low
 
   * Summary of tag changes:
-    + missing-dependency-on-ply-virtual-package
+    + Added:
+      - missing-dependency-on-ply-virtual-package
 
   * checks/python/*:
     + Drop the Abbrev field.
@@ -73,7 +74,7 @@ lintian4python (0.22) experimental; urgency=low
   * tests/blackbox:
     + Move the old tests here.
     + Change test extension from “.tdesc” to “.t”.
-    + Correct some SHA-1 hashes. 
+    + Correct some SHA-1 hashes.
     + Don't unset http::Proxy::* APT configuration options. It was previously
       done because some APT proxies don't let through requests to
       http://snapshot.debian.org/. Users of such proxies are advised to add
@@ -203,7 +204,7 @@ lintian4python (0.19) experimental; urgency=low
  -- Jakub Wilk <jwilk@debian.org>  Thu, 16 May 2013 22:22:23 +0200
 
 lintian4python (0.18) experimental; urgency=low
- 
+
   * Summary of tag changes:
     + Added:
       - except-without-exception-type
@@ -519,7 +520,7 @@ lintian4python (0.12) experimental; urgency=low
     + Move the checks to the python/ subdirectory.
       Thanks to Niels Thykier for the bug report.
     + Change check name abbreviations so that they all start with “py”.
-    
+
   * checks/python/bytecompilation:
     + Check for source package containing .pyc and .pyo files.
 
@@ -908,7 +909,7 @@ lintian4python (0.4) experimental; urgency=low
  -- Jakub Wilk <jwilk@debian.org>  Sat, 09 Jun 2012 13:46:33 +0200
 
 lintian4python (0.3.1) experimental; urgency=low
-  
+
   * checks/bytecompilation:
     + Fix the Abbrev field.
   * checks/code-analysis:
@@ -1007,7 +1008,7 @@ lintian4python (0.3) experimental; urgency=low
 
   * profiles/*/*:
     + Update.
-  
+
   * private/refresh-code-analysis-tags:
     + New script.
   * private/refresh-pyflakes-tags:
