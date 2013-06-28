@@ -1,4 +1,4 @@
-lintian4python (0.23) UNRELEASED; urgency=low
+lintian4python (0.23) experimental; urgency=low
 
   * Summary of tag changes:
     + Added:
@@ -24,7 +24,7 @@ lintian4python (0.23) UNRELEASED; urgency=low
   * lintian4py:
     + Set module search path if run locally.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 22:40:15 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Jun 2013 22:50:35 +0200
 
 lintian4python (0.22) experimental; urgency=low
 
