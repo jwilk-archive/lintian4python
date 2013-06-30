@@ -1,4 +1,4 @@
-lintian4python (0.23.1) UNRELEASED; urgency=low
+lintian4python (0.23.1) experimental; urgency=low
 
   * checks/python/*:
     + Rename all checks to include the “.pm” extension.
@@ -9,7 +9,7 @@ lintian4python (0.23.1) UNRELEASED; urgency=low
   * debian/control:
     + Update lintian dependency (2.5.14).
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Jun 2013 00:23:20 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Jun 2013 11:04:57 +0200
 
 lintian4python (0.23) experimental; urgency=low
 
