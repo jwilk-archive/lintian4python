@@ -140,3 +140,7 @@ teams
 | [X] incorrect-vcs-field
 | [2] missing-vcs-field
 
+watch
+~~~~~
+| [ ] http-pypi-url
+
