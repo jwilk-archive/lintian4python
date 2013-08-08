@@ -1,5 +1,13 @@
 lintian4python (0.24) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - http-pypi-url
+
+  * checks/watch:
+    + Check for HTTP PyPI URLs (closes: #719026). Thanks to Stefano Rivera for
+      the bug report.
+
   * data/python*-projects:
     + Update.
 

@@ -1,0 +1,12 @@
+Check-Script: python/watch
+Author: Jakub Wilk <jwilk@debian.org>
+Type: source
+Info: check debian/watch files in source packages
+Needs-Info: debfiles
+
+Tag: http-pypi-url
+Severity: wishlist
+Certainty: certain
+Description: The watch file is pointing at PyPI, using a http URL, not https.
+ PyPI now has https enabled, you should be able to simply switch to
+ https.

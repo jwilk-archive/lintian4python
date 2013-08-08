@@ -14,3 +14,4 @@ Enable-Tags-From-Check:
  python/pyflakes,
  python/scripts,
  python/teams,
+ python/watch,
