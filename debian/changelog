@@ -18,6 +18,9 @@ lintian4python (0.24) UNRELEASED; urgency=low
   * private/update-coverage:
     + Sort checks.
 
+  * tests/blackbox/watch:
+    + New tests.
+
  -- Jakub Wilk <jwilk@debian.org>  Thu, 08 Aug 2013 09:39:11 +0200
 
 lintian4python (0.23.2) experimental; urgency=low
