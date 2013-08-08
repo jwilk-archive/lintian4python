@@ -38,6 +38,7 @@ sub run {
             last;
         }
     }
+    close($fh);
 }
 
 1;
