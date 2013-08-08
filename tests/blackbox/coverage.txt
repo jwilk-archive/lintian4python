@@ -1,40 +1,3 @@
-imports
-~~~~~~~
-| [2] missing-dependency-for-import
-
-pyflakes
-~~~~~~~~
-| [ ] pyflakes-doctest-syntax-error
-| [ ] pyflakes-duplicate-argument
-| [ ] pyflakes-import-shadowed-by-loop-var
-| [X] pyflakes-import-star-used
-| [X] pyflakes-late-future-import
-| [ ] pyflakes-redefined
-| [X] pyflakes-redefined-in-list-comp
-| [X] pyflakes-redefined-while-unused
-| [X] pyflakes-undefined-export
-| [X] pyflakes-undefined-local
-| [X] pyflakes-undefined-name
-| [X] pyflakes-undefined-name-underscore
-| [X] pyflakes-unused-import
-| [X] pyflakes-unused-variable
-
-extensions
-~~~~~~~~~~
-| [X] dbg-extension-in-non-dbg-package
-| [X] extension-compiled-for-wrong-version
-| [X] extension-is-symlink
-| [X] extension-linked-with-libpython
-| [X] extension-uses-old-pyrex-import-type
-| [X] extension-with-soname
-| [X] python3-extension-without-abi-tag
-| [X] static-extension
-
-scripts
-~~~~~~~
-| [X] usr-bin-env-python-shebang
-| [X] versioned-python-shebang
-
 bytecompilation
 ~~~~~~~~~~~~~~~
 | [X] insufficient-dependency-on-byte-compilation-helper
@@ -44,9 +7,27 @@ bytecompilation
 | [2] python-module-not-byte-compiled
 | [X] source-contains-python-bytecode
 
-package-name
-~~~~~~~~~~~~
-| [2] incorrect-package-name
+code-analysis
+~~~~~~~~~~~~~
+| [X] assertion-always-true
+| [13] embedded-code-copy
+| [X] except-shadows-builtin
+| [X] except-without-exception-type
+| [X] hardcoded-errno-value
+| [X] inconsistent-use-of-tabs-and-spaces-in-indentation
+| [2] missing-dependency-on-ply-virtual-package
+| [2] mkstemp-file-descriptor-leak
+| [X] obsolete-pil-import
+| [X] string-exception
+| [2] syntax-error
+
+depends
+~~~~~~~
+| [X] hardcoded-dependency-on-numpy-virtual-package
+| [2] missing-epoch-in-dependency
+| [X] obsolete-conflicts
+| [X] obsolete-provides
+| [X] obsolete-replaces
 
 documentation
 ~~~~~~~~~~~~~
@@ -65,18 +46,26 @@ documentation
 | [X] sphinx-js-incompatible-with-jquery-1.5
 | [X] sphinx-static-file-with-jinja2-templates
 
-pth
-~~~
-| [X] misssing-dependency-for-sys.path-addition
-| [X] pth-file-modifies-sys.path
+egg-info
+~~~~~~~~
+| [X] SOURCES.txt-in-binary-package
+| [X] egg-info-version-mismatch
+| [X] missing-requires.txt-dependency
+| [X] missing-requires.txt-optional-dependency
+| [X] strict-versioned-dependency-in-requires.txt
+| [X] unknown-optional-project-in-requires.txt
+| [X] unknown-project-in-requires.txt
 
-depends
-~~~~~~~
-| [X] hardcoded-dependency-on-numpy-virtual-package
-| [2] missing-epoch-in-dependency
-| [X] obsolete-conflicts
-| [X] obsolete-provides
-| [X] obsolete-replaces
+extensions
+~~~~~~~~~~
+| [X] dbg-extension-in-non-dbg-package
+| [X] extension-compiled-for-wrong-version
+| [X] extension-is-symlink
+| [X] extension-linked-with-libpython
+| [X] extension-uses-old-pyrex-import-type
+| [X] extension-with-soname
+| [X] python3-extension-without-abi-tag
+| [X] static-extension
 
 helpers
 ~~~~~~~
@@ -106,37 +95,48 @@ helpers
 | [X] xs-python-version-instead-of-x-python-version
 | [X] xs-python3-version-instead-of-x-python3-version
 
+imports
+~~~~~~~
+| [2] missing-dependency-for-import
+
 multi-arch
 ~~~~~~~~~~
 | [2] python-module-in-multi-arch-foreign-package
+
+package-name
+~~~~~~~~~~~~
+| [2] incorrect-package-name
+
+pth
+~~~
+| [X] misssing-dependency-for-sys.path-addition
+| [X] pth-file-modifies-sys.path
+
+pyflakes
+~~~~~~~~
+| [ ] pyflakes-doctest-syntax-error
+| [ ] pyflakes-duplicate-argument
+| [ ] pyflakes-import-shadowed-by-loop-var
+| [X] pyflakes-import-star-used
+| [X] pyflakes-late-future-import
+| [ ] pyflakes-redefined
+| [X] pyflakes-redefined-in-list-comp
+| [X] pyflakes-redefined-while-unused
+| [X] pyflakes-undefined-export
+| [X] pyflakes-undefined-local
+| [X] pyflakes-undefined-name
+| [X] pyflakes-undefined-name-underscore
+| [X] pyflakes-unused-import
+| [X] pyflakes-unused-variable
+
+scripts
+~~~~~~~
+| [X] usr-bin-env-python-shebang
+| [X] versioned-python-shebang
 
 teams
 ~~~~~
 | [X] incorrect-team-name
 | [X] incorrect-vcs-field
 | [2] missing-vcs-field
-
-code-analysis
-~~~~~~~~~~~~~
-| [X] assertion-always-true
-| [13] embedded-code-copy
-| [X] except-shadows-builtin
-| [X] except-without-exception-type
-| [X] hardcoded-errno-value
-| [X] inconsistent-use-of-tabs-and-spaces-in-indentation
-| [2] missing-dependency-on-ply-virtual-package
-| [2] mkstemp-file-descriptor-leak
-| [X] obsolete-pil-import
-| [X] string-exception
-| [2] syntax-error
-
-egg-info
-~~~~~~~~
-| [X] SOURCES.txt-in-binary-package
-| [X] egg-info-version-mismatch
-| [X] missing-requires.txt-dependency
-| [X] missing-requires.txt-optional-dependency
-| [X] strict-versioned-dependency-in-requires.txt
-| [X] unknown-optional-project-in-requires.txt
-| [X] unknown-project-in-requires.txt
 

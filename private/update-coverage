@@ -66,7 +66,7 @@ def update_blackbox_coverage(stdout=None):
     if stdout is None:
         with open('tests/blackbox/coverage.txt', 'wt', encoding='UTF-8') as stdout:
             return update_blackbox_coverage(stdout=stdout)
-    for filename in glob.glob('checks/python/*.desc'):
+    for filename in sorted(glob.glob('checks/python/*.desc')):
         check, _ = os.path.splitext(os.path.basename(filename))
         tags_for = read_tags(filename)
         tags_against = tags_for.copy()

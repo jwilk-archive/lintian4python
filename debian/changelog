@@ -15,6 +15,9 @@ lintian4python (0.24) UNRELEASED; urgency=low
     + Update pyflakes dependency (0.7.3).
       Thanks to Paul Wise for the bug report.
 
+  * private/update-coverage:
+    + Sort checks.
+
  -- Jakub Wilk <jwilk@debian.org>  Thu, 08 Aug 2013 09:39:11 +0200
 
 lintian4python (0.23.2) experimental; urgency=low
