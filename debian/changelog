@@ -1,6 +1,7 @@
 lintian4python (0.24.1) UNRELEASED; urgency=low
 
-  * 
+  * data/python*-projects:
+    + Update.
 
  -- Jakub Wilk <jwilk@debian.org>  Wed, 21 Aug 2013 13:12:27 +0200
 
