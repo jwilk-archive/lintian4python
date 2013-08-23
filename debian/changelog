@@ -1,4 +1,4 @@
-lintian4python (0.24.1) UNRELEASED; urgency=low
+lintian4python (0.24.1) experimental; urgency=low
 
   * data/python*-projects:
     + Update.
@@ -6,7 +6,7 @@ lintian4python (0.24.1) UNRELEASED; urgency=low
   * debian/control:
     + Update lintian dependency (2.5.16).
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 23 Aug 2013 15:29:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 23 Aug 2013 15:31:18 +0200
 
 lintian4python (0.24) experimental; urgency=low
 
