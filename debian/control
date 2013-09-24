@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Jakub Wilk <jwilk@debian.org>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep:
- lintian (>= 2.5.14~), lintian (<< 2.5.18~),
+ lintian (>= 2.5.14~), lintian (<< 2.5.19~),
  libmonkey-patch-perl,
  perl (>= 5.10), libtext-levenshtein-perl, liblist-moreutils-perl, liburi-perl,
  python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.7.3+),
