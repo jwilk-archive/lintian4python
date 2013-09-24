@@ -8,12 +8,10 @@ use File::Basename qw();
 
 my $lintian4python_root = Cwd::abs_path(File::Basename::dirname($0));
 
-unshift @ARGV, '--include-dir', $lintian4python_root if defined $lintian4python_root;
 unshift @ARGV, '--profile', '{VENDOR}/python';
-do '/usr/bin/lintian-info';
-if ($@) {
-    die $@;
-}
+unshift @ARGV, '--include-dir', $lintian4python_root if defined $lintian4python_root;
+my $command = '/usr/bin/lintian-info';
+exec { $command } $command, @ARGV or die;
 
 # Local Variables:
 # indent-tabs-mode: nil

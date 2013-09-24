@@ -6,6 +6,10 @@ lintian4python (0.24.3) UNRELEASED; urgency=low
   * lintian4py:
     + Pass --include-dir as the first option.
 
+  * lintian4py-info:
+    + Pass --include-dir as the first option.
+    + Use exec() instead of do() to call lintian-info.
+
  -- Jakub Wilk <jwilk@debian.org>  Tue, 24 Sep 2013 15:42:20 +0200
 
 lintian4python (0.24.2) experimental; urgency=low
