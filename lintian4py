@@ -84,8 +84,8 @@ my $monkey3 = Monkey::Patch::patch_package 'Getopt::Long' => 'GetOptions' => sub
     return $original->(%opt);
 };
 
-unshift @ARGV, '--include-dir', $lintian4python_root if defined $lintian4python_root;
 unshift @ARGV, '--profile', '{VENDOR}/python';
+unshift @ARGV, '--include-dir', $lintian4python_root if defined $lintian4python_root;
 do '/usr/bin/lintian';
 if ($@) {
     die $@;
