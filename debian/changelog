@@ -1,10 +1,13 @@
 lintian4python (0.24.4) UNRELEASED; urgency=low
 
+  * debian/control:
+    + Update lintian dependency (2.5.19).
+
   * debian/rules:
     + Check if binary package dependencies are satisfiable in build
       environment.
 
- -- Jakub Wilk <jwilk@debian.org>  Thu, 26 Sep 2013 17:53:50 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 26 Sep 2013 18:04:23 +0200
 
 lintian4python (0.24.3) experimental; urgency=low
 
