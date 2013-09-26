@@ -42,9 +42,7 @@ ifeq "$(filter nocheck,$(DEB_BUILD_OPTIONS))" ""
 	dh_builddeb --destdir=debian/tmp
 	export LINTIAN_INTERNAL_TESTSUITE=1 && \
 	./lintian4py --allow-root --no-cfg debian/tmp/*.deb 2>&1 | ( ! grep . )
-	dpkg -I debian/tmp/*.deb \
-	| LC_ALL=C grep -i '^ depends:' \
-	| cut -d: -f2 \
+	dpkg -f debian/tmp/*.deb Depends \
 	| xargs -t -d '\n' dpkg-checkbuilddeps -d
 endif
 	dh_builddeb
