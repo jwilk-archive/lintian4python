@@ -48,7 +48,7 @@ archivemail||archivemail
 archmage||archmage
 argcomplete||python-argcomplete
 argh||python-argh
-argparse||python-argparse | python (>= 2.7)
+argparse||python (>= 2.7) | python-argparse
 argvalidate||python-argvalidate
 arista||arista
 arpy||python-arpy
@@ -728,7 +728,7 @@ mpdris||mpdris
 mpi4py||python-mpi4py
 mpmath||python-mpmath
 mrjob||python-mrjob
-msgpack_python||python-msgpack | msgpack-python
+msgpack_python||msgpack-python | python-msgpack
 msnlib||python-msnlib
 mtbl||python-mtbl
 multipartposthandler||python-multipartposthandler
@@ -1108,7 +1108,7 @@ pyspf||python-spf
 pysqlite||python-pysqlite1.1 | python-pysqlite2 | python-sqlite
 pystache||python-pystache
 pystatgrab||python-statgrab
-pyste||libboost-python1.54-dev | libboost-python1.49-dev | libboost-python1.53-dev
+pyste||libboost-python1.49-dev | libboost-python1.53-dev | libboost-python1.54-dev
 pystemmer||python-stemmer
 pysubnettree||python-subnettree
 pysurfer||python-surfer

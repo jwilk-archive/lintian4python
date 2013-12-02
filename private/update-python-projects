@@ -83,7 +83,7 @@ for my $py3k (0..1) {
 EOF
     foreach my $project_name (sort keys %{$data[$py3k]}) {
         my @package_names = keys %{$data[$py3k]->{$project_name}};
-        print $fh "$project_name||" . join(' | ', @package_names) . "\n";
+        print $fh "$project_name||" . join(' | ', sort @package_names) . "\n";
     }
     close($fh) or die $!;
 

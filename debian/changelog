@@ -7,7 +7,10 @@ lintian4python (0.24.5) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 02 Dec 2013 11:27:54 +0100
+  * private/update-python-projects:
+    + Sort alternatives, so that the output is deterministic.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 02 Dec 2013 11:47:11 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 
