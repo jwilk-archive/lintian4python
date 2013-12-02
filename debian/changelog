@@ -1,8 +1,10 @@
 lintian4python (0.24.5) UNRELEASED; urgency=low
 
-  * 
+  * checks/python/bytecompilation:
+    + Don't complain about files in /usr/share/paster_templates/ not being
+      byte-compiled.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 27 Sep 2013 15:09:20 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 02 Dec 2013 10:51:09 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 

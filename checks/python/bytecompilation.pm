@@ -49,6 +49,7 @@ my $bytecompilation_not_needed_re = qr{
 | usr/share/apport/package-hooks/
 | usr/share/doc/
 | usr/share/jython/
+| usr/share/paster_templates/
 }x;
 
 my %helper_depends = (
