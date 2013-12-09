@@ -20,13 +20,14 @@ lintian4python (0.25) UNRELEASED; urgency=low
 
   * private/update-python-projects:
     + Sort alternatives, so that the output is deterministic.
+    + Don't assume that the “distribute” project exists.
 
   * tests:
     + New tests.
   * tests/blackbox/run-tests:
     + Improve error handling.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 14:13:15 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 18:41:22 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 
