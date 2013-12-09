@@ -86,7 +86,6 @@ EOF
         print $fh "$project_name||" . join(' | ', sort @package_names) . "\n";
     }
     close($fh) or die $!;
-
 }
 
 # Local Variables:
