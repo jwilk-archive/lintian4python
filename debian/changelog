@@ -1,4 +1,4 @@
-lintian4python (0.24.5) UNRELEASED; urgency=low
+lintian4python (0.25) UNRELEASED; urgency=low
 
   * checks/python/bytecompilation:
     + Don't complain about files in /usr/share/paster_templates/ not being
@@ -16,7 +16,7 @@ lintian4python (0.24.5) UNRELEASED; urgency=low
   * tests:
     + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 10:00:06 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 10:30:10 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 
