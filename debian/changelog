@@ -3,12 +3,15 @@ lintian4python (0.25) UNRELEASED; urgency=low
   * checks/python/bytecompilation:
     + Don't complain about files in /usr/share/paster_templates/ not being
       byte-compiled.
+  * checks/python/code-analysis:
+    + Check for errors in string formatting (% operator).
 
   * data/python*-projects:
     + Update.
 
   * helpers/python/code-analysis:
     + Check for catching string exceptions.
+    + Check for errors in string formatting (% operator).
 
   * private/update-python-projects:
     + Sort alternatives, so that the output is deterministic.
@@ -18,7 +21,7 @@ lintian4python (0.25) UNRELEASED; urgency=low
   * tests/blackbox/run-tests:
     + Improve error handling.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 13:55:24 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 14:00:28 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 

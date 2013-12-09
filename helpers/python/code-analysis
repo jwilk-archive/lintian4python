@@ -272,6 +272,56 @@ class Visitor(ast.NodeVisitor):
             yield tag('embedded-code-copy', '-', info)
             self.state.code_copy = True
 
+    def visit_BinOp(self, node):
+        fn = getattr(self,
+            'visit_BinOp_' + node.op.__class__.__name__,
+             self.generic_visit
+        )
+        return fn(node)
+
+    def visit_BinOp_Mod(self, node):
+        for t in self._check_string_formatting(node):
+            yield t
+        for t in self.generic_visit(node):
+            yield t
+
+    def _check_string_formatting(self, node):
+        [lhs, rhs] = [node.left, node.right]
+        if isinstance(lhs, ast.Str):
+            lhs = lhs.s
+        else:
+            return
+        if isinstance(rhs, ast.Tuple):
+            rhs = tuple(
+                elt.s if isinstance(elt, ast.Str) else 0
+                for elt in rhs.elts
+            )
+        elif isinstance(rhs, ast.Dict):
+            new_rhs = {}
+            for key, value in zip(rhs.keys, rhs.values):
+                if isinstance(key, ast.Str):
+                    key = key.s
+                else:
+                    return
+                if isinstance(value, ast.Str):
+                    value = value.s
+                else:
+                    value = 0
+                new_rhs[key] = value
+            rhs = new_rhs
+        elif isinstance(rhs, ast.Str):
+            rhs = rhs.s
+        elif isinstance(rhs, ast.Num):
+            rhs = 0
+        else:
+            return
+        try:
+            lhs % rhs
+        except KeyError as exc:
+            yield tag('string-formatting-error', node.lineno, 'missing key', str(exc))
+        except Exception as exc:
+            yield tag('string-formatting-error', node.lineno, str(exc))
+
     def visit_Module(self, node):
         python_pkg_prefix = 'python3-' if sys.version_info >= (3,) else 'python-'
         tabversion = None

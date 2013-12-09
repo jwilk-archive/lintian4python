@@ -1,0 +1,7 @@
+# string-formatting-error 4 'ascii' codec can't decode byte 0xff in position 0: ordinal not in range(128)
+# string-formatting-error 5 'ascii' codec can't decode byte 0xff in position 0: ordinal not in range(128)
+
+'\xff%s' % u'\xff'
+u'\xff%s' % '\xff'
+
+# vim: syntax=python sw=4 sts=4 sr et

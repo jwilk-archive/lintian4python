@@ -90,6 +90,10 @@ Ref: http://docs.python.org/whatsnew/2.6.html#deprecations-and-removals
 Info: String exceptions have been removed in Python 2.6.  Attempting to use
  them raises a TypeError.
 
+Tag: string-formatting-error
+Severity: important
+Certainty: certain
+
 Tag: syntax-error
 Severity: serious
 Certainty: certain

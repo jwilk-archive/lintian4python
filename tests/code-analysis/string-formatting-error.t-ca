@@ -1,0 +1,29 @@
+# string-formatting-error 13 not enough arguments for format string
+# string-formatting-error 14 not enough arguments for format string
+# string-formatting-error 15 not all arguments converted during string formatting
+# string-formatting-error 16 %d format: a number is required, not str
+# string-formatting-error 17 %d format: a number is required, not str
+# string-formatting-error 18 * wants int
+# string-formatting-error 20 format requires a mapping
+# string-formatting-error 21 format requires a mapping
+# string-formatting-error 22 missing key 'eggs'
+# string-formatting-error 23 %d format: a number is required, not str
+# string-formatting-error 24 unsupported format character 'S' (0x53) at index 7
+
+'%s %s' % 'eggs'
+'%s %s' % ('eggs',)
+'%s' % ('eggs', 'ham')
+'%d' % 'eggs'
+'%s %d' % ('eggs', 'ham')
+'%*s' % ('eggs', 'ham')
+
+'%(eggs)s' % 'ham'
+'%(eggs)s' % ('ham',)
+'%(eggs)s' % {'ham': 'eggs'}
+'%(eggs)d' % {'eggs': 'ham'}
+'%(eggs)S' % {'eggs': 'ham'}
+
+x = ('eggs', 'ham')
+'%s %s' % x  # ok
+
+# vim: syntax=python sw=4 sts=4 sr et

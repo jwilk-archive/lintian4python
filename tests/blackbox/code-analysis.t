@@ -181,6 +181,15 @@ Files:
 Test-For:
  e: pyftpd: string-exception usr/share/pyftpd/pyftpd.py:125
 
+Name: string-formatting-error
+Files:
+ 910c1858deed9418a37f00099b2a03bb8b9367dc  mucous_0.2+svn20100315.r1208-2_all.deb
+Test-For:
+ e: mucous: string-formatting-error usr/share/pyshared/pymucous/MucousShares.py:653: not all arguments converted during string formatting
+ e: mucous: string-formatting-error usr/share/pyshared/pymucous/MucousShares.py:658: not all arguments converted during string formatting
+ e: mucous: string-formatting-error usr/share/pyshared/pymucous/MucousShares.py:663: not all arguments converted during string formatting
+ e: mucous: string-formatting-error usr/share/pyshared/pymucous/MucousShares.py:675: not all arguments converted during string formatting
+
 Name: syntax-error
 Files:
  1e7a29406299962ec9cf043c57c291d61b68ffa5  python-pydoctor_0.2-4_all.deb
