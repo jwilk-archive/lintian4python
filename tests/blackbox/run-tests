@@ -51,6 +51,8 @@ def sha1file(path):
 class FileItem(object):
 
     def __init__(self, filename, sha1):
+        if '/' in filename:
+            raise ValueError('invalid filename')
         self.filename = filename
         self.sha1 = sha1
 
