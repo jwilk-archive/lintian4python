@@ -74,6 +74,7 @@ Test-For:
  w: rst2pdf: unknown-optional-project-in-requires.txt pythonmagick
  w: rst2pdf: unknown-optional-project-in-requires.txt svglib
  w: rst2pdf: unknown-optional-project-in-requires.txt swftools
+ w: rst2pdf: unknown-optional-project-in-requires.txt pil
  w: rst2pdf: unknown-optional-project-in-requires.txt wordaxe
 
 Name: unknown-project-in-requires.txt
