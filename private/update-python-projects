@@ -29,7 +29,9 @@ use POSIX qw(strftime);
 chdir(dirname($0) . '/..') or die $!;
 
 my $mirror = $ENV{'DEB_MIRROR'} // 'http://http.debian.net/debian';
-my @data = ({}, {});
+my @data;
+$data[2] = {};
+$data[3] = {};
 
 my @urls = map { "$mirror/dists/$_/main/Contents-i386.gz" } qw(unstable experimental);
 open(my $fh, "wget -q -O - @urls | zcat |") or die $!;
@@ -51,28 +53,28 @@ while (<$fh>) {
         (\S+)
         $
     }x) {
-        my $py3k = defined $2;
+        my $ver = 2 + (defined $2);
         my $project_name = lc $3;
         my @package_names = split /,/, $4;
         map { s,.*/,, } @package_names;
-        $data[$py3k]->{$project_name} //= {};
-        $data[$py3k]->{$project_name}->{$_} = 1 foreach @package_names;
+        $data[$ver]->{$project_name} //= {};
+        $data[$ver]->{$project_name}->{$_} = 1 foreach @package_names;
     }
 }
 close($fh) or die $!;
-$data[0]->{'setuptools'} //= $data[0]->{'distribute'};
-$data[1]->{'setuptools'} //= $data[1]->{'distribute'};
-$data[0]->{'wsgiref'} = {'python (>= 2.5)' => 1, 'python-wsgiref' => 1};
-$data[1]->{'wsgiref'} = {'python3' => 1};
-$data[0]->{'argparse'} = {'python (>= 2.7)' => 1, 'python-argparse' => 1};
-$data[0]->{'python'} = {'python' => 1};
-$data[1]->{'python'} = {'python3' => 1};
+$data[2]->{'setuptools'} //= $data[2]->{'distribute'};
+$data[3]->{'setuptools'} //= $data[3]->{'distribute'};
+$data[2]->{'wsgiref'} = {'python (>= 2.5)' => 1, 'python-wsgiref' => 1};
+$data[3]->{'wsgiref'} = {'python3' => 1};
+$data[2]->{'argparse'} = {'python (>= 2.7)' => 1, 'python-argparse' => 1};
+$data[2]->{'python'} = {'python' => 1};
+$data[3]->{'python'} = {'python3' => 1};
 
 my $date = strftime('%Y-%m-%d', gmtime);
 
-for my $py3k (0..1) {
-    my $python = sprintf 'Python %d.X', 2 + $py3k;
-    open(my $fh, '>', sprintf('data/python%d-projects', 2 + $py3k)) or die $!;
+for my $ver (2..3) {
+    my $python = sprintf 'Python %d.X', $ver;
+    open(my $fh, '>', sprintf('data/python%d-projects', $ver)) or die $!;
     print $fh <<EOF ;
 # This file contains mapping between $python project names (as used by
 # setuptools) and Debian package names.
@@ -81,8 +83,8 @@ for my $py3k (0..1) {
 # Last update: $date
 
 EOF
-    foreach my $project_name (sort keys %{$data[$py3k]}) {
-        my @package_names = keys %{$data[$py3k]->{$project_name}};
+    foreach my $project_name (sort keys %{$data[$ver]}) {
+        my @package_names = keys %{$data[$ver]->{$project_name}};
         print $fh "$project_name||" . join(' | ', sort @package_names) . "\n";
     }
     close($fh) or die $!;
