@@ -10,7 +10,10 @@ lintian4python (0.24.5) UNRELEASED; urgency=low
   * private/update-python-projects:
     + Sort alternatives, so that the output is deterministic.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 02 Dec 2013 11:47:11 +0100
+  * tests/code-analysis:
+    + Improve the string-exception test.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 09:44:41 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 

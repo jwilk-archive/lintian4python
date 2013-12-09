@@ -4,6 +4,6 @@
 
 raise 'eggs'
 raise 'eggs+%s' % 'ham'
-raise 'eggs+ham'
+raise 'eggs' + '+' + 'ham'
 
 # vim: syntax=python sw=4 sts=4 sr et
