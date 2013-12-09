@@ -128,6 +128,18 @@ class Visitor(ast.NodeVisitor):
             node_name = node.name
         if node_name in builtin_exception_types:
             yield tag('except-shadows-builtin', node.lineno, node_name)
+        if node.type is None:
+            ex_types = []
+        elif isinstance(node.type, ast.Tuple):
+            ex_types = list(node.type.elts)
+        else:
+            ex_types = [node.type]
+        for ex_type in ex_types:
+            while isinstance(ex_type, ast.BinOp):
+                ex_type = ex_type.left
+            if isinstance(ex_type, ast.Str):
+                yield tag('string-exception', node.lineno)
+                break
         for t in self.generic_visit(node):
             yield t
 

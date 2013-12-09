@@ -7,13 +7,16 @@ lintian4python (0.24.5) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * helpers/python/code-analysis:
+    + Check for catching string exceptions.
+
   * private/update-python-projects:
     + Sort alternatives, so that the output is deterministic.
 
-  * tests/code-analysis:
-    + Improve the string-exception test.
+  * tests:
+    + New tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 09:44:41 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 10:00:06 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 

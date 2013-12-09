@@ -1,9 +1,21 @@
-# string-exception 5
-# string-exception 6
-# string-exception 7
+# string-exception 8
+# string-exception 9
+# string-exception 10
+# string-exception 14
+# string-exception 16
+# string-exception 18
 
 raise 'eggs'
 raise 'eggs+%s' % 'ham'
 raise 'eggs' + '+' + 'ham'
+
+try:
+    pass
+except 'eggs':
+    pass
+except 'eggs+%s' % 'ham':
+    pass
+except (IOError, 'eggs' + '+' + 'ham', OSError):
+    pass
 
 # vim: syntax=python sw=4 sts=4 sr et

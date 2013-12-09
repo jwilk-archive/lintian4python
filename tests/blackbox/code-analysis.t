@@ -168,12 +168,18 @@ Test-Against:
  e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/html4css1/__init__.py:28: Image
  e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/odf_odt/__init__.py:69: Image
 
-Name: string-exception
+Name: string-exception/raise
 Files:
  3cff5aa6eefba08867fdbce973e283e2b3178173  bittorrent_3.4.2-11.4_all.deb
 Test-For:
  e: bittorrent: string-exception usr/share/pyshared/BitTorrent/StorageWrapper.py:386
  e: bittorrent: string-exception usr/share/pyshared/BitTorrent/StorageWrapper.py:395
+
+Name: string-exception/except
+Files:
+ 3da9cd9b0211bf8caac9717b116cbedd0256c487  pyftpd_0.8.5+nmu1_all.deb
+Test-For:
+ e: pyftpd: string-exception usr/share/pyftpd/pyftpd.py:125
 
 Name: syntax-error
 Files:
