@@ -1,5 +1,9 @@
 lintian4python (0.25) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - string-formatting-error
+
   * checks/python/bytecompilation:
     + Don't complain about files in /usr/share/paster_templates/ not being
       byte-compiled.
@@ -23,13 +27,14 @@ lintian4python (0.25) UNRELEASED; urgency=low
   * private/update-python-projects:
     + Sort alternatives, so that the output is deterministic.
     + Don't assume that the “distribute” project exists.
+    + Clean up the code.
 
   * tests:
     + New tests.
   * tests/blackbox/run-tests:
     + Improve error handling.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 10 Dec 2013 09:56:36 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 10 Dec 2013 10:33:48 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 
