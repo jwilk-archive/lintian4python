@@ -11,7 +11,7 @@ Build-Depends-Indep:
  python-all, python-nose,
  python3-all, python3-nose,
 XS-Testsuite: autopkgtest
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Vcs-Hg: https://bitbucket.org/jwilk/lintian4python
 Vcs-Browser: https://bitbucket.org/jwilk/lintian4python
 Homepage: http://jwilk.net/software/lintian4python

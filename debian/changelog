@@ -9,6 +9,8 @@ lintian4python (0.25) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * debian/control:
+    + Bump standards version to 3.9.5 (no changes needed).
   * debian/copyright:
     + Document the new license for helpers/python/code-analysis.
 
@@ -27,7 +29,7 @@ lintian4python (0.25) UNRELEASED; urgency=low
   * tests/blackbox/run-tests:
     + Improve error handling.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 09 Dec 2013 18:41:22 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 10 Dec 2013 09:56:36 +0100
 
 lintian4python (0.24.4) experimental; urgency=low
 
