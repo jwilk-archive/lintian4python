@@ -1,0 +1,9 @@
+# string-formatting-error 5 unmatched '{' in format
+# string-formatting-error 6 expected ':' after format specifier
+# string-formatting-error 7 unknown conversion specifier e
+
+u'{eggs'.format(eggs='ham')
+u'{!eggs}'.format('ham')
+u'{0!e}'.format('ham')
+
+# vim: syntax=python sw=4 sts=4 sr et
