@@ -3,10 +3,13 @@ lintian4python (0.25.2) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * checks/python/depends:
+    + Tighten a regex.
+
   * helpers/python/code-analysis:
     + Check for errors in some str.format() calls.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 22 Dec 2013 11:17:01 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 24 Dec 2013 11:14:19 +0100
 
 lintian4python (0.25.1) experimental; urgency=low
 

@@ -45,7 +45,7 @@ sub run {
             my $relation = $info->binary_relation($binpkg, 'all');
             $relation->visit(
                 sub {
-                    if (m/(python3?-numpy-a[bp]i\d+)$/) {
+                    if (m/^(python3?-numpy-a[bp]i\d+)$/) {
                         tag 'hardcoded-dependency-on-numpy-virtual-package', $1;
                     }
                 }, VISIT_PRED_FULL
