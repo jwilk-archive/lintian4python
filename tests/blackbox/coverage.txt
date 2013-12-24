@@ -101,6 +101,7 @@ imports
 
 multi-arch
 ~~~~~~~~~~
+| [ ] insufficient-any-dependency
 | [2] python-module-in-multi-arch-foreign-package
 
 package-name

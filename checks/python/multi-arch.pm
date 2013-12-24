@@ -25,6 +25,8 @@ use warnings;
 
 use v5.10; # for the //= operator
 
+use Lintian::Data;
+use Lintian::Relation qw(:constants);
 use Lintian::Tags qw(tag);
 
 use Lintian::Contrib::Python qw(@dist_packages_re);
@@ -48,6 +50,22 @@ sub run {
     if ($has_modules and ($ma eq 'foreign')) {
         tag 'python-module-in-multi-arch-foreign-package';
     }
+    my $data = Lintian::Data->new("python-multi-arch-allowed", ' ');
+    my $depends = $info->relation('depends');
+    $depends->visit(
+        sub {
+            my $raw_relation = $_;
+            for my $pkg ($data->all) {
+                if ($raw_relation =~ m/^\Q$pkg\E:any(\s+[(]>[>=]\s+\S+[)])?$/) {
+                    my $relation = Lintian::Relation->new($raw_relation);
+                    my $version = $data->value($pkg);
+                    my $required_relation = "$pkg:any (>= $version~)";
+                    next if $relation->implies($required_relation);
+                    tag 'insufficient-any-dependency', $raw_relation, '=>', $required_relation;
+                }
+            }
+        }, VISIT_PRED_FULL
+    );
 }
 
 1;

@@ -9,3 +9,8 @@ Severity: important
 Certainty: possible
 Info: Packages shipping public Python modules must not be marked as
  "Multi-Arch: foreign".
+
+Tag: insufficient-any-dependency
+Severity: serious
+Certainty: certain
+Ref: #723586

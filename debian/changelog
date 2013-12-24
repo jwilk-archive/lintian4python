@@ -1,10 +1,17 @@
 lintian4python (0.25.2) UNRELEASED; urgency=low
 
+  * Summary of tag changes:
+    + Added:
+      - insufficient-any-dependency
+
   * data/python*-projects:
     + Update.
 
   * checks/python/depends:
     + Tighten a regex.
+
+  * checks/python/multi-arch:
+    + Check for insufficient :any dependencies (see bug #723586).
 
   * helpers/python/code-analysis:
     + Check for errors in some str.format() calls.
