@@ -9,3 +9,9 @@ Files:
  2bfb202a9e17e12aa4bb6dacf80612e33ef4d453  python-dput_1.0_all.deb
 Test-For:
  e: python-dput: python-module-in-multi-arch-foreign-package
+
+Name:
+Files:
+ 1f92115d9fafdaf1089fec2e5486346eee6e2c1f  imposm_2.5.0-3_all.deb
+Test-For:
+ e: imposm: insufficient-any-dependency python:any => python:any (>= 2.7.5-5~)
