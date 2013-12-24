@@ -8,4 +8,5 @@
 | [X] mkstemp-file-descriptor-leak
 | [X] obsolete-pil-import
 | [X] string-exception
+| [4] string-formatting-error
 | [X] syntax-error
