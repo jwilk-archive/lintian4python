@@ -10,7 +10,7 @@ Files:
 Test-For:
  e: python-dput: python-module-in-multi-arch-foreign-package
 
-Name:
+Name: insufficient-any-dependency
 Files:
  1f92115d9fafdaf1089fec2e5486346eee6e2c1f  imposm_2.5.0-3_all.deb
 Test-For:
