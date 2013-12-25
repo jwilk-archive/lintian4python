@@ -7,6 +7,10 @@ lintian4python (0.26) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * data/python-multi-arch-allowed:
+    + New file containing versions of Python interpreters and metapackages
+      that introduced “Multiarch: allowed” annotations.
+
   * checks/python/depends:
     + Tighten a regex.
 
