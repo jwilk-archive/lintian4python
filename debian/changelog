@@ -1,3 +1,11 @@
+lintian4python (0.27) UNRELEASED; urgency=medium
+
+  * tests/code-analysis:
+    + Fix test failure with Python 3.4 (closes: #733164). Thanks to Dmitry
+      Shachnev for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 26 Dec 2013 17:37:24 +0100
+
 lintian4python (0.26) experimental; urgency=low
 
   * Summary of tag changes:

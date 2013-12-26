@@ -19,6 +19,7 @@
 
 import difflib
 import os
+import re
 import subprocess as ipc
 import sys
 import unittest
@@ -53,6 +54,14 @@ class Plugin(nose.plugins.Plugin):
 
 class TestCase(unittest.TestCase):
 
+    _comment_re = re.compile(r'''
+        ^ [#]
+        (?: \s+ \[ (?P<rel> << | >= ) \s+ (?P<ver> [0-9][.][0-9]+ ) \] )?
+        \s+
+        (?P<expected> .+ )
+        ''', re.VERBOSE
+    )
+
     def __init__(self, path):
         super(TestCase, self).__init__('test')
         self.path = path
@@ -71,10 +80,19 @@ class TestCase(unittest.TestCase):
         expected = ['# ' + self.path]
         with open(self.path, 'rt') as file:
             for line in file:
-                if line.startswith('# '):
-                    expected += [line[2:-1]]
-                else:
+                match = self._comment_re.match(line)
+                if match is None:
                     break
+                relation = match.group('rel')
+                if relation:
+                    version = tuple(
+                        int(x) for x in match.group('ver').split('.')
+                    )
+                    if relation == '<<' and not sys.version_info < version:
+                        continue
+                    if relation == '>=' and not sys.version_info >= version:
+                        continue
+                expected += [match.group('expected')]
         stdout, stderr = (s.decode('ASCII').splitlines() for s in helper.communicate())
         if stderr:
             raise AssertionError('non-empty stderr:\n' +

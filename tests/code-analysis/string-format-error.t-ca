@@ -1,6 +1,8 @@
-# string-formatting-error 5 unmatched '{' in format
-# string-formatting-error 6 expected ':' after format specifier
-# string-formatting-error 7 unknown conversion specifier e
+# [<< 3.4] string-formatting-error 7 unmatched '{' in format
+# [>= 3.4] string-formatting-error 7 expected '}' before end of string
+# [<< 3.4] string-formatting-error 8 expected ':' after format specifier
+# [>= 3.4] string-formatting-error 8 expected ':' after conversion specifier
+# string-formatting-error 9 unknown conversion specifier e
 
 '{eggs'.format(eggs='ham')
 '{!eggs}'.format('ham')
