@@ -83,6 +83,14 @@ Info: Python Imaging Library 1.2 and Pillow (a PIL fork) no longer support this
  .
    from PIL import Image
 
+Tag: regexp-overlapping-ranges
+Severity: important
+Certainty: possible
+
+Tag: regexp-syntax-error
+Severity: important
+Certainty: certain
+
 Tag: string-exception
 Severity: important
 Certainty: possible

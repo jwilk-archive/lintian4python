@@ -7,6 +7,8 @@
 | [4] missing-dependency-on-ply-virtual-package
 | [X] mkstemp-file-descriptor-leak
 | [X] obsolete-pil-import
+| [3] regexp-overlapping-ranges
+| [3] regexp-syntax-error
 | [X] string-exception
 | [4] string-formatting-error
 | [X] syntax-error

@@ -1,0 +1,15 @@
+# regexp-syntax-error 8 unbalanced parenthesis
+# regexp-syntax-error 9 unexpected end of regular expression
+# regexp-syntax-error 10 invalid SRE code
+# [<< 3.0] regexp-syntax-error 11 long int too large to convert
+# [>= 3.0] regexp-syntax-error 11 python int too large to convert to C unsigned long
+# regexp-syntax-error 13 bad character range
+
+re.compile('(a')
+re.compile('[a')
+re.compile('a{99999}')
+re.compile('a{9999999999}')
+
+re.compile('[z-a]')
+
+# vim: syntax=python sw=4 sts=4 sr et

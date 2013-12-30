@@ -1,0 +1,5 @@
+# regexp-syntax-error 3 bad character range
+
+re.compile('[\uabcd-a]')
+
+# vim: syntax=python sw=4 sts=4 sr et

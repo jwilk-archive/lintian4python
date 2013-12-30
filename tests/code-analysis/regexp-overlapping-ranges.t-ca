@@ -1,0 +1,9 @@
+# regexp-overlapping-ranges 5 A-z a-z
+# regexp-overlapping-ranges 6 a a-z
+# regexp-overlapping-ranges 7 a a
+
+re.compile('[a-zA-z]')
+re.compile('[a-za]')
+re.compile('[aa]')
+
+# vim: syntax=python sw=4 sts=4 sr et

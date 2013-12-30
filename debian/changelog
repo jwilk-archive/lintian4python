@@ -1,4 +1,13 @@
-lintian4python (0.26.1) UNRELEASED; urgency=low
+lintian4python (0.27) UNRELEASED; urgency=low
+
+  * Summary of tag changes:
+    + Added:
+      - regexp-overlapping-ranges
+      - regexp-syntax-error
+
+  * helpers/python/code-analysis:
+    + Check for syntax error in regular expressions.
+    + Check for overlapping ranges in character sets in regular expressions.
 
   * tests/code-analysis:
     + Fix test failure with Python 3.4 (closes: #733164). Thanks to Dmitry

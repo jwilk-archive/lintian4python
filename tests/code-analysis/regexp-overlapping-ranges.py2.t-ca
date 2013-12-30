@@ -1,0 +1,5 @@
+# regexp-overlapping-ranges 3 A-\uabcd a-z
+
+re.compile(u'[A-\uabcda-z]')
+
+# vim: syntax=python sw=4 sts=4 sr et
