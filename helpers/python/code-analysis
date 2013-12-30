@@ -97,6 +97,9 @@ else:
     def python_open(filename):
         return open(filename, 'rU')
 
+if sys.version_info >= (3,):
+    long = int
+
 def tag(*s):
     return s
 
