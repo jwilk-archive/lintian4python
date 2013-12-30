@@ -9,6 +9,9 @@ lintian4python (0.27) UNRELEASED; urgency=low
     + Check for syntax error in regular expressions.
     + Check for overlapping ranges in character sets in regular expressions.
 
+  * tests:
+    + New tests.
+
   * tests/code-analysis:
     + Fix test failure with Python 3.4 (closes: #733164). Thanks to Dmitry
       Shachnev for the bug report.

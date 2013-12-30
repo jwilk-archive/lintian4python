@@ -168,6 +168,12 @@ Test-Against:
  e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/html4css1/__init__.py:28: Image
  e: python3-docutils: obsolete-pil-import usr/lib/python3/dist-packages/docutils/writers/odf_odt/__init__.py:69: Image
 
+Name: regexp-overlapping-ranges
+Files:
+ 24626e13b27aee642eb57e8b9abcfe106da2d6fb  python-enchant_1.6.5-2_all.deb
+Test-For:
+ e: python-enchant: regexp-overlapping-ranges usr/share/pyshared/enchant/tokenize/__init__.py:426: A-z a-z
+
 Name: string-exception/raise
 Files:
  3cff5aa6eefba08867fdbce973e283e2b3178173  bittorrent_3.4.2-11.4_all.deb
