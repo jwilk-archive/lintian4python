@@ -142,7 +142,7 @@ class ReVisitor(object):
             elif isinstance(arg, sre_parse.SubPattern):
                 for t in self.visit(arg):
                     yield t
-            elif isinstance(arg, (int, str)):
+            elif isinstance(arg, (int, long, str)):
                 pass
             elif arg is None:
                 pass
