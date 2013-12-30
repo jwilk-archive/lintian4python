@@ -25,6 +25,13 @@ import deb822
 import misc
 
 _lintian_line_re = re.compile(r'^(?P<type>[a-z]): (?P<package>[a-z0-9][a-z0-9.+-]+)(?: (?P<pkgtype>[a-z]+))?: (?P<tag>[a-zA-Z0-9._-]+)( (?P<extra>.+))?$')
+_code_analysis_comment_re = re.compile(r'''
+    ^ [#]
+    (?: \s+ \[ (?P<rel> << | >= ) \s+ (?P<ver> [0-9][.][0-9]+ ) \] )?
+    \s+
+    (?P<expected> .+ )
+    ''', re.VERBOSE
+)
 
 def tag_from_lintian_line(line):
     match = _lintian_line_re.match(line)
@@ -88,8 +95,9 @@ def update_code_analysis_coverage():
         done = set()
         with open(path, 'rt', encoding='UTF-8') as file:
             for line in file:
-                if line.startswith('# '):
-                    _, tag, *_ = line.split()
+                match = _code_analysis_comment_re.match(line)
+                if match:
+                    tag, *_ = match.group('expected').split()
                     done.add(tag)
                 else:
                     break
