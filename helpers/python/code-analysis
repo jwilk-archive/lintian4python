@@ -431,7 +431,7 @@ class Visitor(ast.NodeVisitor):
                 s = arg.s
                 try:
                     subpattern = sre_parse.parse(s)
-                except re.error as exc:
+                except Exception as exc:
                     yield tag('regexp-syntax-error', node.lineno, str(exc))
                 else:
                     try:
