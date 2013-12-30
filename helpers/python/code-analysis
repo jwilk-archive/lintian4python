@@ -173,6 +173,17 @@ class ReVisitor(object):
         for t in self.generic_visit(*args):
             yield t
 
+re_functions = dict(
+    compile=1,
+    findall=2,
+    finditer=2,
+    match=2,
+    search=2,
+    split=3,
+    sub=4,
+    subn=4,
+)
+
 class Visitor(ast.NodeVisitor):
 
     def __init__(self):
@@ -426,9 +437,18 @@ class Visitor(ast.NodeVisitor):
                     except Exception as exc:
                         yield tag('string-formatting-error', node.lineno, str(exc))
         if isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id == 're':
-            if func.attr == 'compile' and len(node.args) == 1 and isinstance(node.args[0], ast.Str):
-                [arg] = node.args
-                s = arg.s
+            nargs = len(node.args)
+            extra_args = (
+                bool(node.keywords) or
+                (node.starargs is not None) or
+                (node.kwargs is not None)
+            )
+            nargs_ok = (
+                (not extra_args) and
+                (1 <= nargs <= re_functions.get(func.attr, 0))
+            )
+            if nargs_ok and isinstance(node.args[0], ast.Str):
+                s = node.args[0].s
                 try:
                     subpattern = sre_parse.parse(s)
                 except Exception as exc:
