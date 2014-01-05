@@ -5,6 +5,9 @@ lintian4python (0.27) UNRELEASED; urgency=low
       - regexp-overlapping-ranges
       - regexp-syntax-error
 
+  * data/python*-projects:
+    + Update.
+
   * helpers/python/code-analysis:
     + Check for syntax error in regular expressions.
     + Check for overlapping ranges in character sets in regular expressions.
@@ -19,7 +22,7 @@ lintian4python (0.27) UNRELEASED; urgency=low
   * private/update-coverage:
     + Take into account version-specific tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 30 Dec 2013 15:45:46 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 05 Jan 2014 23:00:50 +0100
 
 lintian4python (0.26) experimental; urgency=low
 
