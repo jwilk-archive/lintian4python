@@ -1,6 +1,6 @@
 # regexp-overlapping-ranges 5 A-z a-z
 # regexp-overlapping-ranges 6 a a-z
-# regexp-overlapping-ranges 7 a a
+# regexp-duplicate-range 7 a
 
 re.compile('[a-zA-z]')
 re.compile('[a-za]')

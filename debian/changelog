@@ -2,6 +2,7 @@ lintian4python (0.27) UNRELEASED; urgency=low
 
   * Summary of tag changes:
     + Added:
+      - regexp-duplicate-range
       - regexp-overlapping-ranges
       - regexp-syntax-error
 
