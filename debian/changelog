@@ -9,9 +9,12 @@ lintian4python (0.27) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
-  * helpers/python/code-analysis:
+  * {checks,helpers}/python/code-analysis:
     + Check for syntax error in regular expressions.
     + Check for overlapping ranges in character sets in regular expressions.
+
+  * private/update-coverage:
+    + Take into account version-specific tests.
 
   * tests:
     + New tests.
@@ -20,10 +23,7 @@ lintian4python (0.27) UNRELEASED; urgency=low
     + Fix test failure with Python 3.4 (closes: #733164). Thanks to Dmitry
       Shachnev for the bug report.
 
-  * private/update-coverage:
-    + Take into account version-specific tests.
-
- -- Jakub Wilk <jwilk@debian.org>  Sun, 05 Jan 2014 23:00:50 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 07 Jan 2014 08:22:13 +0100
 
 lintian4python (0.26) experimental; urgency=low
 
