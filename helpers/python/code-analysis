@@ -107,6 +107,7 @@ def format_char_range(rng, tp):
     if tp == str:
         if sys.version_info >= (3,):
             def fmt(i):
+                from builtins import ascii  # hi, pyflakes!
                 return ascii(chr(i))[1:-1]
         else:
             def fmt(i):
