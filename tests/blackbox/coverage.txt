@@ -18,6 +18,7 @@ code-analysis
 | [2] missing-dependency-on-ply-virtual-package
 | [2] mkstemp-file-descriptor-leak
 | [X] obsolete-pil-import
+| [ ] regexp-duplicate-range
 | [X] regexp-overlapping-ranges
 | [ ] regexp-syntax-error
 | [2] string-exception

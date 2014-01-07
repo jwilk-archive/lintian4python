@@ -159,17 +159,26 @@ class ReVisitor(object):
                 ranges += [arg]
             elif op == 'literal':
                 ranges += [(arg, arg)]
+        seen_duplicate_ranges = False
+        seen_overlapping_ranges = False
         if len(ranges) >= 2:
             ranges.sort()
             for i in range(len(ranges) - 1):
                 r1 = ranges[i]
                 r2 = ranges[i + 1]
-                if r1[1] >= r2[0]:
-                    yield tag('regexp-overlapping-ranges', self.lineno,
-                        format_char_range(r1, tp=self.tp),
-                        format_char_range(r2, tp=self.tp),
-                    )
-                    break
+                if r1 == r2:
+                    if not seen_overlapping_ranges:
+                        yield tag('regexp-duplicate-range', self.lineno,
+                            format_char_range(r1, tp=self.tp),
+                        )
+                    seen_duplicate_ranges = True
+                elif r1[1] >= r2[0]:
+                    if not seen_overlapping_ranges:
+                        yield tag('regexp-overlapping-ranges', self.lineno,
+                            format_char_range(r1, tp=self.tp),
+                            format_char_range(r2, tp=self.tp),
+                        )
+                    seen_overlapping_ranges = True
         for t in self.generic_visit(*args):
             yield t
 
