@@ -1,3 +1,11 @@
+lintian4python (0.27.1) UNRELEASED; urgency=low
+
+  * debian/control:
+    + Update lintian (build-)dependency to support Lintian 2.5.21
+      (closes: #735141). Thanks to Martin Pitt for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 13 Jan 2014 12:56:53 +0100
+
 lintian4python (0.27) experimental; urgency=low
 
   * Summary of tag changes:

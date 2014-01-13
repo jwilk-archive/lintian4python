@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Jakub Wilk <jwilk@debian.org>
 Build-Depends: debhelper (>= 7)
 Build-Depends-Indep:
- lintian (>= 2.5.14~), lintian (<< 2.5.21~),
+ lintian (>= 2.5.14~), lintian (<< 2.5.22~),
  libmonkey-patch-perl,
  perl (>= 5.10), libtext-levenshtein-perl, liblist-moreutils-perl, liburi-perl,
  python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.7.3+),
@@ -19,7 +19,7 @@ Homepage: http://jwilk.net/software/lintian4python
 Package: lintian4python
 Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends},
- lintian (>= 2.5.14~), lintian (<< 2.5.21~),
+ lintian (>= 2.5.14~), lintian (<< 2.5.22~),
  libmonkey-patch-perl,
  perl (>= 5.10), libtext-levenshtein-perl, liblist-moreutils-perl, liburi-perl,
  python (>= 2.6), pyflakes (>= 0.6.1), pyflakes (<< 0.7.3+)
