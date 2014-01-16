@@ -1,3 +1,4 @@
+compression = gzip
 tar-ignore = .hg*
 tar-ignore = cache
 tar-ignore = __pycache__
