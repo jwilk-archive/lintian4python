@@ -1,6 +1,6 @@
 lintian4python (0.27.2) UNRELEASED; urgency=low
 
-  * For gzip for tarball compression.
+  * Force gzip for tarball compression.
 
  -- Jakub Wilk <jwilk@debian.org>  Fri, 17 Jan 2014 00:45:17 +0100
 
