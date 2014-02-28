@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e -u
+cp -a tests/code-analysis/* "$ADTTMP/"
+cd "$ADTTMP"
+pythons=$(py3versions -i)
+make test-installed PYTHONS="$pythons" 2>&1

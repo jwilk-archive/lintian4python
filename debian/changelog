@@ -6,7 +6,11 @@ lintian4python (0.27.2) UNRELEASED; urgency=low
   * debian/source/options:
     + Force gzip for tarball compression.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Feb 2014 02:12:53 +0100
+  * debian/tests:
+    + Split the DEP-8 test into two separate ones: one for Python 2.X, another
+      for Python 3.X.
+
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Feb 2014 02:37:15 +0100
 
 lintian4python (0.27.1) experimental; urgency=low
 
