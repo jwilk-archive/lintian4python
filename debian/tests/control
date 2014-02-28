@@ -2,8 +2,10 @@ Tests: code-analysis-py2
 Depends: lintian4python,
  make,
  python, python-nose
+Restrictions: allow-stderr
 
 Tests: code-analysis-py3
 Depends: lintian4python,
  make,
  python3, python3-nose
+Restrictions: allow-stderr

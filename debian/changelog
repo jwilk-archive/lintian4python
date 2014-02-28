@@ -9,8 +9,10 @@ lintian4python (0.27.2) UNRELEASED; urgency=low
   * debian/tests:
     + Split the DEP-8 test into two separate ones: one for Python 2.X, another
       for Python 3.X.
+    + Use the “allow-stderr” restriction, instead of redirecting stderr to
+      stdout.
 
- -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Feb 2014 02:37:15 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Feb 2014 02:44:14 +0100
 
 lintian4python (0.27.1) experimental; urgency=low
 
