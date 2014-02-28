@@ -3,7 +3,8 @@ lintian4python (0.27.2) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
-  * Force gzip for tarball compression.
+  * debian/source/options:
+    + Force gzip for tarball compression.
 
  -- Jakub Wilk <jwilk@debian.org>  Fri, 28 Feb 2014 02:12:53 +0100
 
