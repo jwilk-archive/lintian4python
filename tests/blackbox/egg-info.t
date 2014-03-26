@@ -79,6 +79,6 @@ Test-For:
 
 Name: unknown-project-in-requires.txt
 Files:
- 31cb3d622d7d50bcd8ed2097c6ad5c6a047041ff  python3-pygraph_1.8.2-3_all.deb
+ d0801264b63e51d24500b8e1f2fb9e7411f2fd91  trac-odtexport_0.6.0+svn10787-2_all.deb
 Test-For:
- e: python3-pygraph: unknown-project-in-requires.txt pydot
+ e: trac-odtexport: unknown-project-in-requires.txt pil
