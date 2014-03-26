@@ -7,7 +7,7 @@ lintian4python (0.27.2) UNRELEASED; urgency=low
     + Update lintian (build-)dependency to support Lintian 2.5.22.
 
   * debian/source/options:
-    + Force gzip for tarball compression.
+    + Use xz for tarball compression.
 
   * debian/tests:
     + Split the DEP-8 test into two separate ones: one for Python 2.X, another
@@ -18,7 +18,7 @@ lintian4python (0.27.2) UNRELEASED; urgency=low
   * tests/blackbox/egg-info:
     + Update test for unknown-project-in-requires.txt.
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 26 Mar 2014 22:09:01 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 26 Mar 2014 22:16:32 +0100
 
 lintian4python (0.27.1) experimental; urgency=low
 
