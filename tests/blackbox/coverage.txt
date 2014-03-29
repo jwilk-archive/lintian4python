@@ -127,6 +127,7 @@ pyflakes
 | [ ] pyflakes-redefined
 | [X] pyflakes-redefined-in-list-comp
 | [X] pyflakes-redefined-while-unused
+| [ ] pyflakes-return-with-args-inside-generator
 | [X] pyflakes-undefined-export
 | [X] pyflakes-undefined-local
 | [X] pyflakes-undefined-name

@@ -1,8 +1,16 @@
-lintian4python (0.27.3) UNRELEASED; urgency=low
+lintian4python (0.28) UNRELEASED; urgency=low
 
-  * 
+  * Summary of tag chanages:
+    + Added:
+      +  pyflakes-return-with-args-inside-generator
 
- -- Jakub Wilk <jwilk@debian.org>  Wed, 26 Mar 2014 22:27:36 +0100
+  * checks/python/pyflakes:
+    + Update for pyflakes 0.8.
+
+  * debian/control:
+    + Update pyflakes dependency.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 29 Mar 2014 22:14:21 +0100
 
 lintian4python (0.27.2) experimental; urgency=low
 

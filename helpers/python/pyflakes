@@ -73,6 +73,11 @@ if __name__ == '__main__':
         print('# {0}'.format(filename.replace('\n', '?')))
         try:
             flakes.checkPath(filename)
+        except AttributeError as ex:
+            if ex.args == ("'ClassScope' object has no attribute 'returnValue'",):
+                # bug #742995
+                continue
+            raise
         except CompileError:
             pass
 

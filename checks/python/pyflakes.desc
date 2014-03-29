@@ -56,6 +56,12 @@ Certainty: possible
 Info: pyflakes emitted the following message:
   redefinition of unused <i>var</i> from line <i>n</i>
 
+Tag: pyflakes-return-with-args-inside-generator
+Severity: serious
+Certainty: certain
+Info: pyflakes emitted the following message:
+  'return' with argument inside generator
+
 Tag: pyflakes-undefined-export
 Severity: normal
 Certainty: possible
