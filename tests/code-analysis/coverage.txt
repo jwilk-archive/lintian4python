@@ -12,4 +12,4 @@
 | [3] regexp-syntax-error
 | [X] string-exception
 | [4] string-formatting-error
-| [X] syntax-error
+| [2] syntax-error
