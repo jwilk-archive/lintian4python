@@ -10,10 +10,13 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * debian/control:
     + Update pyflakes dependency.
 
+  * debian/copyright:
+    + Update years.
+
   * tests/code-analysis:
     + Add new tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 29 Mar 2014 22:19:24 +0100
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 29 Mar 2014 22:21:00 +0100
 
 lintian4python (0.27.2) experimental; urgency=low
 
