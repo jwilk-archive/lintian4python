@@ -2,11 +2,15 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * Summary of tag chanages:
     + Added:
-      + pyflakes-return-with-args-inside-generator
       + syntax-warning
+    + Removed:
+      - pyflakes-duplicate-argument
+      - pyflakes-late-future-import
 
   * checks/python/pyflakes:
     + Update for pyflakes 0.8.
+    + Blacklist syntax error tags; they are better handled by the code-analysis
+      check.
 
   * debian/control:
     + Update pyflakes dependency.
@@ -16,12 +20,17 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * tests/code-analysis:
     + Add new tests.
+  * tests/pyflakes:
+    + Remove tests for blacklisted tags
 
   * helpers/python/code-analysis:
     + Byte-compile ASTs to catch more syntax errors.
     + Check for syntax warnings.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 10:50:25 +0200
+  * helpers/python/code-analysis, private/update-pyflakes-tags:
+    + Blacklist syntax error tags.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 11:31:51 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 

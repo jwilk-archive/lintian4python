@@ -28,12 +28,6 @@ Test-For:
  x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/globalfns.py:7: globals
  x: ezmlm-browse: pyflakes-import-star-used usr/lib/ezmlm-browse/main.py:14: globals
 
-Name: pyflakes-late-future-import
-Files:
- bb77ca977f202a011545fabefd46786eda30513c  spambayes_1.0.4-5.1_all.deb
-Test-For:
- e: spambayes: pyflakes-late-future-import usr/bin/sb_imapfilter.py:89: generators
-
 Name: pyflakes-redefined-in-list-comp
 Files:
  499bdc2229ec4b511921986d1b53fb6a50522275  alot_0.3.3-1_all.deb

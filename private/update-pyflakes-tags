@@ -18,6 +18,7 @@
 # http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import ast
 import os
 import re
 import sys
@@ -37,11 +38,33 @@ import pyflakes.messages as messages
 
 import misc
 
+def extract_blacklist(node):
+    for child in ast.iter_child_nodes(node):
+        if not isinstance(child, ast.Assign):
+            continue
+        try:
+            [target] = child.targets
+        except ValueError:
+            continue
+        if not isinstance(target, ast.Name):
+            continue
+        if target.id != 'blacklist':
+            continue
+        return ast.literal_eval(child.value)
+    raise NotImplementedError
+
 def main():
     os.chdir(misc.root)
+    filename = 'helpers/python/pyflakes'
+    with open(filename, 'r') as file:
+        contents = file.read()
+        node = ast.parse(contents, filename=filename)
+        blacklist = set(extract_blacklist(node))
     tags = {}
     for cls in messages.Message.__subclasses__():
         tag = 'pyflakes' + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
+        if tag.split('-', 1)[1] in blacklist:
+            continue
         description = (cls.message
             .replace('line %r', 'line <i>n</i>')
             .replace('%r', '<i>var</i>')

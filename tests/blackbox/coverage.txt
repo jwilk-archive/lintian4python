@@ -23,7 +23,7 @@ code-analysis
 | [ ] regexp-syntax-error
 | [2] string-exception
 | [X] string-formatting-error
-| [2] syntax-error
+| [3] syntax-error
 | [ ] syntax-warning
 
 depends
@@ -121,14 +121,11 @@ pth
 pyflakes
 ~~~~~~~~
 | [ ] pyflakes-doctest-syntax-error
-| [ ] pyflakes-duplicate-argument
 | [ ] pyflakes-import-shadowed-by-loop-var
 | [X] pyflakes-import-star-used
-| [X] pyflakes-late-future-import
 | [ ] pyflakes-redefined
 | [X] pyflakes-redefined-in-list-comp
 | [X] pyflakes-redefined-while-unused
-| [ ] pyflakes-return-with-args-inside-generator
 | [X] pyflakes-undefined-export
 | [X] pyflakes-undefined-local
 | [X] pyflakes-undefined-name

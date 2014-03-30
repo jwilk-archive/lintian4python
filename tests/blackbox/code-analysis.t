@@ -202,6 +202,13 @@ Files:
 Test-For:
  e: python-pydoctor: syntax-error usr/share/python-support/python-pydoctor/pydoctor/ast_pp.py:116: invalid syntax
 
+Name: syntax-error/compile-time
+Files:
+ bb77ca977f202a011545fabefd46786eda30513c  spambayes_1.0.4-5.1_all.deb
+Test-For:
+ e: spambayes: syntax-error usr/bin/sb_imapfilter.py:89: from __future__ imports must occur at the beginning of the file
+ e: spambayes: syntax-error usr/share/doc/spambayes/contrib/mod_spambayes.py:27: 'return' outside function
+
 Name: syntax-error/tokenization
 Files:
  3e8b3444653bfd2d72f6b359555917b0de59d70b  gnuspool_1.7_i386.deb

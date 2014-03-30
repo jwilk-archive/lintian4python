@@ -47,8 +47,15 @@ def my_compile(*args, **kwargs):
 
 __builtins__.compile = my_compile
 
+blacklist = {
+    # these are taken care in code-analysis
+    'duplicate-argument',
+    'late-future-import',
+    'return-with-args-inside-generator',
+}
+
 def Message_str(self):
-    tag = re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), type(self).__name__)
+    tag = 'pyflakes' + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), type(self).__name__)
     arg_types = []
     tp = str
     for s in re.split('(%.)', self.message):
@@ -60,7 +67,9 @@ def Message_str(self):
         else:
             tp = str
     extra_args = [tp(arg) for arg, tp in zip(self.message_args, arg_types)]
-    return 'pyflakes{tag} {line}: {args}'.format(
+    if tag.split('-', 1)[1] in blacklist:
+        return ''
+    return '{tag} {line}: {args}'.format(
         tag=tag,
         line=self.lineno,
         args=' '.join(extra_args)
