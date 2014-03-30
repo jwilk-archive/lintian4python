@@ -41,7 +41,7 @@ def main():
     os.chdir(misc.root)
     tags = {}
     for cls in messages.Message.__subclasses__():
-        tag = 'pyflakes'  + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
+        tag = 'pyflakes' + re.sub('[A-Z]', lambda m: '-' + m.group(0).lower(), cls.__name__)
         description = (cls.message
             .replace('line %r', 'line <i>n</i>')
             .replace('%r', '<i>var</i>')
