@@ -14,27 +14,23 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * data/python*-projects:
     + Update.
-
   * debian/control:
     + Update pyflakes dependency.
-
   * debian/copyright:
     + Update years.
-
   * debian/tests:
     + Add test for adequate(1)-cleanness.
+
+  * helpers/python/code-analysis:
+    + Byte-compile ASTs to catch more syntax errors.
+    + Check for syntax warnings.
+  * helpers/python/code-analysis, private/update-pyflakes-tags:
+    + Blacklist syntax error tags.
 
   * tests/code-analysis:
     + Add new tests.
   * tests/pyflakes:
     + Remove tests for blacklisted tags
-
-  * helpers/python/code-analysis:
-    + Byte-compile ASTs to catch more syntax errors.
-    + Check for syntax warnings.
-
-  * helpers/python/code-analysis, private/update-pyflakes-tags:
-    + Blacklist syntax error tags.
 
  -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 20:51:17 +0200
 
