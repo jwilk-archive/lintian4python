@@ -1,3 +1,5 @@
 # syntax-error 3 invalid syntax
 
 eggs!
+
+# vim: syntax=python sw=4 sts=4 sr et
