@@ -2,7 +2,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * Summary of tag chanages:
     + Added:
-      +  pyflakes-return-with-args-inside-generator
+      + pyflakes-return-with-args-inside-generator
       + syntax-warning
 
   * checks/python/pyflakes:
