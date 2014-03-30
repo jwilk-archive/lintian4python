@@ -2,7 +2,7 @@
 
 # update-code-analysis-tags -- update Lintian data about code-analysis tags
 #
-# Copyright © 2011, 2012, 2013 Jakub Wilk
+# Copyright © 2011, 2012, 2013, 2014 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -41,7 +41,7 @@ def extract_tags(node):
 def main():
     os.chdir(misc.root)
     filename = 'helpers/python/code-analysis'
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='UTF-8') as file:
         contents = file.read()
         node = ast.parse(contents, filename=filename)
         tags = set(extract_tags(node))

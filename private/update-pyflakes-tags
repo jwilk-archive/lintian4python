@@ -2,7 +2,7 @@
 
 # update-pyflakes-tags -- update Lintian data about pyflakes tags
 #
-# Copyright © 2011, 2012, 2013 Jakub Wilk
+# Copyright © 2011, 2012, 2013, 2014 Jakub Wilk
 #
 # This program is free software.  It is distributed under the terms of the GNU
 # General Public License as published by the Free Software Foundation; either
@@ -56,7 +56,7 @@ def extract_blacklist(node):
 def main():
     os.chdir(misc.root)
     filename = 'helpers/python/pyflakes'
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='UTF-8') as file:
         contents = file.read()
         node = ast.parse(contents, filename=filename)
         blacklist = set(extract_blacklist(node))
