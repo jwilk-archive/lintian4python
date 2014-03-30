@@ -12,6 +12,9 @@ lintian4python (0.28) UNRELEASED; urgency=low
     + Blacklist syntax error tags; they are better handled by the code-analysis
       check.
 
+  * data/python*-projects:
+    + Update.
+
   * debian/control:
     + Update pyflakes dependency.
 
@@ -30,7 +33,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * helpers/python/code-analysis, private/update-pyflakes-tags:
     + Blacklist syntax error tags.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 11:31:51 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 12:39:26 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 
