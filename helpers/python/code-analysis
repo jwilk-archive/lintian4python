@@ -22,7 +22,6 @@
 # SOFTWARE.
 
 import ast
-import itertools
 import os
 import re
 import sre_parse
