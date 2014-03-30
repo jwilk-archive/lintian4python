@@ -30,7 +30,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * tests/code-analysis:
     + Add new tests.
-  * tests/pyflakes:
+  * tests/blackbox/pyflakes:
     + Remove tests for blacklisted tags
 
  -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 20:51:17 +0200
