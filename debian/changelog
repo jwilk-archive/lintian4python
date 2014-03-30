@@ -14,6 +14,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * data/python*-projects:
     + Update.
+
   * debian/control:
     + Update pyflakes dependency.
   * debian/copyright:
