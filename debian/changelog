@@ -24,7 +24,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * helpers/python/code-analysis:
     + Byte-compile ASTs to catch more syntax errors.
     + Check for syntax warnings.
-  * helpers/python/code-analysis, private/update-pyflakes-tags:
+  * helpers/python/pyflakes, private/update-pyflakes-tags:
     + Blacklist syntax error tags.
 
   * tests/code-analysis:
