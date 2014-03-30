@@ -109,3 +109,7 @@ Certainty: certain
 Tag: syntax-error
 Severity: serious
 Certainty: certain
+
+Tag: syntax-warning
+Severity: important
+Certainty: possible

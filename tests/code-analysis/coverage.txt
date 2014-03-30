@@ -12,4 +12,5 @@
 | [3] regexp-syntax-error
 | [X] string-exception
 | [4] string-formatting-error
-| [2] syntax-error
+| [4] syntax-error
+| [X] syntax-warning

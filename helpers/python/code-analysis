@@ -245,12 +245,6 @@ class Visitor(ast.NodeVisitor):
         for t in self.generic_visit(node):
             yield t
 
-    def visit_Assert(self, node):
-        if isinstance(node.test, ast.Tuple) and len(node.test.elts) > 0:
-            yield tag('assertion-always-true', node.lineno)
-        for t in self.generic_visit(node):
-            yield t
-
     def visit_Import(self, node):
         imp_modules = frozenset(mod.name for mod in node.names)
         imp_pil_modules = imp_modules & pil_modules
@@ -505,6 +499,13 @@ def check_file(filename):
         contents = file.read()
     return check_contents(contents)
 
+def check_warnings(wrns):
+    for wrn in wrns:
+        if str(wrn.message) == 'assertion is always true, perhaps remove parentheses?':
+            yield tag('assertion-always-true', wrn.lineno)
+        else:
+            yield tag('syntax-warning', wrn.lineno, wrn.message)
+
 def check_contents(contents, catch_tab_errors=True):
     if sys.version_info >= (3,):
         # Inconsistent use of tabs and spaces in indentation is always a fatal
@@ -512,25 +513,30 @@ def check_contents(contents, catch_tab_errors=True):
         catch_tab_errors = False
     try:
         contents = ast.parse(contents)
-        compile(contents, '<ast>', 'exec')
+        with warnings.catch_warnings(record=True) as wrns:
+            compile(contents, '<ast>', 'exec')
+        for t in check_warnings(wrns):
+            yield t
     except TabError as exc:
         if catch_tab_errors:
             contents = contents.expandtabs()
-            return itertools.chain(
-                [tag('inconsistent-use-of-tabs-and-spaces-in-indentation', exc.lineno)],
-                check_contents(contents, catch_tab_errors=False)
-            )
+            yield tag('inconsistent-use-of-tabs-and-spaces-in-indentation', exc.lineno)
+            for t in check_contents(contents, catch_tab_errors=False):
+                yield t
+            return
         else:
-            return [tag('syntax-error', exc.lineno, exc.msg)]
+            yield tag('syntax-error', exc.lineno, exc.msg)
+            return
     except SyntaxError as exc:
-        return [tag('syntax-error', exc.lineno, exc.msg)]
+        yield tag('syntax-error', exc.lineno, exc.msg)
+        return
     except Exception as exc:
-        return [tag('syntax-error', '-', str(exc))]
-    return (
-        taginfo
-        for taginfo in check_node(contents)
-        if not taginfo[0].startswith('*')
-    )
+        yield tag('syntax-error', '-', str(exc))
+        return
+
+    for t in check_node(contents):
+        if not t[0].startswith('*'):
+            yield t
 
 def main():
     try:

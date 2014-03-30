@@ -3,6 +3,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * Summary of tag chanages:
     + Added:
       +  pyflakes-return-with-args-inside-generator
+      + syntax-warning
 
   * checks/python/pyflakes:
     + Update for pyflakes 0.8.
@@ -18,8 +19,9 @@ lintian4python (0.28) UNRELEASED; urgency=low
 
   * helpers/python/code-analysis:
     + Byte-compile ASTs to catch more syntax errors.
+    + Check for syntax warnings.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 10:06:55 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 10:50:25 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 

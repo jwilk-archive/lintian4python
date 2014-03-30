@@ -24,6 +24,7 @@ code-analysis
 | [2] string-exception
 | [X] string-formatting-error
 | [2] syntax-error
+| [ ] syntax-warning
 
 depends
 ~~~~~~~
