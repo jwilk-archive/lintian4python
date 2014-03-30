@@ -1,4 +1,4 @@
-lintian4python (0.28) UNRELEASED; urgency=low
+lintian4python (0.28) experimental; urgency=low
 
   * Summary of tag chanages:
     + Added:
@@ -38,7 +38,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * tests/blackbox/pyflakes:
     + Remove tests for blacklisted tags
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 21:11:25 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 21:30:39 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 
