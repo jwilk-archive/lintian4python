@@ -21,6 +21,9 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * debian/copyright:
     + Update years.
 
+  * debian/tests:
+    + Add test for adequate(1)-cleanness.
+
   * tests/code-analysis:
     + Add new tests.
   * tests/pyflakes:
@@ -33,7 +36,7 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * helpers/python/code-analysis, private/update-pyflakes-tags:
     + Blacklist syntax error tags.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 12:39:26 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 20:51:17 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 
