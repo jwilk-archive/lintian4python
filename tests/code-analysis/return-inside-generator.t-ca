@@ -1,0 +1,7 @@
+# [<< 3.3] syntax-error 5 'return' with argument inside generator
+
+def eggs():
+    yield
+    return 'ham'
+
+# vim: syntax=python sw=4 sts=4 sr et

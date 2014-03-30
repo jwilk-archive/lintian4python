@@ -512,6 +512,7 @@ def check_contents(contents, catch_tab_errors=True):
         catch_tab_errors = False
     try:
         contents = ast.parse(contents)
+        compile(contents, '<ast>', 'exec')
     except TabError as exc:
         if catch_tab_errors:
             contents = contents.expandtabs()

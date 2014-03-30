@@ -16,7 +16,10 @@ lintian4python (0.28) UNRELEASED; urgency=low
   * tests/code-analysis:
     + Add new tests.
 
- -- Jakub Wilk <jwilk@debian.org>  Sat, 29 Mar 2014 22:21:00 +0100
+  * helpers/python/code-analysis:
+    + Byte-compile ASTs to catch more syntax errors.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 10:06:55 +0200
 
 lintian4python (0.27.2) experimental; urgency=low
 
