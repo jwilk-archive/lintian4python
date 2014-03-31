@@ -1,8 +1,9 @@
 lintian4python (0.28.1) UNRELEASED; urgency=low
 
-  * 
+  * debian/control:
+    + Update pyflakes dependency (0.8.1).
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 30 Mar 2014 22:09:19 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 01:05:09 +0200
 
 lintian4python (0.28) experimental; urgency=low
 
