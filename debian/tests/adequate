@@ -1,2 +1,2 @@
 #!/bin/sh
-adequate lintian4python >&2
+exec adequate lintian4python >&2
