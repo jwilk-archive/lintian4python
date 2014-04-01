@@ -14,11 +14,12 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
   * private/update-sys.path-additions:
     + Use ‘aptly’ instead of ‘misc’. 
     + Don't blacklist PIL.
+    + Blacklist setuptools-*.egg-info.
   * private/update-*-tags:
     + Add the --dry-run option.
     + Exit with non-zero status if the .desc files were not up-to-date.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 21:15:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 21:23:31 +0200
 
 lintian4python (0.28) experimental; urgency=low
 

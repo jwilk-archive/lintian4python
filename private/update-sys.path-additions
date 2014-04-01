@@ -162,6 +162,8 @@ def main():
             for item, packages in sorted(results[version].items()):
                 if not packages:
                     continue
+                if item.startswith('setuptools-') and item.endswith('.egg-info'):
+                    continue
                 print('{item} => {packages}'.format(
                     item=item,
                     packages=' | '.join(sorted(packages))
