@@ -1,5 +1,8 @@
 lintian4python (0.28.1) UNRELEASED; urgency=low
 
+  * data/python*-sys.path-additions:
+    + Update.
+
   * debian/control:
     + Update pyflakes dependency (0.8.1).
     + Add python3-debian to Build-Depends.
@@ -19,7 +22,7 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
     + Add the --dry-run option.
     + Exit with non-zero status if the .desc files were not up-to-date.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 21:23:31 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 21:24:23 +0200
 
 lintian4python (0.28) experimental; urgency=low
 
