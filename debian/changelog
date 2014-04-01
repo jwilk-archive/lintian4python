@@ -18,7 +18,7 @@ lintian4python (0.28) experimental; urgency=low
 
   * Summary of tag chanages:
     + Added:
-      + syntax-warning
+      - syntax-warning
     + Removed:
       - pyflakes-duplicate-argument
       - pyflakes-late-future-import
