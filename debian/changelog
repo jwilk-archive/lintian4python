@@ -4,6 +4,9 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
     + Update pyflakes dependency (0.8.1).
   * debian/tests/adequate:
     + Avoid an unnecessary fork.
+  * debian/rules:
+    + Ensure that .desc files for code-analysis and pyflakes checks are
+      up-to-date.
 
   * private/update-*-tags:
     + Add the --dry-run option.
