@@ -10,7 +10,7 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
     + Avoid an unnecessary fork.
 
   * private/aptly.py:
-    + Move apt-specific code form misc.py here.
+    + Move apt-specific code from misc.py here.
   * private/update-sys.path-additions:
     + Use ‘aptly’ instead of ‘misc’. 
   * private/update-*-tags:
