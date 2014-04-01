@@ -5,7 +5,11 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
   * debian/tests/adequate:
     + Avoid an unnecessary fork.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 01:28:29 +0200
+  * private/update-*-tags:
+    + Add the --dry-run option.
+    + Exit with non-zero status if the .desc files were not up-to-date.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 15:12:34 +0200
 
 lintian4python (0.28) experimental; urgency=low
 

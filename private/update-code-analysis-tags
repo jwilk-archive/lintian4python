@@ -18,8 +18,10 @@
 # http://www.gnu.org/copyleft/gpl.html, or write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+import argparse
 import ast
 import os
+import sys
 
 import deb822
 
@@ -39,6 +41,9 @@ def extract_tags(node):
         yield node.args[0].s
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--dry-run', action='store_true')
+    options = ap.parse_args()
     os.chdir(misc.root)
     filename = 'helpers/python/code-analysis'
     with open(filename, 'r', encoding='UTF-8') as file:
@@ -46,16 +51,23 @@ def main():
         node = ast.parse(contents, filename=filename)
         tags = set(extract_tags(node))
     old_tags = {}
+    desc_path = 'checks/python/code-analysis.desc'
     first = True
-    with open('checks/python/code-analysis.desc', 'r', encoding='UTF-8') as file:
+    with open(desc_path, 'r', encoding='UTF-8') as file:
         for para in deb822.Deb822.iter_paragraphs(file):
             if first:
                 first_para = para
             else:
                 old_tags[para['tag']] = para
             first = False
+    if set(tags) == set(old_tags):
+        print('{path} is up-to-date'.format(path=desc_path), file=sys.stderr)
+        sys.exit(0)
+    elif options.dry_run:
+        print('{path} is not up-to-date'.format(path=desc_path), file=sys.stderr)
+        sys.exit(1)
     first = True
-    with open('checks/python/code-analysis.desc', 'w', encoding='UTF-8') as file:
+    with open(desc_path, 'w', encoding='UTF-8') as file:
         file.write(str(first_para))
         for tag in sorted(tags):
             try:
@@ -69,6 +81,8 @@ def main():
             file.write('\n')
             file.write(str(para))
             first = False
+    print('{path} has been updated'.format(path=desc_path), file=sys.stderr)
+    sys.exit(1)
 
 if __name__ == '__main__':
     main()
