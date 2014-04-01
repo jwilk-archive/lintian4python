@@ -3,6 +3,7 @@
 directories = checks helpers lib profiles vendors
 share = /usr/share/lintian/
 version = $(word 2,$(shell dpkg-parsechangelog | grep ^Version))
+deb = lintian4python_$(version)_all.deb
 
 .PHONY: clean
 clean: debian/control
@@ -39,14 +40,12 @@ binary binary-indep: debian/control
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
+	dh_builddeb
 ifeq "$(filter nocheck,$(DEB_BUILD_OPTIONS))" ""
-	mkdir -p debian/tmp
-	dh_builddeb --destdir=debian/tmp
 	export LINTIAN_INTERNAL_TESTSUITE=1 && \
-	./lintian4py --allow-root --no-cfg debian/tmp/*.deb 2>&1 | ( ! grep . )
-	dpkg -f debian/tmp/*.deb Depends \
+	./lintian4py --allow-root --no-cfg ../$(deb) 2>&1 | ( ! grep . )
+	dpkg -f ../$(deb) Depends \
 	| xargs -t -d '\n' dpkg-checkbuilddeps -d
 endif
-	dh_builddeb
 
 # vim:ts=4 sw=4 noet
