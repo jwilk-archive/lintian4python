@@ -66,6 +66,7 @@ def Message_str(self):
             tp = lambda x: 'line ' + str(x)
         else:
             tp = str
+    del tp
     extra_args = [tp(arg) for arg, tp in zip(self.message_args, arg_types)]
     if tag.split('-', 1)[1] in blacklist:
         return ''
