@@ -42,7 +42,12 @@ my @path_additions = map {
     my @result = $data->all();
     @result = grep { ! m,^/, } @result;
     my $result = join('|', map(quotemeta, @result));
-    qr/$result/;
+    if ($result) {
+        $result = qr/$result/;
+    } else {
+        $result = qr/x\A/; # never matches anything
+    }
+    $result;
 } (2..3);
 unshift(@path_additions, undef, undef);
 

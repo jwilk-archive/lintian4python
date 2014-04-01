@@ -52,8 +52,12 @@ my @path_additions_re = map {
             }
             $result;
         } @result;
-        $result = join('|', @result);
-        $result = qr/$result/;
+        if (@result) {
+            $result = join('|', @result);
+            $result = qr/$result/;
+        } else {
+            $result = qr/x\A/; # never matches anything
+        }
     }
     $i++;
     $result;
