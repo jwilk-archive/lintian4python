@@ -13,8 +13,8 @@ clean: debian/control
 ifeq "$(filter nocheck,$(DEB_BUILD_OPTIONS))" ""
 build build-indep: debian/test-stamp
 debian/test-stamp:
-	./private/update-code-analysis-tags --check
-	./private/update-pyflakes-tags --check
+	./private/update-code-analysis-tags --dry-run
+	./private/update-pyflakes-tags --dry-run
 	$(MAKE) -C tests/code-analysis/ test-local
 	touch $(@)
 endif
