@@ -9,11 +9,15 @@ lintian4python (0.28.1) UNRELEASED; urgency=low
   * debian/tests/adequate:
     + Avoid an unnecessary fork.
 
+  * private/aptly.py:
+    + Move apt-specific code form misc.py here.
+  * private/update-sys.path-additions:
+    + Use ‘aptly’ instead of ‘misc’. 
   * private/update-*-tags:
     + Add the --dry-run option.
     + Exit with non-zero status if the .desc files were not up-to-date.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 19:15:46 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 01 Apr 2014 20:23:29 +0200
 
 lintian4python (0.28) experimental; urgency=low
 

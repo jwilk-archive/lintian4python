@@ -27,6 +27,7 @@ import shutil
 import tempfile
 
 import misc
+import aptly
 
 header = '''\
 # This file contains list of {python} packages that add extra entries to
@@ -58,14 +59,14 @@ pymodules_regex = re.compile('^/usr/lib/pymodules/python2\.[0-9]+/')
 def main():
     os.chdir(misc.root)
     tmpdir = tempfile.mkdtemp(prefix='lintian4python.private.')
-    progress = misc.AcquireProgress()
-    fetcher = misc.Acquire(progress)
+    progress = aptly.AcquireProgress()
+    fetcher = aptly.Acquire(progress)
     uri = '{mirror}/dists/unstable/main/Contents-{arch}.gz'.format(
         mirror=misc.mirror,
         arch=misc.architecture,
     )
     contents_filename = uri.split('/')[-1]
-    contents_file = misc.AcquireFile(fetcher,
+    contents_file = aptly.AcquireFile(fetcher,
         uri=uri,
         descr='Contents-{arch}'.format(arch=misc.architecture),
         destfile=os.path.join(tmpdir, contents_filename)
@@ -75,7 +76,7 @@ def main():
         arch=misc.architecture,
     )
     packages_filename = uri.split('/')[-1]
-    packages_file = misc.AcquireFile(fetcher,
+    packages_file = aptly.AcquireFile(fetcher,
         uri=uri,
         descr='Packages-{arch}'.format(arch=misc.architecture),
         destfile=os.path.join(tmpdir, packages_filename)
@@ -110,7 +111,7 @@ def main():
     debs = {}
     packages_path = os.path.join(tmpdir, packages_filename)
     with gzip.open(packages_path) as file:
-        for para in misc.TagFile(file):
+        for para in aptly.TagFile(file):
             try:
                 pkgname = para['package']
                 packages.remove(pkgname)
@@ -118,7 +119,7 @@ def main():
                 continue
             path = para['filename']
             base = os.path.basename(path)
-            debs[pkgname] = misc.AcquireFile(fetcher,
+            debs[pkgname] = aptly.AcquireFile(fetcher,
                 uri='{mirror}/{path}'.format(mirror=misc.mirror, path=path),
                 descr=base,
                 destfile=os.path.join(tmpdir, base),
@@ -131,7 +132,7 @@ def main():
         3: collections.defaultdict(set),
     }
     for pkgname, file in debs.items():
-        tar = misc.DebFile(file.destfile).data
+        tar = aptly.DebFile(file.destfile).data
         for version in 2, 3:
             try:
                 paths = path_info[version][pkgname]
