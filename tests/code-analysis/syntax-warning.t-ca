@@ -1,0 +1,6 @@
+# syntax-warning 4 name 'eggs' is assigned to before global declaration
+
+eggs = None
+global eggs
+
+# vim: syntax=python sw=4 sts=4 sr et
