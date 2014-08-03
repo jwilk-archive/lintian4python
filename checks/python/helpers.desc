@@ -2,7 +2,7 @@ Check-Script: python/helpers
 Author: Jakub Wilk <jwilk@debian.org>
 Type: source, binary
 Info: (mis)use of Python helpers
-Needs-Info: changelog-file, bin-pkg-control, debfiles, index, unpacked
+Needs-Info: changelog-file, bin-pkg-control, debfiles, unpacked
 
 Tag: python-module-but-no-python-depends
 Severity: serious

@@ -2,7 +2,7 @@ Check-Script: python/pth
 Author: Jakub Wilk <jwilk@debian.org>
 Type: binary
 Info: analyze *.pth files
-Needs-Info: index, unpacked
+Needs-Info: unpacked
 
 Tag: pth-file-modifies-sys.path
 Severity: important

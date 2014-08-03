@@ -2,7 +2,7 @@ Check-Script: python/imports
 Author: Jakub Wilk <jwilk@debian.org>
 Type: binary
 Info: module imports
-Needs-Info: index, scripts, unpacked
+Needs-Info: scripts, unpacked
 
 Tag: missing-dependency-for-import
 Severity: serious

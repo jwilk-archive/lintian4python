@@ -2,7 +2,7 @@ Check-Script: python/documentation
 Author: Jakub Wilk <jwilk@debian.org>
 Type: binary, source
 Info: documentation
-Needs-Info: index, unpacked
+Needs-Info: unpacked
 
 Tag: js-file-referenced-by-search.html-does-not-exist
 Severity: normal

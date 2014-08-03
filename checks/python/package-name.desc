@@ -2,7 +2,7 @@ Check-Script: python/package-name
 Author: Jakub Wilk <jwilk@debian.org>
 Type: binary
 Info: binary package names
-Needs-Info: index
+Needs-Info: unpacked
 
 Tag: incorrect-package-name
 Severity: normal
