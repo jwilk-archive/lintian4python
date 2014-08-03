@@ -1,3 +1,9 @@
+lintian4python (0.28.3) UNRELEASED; urgency=low
+
+  * 
+
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Aug 2014 20:38:09 +0200
+
 lintian4python (0.28.2) experimental; urgency=low
 
   * checks/python/*.desc:
