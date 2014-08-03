@@ -1,4 +1,4 @@
-lintian4python (0.28.2) UNRELEASED; urgency=low
+lintian4python (0.28.2) experimental; urgency=low
 
   * checks/python/*.desc:
     + Replace “index” with “unpacked” in Needs-Info.
@@ -10,7 +10,7 @@ lintian4python (0.28.2) UNRELEASED; urgency=low
     + Update lintian (build-)dependency to support Lintian 2.5.25
       (closes: #756737). Thanks to Paul R. Tagliamonte for the bug report.
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Aug 2014 20:02:32 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Aug 2014 20:22:40 +0200
 
 lintian4python (0.28.1) experimental; urgency=low
 
