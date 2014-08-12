@@ -1,8 +1,10 @@
 lintian4python (0.28.3) UNRELEASED; urgency=low
 
-  * 
+  * private/update-coverage:
+    + Use glob.iglob(), instead of glob.glob(), in the place where a list is
+    not needed
 
- -- Jakub Wilk <jwilk@debian.org>  Sun, 03 Aug 2014 20:38:09 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Aug 2014 21:08:34 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
