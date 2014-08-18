@@ -1,4 +1,4 @@
-lintian4python (0.28.3) UNRELEASED; urgency=low
+lintian4python (0.28.3) experimental; urgency=low
 
   * checks/python/egg-info:
     + Update pkg_resources documentation URL.
@@ -25,7 +25,7 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
   * tests/blackbox/*:
     + Use HTTPS URLs when they are available.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 14:54:57 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 15:27:41 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
