@@ -24,7 +24,7 @@ Info: pyflakes emitted the following message:
   'from <i>mod</i> import *' used; unable to detect undefined names
  This is usually not a bug in the tested code itself, but merely an indication
  that the code couldn't be tested thoroughly enough.
-Ref: http://docs.python.org/2/howto/doanddont.html#from-module-import
+Ref: https://docs.python.org/2/howto/doanddont.html#from-module-import
 
 Tag: pyflakes-redefined
 Severity: normal

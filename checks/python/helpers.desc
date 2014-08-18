@@ -99,7 +99,7 @@ Ref: python-policy 2.3
 Tag: python-provides-considered-harmful
 Severity: minor
 Certainty: possible
-Ref: http://lists.debian.org/20110324164804.GA5919@jwilk.net
+Ref: https://lists.debian.org/20110324164804.GA5919@jwilk.net
 
 Tag: python-breaks-is-obsolete
 Severity: minor

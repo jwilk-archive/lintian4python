@@ -7,7 +7,7 @@ Needs-Info: bin-pkg-control, scripts, unpacked
 Tag: assertion-always-true
 Severity: minor
 Certainty: certain
-Ref: http://docs.python.org/reference/simple_stmts.html#grammar-token-assert_stmt
+Ref: https://docs.python.org/reference/simple_stmts.html#grammar-token-assert_stmt
 
 Tag: embedded-code-copy
 Severity: important
@@ -17,7 +17,7 @@ Ref: policy 4.13
 Tag: except-shadows-builtin
 Severity: important
 Certainty: possible
-Ref: http://docs.python.org/whatsnew/2.6.html#pep-3110-exception-handling-changes
+Ref: https://docs.python.org/whatsnew/2.6.html#pep-3110-exception-handling-changes
 Info: One error that Python programmers occasionally make is writing the
  following code:
  .
@@ -42,17 +42,17 @@ Tag: except-without-exception-type
 Severity: minor
 Certainty: possible
 Experimental: yes
-Ref: http://docs.python.org/2/howto/doanddont.html#except
+Ref: https://docs.python.org/2/howto/doanddont.html#except
 
 Tag: hardcoded-errno-value
 Severity: normal
 Certainty: possible
-Ref: http://lists.debian.org/20100803162901.GA5419@jwilk.net
+Ref: https://lists.debian.org/20100803162901.GA5419@jwilk.net
 
 Tag: inconsistent-use-of-tabs-and-spaces-in-indentation
 Severity: normal
 Certainty: certain
-Ref: http://docs.python.org/reference/lexical_analysis.html#indentation
+Ref: https://docs.python.org/reference/lexical_analysis.html#indentation
 Info: The source file mixes tabs and spaces for indentation in a way that makes
  it depend on the worth of a tab expressed in spaces.
  .
@@ -67,13 +67,13 @@ Ref: dh_python-ply(1)
 Tag: mkstemp-file-descriptor-leak
 Severity: normal
 Certainty: possible
-Ref: http://docs.python.org/2/library/tempfile.html#tempfile.mkstemp
+Ref: https://docs.python.org/2/library/tempfile.html#tempfile.mkstemp
 
 Tag: obsolete-pil-import
 Severity: important
 Certainty: possible
 Ref: http://mail.python.org/pipermail/image-sig/2011-January/006650.html,
- http://lists.debian.org/5117D0B7.801@debian.org
+ https://lists.debian.org/5117D0B7.801@debian.org
 Info: Python Imaging Library 1.2 and Pillow (a PIL fork) no longer support this
  style of imports:
  .
@@ -98,7 +98,7 @@ Certainty: certain
 Tag: string-exception
 Severity: important
 Certainty: possible
-Ref: http://docs.python.org/whatsnew/2.6.html#deprecations-and-removals
+Ref: https://docs.python.org/whatsnew/2.6.html#deprecations-and-removals
 Info: String exceptions have been removed in Python 2.6.  Attempting to use
  them raises a TypeError.
 

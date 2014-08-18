@@ -3,6 +3,9 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
   * checks/python/helpers:
     + Fix the “keys on reference is experimental” warning.
 
+  * checks/python/*.desc:
+    + Use HTTPS URLs when they are available.
+
   * data/python*-projects:
     + Update.
 
@@ -13,7 +16,7 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
     + Use glob.iglob(), instead of glob.glob(), in the place where a list is
       not needed
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 13:55:12 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 14:09:14 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
