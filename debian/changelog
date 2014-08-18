@@ -4,7 +4,10 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
     + Use glob.iglob(), instead of glob.glob(), in the place where a list is
     not needed
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 12 Aug 2014 21:08:34 +0200
+  * checks/python/helpers:
+    + Fix the “keys on reference is experimental” warning.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 12:35:15 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
