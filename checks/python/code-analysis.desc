@@ -72,7 +72,7 @@ Ref: https://docs.python.org/2/library/tempfile.html#tempfile.mkstemp
 Tag: obsolete-pil-import
 Severity: important
 Certainty: possible
-Ref: http://mail.python.org/pipermail/image-sig/2011-January/006650.html,
+Ref: https://mail.python.org/pipermail/image-sig/2011-January/006650.html,
  https://lists.debian.org/5117D0B7.801@debian.org
 Info: Python Imaging Library 1.2 and Pillow (a PIL fork) no longer support this
  style of imports:
