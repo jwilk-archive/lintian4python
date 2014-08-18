@@ -30,9 +30,9 @@ chdir(dirname($0) . '/..') or die $!;
 sub extract_exceptions
 {
     my ($version) = @_;
-    my $uri = "http://docs.python.org/$version/library/exceptions.html";
+    my $uri = "https://docs.python.org/$version/library/exceptions.html";
     if ($version =~ m/^2\.[0-5]/) {
-        $uri = "http://docs.python.org/$version/lib/module-exceptions.html"
+        $uri = "https://docs.python.org/$version/lib/module-exceptions.html"
     }
     open(my $fh, "wget -q -O - $uri |") or die $!;
     {
