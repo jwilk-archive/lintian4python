@@ -7,7 +7,10 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
   * checks/python/helpers:
     + Fix the “keys on reference is experimental” warning.
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 12:35:15 +0200
+  * data/python*-projects:
+    + Update.
+
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 13:40:23 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
