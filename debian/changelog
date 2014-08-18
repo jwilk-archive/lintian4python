@@ -6,11 +6,14 @@ lintian4python (0.28.3) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
+  * debian/copyright (and other files):
+    + Use HTTPS when referring to the GNU website.
+
   * private/update-coverage:
     + Use glob.iglob(), instead of glob.glob(), in the place where a list is
       not needed
 
- -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 13:40:23 +0200
+ -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 13:55:12 +0200
 
 lintian4python (0.28.2) experimental; urgency=low
 
