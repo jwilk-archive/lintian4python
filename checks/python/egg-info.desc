@@ -7,7 +7,7 @@ Needs-Info: unpacked
 Tag: missing-requires.txt-dependency
 Severity: serious
 Certainty: possible
-Ref: http://packages.python.org/distribute/pkg_resources.html
+Ref: https://pythonhosted.org/setuptools/pkg_resources.html
 Info: A package listed as a dependency in the <tt>requires.txt</tt> file is
  missing from the Depends line.
  .
@@ -20,7 +20,7 @@ Info: A package listed as a dependency in the <tt>requires.txt</tt> file is
 Tag: missing-requires.txt-optional-dependency
 Severity: normal
 Certainty: possible
-Ref: http://packages.python.org/distribute/pkg_resources.html
+Ref: https://pythonhosted.org/setuptools/pkg_resources.html
 Info: An package listed as an optional dependency in the <tt>requires.txt</tt>
  file is missing from the Depends line.
  .
@@ -33,7 +33,7 @@ Info: An package listed as an optional dependency in the <tt>requires.txt</tt>
 Tag: unknown-project-in-requires.txt
 Severity: serious
 Certainty: possible
-Ref: http://packages.python.org/distribute/pkg_resources.html
+Ref: https://pythonhosted.org/setuptools/pkg_resources.html
 Info: A project listed as a dependency in the <tt>requires.txt</tt> file is not
  provided by any Debian package.
  .
@@ -46,7 +46,7 @@ Info: A project listed as a dependency in the <tt>requires.txt</tt> file is not
 Tag: unknown-optional-project-in-requires.txt
 Severity: normal
 Certainty: possible
-Ref: http://packages.python.org/distribute/pkg_resources.html
+Ref: https://pythonhosted.org/setuptools/pkg_resources.html
 Info: A project listed as an optional dependency in the <tt>requires.txt</tt>
  file is not provided by any Debian package.
  .
@@ -59,7 +59,7 @@ Info: A project listed as an optional dependency in the <tt>requires.txt</tt>
 Tag: strict-versioned-dependency-in-requires.txt
 Severity: serious
 Certainty: possible
-Ref: http://packages.python.org/distribute/pkg_resources.html
+Ref: https://pythonhosted.org/setuptools/pkg_resources.html
 Info: The <tt>requires.txt</tt> file declares a strict versioned dependency on
  a project.
  .
