@@ -1,14 +1,14 @@
 lintian4python (0.28.3) UNRELEASED; urgency=low
 
-  * private/update-coverage:
-    + Use glob.iglob(), instead of glob.glob(), in the place where a list is
-    not needed
-
   * checks/python/helpers:
     + Fix the “keys on reference is experimental” warning.
 
   * data/python*-projects:
     + Update.
+
+  * private/update-coverage:
+    + Use glob.iglob(), instead of glob.glob(), in the place where a list is
+      not needed
 
  -- Jakub Wilk <jwilk@debian.org>  Mon, 18 Aug 2014 13:40:23 +0200
 
