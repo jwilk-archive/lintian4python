@@ -10,7 +10,7 @@ Files:
  254fe536c56593f5effd46c95ec2dfdf4e55d2d0  python-semanage_2.1.6-2_i386.deb
 Test-For:
  e: python-semanage: extension-compiled-for-wrong-version 2.6 usr/lib/python-support/python-semanage/python2.7/_semanage.so
-Info: http://bugs.debian.org/665803
+Info: https://bugs.debian.org/665803
 
 Name: extension-linked-with-libpython
 Files:
