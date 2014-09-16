@@ -4,7 +4,10 @@ lintian4python (0.28.4) UNRELEASED; urgency=low
     + Update lintian (build-)dependency to support Lintian 2.5.26 and 2.5.27
       (closes: #761910). Thanks to Axel Beckert for the bug report.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Sep 2014 20:38:44 +0200
+  * data/python*-projects:
+    + Update.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Sep 2014 22:00:38 +0200
 
 lintian4python (0.28.3) experimental; urgency=low
 
