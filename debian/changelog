@@ -10,7 +10,11 @@ lintian4python (0.28.4) UNRELEASED; urgency=low
   * data/python*-projects:
     + Update.
 
- -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Sep 2014 22:06:47 +0200
+  * tests/blackbox/egg-info:
+    + Update test for missing-requires.txt-optional-dependency.
+    + Update test for unknown-optional-project-in-requires.txt.
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 16 Sep 2014 22:25:27 +0200
 
 lintian4python (0.28.3) experimental; urgency=low
 

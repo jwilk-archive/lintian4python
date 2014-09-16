@@ -49,11 +49,12 @@ Test-For:
 
 Name: missing-requires.txt-optional-dependency
 Files:
- 4f70701bd21059c8c327acb14c2f9e2622326e57  rst2pdf_0.16-2_all.deb
+ efb8916bd3cb7c6d921db9c66e6b1b8012232aea  python-jsonrpc2_0.3.2-3_all.deb
 Test-For:
- w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
- w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
- w: rst2pdf: missing-requires.txt-optional-dependency pypdf => python-pypdf
+ w: python-jsonrpc2: missing-requires.txt-optional-dependency nose => python-nose
+ w: python-jsonrpc2: missing-requires.txt-optional-dependency webtest => python-webtest
+ w: python-jsonrpc2: missing-requires.txt-optional-dependency simplejson => python-simplejson
+ w: python-jsonrpc2: missing-requires.txt-optional-dependency pastescript => python-pastescript
 
 Name: strict-versioned-dependency-in-requires.txt
 Files:
@@ -71,10 +72,13 @@ Name: unknown-optional-project-in-requires.txt
 Files:
  4f70701bd21059c8c327acb14c2f9e2622326e57  rst2pdf_0.16-2_all.deb
 Test-For:
+ w: rst2pdf: unknown-optional-project-in-requires.txt pil
+ w: rst2pdf: unknown-optional-project-in-requires.txt pypdf
+ w: rst2pdf: unknown-optional-project-in-requires.txt pypdf
+ w: rst2pdf: unknown-optional-project-in-requires.txt pypdf
  w: rst2pdf: unknown-optional-project-in-requires.txt pythonmagick
  w: rst2pdf: unknown-optional-project-in-requires.txt svglib
  w: rst2pdf: unknown-optional-project-in-requires.txt swftools
- w: rst2pdf: unknown-optional-project-in-requires.txt pil
  w: rst2pdf: unknown-optional-project-in-requires.txt wordaxe
 
 Name: unknown-project-in-requires.txt
