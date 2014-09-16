@@ -22,7 +22,7 @@ License: GPL-2+
  You can find the GPL version 2 in /usr/share/common-licenses/GPL-2 on
  Debian systems.
 
-Files: helpers/python/code-analysis:
+Files: helpers/python/code-analysis
 Copyright: 2011-2014 Jakub Wilk <jwilk@debian.org>
 License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a copy
