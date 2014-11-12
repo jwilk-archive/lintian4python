@@ -44,7 +44,7 @@ sub run {
         next unless $info->index($file)->type eq '-';
         if ($file =~ m,$dist_packages_re/.*[.](py|so)$,o) {
             $has_modules = 1;
-            last; 
+            last;
         }
     }
     if ($has_modules and ($ma eq 'foreign')) {

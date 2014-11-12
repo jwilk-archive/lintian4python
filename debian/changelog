@@ -84,7 +84,7 @@ lintian4python (0.28.1) experimental; urgency=low
   * private/aptly.py:
     + Move apt-specific code from misc.py here.
   * private/update-sys.path-additions:
-    + Use ‘aptly’ instead of ‘misc’. 
+    + Use ‘aptly’ instead of ‘misc’.
     + Don't blacklist PIL.
     + Blacklist setuptools-*.egg-info.
   * private/update-*-tags:
